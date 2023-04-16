@@ -1,0 +1,733 @@
+\documentclass[12pt,a4paper]{report}
+
+\usepackage[italian]{babel}
+\usepackage{newlfont}
+\usepackage{color}
+\usepackage{float}
+\usepackage{frontespizio}
+\usepackage{amsmath,amssymb}
+\usepackage{amsthm}
+\usepackage{geometry}
+\usepackage{tikz}
+\usepackage{biblatex}
+\usepackage{csquotes}
+
+\textwidth=450pt\oddsidemargin=0pt
+\geometry{a4paper, top=3cm, bottom=3cm, left=3cm, right=3cm, % heightrounded, bindingoffset=5mm 
+}
+\theoremstyle{definition}
+\newtheorem{Def}{Definizione}[chapter]
+
+\newtheorem{Theo}[Def]{Teorema}
+\newtheorem{Prop}[Def]{Proposizione}
+
+\newtheorem{Lm}[Def]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{Ex}[Def]{Esempio}
+
+\theoremstyle{definition}
+\newtheorem{Lem}[Def]{Lemma:}
+
+\theoremstyle{remark}
+\newtheorem{Obs}[Def]{Osservazione:}
+
+
+
+
+
+\begin{document}
+	\begin{frontespizio}
+			\begin{titlepage}
+			%
+			%
+			% UNA VOLTA FATTE LE DOVUTE MODIFICHE SOSTITUIRE "RED" CON "BLACK" NEI COMANDI \textcolor
+			%
+			%
+			\begin{center}
+				{{\Large{\textsc{Alma Mater Studiorum $\cdot$ Universit\`a di Bologna}}}} 
+				\rule[0.1cm]{15.8cm}{0.1mm}
+				\rule[0.5cm]{15.8cm}{0.6mm}
+				\\\vspace{3mm}
+				
+				{\small{\bf Scuola di Scienze \\ 
+						Dipartimento di Fisica e Astronomia\\
+						Corso di Laurea in Fisica}}
+				
+			\end{center}
+			
+			\vspace{23mm}
+			
+			\begin{center}\textcolor{black}{
+					%
+					% INSERIRE IL TITOLO DELLA TESI
+					%
+					{\LARGE{\bf TITOLO TESI}}\\
+			}\end{center}
+			
+			\vspace{50mm} \par \noindent
+			
+			\begin{minipage}[t]{0.47\textwidth}
+				%
+				% INSERIRE IL NOME DEL RELATORE CON IL RELATIVO TITOLO DI DOTTORE O PROFESSORE
+				%
+				{\large{\bf Relatore: \vspace{2mm}\\\textcolor{black}{
+							Prof./Dott. Nome Cognome}\\\\
+						%
+						% INSERIRE IL NOME DEL CORRELATORE CON IL RELATIVO TITOLO DI DOTTORE O PROFESSORE
+						%
+						% SE NON AVETE UN CORRELATORE CANCELLATE LE PROSSIME 3 RIGHE
+						%
+						%\textcolor{black}{
+							%\bf Correlatore: (eventuale)
+						%	\vspace{2mm}\\
+						%Prof./Dott. Nome Cognome\\\\}}
+					}}
+			\end{minipage}
+			%
+			\hfill
+			%
+			\begin{minipage}[t]{0.47\textwidth}\raggedleft \textcolor{black}{
+					{\large{\bf Presentata da:
+							\vspace{2mm}\\
+							%
+							% INSERIRE IL NOME DEL CANDIDATO
+							%
+							Gabriele Novelli}}}
+			\end{minipage}
+			
+			\vspace{40mm}
+			
+			\begin{center}
+				%
+				% INSERIRE L'ANNO ACCADEMICO
+				%
+				Anno Accademico \textcolor{black}{ 2022/2023}
+			\end{center}
+			
+		\end{titlepage}
+		\end{frontespizio}
+	\tableofcontents
+	\chapter*{Introduzione}
+	\addcontentsline{toc}{chapter}{Introduzione}
+	\chapter*{Abstract}
+	\addcontentsline{toc}{chapter}{Abstract}
+\chapter{Varietà Differenziabili e Gruppi di Lie}
+In questo capitolo introduciamo le strutture matematiche che verranno utilizzate per lo studio dei gruppi di Lie e teoria della rappresentazione.
+\section{Varietà differenziabili}
+In questa sezione introduciamo le nozioni di varietà differenziabile, mappa differenziabile e campo vettoriale. Verranno fatti alcuni esempi salienti. 
+
+\begin{Def}
+	Una \textit{varietà topologica} $M$ di dimensione $n$ è uno spazio topologico di Hausdorff a base numerabile e localmente euclideo.
+\end{Def}
+Con \textit{localmente euclideo} di dimensione $n$ si intende che ogni punto $p\in M$ ha un intorno aperto $U\subset M$ tale che esiste $\phi:M\rightarrow\mathbb{R}^n$ omeomorfismo da $U$ ad un sottoinsieme aperto di $\mathbb{R}^n$. La coppia $(U,\phi)$ è detta Carta.
+\begin{Ex}
+	Lo Spazio $\mathbb{R}^n$ con la carta $(\mathbb{R}^n,\mathbb{I})$ tale che $\mathbb{I}:\mathbb{R}^n\rightarrow \mathbb{R}^n$ è l'identità, è una varietà topologica. 
+\end{Ex}
+\begin{Def}
+	Due Carte $(U_1,\phi:U_1\rightarrow\mathbb{R}^n)$ e $(U_2,\varphi:U_2\rightarrow\mathbb{R}^n)$ appartenenti alla stessa varietà topologica $M$ sono dette \textit{compatibili} se \\
+	$\phi\circ\varphi^{-1}:\varphi(U_1\cap U_2)\rightarrow \phi(U_1\cap U_2)$ e $\varphi\circ\phi^{-1}:\phi(U_1\cap U_2)\rightarrow \varphi(U_1\cap U_2)$ sono $C^\infty$.
+\end{Def}
+\begin{Def}
+	Una collezione di carte compatibili $\mathbb{U}=\{(U_i,\phi_{i})\}$ sulla stessa varietà $M$ tali che $M=\bigcup_i U_i$ è detta \textit{atlante}. Una varietà topologica munita di un atlante è detta \textit{varietà differenziabile}.
+\end{Def}
+Si può mostrare che se due carte sono compatibili con lo stesso atlante, allora sono compatibili tra di loro. Per maggiori dettagli si veda [1] (pag. 51, cap. 2).\\
+\\
+Inoltre, ogni sottoinsieme aperto di una varietà differenziabile è ancora varietà differenziabile. Infatti se $\{(U_i,\phi_i)\}$ è un atlante per $M$, allora considerando $A\subset M$ aperto, la collezione $\{(U_i\cap A,\phi_i)\}$ è atlante per $A$.\\\\
+Di seguito alcuni esempi di varietà differenziabili:\\
+\\
+\begin{Ex}
+	Lo spazio $\mathbb{R}^n$ con l'unica carta $(\mathbb{R}^n,r^1,...r^n)$, dove $r^i$ sono le coordinate standard di $\mathbb{R}^n$, è una varietà differenziabile. In questo caso un atlante è costituito da un'unica carta.\\
+\end{Ex}
+\begin{Ex}
+	L'insieme $GL_n(\mathbb{R})=\{A\in M_{n\times n}|det(A)\neq0\}$ è una varietà differenziabile.\\
+	Infatti considerando la mappa determinante $det:\mathbb{R}^{n^2}\rightarrow \mathbb{R}$, per definizione $GL_n(\mathbb{R})=det^{-1}(\mathbb{R}-\{0\})$. Poiché che la mappa $det$ è continua, le pre-immagini degli aperti sono aperte, cioè $GL_n(\mathbb{R})$ è un sottoinsieme aperto di $\mathbb{R}^{n^2}$.\\
+	Ma allora, essendo sottoinsieme aperto di una varietà differenziabile, $GL_n(\mathbb{R})$ lo è a sua volta.\\
+\end{Ex}
+\begin{Ex}
+	Si consideri la circonferenza di raggio unitario $S^1=\{x^2+y^2=1\}\subset \mathbb{R}^2$.\\
+	Siano le carte $(U_1=\{x^2+y^2=1;y>0\},\phi_1)$ e $(U_2=\{x^2+y^2=1;y<0\},\phi_2)$ come in Figura 1.1, dove le funzioni di coordinate sono definite come: $\phi_1(x,y)=x$ e $\phi_2(x,y)=x$.
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}
+			\draw[->] (-2,0) -- (2,0) node[anchor=north west] {$x$};
+			\draw[->] (0,-2.) -- (0,2) node[anchor=south east] {$y$};
+			\draw[thick] (0,0) circle (1cm);
+			\draw (0.4,1.5) node{$U_1$};
+			\draw (-0.4,-1.5) node{$U_2$};
+			\draw[thick, ->] (0,1)--(0,0.2) ;
+			\draw (0.5,0.5) node{$\phi_1$};
+			\draw (-0.5,-0.5) node{$\phi_2$};
+			\draw[thick, ->] (0,-1)--(0,-0.2);
+		\end{tikzpicture}
+	\label{figura 1}
+	\caption{le due carte $U_1$ e $U_2$ sulla circonferenza di raggio unitario.}
+	\end{figure}
+A queste si aggiungano in modo analogo $(U_3=\{x^2+y^2=1;x>0\},\phi_3)$ e $(U_4=\{x^2+y^2=1;x<0\},\phi_4)$; con $\phi_3(x,y)=y$ e $\phi_4(x,y)=y$.\\
+Per costruzione, $\forall i$, $\phi_i$ è omeomorfismo. Rimane da verificare che le carte siano tra loro compatibili.\\
+Considerando la composizione $\phi_3\circ\phi_2^{-1}$, questa è tale da: $$(\phi_3\circ\phi_2^{-1})(x)=\phi_3(x,-\sqrt{1-x^2})=-\sqrt{1-x^2}$$ per $x\in ]0,1[$, che è $C^\infty$. Per la prova della Compatibilità delle altre carte si procede in modo analogo.\\ 
+\end{Ex}
+\begin{Def}
+	Un sottoinsieme $S\subset M$ di una varietà $M$ è detto \textit{sottovarietà regolare} di dimensione $k$ se $\forall p\in M$ esiste una carta $(U,\phi)$ di $p$ tale che $U\cap S$ è definito dall'annullamento di $n-k$ funzioni di coordinate.
+\end{Def}
+Dunque se $\phi=(x^1,...,x^n)$ allora su $U\cap S$ si avrà $\phi=(x^1,...,x^k,0,0,...0)$.
+\section{Mappe differenziabili}
+In questa sezione saranno definite le mappe differenziabili tra varietà ed esplicate alcune proprietà di esse.
+\begin{Def}
+	Sia una varietà differenziabile $M$ ed una funzione $f:M\rightarrow\mathbb{R}$. Allora $f$ è detta $C^\infty$ in ogni $p\in M$ se $\forall p\in M$ esiste una carta $(U,\phi)$ di $p$ tale che $f\circ \phi^{-1}$ è $C^\infty$.
+\end{Def}
+\begin{Obs}
+	La definizione di differenziabilità data non dipende dalla scelta della carta. Infatti se $(U,\phi)$ e $(V,\psi)$ sono due carte di $M$ e $f\circ\phi^{-1}$ è $C^\infty$, allora $$f\circ\psi^{-1}=(f\circ\phi^{-1})\circ(\phi\circ\psi^{-1})$$ che è $C^\infty$.
+\end{Obs}
+\begin{Obs}
+	Se $f:M\rightarrow \mathbb{R}$ è $C^\infty$ allora è continua. Infatti si può scrivere $f=(f\circ\phi^{-1})\circ \phi$ dove $\phi$ e $f\circ\phi^{-1}$ sono continue: $f\circ\phi^{-1}$ è $C^\infty$ e $\phi$ è omeomorfismo. Segue, per composizione di funzioni continue, che $f$ è continua.\\
+\end{Obs}
+\begin{Def}
+	Siano $N$ e $M$ varietà differenziabili di dimensione $n$ ed $m$. Una funzione $f:N\rightarrow M$ continua è detta $C^\infty$ in $p\in N$ se esistono due carte $(U,\phi)$ di $p\in N$ e $(V,\psi)$ di $f(p)\in M$ tali che $\psi\circ f\circ \phi$ è $C^\infty$.
+\end{Def}
+La composizione ha come dominio $\phi(f^{-1}(V))\cap U$ sottoinsieme di $\mathbb{R}^n$. $$\psi\circ f\circ \phi:\phi(f^{-1}(V)\cap U)\rightarrow \mathbb{R}^m$$.\\
+A differenza della definizione precedente, la continuità di $f$ è richiesta per assicurare che la pre-immagine $f^{-1}(V)$ sia un aperto di $N$.\\
+\\
+Inoltre è possibile dimostrare che la composizione di funzioni $C^\infty$ tra varietà differenziabili è ancora una funzione $C^\infty$ [1] (pag. 62 cap.2). 
+\begin{Def}
+	Si dice \textit{diffeomorfismo} un omeomorfismo di classe $C^\infty$.
+\end{Def}
+Si può anche dimostrare che tutte le mappe di coordinate di una qualsiasi carta $(U,\phi)$ di una varietà differenziabile sono diffeomorfismi. 
+\section{Spazio Tangente e Campi Vettoriali}
+In questa sezione definiamo i campi vettoriali, che saranno di vitale importanza nello studio delle algebre di Lie.\\
+\\
+Sia $M$ una varietà differenziabile di dimensione $n$.
+\begin{Def}
+	Si definisce il \textit{germe} di una funzione $C^\infty$ in $p\in M$ come la classe di equivalenza delle funzioni $C^\infty$ definite in un intorno di $p$. In particolare, due funzioni sono in relazione tra loro se assumono gli stessi valori in un intorno di $p$.
+	L'insieme di tutte le classi così definite si indica con $C_p^\infty(U)$ dove $U$ è intorno di $p$.
+\end{Def}
+Non è difficile verificare che la relazione così definita è effettivamente di equivalenza: se $f\sim g$ allora $g\sim f$ in quanto le funzioni coincidono in un intorno di $p$. Ovviamente $f\sim f$ e se $f\sim g$, $g\sim h$, allora $f\sim h$ in quanto tutte e 3 le funzioni sono uguali in un intorno di $p$.\\
+\\
+Generalizzando il concetto di derivazione in $\mathbb{R}^n$, si dice \textit{derivazione} in un punto $p\in M$ una mappa lineare $D_p:C^\infty_p(M)\rightarrow\mathbb{R}$ tale che $$D_p(fg)=D_p(f)g(p)+f(p)D_p(g)$$
+Cioè rispetta la regola di Leibniz.
+\begin{Def}
+	Una derivazione in $p\in M$ è detta vettore tangente in $p$. L'insieme di tutti i vettori tangenti in $p$ è detto \textit{spazio tangente} e si indica con $T_pM$.
+\end{Def} 
+Data una Carta $(U,\phi)$ di $M$ tale che $p\in U$, si pone:
+$${\partial\over \partial x^i}\bigg\rvert_p(f)={\partial\over \partial r^i}\bigg\rvert_{\phi(p)}(f\circ \phi^{-1})$$ dove $r^i$ sono le coordinate di $\mathbb{R}^n$.
+Questa definizione rende ${\partial\over \partial x^i}$ un campo vettoriale in quanto rispetta la regola di Leibniz.\\
+\\
+Un importante risultato è che, dato uno spazio tangente $T_pM$ e una carta $(U,\phi)$ con $p\in U$, allora i vettori $\partial\over \partial x^i$ formano una base per $T_pM$. Ciò deriva dal fatto che i vettori tangenti $\partial\over \partial r^i$ sono una base per lo spazio tangente in $x_0\in\mathbb{R}^n$.\\
+Dunque un generico vettore tangente può essere espresso come una combinazione lineare: $$\vec{v}=\sum_{i=1}^{n}c_i{\partial\over \partial x^i}$$ che dipende dal punto interno alla carta.
+\begin{Def}
+	Data una funzione $C^\infty$ tra varietà differenziabili $F:N\rightarrow M$, si dice \textit{differenziale} in un punto $p\in N$ la mappa $dF_p:T_pN\rightarrow T_{F(p)}M$ definita come segue: dato il vettore $X_p\in T_pN$ e la funzione $f\in C_{F(p)}^\infty(M)$, allora $dF_p(X_p)f=\\X_p(f\circ F)\in\mathbb{R}$.\\
+\end{Def}
+Dalla linearità dei vettori tangenti e dal fatto che essi sono derivazioni, segue che il differenziale è una derivazione ed è lineare. \\
+E' possibile dimostrare che per il differenziale di una funzione composta vale la regola della catena: $$d(F\circ G)_p=dF_{G(p)}\circ dG_p$$ Per la dimostrazione si veda [1] (pag. 88 cap 3).
+\begin{Def}
+	Si dice \textit{campo vettoriale} su $M$ una mappa $X$ tale che ad ogni punto associa un vettore nello Spazio Tangente al punto stesso: $X:p\mapsto X_p$. 
+\end{Def}
+\begin{Obs}
+	Abbiamo visto che un vettore può essere identificato come una mappa $\vec{v}:f\mapsto\sum_{i=1}^{n}c_i{\partial f\over \partial x^i}$ per un generico punto interno ad una data carta. Allora un campo vettoriale può essere visto anche come un'applicazione $X:f\mapsto\vec{v}(f)$ tale che $X(f)(p)=\sum_{i=1}^{n}c_i(p){\partial f(p)\over \partial x^i}$
+\end{Obs}
+\begin{Def}
+	Un campo vettoriale $X$ su $M$ si dice \textit{liscio} o $C^\infty$ se $\forall f\in C^\infty(M)$ si ha che $X(f)$ è ancora $C^\infty$.
+\\
+Equivalentemente, $X=\sum_{i=1}^{n}c_i{\partial\over \partial x^i}$ è detto $C^\infty$ se le funzioni $c_i$ sono tutte $C^\infty$.
+\begin{Def}
+	Una curva $c_p:]-\epsilon,\epsilon[\rightarrow M$ è detta \textit{curva integrale} di un campo vettoriale $X$ su $M$ passante per $p\in M$ se $c_p(0)=p$ e $c_p'(0)=X_p$.
+\end{Def}
+Dalla teoria delle equazioni differenziali, dato un punto $p\in M$ ed un campo vettoriale $X$ definito in un intorno di $p$, esiste sempre una curva integrale di $X$ in $p$ ed è unica. Per approfondire questo risultato si veda [1] pag. 154 cap.3.\\
+\\
+E'utile definire il concetto di flusso di un campo vettoriale $X$ come una mappa $\Phi_X:\mathbb{R}\times M\rightarrow\mathbb{M}$ tale che $\Phi_X(0,p)=p$; $\Phi_X(t,p)=c_p(t)$ curva integrale di $X$.\\
+\\
+Vi sono numerose proprietà del flusso di un campo vettoriale. Per approfondimenti in materia si veda [1] pag. 155, 156 cap. 3.
+\end{Def}
+\section{Gruppi di Lie}
+In questa sezione daremo le definizioni di gruppi di Lie e algebra di Lie con alcuni esempi ed importanti risultati, che ci permetteranno di identificare l'algebra di Lie di un gruppo di Lie con il suo spazio tangente nell'identità.
+\begin{Def}
+	Si dice \textit{gruppo} un insieme $G$ munito di un'operazione binaria $\cdot:G\times G\rightarrow G$ tale che soddisfi le seguenti proprietà:
+	\begin{itemize}
+		\item Associatività: $a\cdot (b\cdot c)=(a\cdot b)\cdot c$ $\forall a,b,c\in G$;
+		\item Esistenza dell'elemento neutro: $\exists e\in G$ tale che $\forall a\in G$ si ha $a\cdot e=e\cdot a=a$;
+		\item Esistenza dell'inverso: $\forall a\in G$ $\exists a^{-1}$ tale che $a\cdot a^{-1}=a^{-1}\cdot a=e$.
+	\end{itemize}
+Un gruppo la cui operazione soddisfa anche la proprietà commutativa è detto abeliano o commutativo.
+\end{Def}
+Da ora in avanti, quando si farà riferimento all'operazione di prodotto definita per un gruppo, si ometterà il simbolo $\cdot$.\\
+\begin{Def}
+	Un \textit{gruppo di topologico} $G$ è uno spazio topologico con la struttura di gruppo, tale che le operazioni di moltiplicazione $\cdot:G\times G\rightarrow G$ e inversione $i:G\rightarrow G$ sono continue.
+\end{Def}
+\begin{Def}
+	Un \textit{gruppo di Lie} $G$ è una varietà differenziabile con la struttura di gruppo, tale che le operazioni di moltiplicazione $\cdot:G\times G\rightarrow G$ e inversione $i:G\rightarrow G$ sono $C^\infty$.
+\end{Def}
+Si nota che nel caso di gruppo topologico non è richiesta la struttura di varietà differenziabile.
+\begin{Def}
+	Un \textit{sottogruppo} $H$ di un gruppo di Lie $G$ è una sottovarietà regolare di $G$ che è ancora gruppo con l'operazione indotta da $G$.
+\end{Def}
+\begin{Ex}
+	Si consideri $GL_n(\mathbb{R})$, che si è provato essere varietà differenziabile. Date le operazioni prodotto $\cdot$ righe per colonne e $i$ inverso di una matrice, queste rendono $GL_n(\mathbb{R})$ un gruppo. Infatti il prodotto righe per colonne è associativo ed ha $\mathbb{I}$ come elemento neutro, mentre l'esistenza dell'inverso è garantita dalla condizione $det\neq 0$. Il fatto che queste due operazioni siano $C^\infty$ rende $GL_n(\mathbb{R})$ un gruppo di Lie.
+\end{Ex}
+\begin{Ex}
+	Si consideri $SL_n(\mathbb{R})=\{A\in M_{n\times n}| det(A)=1\}$. Dal fatto che $SL_n(\mathbb{R})=det^{-1}(1)$ segue che $SL_n(\mathbb{R})$ è un sottogruppo chiuso di $GL_n(\mathbb{R})$. Inoltre, per il teorema della 
+\end{Ex}
+
+\begin{Def}
+	Si dice \textit{omomorfismo tra gruppi di Lie} $G$ e $H$ una mappa \\$f:G\rightarrow H$ tale che è omomorfismo ($f(gh)=f(g)f(h)$) $C^\infty$.
+\end{Def}
+Un omomorfismo tra gruppi manda sempre l'identità nell'identità. Infatti $f(eg)=f(e)f(g)$ ed $f(g)=f(eg)$.\\
+\begin{Def}
+	Si dice \textit{algebra di Lie reale} (risp. complessa) uno spazio vettoriale reale $\mathfrak{g}$ (risp. complesso) in cui è definita un'operazione binaria bilineare (detta Lie bracket) $[,]:\mathfrak{g}\times\mathfrak{g}\rightarrow\mathfrak{g}$ tale che verifica:
+	\begin{itemize}
+		\item Antisimmetria: $[x,y]=-[y,x]$, $\forall x,y\in\mathfrak{g}$;
+		\item Identità di Jacobi: $[x,[y,z]]+[y,[z,x]]+[z,[x,y]]=0$, $\forall x,y,z\in \mathfrak{g}$ 
+	\end{itemize}
+\end{Def}
+Salvo specificazioni, le algebre di Lie considerate saranno sottintese a dimensione finita.
+\begin{Obs}
+	L'identità di Jacobi implica in generale la non associatività del prodotto $[,]$. Se infatti questo fosse associativo, si avrebbe $[x,[y,z]]=[[x,y],z]$ ma ciò non è generalmente vero.
+\end{Obs}
+\begin{Def}
+	Si dice \textit{sottoalgebra} di Lie di $\mathfrak{g}$ un sottospazio vettoriale $\mathfrak{h}\subset\mathfrak{g}$ chiuso rispetto all'operazione $[,]$ di $\mathfrak{g}$.
+\end{Def}
+\begin{Def}
+	Si definisce un \textit{omomorfismo tra algebre di Lie} una mappa lineare $f:\mathfrak{g}\rightarrow\mathfrak{h}$ tale che $f([x,y])=[f(x),f(y)]$ per ogni $x,y\in\mathfrak{g}$.
+\end{Def}
+\begin{Ex}
+	Sia un generico spazio vettoriale $V$ su $\mathbb{R}$. Allora definendo il Lie bracket come $[,]:V\times V\rightarrow V$ tale che $[x,y]=0$, $V$ diviene algebra di Lie.\\
+	Infatti la linearità e l'anticommutatività sono rispettate e l'identità di Jacobi si riduce a $0+0+0=0$.
+\end{Ex}
+Definiamo ora un'operazione che ci permetterà di identificare lo spazio tangente all'identità di un gruppo di Lie con una determinata algebra di Lie.\\
+\\
+Si indica con $l_g:G\rightarrow G$ come $l_g(x)=gx$ l'operazione di moltiplicazione a sinistra su $G$ gruppo di Lie.\\
+\begin{Obs}
+	$l_g$ è $C^\infty$ in quanto è definita come moltiplicazione su di un gruppo di Lie, cioè è continua e differenziabile infinite volte. Inoltre $l_g^{-1}=l_{g^{-1}}$ che è ancora continua. Quindi $l_g$ è un diffeomorfismo.
+\end{Obs}
+Dato un campo vettoriale $X$ su un gruppo di Lie $G$, l'operazione di moltiplicazione a sinistra induce una mappa $(dl_g)_e:T_eG\rightarrow T_gG$ che agisce su $X$.\\
+\begin{Def}
+	Un campo vettoriale $X$ su un gruppo di Lie $G$ si dice \textit{invariante a sinistra} se $dl_g(X)=X$ per ogni $g\in G$.
+\end{Def}
+Sostanzialmente un campo vettoriale è invariante a sinistra se la sua traslazione con l'operazione indotta dalla moltiplicazione lo lascia invariato: cioè se $dl_g(X_h)=X_{gh}$ per ogni $g,h\in G$.
+Ne consegue che $X_g=dl_g(X_e)$, ovvero che un campo vettoriale invariante a sinistra è completamente determinato dal suo valore all'identità del gruppo.\\
+\\
+E' possibile dimostrare che ogni campo $X$ invariante a sinistra su di un gruppo di Lie è $C^\infty$. ([1] pag. 181 cap.4).\\
+\begin{Obs}
+	Dato un gruppo di Lie $G$ ed $A\in T_eG$, si può definire \\$X^A:G\rightarrow T_eG$ come un campo vettoriale tale che $X^A_g=dl_g(A)$. Questo campo è automaticamente invariante a sinistra in quanto: $$dl_g(X^A_h)=dl_g(dl_h(X^A_e))=dl_{gh}(X^A_e)=X^A_{gh}$$
+	In questo caso diciamo che $X^A$ è generato da $A\in T_eG$ e chiamiamo con $Lie(G)$ l'insieme di tutti gli $X^A$ generati dai vettori tangenti nell'identità in $G$.	
+\end{Obs}
+Dati due campi vettoriali $X$ e $Y$, definiamo la loro Lie Bracket in un punto $p$ come $[X,Y]_pf=(X_pY-Y_pX)f$.
+Vale il seguente risultato:
+\begin{Prop}
+	Se $X$ e $Y$ sono invarianti a sinistra allora anche $[X,Y]$, $cX$ e $X+Y$ lo sono. Inoltre, $[X,Y]$ rispetta l'identità di Jacobi.
+\end{Prop}
+\begin{proof}
+	Dalla linearità della mappa differenziale segue che se $X,Y$ sono invarianti a sinistra anche le loro combinazioni lineari lo saranno.\\
+	Per provare l'invarianza della bracket invece: si consideri un punto $p\in G$ ed una funzione $f\in C^\infty_p$, si vuole far vedere che $dl_g([X,Y])=[X,Y]$.
+	Applicando la definizione di differenziale: $$dl_g([X,Y]_p)f=[X,Y]_p(f\circ l_g)=$$$$=X_pY(f\circ l_g)-Y_pX(f\circ l_g)=$$$$=X_p(dl_g(Y)f)-Y_p(dl_g(X)f)=$$
+	$$=X_p(Y(f)\circ l_g)-Y_p(X(f)\circ l_g)=$$
+	$$=dl_g(X_p)Y(f)-dl_g(Y_p)X(f)=[X,Y]_{gp}f$$ 
+	Per mostrare che è soddisfatta l'identità di Jacobi invece si calcola:
+	$$[X,[Y,Z]_p]_p+[Y,[Z,X]_p]_p+[Z,[X,Y]_p]_p=$$
+	$$[X,Y_pZ-Z_pY]_p+[Y,Z_pX-X_pZ]_p+[Z,X_pY-Y_pX]_p=$$
+	$$(X_pY_pZ-X_pZ_pY-Y_pZ_pX+Z_pY_pX)+(Y_pZ_pX-Y_pX_pZ-Z_pX_pY+X_pZ_pY)+$$$$+(Z_pX_pY-Z_pY_pX-X_pY_pZ+Y_pX_pZ)=0$$
+\end{proof}
+Dunque non solo $Lie(G)$ ha la struttura di uno spazio vettoriale, ma è anche chiuso rispetto a $[,]$. Inoltre, per come è stata definita la bracket, $[,]$ è bilineare, antisimmetrica e, come appena provato, verifica l'identità di Jacobi.\\
+Da ciò, $Lie(G)$ è un'algebra di Lie detta algebra di Lie di $G$ e si indica con $\mathfrak{g}$.
+\begin{Theo}
+	Dato un gruppo di Lie $G$, esiste un isomorfismo tra $Lie(G)$ e $T_eG$, cioè $Lie(G)\cong T_eG$.
+\end{Theo}
+\begin{proof}
+	Si consideri l'applicazione $f:A\mapsto X^A$ dove $A$ è un vettore nell'identità di $G$ e $X^A$ è il campo vettoriale invariante a sinistra generato da esso. Si vuole provare che questa mappa è isomorfismo tra spazi vettoriali.\\
+	La mappa è iniettiva: se $A=0$ allora $X^A$ è il campo nullo in quanto $X^A_g=dl_g(A)=dl_g(0)=0$.\\
+	La mappa è anche suriettiva in quanto per ogni $X^A$ è possibile trovare un $A$ che lo generi: se $X^A$ è invariante a sinistra allora è completamente determinato dal suo valore nell'identità $e$. Dunque il vettore $A$ cercato è proprio $X^A_e$.\\
+	Questo completa la dimostrazione.  
+\end{proof}
+\begin{Ex}
+	Considerando gli insiemi $\mathbb{C}^n$ e $\mathbb{R}^n$ le algebre di Lie associate sono rispettivamente $\mathbb{C}^n$ e $\mathbb{R}^n$ con le bracket banali $[X,Y]=0$. In $\mathbb{R}^2$, ciò equivale a chiedere che valga il lemma di Schwarz: ${\partial\over\partial y}{\partial\over\partial x}f(p)={\partial\over\partial x}{\partial\over\partial y}f(p)$.
+\end{Ex}
+Diamo ora alcuni esempi di spazi tangenti nell'identià per gruppi di matrici, ricordando che possiamo identificare questi spazi con l'algebra di Lie dei gruppi stessi.
+\begin{Ex}[Spazio tangente a $GL_n(\mathbb{R})$]
+	Indichiamo con $\mathfrak{gl_n(\mathbb{R})}$ l'algebra di Lie di $GL_n(\mathbb{R})$.
+	\\
+	Poichè la mappa $det:GL_n(\mathbb{R})\rightarrow\mathbb{R}$ è continua, sapendo che $det(I)\neq 0$, esiste $U_I$ aperto contenente $I$ tale che se $A\in U_I$ allora $det(A)\neq 0$. Sia $B\in M_{n\times n}$ e $\gamma:]-\epsilon,\epsilon[\rightarrow M_{n\times n}$ come $\gamma(t)=I+tB+O(t^2)$. Allora $\gamma(0)=I$ e $\gamma'(0)=B\in T_eGL_n(\mathbb{R})$. Scelto $\epsilon>0$ abbastanza piccolo si ha che $det(I+tBO(t^2))\neq 0$ per ogni $t\in]-\epsilon,\epsilon[$. Da ciò, $$\mathfrak{gl_n(\mathbb{R})}\cong M_{n\times n}= T_eGL_n(\mathbb{R})$$.
+\end{Ex}
+\begin{Ex}[Spazio tangente a $SL_n(\mathbb{R})$]
+	Indichiamo con $\mathfrak{sl_n(\mathbb{R})}$ l'algebra di Lie di $SL_n(\mathbb{R})=\{A\in M_{n\times n}|det(A)=1\}$.\\
+	Seguendo lo stesso ragionamento dell'esempio precedente e quindi considerando una curva $\gamma:]-\epsilon,\epsilon[\rightarrow M_{n\times n}$ come $\gamma(t)=I+tB+O(t^2)$, è necessario che $det(I+tB+O(t^2))=1$. Ma $det(I+tB+O(t^2))=1+tr(B)+O(t^2)$ da cui: $$T_eSL_n(\mathbb{R})\cong sl_n(\mathbb{R})=\{A\in M_{n\times n}|trA=0\}$$ 
+\end{Ex}
+Per la caratterizzazione delle algebre di Lie di $O_n(\mathbb{R})$ e $SU_n(\mathbb{C})$ si farà uso della mappa esponenziale, che verrà discussa nella successiva sezione.
+\section{Mappa esponenziale}
+In questa sezione daremo la definizione ed enunceremo alcune proprietà della mappa esponenziale e delle sue applicazioni. In particolare, ci concentreremo sui gruppi di matrici.\\
+\begin{Def}
+	Dato $G$ gruppo di Lie e $X\in\mathfrak{g}$, la \textit{mappa esponenziale} è \\$exp:\mathfrak{g}\rightarrow G$ definita come $exp(X)=\Phi_X(1,e)$ flusso del campo $X$.
+\end{Def}
+Si indicherà $exp(X)$ anche come $e^X$.
+La mappa esponenziale verifica numerose proprietà, in particolare per i gruppi di Lie di matrici.
+\begin{Prop}
+	Sia un gruppo di Lie di matrici, allora valgono le seguenti proprietà per la mappa esponenziale:\begin{itemize}
+		\item $exp(tX)=\Phi_X(t,e)$ per ogni $X\in \mathfrak{g}$ e $t\in \mathbb{R}$;
+		\item $exp((t+s)X)=exp(tX)\circ exp(sX)$ per ogni $X\in \mathfrak{g}$ e $s,t\in\mathbb{R}$;
+		\item $exp$ è analitica ed è un diffeomorfismo di un intorno di $0\in\mathfrak{g}$ in un intorno di $e\in G$;
+		\item ${d\over dt}\bigg{\rvert}_0exp(tX)=X$. 
+	\end{itemize}
+\end{Prop}
+Per le dimostrazioni si faccia riferimento a [2] (pag. 85, 86 cap. 2) e [3] (pag. 23 cap. 1).\\
+\\
+Prima di enunciare altre proprietà, è necessario definire l'esponenziale di matrice.
+\begin{Def}
+	Si dice \textit{esponenziale} di una matrice $X\in M_{n\times n}$ la serie \\$e^X=\sum_{n=0}^{\infty}{X^n\over n! }$ dove $X^n$ è il prodotto ripetuto $n$ volte di $X$ con sè stessa.
+\end{Def}
+Si può dimostrare che questa serie converge $\forall X\in M_{n\times n}$ ed è una funzione continua di $X$. Inoltre valgono:\begin{itemize}
+	\item $e^0=I$;
+	\item $(e^X)^+=e^{X^+}$ dove con $^+$ si è indicata l'aggiunzione;
+	\item $e^X$ è invertibile ed $(e^X)^{-1}=e^{-X}$;
+	\item $e^{(a+b)X}=e^{aX}e^{bX}$ per ogni $a,b\in\mathbb{R}$;
+	\item se $XY-YX=0$ allora $e^{X+Y}=e^Xe^Y=e^Ye^X$ per ogni $X,Y$ matrici;\\
+	\item se $C$ è una matrice invertibile, allora $e^{CXC^{-1}}=Ce^XC^{-1}$
+\end{itemize} 
+Ma il risultato forse più importante è che ${d\over dt}e^{tX}\bigg{\rvert}_0=X$ e ${d\over dt}e^{tX}\bigg{\rvert}_{t'}=Xe^{t'X}$.\\
+Infatti, quest'ultima proprietà ci assicura che la mappa esponenziale coincida con l'esponenziale di matrice.\\
+Per le dimostrazioni consultare [4] pag. 38-41 cap.2.\\
+\begin{Ex}[Spazio tangente a $O_n(\mathbb{R})$]
+	Si indica con $\mathfrak{o_n(\mathbb{R})}$ l'algebra di Lie di $O_n(\mathbb{R})=\{A\in M_{n\times n}|A^T=A^{-1}\}$.\\
+	Data una curva passante per $I$ come $e^{tX}$, affinché essa sia contenuta dentro $O_n(\mathbb{R})$, deve valere $(e^{tX})^T=(e^{tX})^{-1}=e^{-tX}$, che è vero solamente se $-X=X^T$. Da ciò: $$\mathfrak{o_n(\mathbb{R})}=\{X\in M_{n\times n}|-X=X^T\}$$.
+	Lo stesso ragionamento si può fare con il gruppo $U_n(\mathbb{R})$, ottenendo: $$\mathfrak{u_n(\mathbb{R})}=\{X\in M_{n\times n}|-X=X^+\}$$.
+\end{Ex}
+Enunciamo ora un importante risultato che ci permetterà di stabilire un collegamento, per mezzo della mappa esponenziale, tra omomorfismi di gruppi e algebre di Lie.
+\begin{Prop}
+	Siano $G$ e $H$ gruppi di Lie di matrici e $\mathfrak{g}$, $\mathfrak{h}$ le loro algebre. Sia $\rho:G\rightarrow H$ un omomorfismo tra gruppi di Lie. Allora esiste un'unica mappa reale lineare $\varrho:\mathfrak{g}\rightarrow\mathfrak{h}$ tale che:
+	\begin{itemize}
+		\item $\rho(e^X)=e^{\varrho(X)}$; 
+		\item $\varrho(AXA^{-1})=\rho(A)\varrho(X)\rho(A)^{-1}$;
+		\item $\varrho([X,Y])=[\varrho(X),\varrho(Y)]$, cioè è omomorfismo tra algebre di Lie;
+		\item $\varrho(X)={d\over dt}\bigg{\rvert}_0\rho(e^{tX})$.
+	\end{itemize}
+\end{Prop}
+Per la dimostrazione si veda [4] pag.67 cap. 3.\\
+\\
+Da questo risultato emerge che dato un qualunque omomorfismo tra gruppi di Lie di matrici, esso genera un unico omomorfismo tra le algebre di questi gruppi. E' naturale allora chiedersi se vale anche il contrario: è sempre possibile risalire in modo univoco da un omomorfismo di algebre di Lie ad un omomorfismo di gruppi di Lie?
+\chapter{Teoria della Rappresentazione}
+In questo capitolo si definirà che cos'è una rappresentazione di un gruppo e si studieranno alcuni particolari esempi di grande rilevanza per la fisica.\\
+Come vedremo, le relazioni tra un gruppo di Lie e la sua algebra permettono di studiare le rappresentazioni del primo attraverso quelle della seconda.
+\begin{Def}
+Dato un gruppo $G$ si dice \textit{rappresentazione} un'applicazione\\ $\rho:G\rightarrow GL(V)$, dove $V$ è uno spazio vettoriale a dimensione finita, tale che $\rho(gh)=\rho(g)\circ\rho(h)$. Cioè $\rho$ è omomorfismo.\\
+Se $G$ è un gruppo di Lie, si definisce una rappresentazione di un gruppo di Lie come un omomorfismo differenziabile $\rho:G\rightarrow GL(V)$.
+\end{Def}
+In generale, se non altrimenti specificato, gli spazi vettoriali $V$ menzionati saranno a dimensione finita.
+\begin{Obs}
+	Equivalentemente, si può definire una rappresentazione come un'azione del gruppo su di uno spazio vettoriale, cioè come:
+	$$a:G\times V\rightarrow V$$
+	tale che $a(gh,v)=a(g,a(h,v))$.\\
+	E' facile vedere come le due definizioni siano equivalenti: data una, è completamente definita l'altra:
+	\begin{proof}
+		Sia data $a:G\times V\rightarrow V$
+		tale che $a(gh,v)=a(g,a(h,v))$ azione. Allora si definisce $\rho:G\rightarrow GL(V)$ come $\rho(g)v=a(g,v)$. In questo caso si ha che $$\rho(gh)v=a(gh,v)=a(g,a(h,v))=\rho(g)\circ\rho(h)v$$
+		Se invece è data $\rho:G\rightarrow GL(V)$, allora si definisce $a:G\times V\rightarrow V$ come $a(g,v)=\rho(g)v$. Allora $$a(gh,v)=\rho(gh)v=\rho(g)\circ\rho(v)v=a(g,a(h,v))$$
+	\end{proof}
+\end{Obs}
+Con \textit{dimensione della rappresentazione} si intenderà la dimensione dello spazio vettoriale $V$ in relazione a cui essa è definita.
+\begin{Ex}[Rappresentazione banale]
+	Sia $G$ un gruppo di Lie di matrici. Si definisca $\rho: G\rightarrow GL_n(\mathbb{C})$ come $\rho(X)=I$, allora $\rho$ è una rappresentazione, chiamata banale. 
+\end{Ex}
+\begin{Ex}[Rappresentazione standard]
+	Sia $G$ un gruppo di Lie di matrici. Allora per definizione $G\subset GL_n(\mathbb{C})$. Si definisca $\rho: G\rightarrow GL_n(\mathbb{C})$ come $\rho(X)=X$, allora $\rho$ è una rappresentazione, chiamata standard. 
+\end{Ex}
+Si può dare anche una definizione di rappresentazione di un'algebra di Lie. Come vedremo, le due rappresentazioni sono strettamente legate tra loro.
+\begin{Def}
+	Sia $g$ algebra di Lie. Una rappresentazione di $g$ è una mappa omomorfica lineare $\pi:g\rightarrow End(V)$; dove $V$ è spazio vettoriale finito-dimensionale. ($\pi([X,Y])=[\pi(X),\pi(Y)]$).
+\end{Def}
+Al fine di classificare un'importantissima famiglia di rappresentazioni, diamo la seguente definizione:
+\begin{Def}
+	Data un rappresentazione di un gruppo di Lie $\rho$ che agisce su di uno spazio $V$, un sottospazio $W\subset V$ è detto \textit{invariante} se $\rho(g)w\in W$ $\forall w\in W$.\\
+	Una rappresentazione i cui unici sottospazi invarianti sono $\emptyset$ e $V$ è detta \textit{irriducibile}.
+\end{Def}
+Enunciamo ora una serie di risultati che ci permetteranno di dimostrare l'irriducibilità di una rappresentazione di un gruppo di Lie a partire da quella della sua algebra.
+\begin{Theo}
+	Sia $G$ un gruppo di Lie di matrici con $g$ algebra di Lie e $\rho:G\rightarrow GL(V)$ rappresentazione. Allora $\exists!$ rappresentazione indotta dell'algebra di Lie di $G$, indicata con $d\rho:g\rightarrow gl(V)\equiv End(V)$ tale che $\rho(e^{tX})=e^{d\rho(X)}$ e $d\rho(X)={d\over dt}\rho(e^{tX})|_0$.\
+	Inoltre $d\rho(AXA^{-1})=\rho(A)d\rho(X)\rho(A)^{-1}$.	
+\end{Theo}
+\begin{proof}
+	A patto di fissare una base, possiamo identificare $GL(V)$ con $GL_n(\mathbb{C})$ (o $\mathbb{R}$), allora se assumiamo le ipotesi del teorema, $\rho$ diventa un omomorfismo tra gruppi di Lie di matrici. Per la proposizione 1.47 esiste un'unica $\varphi:g\rightarrow End(V)$ che coincide con $d\rho$ e rispetta tutte le proprietà.
+\end{proof}
+\begin{Theo}
+	Sia $G$ gruppo di Lie di matrici connesso, $\mathfrak{g}$ la sua algebra $\rho:G\rightarrow GL(V)$ una rappresentazione e $d\rho:g\rightarrow gl(V)$ la rappresentazione indotta. Allora $\rho$ è irriducibile se e solo se $d\rho$ lo è.
+\end{Theo}
+Per la dimostrazione consultare [4] pag. 87 cap. 4.\\
+\\
+Si è cioè trovato che dato un gruppo connesso di Lie di matrici ed una rappresentazione di esso, non solo è sempre possibile trovare una rappresentazione della sua algebra di Lie, ma l'irriducibilità dell'una equivale a quella dell'altra.
+\begin{Def}
+	Sia $\mathfrak{g}$ un'algebra di Lie reale. Si dice \textit{complessificazione} di $\mathfrak{g}$ lo spazio $\mathfrak{g_c}=\{X+iY|X,Y\in\mathfrak{g}\}$.
+\end{Def}
+E' possibile dimostrare che la parentesi di Lie ha un'unica estensione su $\mathfrak{g_c}$ data da:
+$$[X_1+iX_2,Y_1+iY_2]=([X_1,Y_1]-[X_2,Y_2])+i([X_1,Y_2]+[X_2,Y_1])$$
+Per la dimostrazione si veda [4] pag. 71, cap. 3.\\
+\begin{Ex}
+La complessificazione di $\mathfrak{su_2(\mathbb{C})}$ è data, per definizione, da \\$\mathfrak{su_2(\mathbb{C})_C}=\{X+iY|X,Y\in M_{n\times n} ;X^{+}=-X;Y^{+}=-Y;tr(X)=tr(Y)=0\}$.\\
+Si nota che $tr(X+iY)=0$ e $(X+iY)^+=(-X+iY)$. Cioè $X+iY$ non rispetta la proprietà $A^+=-A$. Da ciò: $\mathfrak{su_2(\mathbb{C})_c}\cong \mathfrak{sl_2(\mathbb{C})}$.
+\end{Ex}
+Vale inoltre il seguente teorema, che ci permetterà di studiare l'irriducibilità di una rappresentazione attraverso l'estensione di essa sull'algebra complessificata.
+\begin{Theo}
+	Se $\mathfrak{g}$ è algebra di Lie e $\mathfrak{g_c}$ la sua complessificazione, allora ogni rappresentazione finito-dimensionale complessa  $d\rho$ di $\mathfrak{g}$ ha un'unica estensione su $\mathfrak{g_c}$. Inoltre $d\rho$ è irriducibile se e solo se lo è $d\rho_c$ estensione di $d\rho$.
+\end{Theo}
+\begin{proof}
+	Si definisce $d\rho_c$ come $d\rho_c(X+iY)=d\rho(X)+id\rho(Y)=d\rho(X+iY)$ che è omomorfismo in quanto: 
+	$$[d\rho(X+iY),d\rho(A+iB)]=[d\rho(X)+id\rho(y),d\rho(A)+id\rho(B)]=$$$$=[d\rho(X),d\rho(A)+id\rho(B)]+i[d\rho(Y),d\rho(A)+id\rho(B)]=$$
+	$$=[d\rho(X),d\rho(A)]+i[d\rho(X),d\rho(B)]+i[d\rho(Y),d\rho(A)]-[d\rho(Y),d\rho(B)]=$$
+	$$=d\rho([X,A])+id\rho([X,B])+id\rho([Y,A])-d\rho([Y,B])=$$
+	$$=d\rho([X,A]-[Y,B])+id\rho([X,B]+[Y,A])=$$
+	$$=d\rho([X,A]+[iY,iB])+d\rho([X,iB]+[iY,A])=$$
+	$$=d\rho([X+iY,A+iB])$$
+	Per quanto riguarda l'irriducibilità, un sottospazio $W\subset V$ invariante per $d\rho(X+iY)$ lo è se e solo se lo è anche per $d\rho(X)$ e $d\rho(Y)$.
+\end{proof}
+\subsection{Le rappresentazioni di $SU_2(\mathbb{C})$ e $SO_3(\mathbb{R})$} 
+In questa sezione utilizzeremo i risultati enunciati precedentemente per lo studio delle rappresentazioni di alcuni gruppi di matrici.\\
+
+Consideriamo il gruppo delle matrici speciali unitarie $SU_2(\mathbb{C})=\{A\in M_{n\times n}|AA^{+}=I=A^{+}A;det(A)=1\}$.
+\begin{Prop}
+	$A\in SU_2(\mathbb{C})$ se e solo se $A$ nella forma $A=
+	\begin{pmatrix}
+		\alpha & \beta \\
+		-\bar{\beta} & \bar{\alpha}
+	\end{pmatrix}
+	$ con $|\alpha|^2+|\beta|^2=1$.
+\end{Prop}
+\begin{proof}
+	Se $A$ è in questa forma allora $det(A)=1$ e $AA^{+}=I=A^{+}A$.\\
+	Se invece $A\in SU_2(\mathbb{C})$ come $A=
+	\begin{pmatrix}
+		a & b \\
+		c & d
+	\end{pmatrix}$, allora possiamo scriverne l'inversa:
+$A^{-1}=\begin{pmatrix}
+	d & -b \\
+	-c & a
+\end{pmatrix}$ e l'aggiunta: $A^+=
+\begin{pmatrix}
+	\bar{a} & \bar{c} \\
+	\bar{b} & \bar{d}
+\end{pmatrix}$.\\
+Queste due devono coincidere, ovvero: $d=\bar{a}$; $-b=\bar{c}$; $a=\bar{d}$; $-c=\bar{b}$. Questo verifica la proposizione.
+\end{proof}
+Inoltre, dato che $\alpha=x_1+ix_2$ e $\beta=x_3+ix_4$, con $x_i\in\mathbb{R}$, si può identificare $SU_2(\mathbb{C})$ con la sfera quadridimensionale $$S^3=\{(x_1,x_2,x_3,x_4)\in \mathbb{R}^4|\sum x_i^2=1\}$$.
+Da questa identificazione segue che, essendo $S^3$ connessa, compatta e semplicemente connessa, tutte queste proprietà sono anche di $SU_2(\mathbb{C})$.\\
+\\
+Consideriamo ora il gruppo delle matrici speciali ortogonali $SO_3(\mathbb{R})=\{A\in M_{n\times n}|A^{-1}=A^T, det(A)=1\}$.
+\\
+\\
+MI MANCA RIVESTIMENTI PER PARLARE DELLA MAPPA 2:1 TRA SU2 SO3
+\\
+\\
+Andiamo ora a studiare le rappresentazioni di $SU_2(\mathbb{C})$. Questo esempio è molto utile in quanto mostra come, per dimostrare l'irriducibilità, sia molto più comodo lavorare con le rappresentazioni delle algebre di Lie, piuttosto che con le rappresentazioni dei gruppi.\\
+\\
+La rappresentazione di gruppo che utilizzeremo sarà definita come azione sullo spazio dei polinomi a due variabili.
+\begin{Prop}
+	Sia $V_m=\{\sum_{i=0}^{m} a_ix^{m-i}y^i\}$ spazio dei polinomi in due variabili complesso. Data l'azione $a:SU_2(\mathbb{C})\times V_m\rightarrow V_m$ come $a(g,f(v))=f(g^{-1}v)$, allora $a$ è rappresentazione.
+\end{Prop}
+L'insieme $\{x^{m-1}y^i\}$ è base per $V_m$, che quindi ha dimensione $dim(V_m)=m+1$.\\
+In questo caso $f(v)=f(x,y)$ è un elemento di $V_m$ e $g$ è un elemento di $SU_2(\mathbb{C})$ con inverso $g^{-1}$.\\
+Dunque se un elemento di $SU_2(\mathbb{C})$ è nella forma $g=$
+$\begin{pmatrix}
+	\alpha&\beta\\
+	-\bar{\beta}&\bar{\alpha}
+\end{pmatrix}$,
+allora il suo inverso sarà $g^{-1}=
+\begin{pmatrix}
+	\bar{\alpha}&-\beta\\
+	\bar{\beta}&\alpha
+\end{pmatrix}$ dato che il determinante di $g$ è 1. \\
+Applicare $g^{-1}$ ad una coppia $(x,y)$ significa computare:
+$g^{-1}v=g^{-1}
+\begin{pmatrix}
+	x\\y
+\end{pmatrix}=
+\begin{pmatrix}
+	\bar{\alpha}x-\beta y\\
+	\bar{\beta}x+\alpha y
+\end{pmatrix}$
+Da ciò $(g,f(x,y))\longmapsto f(\bar{\alpha}x-\beta y,\bar{\beta}x+\alpha y)$
+\begin{proof}
+	Come dimostrato, data un'azione di gruppo è automaticamente definito un omomorfismo e viceversa. Allora possiamo definire la mappa $\rho:SU_2(\mathbb{C})\rightarrow GL(V_m)$ come $\rho(g)f(v)=a(g,f(v))$ con $g\in SU_2$ e $f(v)\in V_m$.
+	Si vuole mostrare che $\rho$ è omomorfismo tra gruppi, ovvero $\rho(gh)=\rho(h)\circ\rho(h)$.\\
+	Per definizione:
+	$$\rho(gh)f(v)=a(gh,f(v))=f((gh)^{-1}v)$$
+	Dato che, con l'usuale prodotto tra matrici, $(gh)^{-1}=h^{-1}g^{-1}$, si ha:
+	$$\rho(g)[\rho(h)f](v)=[\rho(h)f](g^{-1}v)=f(h^{-1}g^{-1}v)=$$
+	$$=f((gh)^{-1}v)=\rho(gh)f(v)$$
+	Questo termina la dimostrazione.
+\end{proof}
+Verificato che la mappa scelta è effettivamente una rappresentazione, si procede a dimostrarne l'irriducibilità. Vale il seguente teorema:
+\begin{Theo} \label{Theo1}
+	Le $\rho$ rappresentazioni di $SU_2(\mathbb{C})$ che agiscono sullo spazio $V_m$ come definite sopra sono irriducibili $\forall m\geq 0$ intero.
+\end{Theo}
+\begin{proof}
+	Per provare l'irriducibilità ci serviamo della rappresentazione indotta sull'algebra di $SU_2(\mathbb{C})$. Infatti, utilizzando il Teorema 2.8, se dimostriamo che questa è irriducibile, allora lo è anche la rappresentazione di gruppo. Inoltre, non agiamo direttamente su $\mathfrak{su_2(\mathbb{C})}$ ma su di uno spazio isomorfo alla sua complessificazione: $\mathfrak{sl_2(\mathbb{C})}$.\\
+	\\
+	La rappresentazione indotta sull'algebra è $d\rho:\mathfrak{sl_2(\mathbb{C})}\rightarrow \mathfrak{gl(V_m)}\equiv End(V_m)$ come 
+	$$d\rho(X)f(x,y)={d\over dt}\bigg{\rvert}_{0}\rho(e^{tX})f(x,y)={d\over dt}\bigg{\rvert}_{0}f(e^{-tX}(x,y))$$
+	In particolare, data la curva $z(t)=(x'(t),y'(t))=e^{-tX}(x,y)$ si ha 
+	\begin{equation}
+		d\rho(X)f={\partial f\over \partial x}{dx'\over dt}\bigg{\rvert}_0+{\partial f\over \partial y}{dy'\over dt}\bigg{\rvert}_0 \label{eq:1} \tag{1}
+	\end{equation}
+	
+	Data una matrice  
+	$X=\begin{pmatrix}
+		X_{11}&X_{12}\\
+		X_{13}&X_{14}
+	\end{pmatrix}$ allora 
+\begin{equation}
+	\bigg{(}{dx'\over dt}\bigg{\rvert}_0,{dy'\over dt}\bigg{\rvert}_0\bigg{)}=-X(x,y)=-(X_{11}x+X_{12}y,X_{21}x+X_{22}y)\label{eq:2} \tag{2}
+\end{equation}
+Sostituendo le relazioni trovate in \ref{eq:2} dentro \ref{eq:1}
+\begin{equation}
+d\rho(X)f=-{\partial f\over \partial x}(X_{11}x+X_{12}y)-{\partial f\over \partial y}(X_{21}x+X_{22}y) \label{eq:3} \tag{3}
+\end{equation}
+	Si consideri poi la base di $\mathfrak{sl_2(\mathbb{C})}$ costituita dalle matrici $$H=
+	\begin{pmatrix}
+		1&0\\
+		0&-1
+	\end{pmatrix}; 
+	X=\begin{pmatrix}
+		0&1\\
+		0&0
+	\end{pmatrix};
+	Y=\begin{pmatrix}
+		0&0\\
+		1&0
+	\end{pmatrix}$$ allora, sostituendo i termini di queste matrici all'interno della relazione \ref{eq:3} si trovano le espressioni dei seguenti operatori:
+\begin{equation*}
+	d\rho(H)=-x{\partial\over\partial x}+y{\partial\over\partial y}
+\end{equation*}
+
+	\begin{equation*}
+	d\rho(X)=-y{\partial\over\partial x}
+\end{equation*}
+	\begin{equation*}
+	d\rho(Y)=-x{\partial\over\partial y}
+\end{equation*}
+	Applicando queste alla base di $V_m$ costituita dai vettori $\{x^{m-i}y^i\}$ si ottiene:
+	$$d\rho(X)(x^{m-i}y^i)=-(m-i)x^{m-i-1}y^{i+1}$$
+	$$d\rho(Y)(x^{m-i}y^i)=-ix^{m-i+1}y^{i-1}$$
+	$$d\rho(H)(x^{m-i}y^i)=(-m+2i)x^{m-i}y^i$$
+	Si osserva quindi che i vettori della base di $V_m$ sono autovettori di $d\rho(H)$ con autovalori $(-m+2i)$. L'effetto degli operatori $d\rho(X)$ e $d\rho(Y)$ è invece quello di alzare ed abbassare gli indici di $x$ e $y$.\\
+	\\
+	Per dimostrare l'irriducibilità, supponiamo che $W\subset V_m$ sia un sottospazio invariante per $d\rho$; cioè che $d\rho(A)w\in W$ $\forall w\in W$ e $\forall A\in \mathfrak{sl_2(\mathbb{C})}$. Cerchiamo di dimostrare che $W$ è banale. \\Dato che abbiamo fissato una base di $V_m$, un generico $w\in W$ si può scrivere come $w=\sum_{i=0}^{m}a_ix^{m-i}y^i$, se supponiamo che $W\neq{0}$ allora $\exists$ almeno un $a_i\neq 0$.
+	Si indichi con $i_0$ il più piccolo indice per cui $a_i\neq 0$. \\
+	Considerando $d\rho(X)^{m-i_0}w$, sapendo che $d\rho(X)^{m-i_0}(x^{m-i}y^i)\propto x^{i_0-i}y^{m+i-i_0}$, allora:
+	\begin{itemize}
+		\item se $0<i_0<i$, $\Rightarrow$ $d\rho(X)^{m-i_0}(x^{m-i}y^i)\propto 0$ dato che potrà essere applicato per un massimo di $m-i$ volte ($d\rho(X)x^0y^k=0$);
+		\item se $i_0>i$ $\Rightarrow$ il coefficiente di $x^{m-i}y^{i}$ è nullo poiché abbiamo supposto che $i_0$ fosse il più piccolo indice per cui $a_{i_0}\neq 0$. 
+		\item se $i_0=i$ $\Rightarrow$ $d\rho(X)^{m-i_0}(x^{m-i}y^i)\propto y^m$.
+	\end{itemize} 
+	Poiché si è supposto che $W$ fosse invariante, questi deve contenere tutti i multipli di $y^m$.\\
+	Si scelga ora arbitrariamente un indice intero $k\in[0,m]$, e si valuti l'azione ripetuta di $d\rho(Y)$ su un elemento della base: $d\rho(Y)^ky^m\propto x^ky^{m-k}$.
+	Ma abbiamo supposto che $W$ fosse invariante, ovvero $d\rho(Y)^ky^m\in W$. Allora $W$ deve contenere anche tutti i multipli di $x^ky^{m-k}$. Per arbitrarietà di $k$, $W$ contiene una base di $V_m$, cioè $W\equiv V_m$.\\
+	Questo completa la dimostrazione.
+\end{proof}
+\begin{Obs}\label{Obs1}
+	Considerando la base di $\mathfrak{sl_2(\mathbb{C})}$ composta dalle matrici: $$H=
+	\begin{pmatrix}
+		1&0\\
+		0&-1
+	\end{pmatrix}; 
+	X=\begin{pmatrix}
+		0&1\\
+		0&0
+	\end{pmatrix};
+	Y=\begin{pmatrix}
+		0&0\\
+		1&0
+	\end{pmatrix}$$
+è possibile dedurre alcune importanti proprietà relative ai commutatori di esse:
+\begin{itemize}
+	\item $[X,Y]=H$;
+	\item $[H,X]=2X$;
+	\item $[H,Y]=-2Y$.
+\end{itemize}
+Queste relazioni si ottengono svolgendo esplicitamente i calcoli. Sotto è riportato il calcolo esplicito della prima uguaglianza, le altre si ottengono in modo analogo.
+$$[X,Y]=XY-YX=\begin{pmatrix}
+	0&1\\
+	0&0
+\end{pmatrix}
+\begin{pmatrix}
+	0&0\\
+	1&0
+\end{pmatrix}-
+\begin{pmatrix}
+	0&0\\
+	1&0
+\end{pmatrix}
+\begin{pmatrix}
+	0&1\\
+	0&0
+\end{pmatrix}=$$$$=
+\begin{pmatrix}
+1&0\\
+0&0
+\end{pmatrix}-\begin{pmatrix}
+0&0\\
+0&1
+\end{pmatrix}=H$$
+\end{Obs}
+\begin{Theo}
+	$\forall$ intero $m\geq 0$ una rappresentazione irriducibile di dimensione $m+1$. Due rappresentazioni irriducibili di $\mathfrak{sl_2(\mathbb{C})}$ con la stessa dimensione sono isomorfe tra di loro. Inoltre, se $d\rho_1$ è rappresentazione irriducibile di dimensione $m+1$, allora è isomorfa a $d\rho:\mathfrak{sl_2(\mathbb{C})}\rightarrow End(V_m)$ come descritta sopra.
+\end{Theo}
+Per provare questo teorema sono necessari due lemmi:
+\begin{Lem}\label{Lemma1}
+	Sia $v$ un autovettore di $d\rho(H)$ con autovalore $a\in\mathbb{C}$. Allora $d\rho(H)d\rho(X)v=(a+2)d\rho(X)v$ e $d\rho(H)d\rho(Y)v=(a-2)d\rho(Y)v$. Cioè o $d\rho(X)v$ e $d\rho(Y)v$ sono nulli, o sono autovettori di $d\rho(H)$ con autovalori $a+2$ e $a-2$.
+\end{Lem}
+\begin{proof}
+	Dato che $d\rho$ è una rappresentazione di un'algebra, essa è un omomorfismo, cioè preserva il braket:\\ $$d\rho([H,X])v=[d\rho(H),d\rho(X)]v$$
+	Ma vale anche $$[d\rho(H),d\rho(X)]v=d\rho(H)d\rho(X)v-d\rho(X)d\rho(H)v$$ e, come calcolato nell'osservazione 2.15: $$[H,X]=HX-XH=2X$$ 
+	Allora $$[d\rho(H),d\rho(X)]v=2d\rho(X)v=d\rho(H)d\rho(X)v-d\rho(X)d\rho(H)v$$ 
+	Ricordando che $v$ è autovettore di autovalore $a$ di $d\rho(H)$:
+	$$d\rho(H)d\rho(X)v-d\rho(X)d\rho(H)v=d\rho(H)d\rho(X)v-d\rho(X)av=2d\rho(X)v$$ da cui
+	$$d\rho(H)d\rho(X)=(a+2)d\rho(X)v$$ 
+	Per $Y$ è tutto analogo.
+\end{proof}
+Si dimostra ora il teorema:
+\begin{proof}
+	Sia una rappresentazione irriducibile $d\rho:\mathfrak{sl_2(\mathbb{C})}\rightarrow \mathfrak{gl}(V)$. Sia $u$ un autovettore di $d\rho(H)$ con autovalore $a$. L'esistenza di un autovettore è garantita dal fatto che il campo è complesso. Vogliamo mostrare che $d\rho$ isomorfa ad una rappresentazione nella forma descritta in precedenza.\\
+	Per il Lemma \ref{Lemma1} valgono le relazioni: $$d\rho(H)d\rho(X)u=(a+2)d\rho(X)u$$ e analogamente per applicazioni iterate di $d\rho(X)$
+	\begin{equation}
+		\label{eq:2.16.1}
+		d\rho(H)d\rho(X)^ku=(a+2k)d\rho(X)^ku
+		\tag{1}
+	\end{equation}
+	Dato che $d\rho(H)$ è un operatore su uno spazio vettoriale $V_m$ finito dimensionale, allora non può avere un numero infinito di autovettori. Cioè $\exists N\geq 0$ intero, tale che $d\rho(X)^Nu=u_0\neq0$ e $d\rho(X)^{N+1}u=0$.\\
+	Si pone $u_0=d\rho(X)^Nu$ e $\lambda=a+2N$ e si sostituisce dentro $(\ref{eq:2.16.1})$, ottenendo:\\  $d\rho(H)u_0=\lambda u_0$ e $d\rho(X)u_0=0$.	\\
+	Sia pone poi $u_k=d\rho(Y)^ku_0$ con $k$ intero positivo. Per il Lemma 1 si ha $d\rho(H)u_k=(\lambda-2k)u_k$.\\
+	Ricordando che $d\rho(H)$è un operatore su uno spazio vettoriale $V_m$ finito dimensionale, $\exists m\geq0$ intero positivo tale che  $d\rho(Y)^{m+1}=0=u_{m+1}$. Si può dimostrare ora il seguente lemma:
+	\begin{Lem}\label{Lemma2}
+		$d\rho(X)u_k=k[\lambda-(k-1)]u_{k-1}$ per $k\geq 1$.
+	\end{Lem} 
+La dimostrazione sarà data in seguito.
+\\Se $u_{m+1}=0$ allora $d\rho(X)u_{m+1}=0$; per il Lemma \ref{Lemma2} si ha allora che $0=(m+1)(\lambda-m)u_m$ da cui segue $\lambda=m$.\\
+\\
+	Queste considerazioni portano a dire che $\forall d\rho $ irriducibile $\exists m\geq0$ intero e $u_0,...,u_m$ vettori tali che:\begin{itemize}
+		\item[(i)] $d\rho(H)u_k=(m-2k)u_k$, ovvero $u_k$ sono autovettori di $d\rho(H)$;
+		\item[(ii)] $d\rho(X)u_k=0;$ se k=0 e $d\rho(X)u_k=k(m-(k-1))u_{k-1}$ se $k>0$;
+		\item[(iii)] $d\rho(Y)u_k=u_{k+1}$ se $k<m$ e $d\rho(Y)u_k=0$ se $k=m$
+	\end{itemize}
+I vettori $u_0,...,u_m$ devono essere linearmente indipendenti in quanto sono tutti autovettori di $d\rho(H)$ con autovalori distinti. In più, $span\{u_0,...,u_m\}$ è invariante per costruzione sotto l'azione di $d\rho(H),d\rho(X)$ e $d\rho(Y)$. Dato che $d\rho$ è lineare e $X,Y,H$ generano $\mathfrak{sl_2(\mathbb{C})}$, allora $span\{u_0,...,u_m\}$ è invariante sotto l'azione di un qualsiasi elemento di $\mathfrak{sl_2(\mathbb{C})}$.\\
+Ricordando che, per ipotesi, $d\rho:\mathfrak{sl_2(\mathbb{C})}\rightarrow \mathfrak{gl}(V)$ è irriducibile, deve essere $span\{u_0,...,u_m\}\equiv V$. Questo prova che ogni rappresentazione irriducibile di $\mathfrak{sl_2(\mathbb{C})}$ è nella forma $d\rho:\mathfrak{sl_2(\mathbb{C})}\rightarrow \mathfrak{gl(V_m)}$ descritta in precedenza.\\
+Al contrario, dato uno spazio vettoriale $V$ di dimensione $m+1$ e fissata una base $\{u_0,...,u_m\}$ di esso, è possibile utilizzare le relazioni $(i),(ii),(iii)$ per definire gli operatori $d\rho(X),d\rho(Y)$ e $d\rho(Z)$. Si dimostra che così facendo si ottengono le relazioni di commutazione dell'osservazione $\ref{Obs1}$. Infatti, dato che $d\rho$ è un omomorfismo lineare:
+$$d\rho([X,Y])u_k=[d\rho(X),d\rho(Y)]u_k=d\rho(X)d\rho(Y)u_k-[d\rho(Y)d\rho(X)u_k$$
+Supponendo $k\in ]0,m[$ ed utilizzando le relazioni $(i),(ii),(iii)$:
+$$d\rho([X,Y])u_k=d\rho(X)u_{k+1}-d\rho(Y)u_{k-1}[k(m-k+1)]=$$
+$$=u_k(k+1)(m-k)-u_k[k(m-k+1)]=u_k(m-2k)=d\rho(H)u_k$$
+Ovvero $d\rho([X,Y])u_k=d\rho(H)u_k$.\\
+Supponendo $k=0$ si ottiene: $$d\rho([X,Y])u_0=d\rho(X)u_{1}-0=$$
+$$=u_0(1)(m)0=d\rho(H)u_0$$
+Infine, supponendo $k=m$:
+$$d\rho([X,Y])u_m=0-d\rho(Y)u_{m-1}[m(m-m+1)]=$$
+$$=-u_m(m)=u_m(-m)=d\rho(H)u_m$$
+Per le altre due relazioni dell'osservazione \ref{Obs1} il procedimento è analogo.\\
+Per provare l'irriducibilità della rappresentazione così definita si procede come nel teorema \ref{Theo1}.\\
+In conclusione, si è provato che ogni rappresentazione irriducibile di $\mathfrak{sl_2(\mathbb{C})}$ soddisfa la relazioni $(i),(ii),(iii)$. Ciò prova che due qualsiasi tra queste rappresentazioni, di dimensione $m+1$, sono isomorfe.
+\end{proof}
+\chapter{Quantizzazione del momento angolare}
+\chapter*{Bibliografia}
+\begin{itemize}
+	\item[$\circ$] [1] Loring W.Tu, An Introduction to Manifolds, Springer, 2011
+	\item[$\circ$] [2] V. S. Varadarajan, Lie Groups, Lie Algebras, and Their Representations, Springer,
+	1984.
+	\item[$\circ$] [3] Theodor Bröcker , Tammo Dieck, Representations of Compact Lie Groups, Springer, 1985
+	\item[$\circ$] [4] Brian C. Hall, Lie Groups, Lie Algebras, and Representations, Springer, 2015
+\end{itemize}
+\addcontentsline{toc}{chapter}{Bibliografia}
+\end{document}
