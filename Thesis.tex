@@ -238,8 +238,8 @@ E'utile definire il concetto di flusso di un campo vettoriale $X$ come una mappa
 \\
 Vi sono numerose proprietà del flusso di un campo vettoriale. Per approfondimenti in materia si veda [1] pag. 155, 156 cap. 3.
 \end{Def}
-\section{Gruppi di Lie}
-In questa sezione daremo le definizioni di gruppi di Lie e algebra di Lie con alcuni esempi ed importanti risultati, che ci permetteranno di identificare l'algebra di Lie di un gruppo di Lie con il suo spazio tangente nell'identità.
+\section{Gruppi Topologici}
+In questa sezione si darà la definizione di gruppo topologico e si introdurranno i concetti di quozienti di gruppi e azioni di gruppi.
 \begin{Def}
 	Si dice \textit{gruppo} un insieme $G$ munito di un'operazione binaria $\cdot:G\times G\rightarrow G$ tale che soddisfi le seguenti proprietà:
 	\begin{itemize}
@@ -247,16 +247,18 @@ In questa sezione daremo le definizioni di gruppi di Lie e algebra di Lie con al
 		\item Esistenza dell'elemento neutro: $\exists e\in G$ tale che $\forall a\in G$ si ha $a\cdot e=e\cdot a=a$;
 		\item Esistenza dell'inverso: $\forall a\in G$ $\exists a^{-1}$ tale che $a\cdot a^{-1}=a^{-1}\cdot a=e$.
 	\end{itemize}
-Un gruppo la cui operazione soddisfa anche la proprietà commutativa è detto abeliano o commutativo.
+	Un gruppo la cui operazione soddisfa anche la proprietà commutativa è detto abeliano o commutativo.
 \end{Def}
 Da ora in avanti, quando si farà riferimento all'operazione di prodotto definita per un gruppo, si ometterà il simbolo $\cdot$.\\
 \begin{Def}
 	Un \textit{gruppo di topologico} $G$ è uno spazio topologico con la struttura di gruppo, tale che le operazioni di moltiplicazione $\cdot:G\times G\rightarrow G$ e inversione $i:G\rightarrow G$ sono continue.
 \end{Def}
+\section{Gruppi di Lie}
+In questa sezione daremo le definizioni di gruppi di Lie e algebra di Lie con alcuni esempi ed importanti risultati, che ci permetteranno di identificare l'algebra di Lie di un gruppo di Lie con il suo spazio tangente nell'identità.
 \begin{Def}
 	Un \textit{gruppo di Lie} $G$ è una varietà differenziabile con la struttura di gruppo, tale che le operazioni di moltiplicazione $\cdot:G\times G\rightarrow G$ e inversione $i:G\rightarrow G$ sono $C^\infty$.
 \end{Def}
-Si nota che nel caso di gruppo topologico non è richiesta la struttura di varietà differenziabile.
+Si nota che, facendo riferimento alla sezione precedente nel caso di un gruppo di Lie è richiesta la struttura di varietà differenziabile, cioè si chiede di più rispetto ad un gruppo topologico.
 \begin{Def}
 	Un \textit{sottogruppo} $H$ di un gruppo di Lie $G$ è una sottovarietà regolare di $G$ che è ancora gruppo con l'operazione indotta da $G$.
 \end{Def}
@@ -264,7 +266,7 @@ Si nota che nel caso di gruppo topologico non è richiesta la struttura di varie
 	Si consideri $GL_n(\mathbb{R})$, che si è provato essere varietà differenziabile. Date le operazioni prodotto $\cdot$ righe per colonne e $i$ inverso di una matrice, queste rendono $GL_n(\mathbb{R})$ un gruppo. Infatti il prodotto righe per colonne è associativo ed ha $\mathbb{I}$ come elemento neutro, mentre l'esistenza dell'inverso è garantita dalla condizione $det\neq 0$. Il fatto che queste due operazioni siano $C^\infty$ rende $GL_n(\mathbb{R})$ un gruppo di Lie.
 \end{Ex}
 \begin{Ex}
-	Si consideri $SL_n(\mathbb{R})=\{A\in M_{n\times n}| det(A)=1\}$. Dal fatto che $SL_n(\mathbb{R})=det^{-1}(1)$ segue che $SL_n(\mathbb{R})$ è un sottogruppo chiuso di $GL_n(\mathbb{R})$. Inoltre, per il teorema della 
+	Si consideri $SL_n(\mathbb{R})=\{A\in M_{n\times n}| det(A)=1\}$. Dal fatto che $SL_n(\mathbb{R})=det^{-1}(1)$ segue che $SL_n(\mathbb{R})$ è un sottogruppo chiuso di $GL_n(\mathbb{R})$. Inoltre, per il teorema della ... DA COMPLETARE VEDI L-TU
 \end{Ex}
 
 \begin{Def}
@@ -383,6 +385,8 @@ Si può dimostrare che questa serie converge $\forall X\in M_{n\times n}$ ed è 
 Ma il risultato forse più importante è che ${d\over dt}e^{tX}\bigg{\rvert}_0=X$ e ${d\over dt}e^{tX}\bigg{\rvert}_{t'}=Xe^{t'X}$.\\
 Infatti, quest'ultima proprietà ci assicura che la mappa esponenziale coincida con l'esponenziale di matrice.\\
 Per le dimostrazioni consultare [4] pag. 38-41 cap.2.\\
+\\
+Utilizzando la mappa esponenziale è possibile trovare un'espressione per l'algebra di Lie di gruppi di matrici come $U_n(\mathbb{R})$ e $O_n(\mathbb{R})$. Si consideri il seguente esempio:
 \begin{Ex}[Spazio tangente a $O_n(\mathbb{R})$]
 	Si indica con $\mathfrak{o_n(\mathbb{R})}$ l'algebra di Lie di $O_n(\mathbb{R})=\{A\in M_{n\times n}|A^T=A^{-1}\}$.\\
 	Data una curva passante per $I$ come $e^{tX}$, affinché essa sia contenuta dentro $O_n(\mathbb{R})$, deve valere $(e^{tX})^T=(e^{tX})^{-1}=e^{-tX}$, che è vero solamente se $-X=X^T$. Da ciò: $$\mathfrak{o_n(\mathbb{R})}=\{X\in M_{n\times n}|-X=X^T\}$$.
@@ -401,6 +405,7 @@ Enunciamo ora un importante risultato che ci permetterà di stabilire un collega
 Per la dimostrazione si veda [4] pag.67 cap. 3.\\
 \\
 Da questo risultato emerge che dato un qualunque omomorfismo tra gruppi di Lie di matrici, esso genera un unico omomorfismo tra le algebre di questi gruppi. E' naturale allora chiedersi se vale anche il contrario: è sempre possibile risalire in modo univoco da un omomorfismo di algebre di Lie ad un omomorfismo di gruppi di Lie?
+La risposta a questa domanda è, in generale, no. Nel caso si volesse approfondire questo argomento, si consulti [4] pag. 113-127 cap. 5.
 \chapter{Teoria della Rappresentazione}
 In questo capitolo si definirà che cos'è una rappresentazione di un gruppo e si studieranno alcuni particolari esempi di grande rilevanza per la fisica.\\
 Come vedremo, le relazioni tra un gruppo di Lie e la sua algebra permettono di studiare le rappresentazioni del primo attraverso quelle della seconda.
@@ -434,7 +439,7 @@ Si può dare anche una definizione di rappresentazione di un'algebra di Lie. Com
 Al fine di classificare un'importantissima famiglia di rappresentazioni, diamo la seguente definizione:
 \begin{Def}
 	Data un rappresentazione di un gruppo di Lie $\rho$ che agisce su di uno spazio $V$, un sottospazio $W\subset V$ è detto \textit{invariante} se $\rho(g)w\in W$ $\forall w\in W$.\\
-	Una rappresentazione i cui unici sottospazi invarianti sono $\emptyset$ e $V$ è detta \textit{irriducibile}.
+	Una rappresentazione i cui unici sottospazi invarianti sono $\{0\}$ e $V$ è detta \textit{irriducibile}.
 \end{Def}
 Enunciamo ora una serie di risultati che ci permetteranno di dimostrare l'irriducibilità di una rappresentazione di un gruppo di Lie a partire da quella della sua algebra.
 \begin{Theo}
@@ -457,7 +462,7 @@ E' possibile dimostrare che la parentesi di Lie ha un'unica estensione su $\math
 $$[X_1+iX_2,Y_1+iY_2]=([X_1,Y_1]-[X_2,Y_2])+i([X_1,Y_2]+[X_2,Y_1])$$
 Per la dimostrazione si veda [4] pag. 71, cap. 3.\\
 \begin{Ex}
-La complessificazione di $\mathfrak{su_2(\mathbb{C})}$ è data, per definizione, da \\$\mathfrak{su_2(\mathbb{C})_C}=\{X+iY|X,Y\in M_{n\times n} ;X^{+}=-X;Y^{+}=-Y;tr(X)=tr(Y)=0\}$.\\
+La complessificazione di $\mathfrak{su_2(\mathbb{C})}$ è data, per definizione, da \\$\mathfrak{su_2(\mathbb{C})_c}=\{X+iY|X,Y\in M_{n\times n} ;X^{+}=-X;Y^{+}=-Y;tr(X)=tr(Y)=0\}$.\\
 Si nota che $tr(X+iY)=0$ e $(X+iY)^+=(-X+iY)$. Cioè $X+iY$ non rispetta la proprietà $A^+=-A$. Da ciò: $\mathfrak{su_2(\mathbb{C})_c}\cong \mathfrak{sl_2(\mathbb{C})}$.
 \end{Ex}
 Vale inoltre il seguente teorema, che ci permetterà di studiare l'irriducibilità di una rappresentazione attraverso l'estensione di essa sull'algebra complessificata.
@@ -512,7 +517,7 @@ Consideriamo ora il gruppo delle matrici speciali ortogonali $SO_3(\mathbb{R})=\
 MI MANCA RIVESTIMENTI PER PARLARE DELLA MAPPA 2:1 TRA SU2 SO3
 \\
 \\
-Andiamo ora a studiare le rappresentazioni di $SU_2(\mathbb{C})$. Questo esempio è molto utile in quanto mostra come, per dimostrare l'irriducibilità, sia molto più comodo lavorare con le rappresentazioni delle algebre di Lie, piuttosto che con le rappresentazioni dei gruppi.\\
+Andiamo ora a studiare le rappresentazioni di $SU_2(\mathbb{C})$. Questo esempio è molto utile in quanto mostra come, per dimostrare l'irriducibilità, sia molto più vantaggioso lavorare con le rappresentazioni delle algebre di Lie, piuttosto che con le rappresentazioni dei gruppi.\\
 \\
 La rappresentazione di gruppo che utilizzeremo sarà definita come azione sullo spazio dei polinomi a due variabili.
 \begin{Prop}
@@ -555,9 +560,9 @@ Verificato che la mappa scelta è effettivamente una rappresentazione, si proced
 	Le $\rho$ rappresentazioni di $SU_2(\mathbb{C})$ che agiscono sullo spazio $V_m$ come definite sopra sono irriducibili $\forall m\geq 0$ intero.
 \end{Theo}
 \begin{proof}
-	Per provare l'irriducibilità ci serviamo della rappresentazione indotta sull'algebra di $SU_2(\mathbb{C})$. Infatti, utilizzando il Teorema 2.8, se dimostriamo che questa è irriducibile, allora lo è anche la rappresentazione di gruppo. Inoltre, non agiamo direttamente su $\mathfrak{su_2(\mathbb{C})}$ ma su di uno spazio isomorfo alla sua complessificazione: $\mathfrak{sl_2(\mathbb{C})}$.\\
+	Per provare l'irriducibilità ci serviamo della rappresentazione indotta sull'algebra di $SU_2(\mathbb{C})$. Infatti, utilizzando il Teorema 2.8, se dimostriamo che questa è irriducibile, allora lo è anche la rappresentazione di gruppo in quanto $SU_2(\mathbb{C})$ è connesso. Inoltre, non agiamo direttamente su $\mathfrak{su_2(\mathbb{C})}$ ma su di uno spazio isomorfo alla sua complessificazione: $\mathfrak{sl_2(\mathbb{C})}$.\\
 	\\
-	La rappresentazione indotta sull'algebra è $d\rho:\mathfrak{sl_2(\mathbb{C})}\rightarrow \mathfrak{gl(V_m)}\equiv End(V_m)$ come 
+	La rappresentazione indotta sull'algebra è $d\rho:\mathfrak{sl_2(\mathbb{C})}\rightarrow \mathfrak{gl}(V_m)\equiv End(V_m)$ come 
 	$$d\rho(X)f(x,y)={d\over dt}\bigg{\rvert}_{0}\rho(e^{tX})f(x,y)={d\over dt}\bigg{\rvert}_{0}f(e^{-tX}(x,y))$$
 	In particolare, data la curva $z(t)=(x'(t),y'(t))=e^{-tX}(x,y)$ si ha 
 	\begin{equation}
@@ -605,7 +610,7 @@ d\rho(X)f=-{\partial f\over \partial x}(X_{11}x+X_{12}y)-{\partial f\over \parti
 	$$d\rho(H)(x^{m-i}y^i)=(-m+2i)x^{m-i}y^i$$
 	Si osserva quindi che i vettori della base di $V_m$ sono autovettori di $d\rho(H)$ con autovalori $(-m+2i)$. L'effetto degli operatori $d\rho(X)$ e $d\rho(Y)$ è invece quello di alzare ed abbassare gli indici di $x$ e $y$.\\
 	\\
-	Per dimostrare l'irriducibilità, supponiamo che $W\subset V_m$ sia un sottospazio invariante per $d\rho$; cioè che $d\rho(A)w\in W$ $\forall w\in W$ e $\forall A\in \mathfrak{sl_2(\mathbb{C})}$. Cerchiamo di dimostrare che $W$ è banale. \\Dato che abbiamo fissato una base di $V_m$, un generico $w\in W$ si può scrivere come $w=\sum_{i=0}^{m}a_ix^{m-i}y^i$, se supponiamo che $W\neq{0}$ allora $\exists$ almeno un $a_i\neq 0$.
+	Per dimostrare l'irriducibilità, supponiamo che $W\subset V_m$ sia un sottospazio invariante per $d\rho$; cioè che $d\rho(A)w\in W$ $\forall w\in W$ e $\forall A\in \mathfrak{sl_2(\mathbb{C})}$. Cerchiamo di dimostrare che $W$ è banale. \\Poiché abbiamo fissato una base di $V_m$, un generico $w\in W$ si può scrivere come $w=\sum_{i=0}^{m}a_ix^{m-i}y^i$. Se supponiamo che $W\neq\{0\}$ allora $\exists$ almeno un $a_i\neq 0$.
 	Si indichi con $i_0$ il più piccolo indice per cui $a_i\neq 0$. \\
 	Considerando $d\rho(X)^{m-i_0}w$, sapendo che $d\rho(X)^{m-i_0}(x^{m-i}y^i)\propto x^{i_0-i}y^{m+i-i_0}$, allora:
 	\begin{itemize}
@@ -615,7 +620,7 @@ d\rho(X)f=-{\partial f\over \partial x}(X_{11}x+X_{12}y)-{\partial f\over \parti
 	\end{itemize} 
 	Poiché si è supposto che $W$ fosse invariante, questi deve contenere tutti i multipli di $y^m$.\\
 	Si scelga ora arbitrariamente un indice intero $k\in[0,m]$, e si valuti l'azione ripetuta di $d\rho(Y)$ su un elemento della base: $d\rho(Y)^ky^m\propto x^ky^{m-k}$.
-	Ma abbiamo supposto che $W$ fosse invariante, ovvero $d\rho(Y)^ky^m\in W$. Allora $W$ deve contenere anche tutti i multipli di $x^ky^{m-k}$. Per arbitrarietà di $k$, $W$ contiene una base di $V_m$, cioè $W\equiv V_m$.\\
+	Per invarianza di $W$, $d\rho(Y)^ky^m\in W$. Allora $W$ deve contenere anche tutti i multipli di $x^ky^{m-k}$. Per arbitrarietà di $k$, $W$ contiene una base di $V_m$, cioè $W\equiv V_m$.\\
 	Questo completa la dimostrazione.
 \end{proof}
 \begin{Obs}\label{Obs1}
@@ -638,7 +643,7 @@ d\rho(X)f=-{\partial f\over \partial x}(X_{11}x+X_{12}y)-{\partial f\over \parti
 	\item $[H,X]=2X$;
 	\item $[H,Y]=-2Y$.
 \end{itemize}
-Queste relazioni si ottengono svolgendo esplicitamente i calcoli. Sotto è riportato il calcolo esplicito della prima uguaglianza, le altre si ottengono in modo analogo.
+Queste relazioni si ottengono svolgendo esplicitamente i calcoli. Sotto è riportato il conto esplicito della prima uguaglianza, le altre si ottengono in modo analogo.
 $$[X,Y]=XY-YX=\begin{pmatrix}
 	0&1\\
 	0&0
@@ -666,7 +671,7 @@ $$[X,Y]=XY-YX=\begin{pmatrix}
 \begin{Theo}
 	$\forall$ intero $m\geq 0$ una rappresentazione irriducibile di dimensione $m+1$. Due rappresentazioni irriducibili di $\mathfrak{sl_2(\mathbb{C})}$ con la stessa dimensione sono isomorfe tra di loro. Inoltre, se $d\rho_1$ è rappresentazione irriducibile di dimensione $m+1$, allora è isomorfa a $d\rho:\mathfrak{sl_2(\mathbb{C})}\rightarrow End(V_m)$ come descritta sopra.
 \end{Theo}
-Per provare questo teorema sono necessari due lemmi:
+Per provare questo teorema sono necessari due lemmi. Il primo  è il seguente:
 \begin{Lem}\label{Lemma1}
 	Sia $v$ un autovettore di $d\rho(H)$ con autovalore $a\in\mathbb{C}$. Allora $d\rho(H)d\rho(X)v=(a+2)d\rho(X)v$ e $d\rho(H)d\rho(Y)v=(a-2)d\rho(Y)v$. Cioè o $d\rho(X)v$ e $d\rho(Y)v$ sono nulli, o sono autovettori di $d\rho(H)$ con autovalori $a+2$ e $a-2$.
 \end{Lem}
@@ -679,7 +684,7 @@ Per provare questo teorema sono necessari due lemmi:
 	$$d\rho(H)d\rho(X)=(a+2)d\rho(X)v$$ 
 	Per $Y$ è tutto analogo.
 \end{proof}
-Si dimostra ora il teorema:
+Si dimostra ora il teorema. La strategia di dimostrazione consisterà nel prendere una generica rappresentazione irriducibile e, attraverso considerazioni sugli operatori, giungere a relazioni che la caratterizzino in modo analogo al Teorema \ref{Theo1}.
 \begin{proof}
 	Sia una rappresentazione irriducibile $d\rho:\mathfrak{sl_2(\mathbb{C})}\rightarrow \mathfrak{gl}(V)$. Sia $u$ un autovettore di $d\rho(H)$ con autovalore $a$. L'esistenza di un autovettore è garantita dal fatto che il campo è complesso. Vogliamo mostrare che $d\rho$ isomorfa ad una rappresentazione nella forma descritta in precedenza.\\
 	Per il Lemma \ref{Lemma1} valgono le relazioni: $$d\rho(H)d\rho(X)u=(a+2)d\rho(X)u$$ e analogamente per applicazioni iterate di $d\rho(X)$
@@ -691,7 +696,7 @@ Si dimostra ora il teorema:
 	Dato che $d\rho(H)$ è un operatore su uno spazio vettoriale $V_m$ finito dimensionale, allora non può avere un numero infinito di autovettori. Cioè $\exists N\geq 0$ intero, tale che $d\rho(X)^Nu=u_0\neq0$ e $d\rho(X)^{N+1}u=0$.\\
 	Si pone $u_0=d\rho(X)^Nu$ e $\lambda=a+2N$ e si sostituisce dentro $(\ref{eq:2.16.1})$, ottenendo:\\  $d\rho(H)u_0=\lambda u_0$ e $d\rho(X)u_0=0$.	\\
 	Sia pone poi $u_k=d\rho(Y)^ku_0$ con $k$ intero positivo. Per il Lemma 1 si ha $d\rho(H)u_k=(\lambda-2k)u_k$.\\
-	Ricordando che $d\rho(H)$è un operatore su uno spazio vettoriale $V_m$ finito dimensionale, $\exists m\geq0$ intero positivo tale che  $d\rho(Y)^{m+1}=0=u_{m+1}$. Si può dimostrare ora il seguente lemma:
+	Ricordando che $d\rho(H)$ è un operatore su uno spazio vettoriale $V_m$ finito dimensionale, $\exists m\geq0$ intero positivo tale che  $d\rho(Y)^{m+1}=0=u_{m+1}$. Si può dimostrare ora il seguente lemma:
 	\begin{Lem}\label{Lemma2}
 		$d\rho(X)u_k=k[\lambda-(k-1)]u_{k-1}$ per $k\geq 1$.
 	\end{Lem} 
@@ -704,21 +709,39 @@ La dimostrazione sarà data in seguito.
 		\item[(iii)] $d\rho(Y)u_k=u_{k+1}$ se $k<m$ e $d\rho(Y)u_k=0$ se $k=m$
 	\end{itemize}
 I vettori $u_0,...,u_m$ devono essere linearmente indipendenti in quanto sono tutti autovettori di $d\rho(H)$ con autovalori distinti. In più, $span\{u_0,...,u_m\}$ è invariante per costruzione sotto l'azione di $d\rho(H),d\rho(X)$ e $d\rho(Y)$. Dato che $d\rho$ è lineare e $X,Y,H$ generano $\mathfrak{sl_2(\mathbb{C})}$, allora $span\{u_0,...,u_m\}$ è invariante sotto l'azione di un qualsiasi elemento di $\mathfrak{sl_2(\mathbb{C})}$.\\
-Ricordando che, per ipotesi, $d\rho:\mathfrak{sl_2(\mathbb{C})}\rightarrow \mathfrak{gl}(V)$ è irriducibile, deve essere $span\{u_0,...,u_m\}\equiv V$. Questo prova che ogni rappresentazione irriducibile di $\mathfrak{sl_2(\mathbb{C})}$ è nella forma $d\rho:\mathfrak{sl_2(\mathbb{C})}\rightarrow \mathfrak{gl(V_m)}$ descritta in precedenza.\\
-Al contrario, dato uno spazio vettoriale $V$ di dimensione $m+1$ e fissata una base $\{u_0,...,u_m\}$ di esso, è possibile utilizzare le relazioni $(i),(ii),(iii)$ per definire gli operatori $d\rho(X),d\rho(Y)$ e $d\rho(Z)$. Si dimostra che così facendo si ottengono le relazioni di commutazione dell'osservazione $\ref{Obs1}$. Infatti, dato che $d\rho$ è un omomorfismo lineare:
+Ricordando che, per ipotesi, $d\rho:\mathfrak{sl_2(\mathbb{C})}\rightarrow \mathfrak{gl}(V)$ è irriducibile, deve valere\\ $span\{u_0,...,u_m\}\equiv V$. Questo prova che ogni rappresentazione irriducibile di $\mathfrak{sl_2(\mathbb{C})}$ è nella forma $d\rho:\mathfrak{sl_2(\mathbb{C})}\rightarrow \mathfrak{gl}(V_m)$ descritta in precedenza.\\
+Al contrario, dato uno spazio vettoriale $V$ di dimensione $m+1$ e fissata una base $\{u_0,...,u_m\}$ di esso, è possibile utilizzare le relazioni $(i),(ii),(iii)$ per definire gli operatori $d\rho(X),d\rho(Y)$ e $d\rho(Z)$. Si dimostra che così facendo si ottengono le relazioni di commutazione dell'osservazione $\ref{Obs1}$. Infatti, ricordando che $d\rho$ è un omomorfismo lineare:
 $$d\rho([X,Y])u_k=[d\rho(X),d\rho(Y)]u_k=d\rho(X)d\rho(Y)u_k-[d\rho(Y)d\rho(X)u_k$$
 Supponendo $k\in ]0,m[$ ed utilizzando le relazioni $(i),(ii),(iii)$:
 $$d\rho([X,Y])u_k=d\rho(X)u_{k+1}-d\rho(Y)u_{k-1}[k(m-k+1)]=$$
 $$=u_k(k+1)(m-k)-u_k[k(m-k+1)]=u_k(m-2k)=d\rho(H)u_k$$
 Ovvero $d\rho([X,Y])u_k=d\rho(H)u_k$.\\
 Supponendo $k=0$ si ottiene: $$d\rho([X,Y])u_0=d\rho(X)u_{1}-0=$$
-$$=u_0(1)(m)0=d\rho(H)u_0$$
+$$=u_0(1)(m)=d\rho(H)u_0$$
 Infine, supponendo $k=m$:
 $$d\rho([X,Y])u_m=0-d\rho(Y)u_{m-1}[m(m-m+1)]=$$
 $$=-u_m(m)=u_m(-m)=d\rho(H)u_m$$
 Per le altre due relazioni dell'osservazione \ref{Obs1} il procedimento è analogo.\\
 Per provare l'irriducibilità della rappresentazione così definita si procede come nel teorema \ref{Theo1}.\\
-In conclusione, si è provato che ogni rappresentazione irriducibile di $\mathfrak{sl_2(\mathbb{C})}$ soddisfa la relazioni $(i),(ii),(iii)$. Ciò prova che due qualsiasi tra queste rappresentazioni, di dimensione $m+1$, sono isomorfe.
+In conclusione, si è dimostrato che ogni rappresentazione irriducibile di $\mathfrak{sl_2(\mathbb{C})}$ soddisfa la relazioni $(i),(ii),(iii)$. Ciò prova che due qualsiasi tra queste rappresentazioni, di dimensione $m+1$, sono isomorfe.
+\end{proof}
+Si procede ora alla dimostrazione del Lemma \ref{Lemma2}.
+\begin{proof}
+	La strategia di dimostrazione sarà quella di utilizzare l'induzione.
+	Vogliamo dimostrare che, per $k\geq 1$:
+	\begin{equation}
+		\label{eq:4}
+		d\rho(X)u_k=k[\lambda-(k-1)]u_{k-1} 
+\tag{i}
+\end{equation}
+	Sia allora $k=1$. Sapendo che $d\rho([X,Y])=d\rho(H)=d\rho(X)d\rho(Y)-d\rho(Y)d\rho(X)$ e che $d\rho(Y)u_k=u_{k+1}$, $d\rho(H)u_k=(\lambda-2k)u_k$ e $d\rho(X)u_0=0$, verifichiamo $(i)$ per $k=1$.
+	$$d\rho(X)u_1=d\rho(X)d\rho(Y)u_0=d\rho(H)u_0+d\rho(Y)d\rho(X)u_0=$$$$=d\rho(H)u_0+0=(\lambda-0)u_0=\lambda u_0$$
+	Dato che la relazione $(i)$ è verificata per $k=1$, supponiamo che lo sia anche per un generico $k$ e dimostriamo che in quel caso è vera anche per $k+1$:
+	$$\rho(X)u_{k+1}=d\rho(X)d\rho(Y)u_{k}=d\rho(H)u_k+d\rho(Y)d\rho(X)u_k=$$
+	$$=(\lambda-2k)u_k+d\rho(Y)k[\lambda-(k-1)]u_{k-1}=$$ 
+	$$=(\lambda-2k)u_k+k[\lambda-(k-1)]u_{k}=(\lambda-2k+k\lambda-k^2+k)u_k=$$
+	$$=(\lambda-k)(k+1)u_k$$
+	Questo completa la dimostrazione.
 \end{proof}
 \chapter{Quantizzazione del momento angolare}
 \chapter*{Bibliografia}
