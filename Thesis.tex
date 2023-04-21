@@ -253,6 +253,9 @@ Da ora in avanti, quando si farà riferimento all'operazione di prodotto definit
 \begin{Def}
 	Un \textit{gruppo di topologico} $G$ è uno spazio topologico con la struttura di gruppo, tale che le operazioni di moltiplicazione $\cdot:G\times G\rightarrow G$ e inversione $i:G\rightarrow G$ sono continue.
 \end{Def}
+\begin{Def}
+	DA CONTINUARE
+\end{Def}
 \section{Gruppi di Lie}
 In questa sezione daremo le definizioni di gruppi di Lie e algebra di Lie con alcuni esempi ed importanti risultati, che ci permetteranno di identificare l'algebra di Lie di un gruppo di Lie con il suo spazio tangente nell'identità.
 \begin{Def}
@@ -339,6 +342,7 @@ Da ciò, $Lie(G)$ è un'algebra di Lie detta algebra di Lie di $G$ e si indica c
 	La mappa è anche suriettiva in quanto per ogni $X^A$ è possibile trovare un $A$ che lo generi: se $X^A$ è invariante a sinistra allora è completamente determinato dal suo valore nell'identità $e$. Dunque il vettore $A$ cercato è proprio $X^A_e$.\\
 	Questo completa la dimostrazione.  
 \end{proof}
+E' possibile definire un prodotto $[,]$ anche sullo spazio tangente all'identità. In questo modo si ha una vera e propria identificazione dell'algebra di Lie di un gruppo di Lie con il suo spazio tangente nell'elemento identico. Per approfondire questo risultato si veda [1] pag. $182-184$ cap. $4$.
 \begin{Ex}
 	Considerando gli insiemi $\mathbb{C}^n$ e $\mathbb{R}^n$ le algebre di Lie associate sono rispettivamente $\mathbb{C}^n$ e $\mathbb{R}^n$ con le bracket banali $[X,Y]=0$. In $\mathbb{R}^2$, ciò equivale a chiedere che valga il lemma di Schwarz: ${\partial\over\partial y}{\partial\over\partial x}f(p)={\partial\over\partial x}{\partial\over\partial y}f(p)$.
 \end{Ex}
@@ -354,7 +358,7 @@ Diamo ora alcuni esempi di spazi tangenti nell'identià per gruppi di matrici, r
 \end{Ex}
 Per la caratterizzazione delle algebre di Lie di $O_n(\mathbb{R})$ e $SU_n(\mathbb{C})$ si farà uso della mappa esponenziale, che verrà discussa nella successiva sezione.
 \section{Mappa esponenziale}
-In questa sezione daremo la definizione ed enunceremo alcune proprietà della mappa esponenziale e delle sue applicazioni. In particolare, ci concentreremo sui gruppi di matrici.\\
+In questa sezione daremo la definizione ed enunceremo alcune proprietà della mappa esponenziale e delle sue applicazioni. In particolare, ci concentreremo sui gruppi di matrici.
 \begin{Def}
 	Dato $G$ gruppo di Lie e $X\in\mathfrak{g}$, la \textit{mappa esponenziale} è \\$exp:\mathfrak{g}\rightarrow G$ definita come $exp(X)=\Phi_X(1,e)$ flusso del campo $X$.
 \end{Def}
@@ -436,7 +440,7 @@ Si può dare anche una definizione di rappresentazione di un'algebra di Lie. Com
 \begin{Def}
 	Sia $g$ algebra di Lie. Una rappresentazione di $g$ è una mappa omomorfica lineare $\pi:g\rightarrow End(V)$; dove $V$ è spazio vettoriale finito-dimensionale. ($\pi([X,Y])=[\pi(X),\pi(Y)]$).
 \end{Def}
-Al fine di classificare un'importantissima famiglia di rappresentazioni, diamo la seguente definizione:
+
 \begin{Def}
 	Data un rappresentazione di un gruppo di Lie $\rho$ che agisce su di uno spazio $V$, un sottospazio $W\subset V$ è detto \textit{invariante} se $\rho(g)w\in W$ $\forall w\in W$.\\
 	Una rappresentazione i cui unici sottospazi invarianti sono $\{0\}$ e $V$ è detta \textit{irriducibile}.
