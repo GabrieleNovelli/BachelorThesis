@@ -1,0 +1,66 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{graphicx}
+\geometry{a4paper, top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm}   
+
+\title{Lab prova 3}
+\author{Daniele Cristani, Gabriele Novelli, tavolo 2}
+\date{13 Aprile 2023}
+
+\begin{document}
+	
+	\maketitle
+	
+	\begin{abstract}
+		
+	\end{abstract}
+	\section{Scopo della prova}
+	Realizzare un’approssimazione di un’onda
+	quadra analogica (simmetrica rispetto allo zero) partendo da un’onda sinusoidale.
+	
+	\section{Strumenti}
+	\begin{itemize}
+		\item Alimentatore di bassa tensione;
+		\item Generatore di funzioni (TG315 Function Generator), impostato su onda sinusooidale con range di frequenza 30 $kHz$;
+		\item Multimetro. Per misure di tensione si ha risoluzione $0.01 \; V$, fondoscala $60.00 \; V$ (fondo scala più adatto per le misure effettuate). La precisione dello strumento è data dallo 0.3\% del valore di tensione misurato a cui va aggiunto 1 digit, che avendo risoluzione di $0.01 \; V$ per le nostre misure equivale ad aggiungere $0.01 \; V$. Per misure di resistenza si ha risoluzione $0.01 \; k\Omega$, fondoscala $60.00 \; k\Omega$ (fondo scala più adatto per le misure effettuate). La precisione dello strumento è data dallo 0.5\% del valore di tensione misurato a cui va aggiunto 1 digit, che avendo risoluzione di $0.01 \; k\Omega$ per le nostre misure equivale ad aggiungere $0.01 \; k\Omega$;
+		\item Oscilloscopio: il fondo scala è stato variato per minimizzare l’errore sulle misure, la risoluzione è 1/10 del fondo scala;
+		\item 2 Diodi p-n OA47 Germanio;
+		\item 2 Diodi p-n 1N4446 Silicio;
+		\item Potenziometro 1: $R_1 = 1 \; k\Omega$;
+		\item Potenziometro 2: $R_2 = 1 \; k\Omega$;
+		\item Potenziometro 3: $R_3 = 50 \; k\Omega$;
+		\item Cacciavite.
+	\end{itemize}
+	\section{Schema del circuito}
+	\begin{figure}[H]
+		\includegraphics[scale=0.5]{Circuito.JPG}
+		\caption{ schema del circuito realizzato in laboratorio.}
+		\label{Figure 1}
+	\end{figure}
+
+		
+	\section{Svolgimento dell'esperimento}
+	Le differenze di potenziale $\pm 5$ $V$ sono state prese dall'alimentatore a bassa tensione. L'uscita positiva dell'output A è stata collegata alla millefori, quella negativa a terra. Per l'output C invece, l'uscita positiva è stata mandata a terra e quella negativa alla piastra.
+	In questo modo, il primo genera una tensione positiva di 5 $V$ e il secondo una negativa di $-5 \; V$. Si sono inseriti poi i potenziometri $R_1$ e $R_2$ e se ne sono regolate le resistenze in modo che il piedino in alto e quello centrale si trovassero a una differenza di potenziale di rispettivamente $2 \; V$ e $-2 \; V$. Si è infine settato il potenziometro $R_3$ ad un valore di resistenza di $40 \pm  0.3\; k\Omega$ tra il piedino in alto e quello centrale.
+	
+	Si è assemblato il circuito: i piedini in basso dei primi due potenziometri sono stati messi a terra, mentre quelli in alto rispettivamente a 5 $V$ e $-5 \; V$. Ai due piedini centrali si sono collegati due diodi, come in figura $\ref{Figure 1}$. Le due rimanenti estremità di questi poi sono state collegate in comune al punto $C$ in figura $\ref{Figure 1}$. Successivamente si sono collegati al capo $C$ sia il generatore di funzioni che l'oscilloscopio, le cui altre estremità sono state mandate a terra. In questo modo all'oscilloscopio arriva un segnale sinusoidale.
+	
+	In seguito, si è settato il segnale ad una frequenza di 1 $kHz$: scegliendo sull'oscilloscopio un fondoscala temporale di $1 \; ms$  e facendo in modo che massimi consecutivi dell'onda fossero entrambi posti nell'intersezione tra due quadretti adiacenti, il periodo del segnale risulta essere $T = 1 \; ms$ e quindi la frequenza $\nu = 1/T = 1 \; kHz$.\\
+	Si è poi scelto un fondoscala sulla tensione di $1 \; V$, si è posto lo zero dell'oscilloscopio il più in basso possibile e si è settata l'ampiezza dell'onda a $6 V$, ponendo il massimo sei quadretti sopra allo zero (visualizzando un solo massimo sull'oscilloscopio e ponendolo a $t =0$ per minimizzare gli errori di parallasse(?)).
+	
+	Una volta scelti i valori di ampiezza e frequenza della sinusoide, si è inserito il terzo potenziometro. Il piedino in alto si collega al punto in cui i due diodi sono collegati, mentre quello centrale al function generator, spostato dal punto di collegamento delle giunzioni. In questo modo sull'oscilloscopio si vede l'approssimazione analogica di onda quadra cercata, poiché il terzo potenziometro va a completare il circuito tosatore.
+	
+	A questo punto si è misurata l'ampiezza dell'onda tagliata (valore) e il tempo di salita (valore). Per misurare questo si è posto lo zero allo 0\% dell'oscilloscopio e il ginocchio dell'onda quadra al 100\%. Il tempo di salita è la distanza sull'asse orizzontale tra le intersezioni della retta con il 10\% e il 90\%. Per rendere più semplice la misura si è posto il 10\% all'inizio di un quadretto.
+
+	Se metto uno dei due potenziometri a -1 $V$ l'onda sarà asimmetrica: sopra 2 e sotto -1
+	
+	Si abbassa la resistenza e si vede quando si muove l'onda sull'oscilloscopio. Appena si muove ho il valore di resistenza critica.
+	
+	\section{Analisi dati}
+	\section{Conclusioni}
+	\section{Appendice}
+	
+\end{document}
