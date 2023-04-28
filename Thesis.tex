@@ -253,9 +253,54 @@ Da ora in avanti, quando si farà riferimento all'operazione di prodotto definit
 \begin{Def}
 	Un \textit{gruppo di topologico} $G$ è uno spazio topologico con la struttura di gruppo, tale che le operazioni di moltiplicazione $\cdot:G\times G\rightarrow G$ e inversione $i:G\rightarrow G$ sono continue.
 \end{Def}
+Definiamo ora il concetto di azione di gruppo su un generico insieme $X$.
 \begin{Def}
-	DA CONTINUARE
+	Dato un gruppo $G$ ed un insieme $X$, si dice che $G$ \textit{agisce} su $X$ o che $X$ è un \textit{$G$ insieme} se esiste una mappa $a:G\times X\rightarrow X$ tale che:
+	\begin{itemize}
+		\item 	$a(e,x)=x$ per ogni $x\in X$;
+		\item $a(gh,x)=a(g,a(h,x))$ per ogni $g,h\in G$ e $x\in X$.
+	\end{itemize} 
+Nel caso $X$ sia anche spazio topologico, e sia verificato che la mappa $x\longmapsto a(g,x)$ è continua, allora $X$ è chiamato \textit{$G$ spazio}.
 \end{Def}
+\begin{Obs}
+In questo caso abbiamo definito il concetto di azione con una mappa $\textit{sinistra}$, intendendo con questo termine che un elemento $g\in G$ moltiplica a sinistra uno $x\in X$. Una definizione di mappa destra sarebbe stata equivalentemente valida. Inoltre, data un'azione sinistra, è automaticamente definita un'azione destra: infatti, data $a:G\times X\rightarrow X$ come $(g,x)\longmapsto a(g,x)$, si può definire una mappa $b:X\times G\rightarrow X$ come $(x,g)\longmapsto a(g^{-1},x)=b(x,g)$. Non è difficile verificare che questa nuova azione rispetta tutte e due le proprietà richieste:
+$$b(x,e)=a(e,x)=x$$
+In quanto $e^{-1}=e$ dato che $G$ è un gruppo. Ricordando poi che $(gh)^{-1}=h^{-1}g^{-1}$, si ha la catena di uguaglianze:
+$$b(x,gh)=a((gh)^{-1},x)=a(h^{-1}g^{-1},x)=$$$$=a(h^{-1},a(g^{-1},x))=a(h^{-1},b(x,g))=b(b(x,g),h)$$
+Questo dimostra l'assunzione.
+\end{Obs}
+Diamo ora la definizione di orbita di un punto appartenente ad un $G$ insieme.
+\begin{Def}
+	Dato un $G$ insieme indicato con $X$. L'insieme $O_x=\{a(g,x)\}$ è detto \textit{orbita} di $x\in X$.\\
+	Lo $\textit{stabilizzatore}$ di $x\in X$ invece è $G_x=\{g\in G|a(g,x)=x\}$ cioè il sottoinsieme di $G$ contenente tutti i punti che lasciano invariato $x$.  
+\end{Def}
+\begin{Obs}
+	Si può facilmente verificare che due orbite o sono uguali o sono disgiunte. Infatti, prese $O_x$ e $O_y$ orbite, supponendo che esse abbiano un punto in comune, ovvero che esista $g\in G$ tale che $a(g,x)=a(g,y)$, è automaticamente verificata la catena di uguaglianze:
+	$$a(g^{-1}g,x)=x=a(g^{-1},a(g,x))=a(g^{-1},a(g,y))=y$$
+	Da cui segue che $x=y$, ovvero le due orbite sono uguali.
+	Allora $X$ è unione disgiunta delle orbite dei suoi punti: $X=\bigsqcup O_x$.
+\end{Obs}
+\begin{Def}
+	Un'azione di un gruppo $G$ su di un insieme $X$ è detta \textit{transitiva} se esiste un'unica orbita, ovvero se per ogni $x,y\in X$ esiste $g\in G$ tale che $x=a(g,y)$.
+\end{Def}
+\begin{Theo}
+	Dato un $G$ insieme indicato con $X$ e una mappa $\theta_g:X\rightarrow X$ come $\theta_g(x)=a(g,x)$, allora $\theta_g$ è biettiva qualunque sia $g$.
+\end{Theo}
+\begin{proof}
+	Per costruzione: $\theta_g^{-1}=\theta_{g^{-1}}$, inoltre $\theta_g\theta_{g^{-1}}=id=\theta_{g^{-1}}\theta_g$ da cui il risultato.
+\end{proof}
+\begin{Obs}
+	Per definizione, se $X$ è $G$ spazio, allora $\theta_g$ è un omeomorfismo, in quanto continua, invertibile e con inversa continua.
+\end{Obs}
+\begin{Obs}
+	Dato un $G$ spazio indicato con $X$, si può definire una relazione di equivalenza $\sim$ come: $x\sim y$ se e solo se $y\in O_x$, cioè se $\exists g\in G$ tale che $a(g,x)=y$. Questa relazione è ovviamente di equivalenza e l'insieme di tutte le classi di equivalenza si indica con $X/G$. Se anche $G$ è uno spazio topologico, è possibile dare a $X/G$ la topologia quoziente.   
+\end{Obs}
+\begin{Theo}
+	Se $X$ è un $G$ spazio, allora la mappa $\pi:X\rightarrow X/G$ come $\pi(x)=O_x$ è aperta.
+\end{Theo}
+\begin{proof}
+	DIMOSTRAZIONE
+\end{proof}
 \section{Gruppi di Lie}
 In questa sezione daremo le definizioni di gruppi di Lie e algebra di Lie con alcuni esempi ed importanti risultati, che ci permetteranno di identificare l'algebra di Lie di un gruppo di Lie con il suo spazio tangente nell'identità.
 \begin{Def}
@@ -355,6 +400,10 @@ Diamo ora alcuni esempi di spazi tangenti nell'identià per gruppi di matrici, r
 \begin{Ex}[Spazio tangente a $SL_n(\mathbb{R})$]
 	Indichiamo con $\mathfrak{sl_n(\mathbb{R})}$ l'algebra di Lie di $SL_n(\mathbb{R})=\{A\in M_{n\times n}|det(A)=1\}$.\\
 	Seguendo lo stesso ragionamento dell'esempio precedente e quindi considerando una curva $\gamma:]-\epsilon,\epsilon[\rightarrow M_{n\times n}$ come $\gamma(t)=I+tB+O(t^2)$, è necessario che $det(I+tB+O(t^2))=1$. Ma $det(I+tB+O(t^2))=1+tr(B)+O(t^2)$ da cui: $$T_eSL_n(\mathbb{R})\cong sl_n(\mathbb{R})=\{A\in M_{n\times n}|trA=0\}$$ 
+\end{Ex}
+\begin{Ex}[Spazio tangente a $GL(V)$]
+	Sia lo spazio $GL(V)=\{f:V\rightarrow V|\, \textnormal{$f$\,  è \, lineare \, e \, invertibile}\}$ dove $V$ è uno spazio vettoriale a dimensione finita. Allora, fissata una base di $V$, si ha l'identificazione $GL(V)\cong GL_n(\mathbb{R})$. Lo spazio tangente a $GL_n(\mathbb{R})$ è stato provato essere $M_{n\times n}(\mathbb{R})\cong End(V)=\{f:V\rightarrow V|\textnormal{\, $f$\, è \, lineare}\}$. Da cui: 
+	$$T_{id}GL(V)\cong End(V)$$ 
 \end{Ex}
 Per la caratterizzazione delle algebre di Lie di $O_n(\mathbb{R})$ e $SU_n(\mathbb{C})$ si farà uso della mappa esponenziale, che verrà discussa nella successiva sezione.
 \section{Mappa esponenziale}
@@ -512,7 +561,7 @@ $A^{-1}=\begin{pmatrix}
 \end{pmatrix}$.\\
 Queste due devono coincidere, ovvero: $d=\bar{a}$; $-b=\bar{c}$; $a=\bar{d}$; $-c=\bar{b}$. Questo verifica la proposizione.
 \end{proof}
-Inoltre, dato che $\alpha=x_1+ix_2$ e $\beta=x_3+ix_4$, con $x_i\in\mathbb{R}$, si può identificare $SU_2(\mathbb{C})$ con la sfera quadridimensionale $$S^3=\{(x_1,x_2,x_3,x_4)\in \mathbb{R}^4|\sum x_i^2=1\}$$.
+Inoltre, dato che $\alpha=x_1+ix_2$ e $\beta=x_3+ix_4$, con $x_i\in\mathbb{R}$, si può identificare $SU_2(\mathbb{C})$ con la sfera quadridimensionale $$S^3=\{(x_1,x_2,x_3,x_4)\in \mathbb{R}^4|\sum x_i^2=1\}$$
 Da questa identificazione segue che, essendo $S^3$ connessa, compatta e semplicemente connessa, tutte queste proprietà sono anche di $SU_2(\mathbb{C})$.\\
 \\
 Consideriamo ora il gruppo delle matrici speciali ortogonali $SO_3(\mathbb{R})=\{A\in M_{n\times n}|A^{-1}=A^T, det(A)=1\}$.
@@ -521,7 +570,7 @@ Consideriamo ora il gruppo delle matrici speciali ortogonali $SO_3(\mathbb{R})=\
 MI MANCA RIVESTIMENTI PER PARLARE DELLA MAPPA 2:1 TRA SU2 SO3
 \\
 \\
-Andiamo ora a studiare le rappresentazioni di $SU_2(\mathbb{C})$. Questo esempio è molto utile in quanto mostra come, per dimostrare l'irriducibilità, sia molto più vantaggioso lavorare con le rappresentazioni delle algebre di Lie, piuttosto che con le rappresentazioni dei gruppi.\\
+Andiamo ora a studiare le rappresentazioni di $SU_2(\mathbb{C})$. Questo esempio è molto utile in quanto mostra come, per dimostrare l'irriducibilità, sia molto più vantaggioso lavorare con le rappresentazioni delle algebre di Lie invece che con le rappresentazioni dei gruppi.\\
 \\
 La rappresentazione di gruppo che utilizzeremo sarà definita come azione sullo spazio dei polinomi a due variabili.
 \begin{Prop}
@@ -672,15 +721,15 @@ $$[X,Y]=XY-YX=\begin{pmatrix}
 0&1
 \end{pmatrix}=H$$
 \end{Obs}
-\begin{Theo}
-	$\forall$ intero $m\geq 0$ una rappresentazione irriducibile di dimensione $m+1$. Due rappresentazioni irriducibili di $\mathfrak{sl_2(\mathbb{C})}$ con la stessa dimensione sono isomorfe tra di loro. Inoltre, se $d\rho_1$ è rappresentazione irriducibile di dimensione $m+1$, allora è isomorfa a $d\rho:\mathfrak{sl_2(\mathbb{C})}\rightarrow End(V_m)$ come descritta sopra.
+\begin{Theo}\label{Theo2}
+	Per ogni intero $m\geq 0$, esiste una rappresentazione irriducibile di dimensione $m+1$. Due rappresentazioni irriducibili di $\mathfrak{sl_2(\mathbb{C})}$ con la stessa dimensione sono isomorfe tra di loro. Inoltre, se $d\rho_1$ è rappresentazione irriducibile di dimensione $m+1$, allora è isomorfa a $d\rho:\mathfrak{sl_2(\mathbb{C})}\rightarrow End(V_m)$ come descritta sopra.
 \end{Theo}
 Per provare questo teorema sono necessari due lemmi. Il primo  è il seguente:
 \begin{Lem}\label{Lemma1}
 	Sia $v$ un autovettore di $d\rho(H)$ con autovalore $a\in\mathbb{C}$. Allora $d\rho(H)d\rho(X)v=(a+2)d\rho(X)v$ e $d\rho(H)d\rho(Y)v=(a-2)d\rho(Y)v$. Cioè o $d\rho(X)v$ e $d\rho(Y)v$ sono nulli, o sono autovettori di $d\rho(H)$ con autovalori $a+2$ e $a-2$.
 \end{Lem}
 \begin{proof}
-	Dato che $d\rho$ è una rappresentazione di un'algebra, essa è un omomorfismo, cioè preserva il braket:\\ $$d\rho([H,X])v=[d\rho(H),d\rho(X)]v$$
+	Dato che $d\rho$ è una rappresentazione di un'algebra, essa è un omomorfismo, cioè preserva il bracket:\\ $$d\rho([H,X])v=[d\rho(H),d\rho(X)]v$$
 	Ma vale anche $$[d\rho(H),d\rho(X)]v=d\rho(H)d\rho(X)v-d\rho(X)d\rho(H)v$$ e, come calcolato nell'osservazione 2.15: $$[H,X]=HX-XH=2X$$ 
 	Allora $$[d\rho(H),d\rho(X)]v=2d\rho(X)v=d\rho(H)d\rho(X)v-d\rho(X)d\rho(H)v$$ 
 	Ricordando che $v$ è autovettore di autovalore $a$ di $d\rho(H)$:
@@ -689,7 +738,7 @@ Per provare questo teorema sono necessari due lemmi. Il primo  è il seguente:
 	Per $Y$ è tutto analogo.
 \end{proof}
 Si dimostra ora il teorema. La strategia di dimostrazione consisterà nel prendere una generica rappresentazione irriducibile e, attraverso considerazioni sugli operatori, giungere a relazioni che la caratterizzino in modo analogo al Teorema \ref{Theo1}.
-\begin{proof}
+\begin{proof}[Dimostrazione teorema $\ref{Theo2}$:]
 	Sia una rappresentazione irriducibile $d\rho:\mathfrak{sl_2(\mathbb{C})}\rightarrow \mathfrak{gl}(V)$. Sia $u$ un autovettore di $d\rho(H)$ con autovalore $a$. L'esistenza di un autovettore è garantita dal fatto che il campo è complesso. Vogliamo mostrare che $d\rho$ isomorfa ad una rappresentazione nella forma descritta in precedenza.\\
 	Per il Lemma \ref{Lemma1} valgono le relazioni: $$d\rho(H)d\rho(X)u=(a+2)d\rho(X)u$$ e analogamente per applicazioni iterate di $d\rho(X)$
 	\begin{equation}
@@ -699,15 +748,15 @@ Si dimostra ora il teorema. La strategia di dimostrazione consisterà nel prende
 	\end{equation}
 	Dato che $d\rho(H)$ è un operatore su uno spazio vettoriale $V_m$ finito dimensionale, allora non può avere un numero infinito di autovettori. Cioè $\exists N\geq 0$ intero, tale che $d\rho(X)^Nu=u_0\neq0$ e $d\rho(X)^{N+1}u=0$.\\
 	Si pone $u_0=d\rho(X)^Nu$ e $\lambda=a+2N$ e si sostituisce dentro $(\ref{eq:2.16.1})$, ottenendo:\\  $d\rho(H)u_0=\lambda u_0$ e $d\rho(X)u_0=0$.	\\
-	Sia pone poi $u_k=d\rho(Y)^ku_0$ con $k$ intero positivo. Per il Lemma 1 si ha $d\rho(H)u_k=(\lambda-2k)u_k$.\\
+	Si pone poi $u_k=d\rho(Y)^ku_0$ con $k$ intero positivo. Per il Lemma 1 si ha $d\rho(H)u_k=(\lambda-2k)u_k$.\\
 	Ricordando che $d\rho(H)$ è un operatore su uno spazio vettoriale $V_m$ finito dimensionale, $\exists m\geq0$ intero positivo tale che  $d\rho(Y)^{m+1}=0=u_{m+1}$. Si può dimostrare ora il seguente lemma:
 	\begin{Lem}\label{Lemma2}
 		$d\rho(X)u_k=k[\lambda-(k-1)]u_{k-1}$ per $k\geq 1$.
 	\end{Lem} 
-La dimostrazione sarà data in seguito.
+La dimostrazione sarà data una volta conclusa quella del teorema.
 \\Se $u_{m+1}=0$ allora $d\rho(X)u_{m+1}=0$; per il Lemma \ref{Lemma2} si ha allora che $0=(m+1)(\lambda-m)u_m$ da cui segue $\lambda=m$.\\
 \\
-	Queste considerazioni portano a dire che $\forall d\rho $ irriducibile $\exists m\geq0$ intero e $u_0,...,u_m$ vettori tali che:\begin{itemize}
+	Queste considerazioni portano a dire che: per ogni $d\rho $ irriducibile, esistono $m\geq0$ intero e $u_0,...,u_m$ vettori tali che:\begin{itemize}
 		\item[(i)] $d\rho(H)u_k=(m-2k)u_k$, ovvero $u_k$ sono autovettori di $d\rho(H)$;
 		\item[(ii)] $d\rho(X)u_k=0;$ se k=0 e $d\rho(X)u_k=k(m-(k-1))u_{k-1}$ se $k>0$;
 		\item[(iii)] $d\rho(Y)u_k=u_{k+1}$ se $k<m$ e $d\rho(Y)u_k=0$ se $k=m$
@@ -727,7 +776,7 @@ $$d\rho([X,Y])u_m=0-d\rho(Y)u_{m-1}[m(m-m+1)]=$$
 $$=-u_m(m)=u_m(-m)=d\rho(H)u_m$$
 Per le altre due relazioni dell'osservazione \ref{Obs1} il procedimento è analogo.\\
 Per provare l'irriducibilità della rappresentazione così definita si procede come nel teorema \ref{Theo1}.\\
-In conclusione, si è dimostrato che ogni rappresentazione irriducibile di $\mathfrak{sl_2(\mathbb{C})}$ soddisfa la relazioni $(i),(ii),(iii)$. Ciò prova che due qualsiasi tra queste rappresentazioni, di dimensione $m+1$, sono isomorfe.
+In conclusione, si è dimostrato che ogni rappresentazione irriducibile di $\mathfrak{sl_2(\mathbb{C})}$ soddisfa le relazioni $(i),(ii),(iii)$. Ciò prova che due qualsiasi tra queste rappresentazioni, di dimensione $m+1$, sono isomorfe.
 \end{proof}
 Si procede ora alla dimostrazione del Lemma \ref{Lemma2}.
 \begin{proof}
