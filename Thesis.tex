@@ -293,14 +293,32 @@ Diamo ora la definizione di orbita di un punto appartenente ad un $G$ insieme.
 	Per definizione, se $X$ è $G$ spazio, allora $\theta_g$ è un omeomorfismo, in quanto continua, invertibile e con inversa continua.
 \end{Obs}
 \begin{Obs}
-	Dato un $G$ spazio indicato con $X$, si può definire una relazione di equivalenza $\sim$ come: $x\sim y$ se e solo se $y\in O_x$, cioè se $\exists g\in G$ tale che $a(g,x)=y$. Questa relazione è ovviamente di equivalenza e l'insieme di tutte le classi di equivalenza si indica con $X/G$. Se anche $G$ è uno spazio topologico, è possibile dare a $X/G$ la topologia quoziente.   
+	Dato un $G$ spazio indicato con $X$, si può definire una relazione di equivalenza $\sim$ come: $x\sim y$ se e solo se $y\in O_x$, cioè se $\exists g\in G$ tale che $a(g,x)=y$. Questa relazione è ovviamente di equivalenza e l'insieme di tutte le classi di equivalenza si indica con $X/G$. Se anche $G$ è uno spazio topologico, è possibile dare a $X/G$ la topologia quoziente. 
+	L'orbita $O_x$ di un generico punto corrisponde alla classe laterale $G\cdot x$, cioè tutti gli elementi ottenibili attraverso la moltiplicazione (azione) di un elemento di $G$ per $x$. \\
+	Allo stesso modo, dato $U\subset X$ con $g\cdot U$ si indicano tutti gli elementi di $X$ ottenibili attraverso la moltiplicazione (azione) di $g$ con un generico elemento di $U\subset X$. 
 \end{Obs}
 \begin{Theo}
 	Se $X$ è un $G$ spazio, allora la mappa $\pi:X\rightarrow X/G$ come $\pi(x)=O_x$ è aperta.
 \end{Theo}
 \begin{proof}
-	DIMOSTRAZIONE
+	Si consideri la mappa $\pi$ come definita sopra. Si vuole dimostrare che $\pi$ è aperta, cioè che $\pi(U)$ è aperto se $U$ è aperto. Allora, preso un generico $U\subset X$ aperto in $X$, si valuti $\pi^{-1}(\pi(U))$:
+	$$\pi^{-1}(\pi(U))=\{x\in X \,|\, \pi(x)\in \pi(U)\}=\{x\in X \,|\, O_x=O_y \, per \, un \, y\in U\}=$$
+	$$=\{x\in X \, | \, x=a(g,y) \, per \, g\in G, y\in U\}=$$
+	$$=\{x\in X \, | \, x=g\cdot U \, per \, g\in G\}= \bigcup_{g\in G} g\cdot U=\bigcup_{g\in G}\theta_g(U)$$
+	Inoltre, $\theta_g$ è un omeomorfismo in quanto $X$ è un $G$ spazio. Ma allora $\theta_g$ manda aperti in aperti, cioè se $U$ è aperto, anche $\theta_g(U)$ è aperto e quindi $\pi^{-1}(\pi(U))$ è aperto in quanto unione di aperti. Ma allora, per definizione di topologia quoziente, $\pi(U)$ è aperto.
 \end{proof}
+\section{Rivestimenti}
+In questa sezione introdurremo il concetto di rivestimento di uno spazio topologico ed alcuni risultati inerenti ad esso. Ciò che sarà discusso in questa sezione verrà poi utilizzato nell'analisi del gruppo $SO_3(\mathbb{R})$.
+\begin{Def}
+	Dati due spazi topologici $X$ e $\tilde{X}$ ed una mappa continua $p:\tilde{X}\rightarrow X$, allora $p$ è detta \textit{rivestimento} se:
+	\begin{itemize}
+		\item $p$ è suriettiva;
+		\item per ogni $x\in X$ esiste $U\subset X$ intorno di $x$ tale che $p^{-1}(U)=\bigcup_j V_j$. Dove $\{V_j\}$ è una collezione di sottoinsiemi di $\tilde{X}$ disgiunti a due a due e tale che, per ogni $j$, $p\rvert_{V_j}:V_j\rightarrow U$ è omeomorfismo. 
+	\end{itemize}
+\end{Def}
+\begin{Ex}[Rivestimento banale]
+	Dato uno spazio topologico $X$, si definisce rivestimento banale la mappa $p:X\rightarrow X$ come $p(x)=x$. Ovviamente $p$ così definita verifica tutte le proprietà in quanto identità.
+\end{Ex}
 \section{Gruppi di Lie}
 In questa sezione daremo le definizioni di gruppi di Lie e algebra di Lie con alcuni esempi ed importanti risultati, che ci permetteranno di identificare l'algebra di Lie di un gruppo di Lie con il suo spazio tangente nell'identità.
 \begin{Def}
