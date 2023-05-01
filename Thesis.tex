@@ -253,6 +253,9 @@ Da ora in avanti, quando si farà riferimento all'operazione di prodotto definit
 \begin{Def}
 	Un \textit{gruppo di topologico} $G$ è uno spazio topologico con la struttura di gruppo, tale che le operazioni di moltiplicazione $\cdot:G\times G\rightarrow G$ e inversione $i:G\rightarrow G$ sono continue.
 \end{Def}
+\begin{Ex}
+	Lo spazio $\mathbb{R}$ con l'usuale topologia degli aperti è l'operazione di addizione $+$ è un gruppo topologico abeliano.
+\end{Ex}
 Definiamo ora il concetto di azione di gruppo su un generico insieme $X$.
 \begin{Def}
 	Dato un gruppo $G$ ed un insieme $X$, si dice che $G$ \textit{agisce} su $X$ o che $X$ è un \textit{$G$ insieme} se esiste una mappa $a:G\times X\rightarrow X$ tale che:
@@ -319,6 +322,22 @@ In questa sezione introdurremo il concetto di rivestimento di uno spazio topolog
 \begin{Ex}[Rivestimento banale]
 	Dato uno spazio topologico $X$, si definisce rivestimento banale la mappa $p:X\rightarrow X$ come $p(x)=x$. Ovviamente $p$ così definita verifica tutte le proprietà in quanto identità.
 \end{Ex}
+\begin{Ex}
+	Si consideri lo spazio topologico $S^1$ definito come il cerchio di raggio unitario. Allora la mappa $p:\mathbb{R}\rightarrow S^1$ come $p(t)=e^{it}$ è un rivestimento di $S^1$. Infatti essa avvolge la linea reale sul cerchio unitario ed ogni punto è ripercorso con periodicità $2\pi$: $e^{it}=e^{i(t+2\pi)}$. Dunque le pre-immagini di ogni arco sono unioni disgiunte di sezioni della retta reale.
+\end{Ex}
+\begin{Def}
+	Un'azione di un gruppo $G$ su di un $G$ spazio $X$ si dice propriamente discontinua se per ogni $x\in X$ esiste un aperto $V\subset X$ contenente $x$ tale che $g\cdot V\cap g'\cdot V=\emptyset$, dove $g,g'\in G$ e $g\neq g'$.
+\end{Def}
+\begin{Obs}
+	Se un'azione è propriamente discontinua allora lo stabilizzatore di $x$ è $G_x={e}$.
+\end{Obs}
+\begin{Prop}
+	Sia $X$ un $G$ spazio. Se l'azione di $G$ su $X$ è propriamente discontinua, allora la mappa $p:X\rightarrow X/G$ come $p(x)=G\cdot x$ è un rivestimento.
+\end{Prop}
+Per la dimostrazione di questo risultato si veda [5] pag. 144 cap.17.
+\begin{Theo}
+	Se $p:\tilde{X}\rightarrow X$ è un rivestimento, allora $p$ è una mappa aperta e $X$ ha la topologia quoziente rispetto ad $\tilde{X}$.
+\end{Theo}
 \section{Gruppi di Lie}
 In questa sezione daremo le definizioni di gruppi di Lie e algebra di Lie con alcuni esempi ed importanti risultati, che ci permetteranno di identificare l'algebra di Lie di un gruppo di Lie con il suo spazio tangente nell'identità.
 \begin{Def}
@@ -822,6 +841,7 @@ Si procede ora alla dimostrazione del Lemma \ref{Lemma2}.
 	1984.
 	\item[$\circ$] [3] Theodor Bröcker , Tammo Dieck, Representations of Compact Lie Groups, Springer, 1985
 	\item[$\circ$] [4] Brian C. Hall, Lie Groups, Lie Algebras, and Representations, Springer, 2015
+	\item [$\circ$] [5] Czes Kosniowski, A First Course in Algebraic Topology, Cambridge, Cambridge University Press, 1980
 \end{itemize}
 \addcontentsline{toc}{chapter}{Bibliografia}
 \end{document}
