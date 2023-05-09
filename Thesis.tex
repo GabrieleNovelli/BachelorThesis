@@ -29,7 +29,7 @@
 \theoremstyle{definition}
 \newtheorem{Lem}[Def]{Lemma:}
 
-\theoremstyle{remark}
+\theoremstyle{definition}
 \newtheorem{Obs}[Def]{Osservazione:}
 
 
@@ -174,9 +174,10 @@ Dunque se $\phi=(x^1,...,x^n)$ allora su $U\cap S$ si avrà $\phi=(x^1,...,x^k,0
 	Si consideri la varietà differenziabile $\mathbb{R}^n$ e lo spazio $\mathbb{R}^k\subset\mathbb{R}^n$ per $k<n$. Si consideri poi la carta $(\mathbb{R}^n,\phi)=(\mathbb{R}^n,r^1,...,r^n)$ centrata in $p$. Dal fatto che $\mathbb{R}^n\cap \mathbb{R}^k=\mathbb{R}^k$ segue che $\phi|_{\mathbb{R}^k}=(r^1,...,r^k,0,0,...0)$. Questo dimostra che $\mathbb{R}^k$ è una sottovarietà regolare di $\mathbb{R}^n$.
 \end{Ex}
 \section{Mappe differenziabili}
-In questa sezione saranno definite le mappe differenziabili tra varietà ed esplicate alcune proprietà di esse.
+In questa sezione definiamo le mappe differenziabili tra varietà differenziabili e descriviamo alcune loro proprietà importanti. Per maggiori dettagli si veda [1] cap. 2.
 \begin{Def}
-	Sia una varietà differenziabile $M$ ed una funzione $f:M\rightarrow\mathbb{R}$. Allora $f$ è detta $C^\infty$ in ogni $p\in M$ se $\forall p\in M$ esiste una carta $(U,\phi)$ di $p$ tale che $f\circ \phi^{-1}$ è $C^\infty$.
+	Sia una varietà differenziabile $M$ ed una funzione $f:M\rightarrow\mathbb{R}$. Allora $f$ è detta differenziabile di classe $C^\infty$ in $p\in M$ se esiste una carta $(U,\phi)$ centrata in $p$ tale che $f\circ \phi^{-1}$ è $C^\infty$.\\
+	La funzione $f:M\rightarrow \mathbb{R}$ è detta differenziabile di classe $C^\infty$ su $M$ se lo è in ogni $p\in M$.
 \end{Def}
 \begin{Obs}
 	La definizione di differenziabilità data non dipende dalla scelta della carta. Infatti se $(U,\phi)$ e $(V,\psi)$ sono due carte di $M$ e $f\circ\phi^{-1}$ è $C^\infty$, allora $$f\circ\psi^{-1}=(f\circ\phi^{-1})\circ(\phi\circ\psi^{-1})$$ che è $C^\infty$.
@@ -185,23 +186,21 @@ In questa sezione saranno definite le mappe differenziabili tra varietà ed espl
 	Se $f:M\rightarrow \mathbb{R}$ è $C^\infty$ allora è continua. Infatti si può scrivere $f=(f\circ\phi^{-1})\circ \phi$ dove $\phi$ e $f\circ\phi^{-1}$ sono continue: $f\circ\phi^{-1}$ è $C^\infty$ e $\phi$ è omeomorfismo. Segue, per composizione di funzioni continue, che $f$ è continua.\\
 \end{Obs}
 \begin{Def}
-	Siano $N$ e $M$ varietà differenziabili di dimensione $n$ ed $m$. Una funzione $f:N\rightarrow M$ continua è detta $C^\infty$ in $p\in N$ se esistono due carte $(U,\phi)$ di $p\in N$ e $(V,\psi)$ di $f(p)\in M$ tali che $\psi\circ f\circ \phi$ è $C^\infty$.
+	Siano $N$ e $M$ varietà differenziabili di dimensione $n$ ed $m$. Una funzione $f:N\rightarrow M$ continua è detta $C^\infty$ in $p\in N$ se esistono due carte $(U,\phi)$ centrate in $p\in N$ e $(V,\psi)$ centrate in $f(p)\in M$ tali che $\psi\circ f\circ \phi$ è $C^\infty$.
 \end{Def}
 La composizione ha come dominio $\phi(f^{-1}(V))\cap U$ sottoinsieme di $\mathbb{R}^n$. $$\psi\circ f\circ \phi:\phi(f^{-1}(V)\cap U)\rightarrow \mathbb{R}^m$$.\\
 A differenza della definizione precedente, la continuità di $f$ è richiesta per assicurare che la pre-immagine $f^{-1}(V)$ sia un aperto di $N$.\\
 \\
 Inoltre è possibile dimostrare che la composizione di funzioni $C^\infty$ tra varietà differenziabili è ancora una funzione $C^\infty$ [1] (pag. 62 cap.2). 
 \begin{Def}
-	Si dice \textit{diffeomorfismo} un omeomorfismo di classe $C^\infty$.
+	Una mappa $f:M\rightarrow N$ tra due varietà si dice \textit{diffeomorfismo} se è biettiva, di classe $C^\infty$ e con inversa di classe $C^\infty$.
 \end{Def}
-Si può anche dimostrare che tutte le mappe di coordinate di una qualsiasi carta $(U,\phi)$ di una varietà differenziabile sono diffeomorfismi. 
+Si può anche dimostrare che tutte le mappe di coordinate di una qualsiasi carta $(U,\phi)$ di una varietà differenziabile sono diffeomorfismi. Per la dimostrazione si veda [1] pag. 63 cap. 2.
 \section{Spazio Tangente e Campi Vettoriali}
-In questa sezione definiamo i campi vettoriali, che saranno di vitale importanza nello studio delle algebre di Lie.\\
-\\
-Sia $M$ una varietà differenziabile di dimensione $n$.
+In questa sezione definiamo lo spazio tangente ed i campi vettoriali, che saranno di vitale importanza nello studio delle algebre di Lie. In tutta questa sezione si indicherà con $M$ una varietà differenziabile generica di dimensione $n$. 
 \begin{Def}
-	Si definisce il \textit{germe} di una funzione $C^\infty$ in $p\in M$ come la classe di equivalenza delle funzioni $C^\infty$ definite in un intorno di $p$. In particolare, due funzioni sono in relazione tra loro se assumono gli stessi valori in un intorno di $p$.
-	L'insieme di tutte le classi così definite si indica con $C_p^\infty(U)$ dove $U$ è intorno di $p$.
+	Si considerino tutte le coppie $(f,U)$, dove $U\subset M$ è un intorno di un punto $p\in M$ e $f:U\rightarrow \mathbb{R}$ è una funzione $C^\infty$. Diciamo allora che $(f,U)$ è equivalente a $(g,V)$ se esiste un insieme aperto $W\subset U\cap V$ contenente $p$, tale che $f=g$ quando ristrette a $W$. Si definisce il \textit{germe} di $f$ in $p$ come la classe di equivalenza di $(f,U)$.
+	L'insieme di tutti i germi delle funzioni $C^\infty$ in $p\in M$ è indicato con $C^\infty_p(M)$.
 \end{Def}
 Non è difficile verificare che la relazione così definita è effettivamente di equivalenza: se $f\sim g$ allora $g\sim f$ in quanto le funzioni coincidono in un intorno di $p$. Ovviamente $f\sim f$ e se $f\sim g$, $g\sim h$, allora $f\sim h$ in quanto tutte e 3 le funzioni sono uguali in un intorno di $p$.\\
 \\
@@ -210,17 +209,26 @@ Cioè rispetta la regola di Leibniz.
 \begin{Def}
 	Una derivazione in $p\in M$ è detta vettore tangente in $p$. L'insieme di tutti i vettori tangenti in $p$ è detto \textit{spazio tangente} e si indica con $T_pM$.
 \end{Def} 
-Data una Carta $(U,\phi)$ di $M$ tale che $p\in U$, si pone:
+Data una Carta $(U,\phi)$ di $M$ centrata in $p\in M$, si pone:
 $${\partial\over \partial x^i}\bigg\rvert_p(f)={\partial\over \partial r^i}\bigg\rvert_{\phi(p)}(f\circ \phi^{-1})$$ dove $r^i$ sono le coordinate di $\mathbb{R}^n$.
 Questa definizione rende ${\partial\over \partial x^i}$ un campo vettoriale in quanto rispetta la regola di Leibniz.\\
 \\
-Un importante risultato è che, dato uno spazio tangente $T_pM$ e una carta $(U,\phi)$ con $p\in U$, allora i vettori $\partial\over \partial x^i$ formano una base per $T_pM$. Ciò deriva dal fatto che i vettori tangenti $\partial\over \partial r^i$ sono una base per lo spazio tangente in $x_0\in\mathbb{R}^n$.\\
+Un importante risultato è che, dato uno spazio tangente $T_pM$ e una carta $(U,\phi)$ centrata in $p$, allora i vettori $\partial\over \partial x^i$ formano una base per $T_pM$. Ciò deriva dal fatto che i vettori tangenti $\partial\over \partial r^i$ sono una base per lo spazio tangente in $x_0\in\mathbb{R}^n$.\\
 Dunque un generico vettore tangente può essere espresso come una combinazione lineare: $$\vec{v}=\sum_{i=1}^{n}c_i{\partial\over \partial x^i}$$ che dipende dal punto interno alla carta.
 \begin{Def}
-	Data una funzione $C^\infty$ tra varietà differenziabili $F:N\rightarrow M$, si dice \textit{differenziale} in un punto $p\in N$ la mappa $dF_p:T_pN\rightarrow T_{F(p)}M$ definita come segue: dato il vettore $X_p\in T_pN$ e la funzione $f\in C_{F(p)}^\infty(M)$, allora $dF_p(X_p)f=\\X_p(f\circ F)\in\mathbb{R}$.\\
+	Data una funzione $C^\infty$ tra varietà differenziabili $F:N\rightarrow M$, si dice \textit{differenziale} in un punto $p\in N$ la mappa $dF_p:T_pN\rightarrow T_{F(p)}M$ definita come segue: dato il vettore $X_p\in T_pN$ e la funzione $f\in C_{F(p)}^\infty(M)$, allora $dF_p(X_p)f=\\X_p(f\circ F)\in\mathbb{R}$.
 \end{Def}
 Dalla linearità dei vettori tangenti e dal fatto che essi sono derivazioni, segue che il differenziale è una derivazione ed è lineare. \\
 E' possibile dimostrare che per il differenziale di una funzione composta vale la regola della catena: $$d(F\circ G)_p=dF_{G(p)}\circ dG_p$$ Per la dimostrazione si veda [1] (pag. 88 cap 3).
+\begin{Ex}
+	Siano $x^1,...,x^n$ le coordinate di $\mathbb{R}^n$ e le $y^1,...,y^m$ le coordiante di $\mathbb{R}^m$. Sia una mappa $F:\mathbb{R}^n\rightarrow \mathbb{R}^m$ di classe $C^\infty$ e sia $p\in \mathbb{R}^n$. Allora il differenziale di $F$ calcolato in $p$ è una mappa $dF_p:T_p\mathbb{R}^n\rightarrow T_{F(p)}\mathbb{R}^m$ tale che, presi un generico vettore $X_p\in T_p\mathbb{R}^n$ ed una funzione $f\in C_{F(p)}^\infty(\mathbb{R}^m)$, vale la relazione $dF_p(X_p)f=X_p(f\circ F)$.\\
+	Ricordando che una base di $T_p\mathbb{R}^n$ è costituita dai vettori $\{{\partial\over\partial x^i}\}$, allora preso vettore $X_p\in T_p\mathbb{R}^n$ come $X_p={\partial\over \partial x^j}$, avremo $$dF_p\bigg{(}{\partial\over \partial x^j}\bigg{)}=\sum_{k=1}^{m}d_j^k{\partial\over \partial y^k}\bigg{\rvert}_p$$
+	I coefficienti $d$ si possono trovare valutando 
+	$$dF_p\bigg{(}{\partial\over \partial x^j}\bigg{)}y^i=\sum_{k=1}^{m}d_j^k{\partial\over \partial y^k}\bigg{\rvert}_{F(p)}y^i=d_j^i$$
+	Inoltre, sapendo che, per definizione di differenziale, vale la relazione $dF_p(X_p)f=X_p(f\circ F)$, è possibile trovare un'espressione per i coefficienti $d_j^i$:
+	$$dF_p\bigg{(}{\partial\over \partial x^j}\bigg{)}y^i={\partial\over \partial x^j}\bigg{\rvert}_p(y^i\circ F)={\partial F^i\over \partial x^j}(p)=d^i_j$$
+	Quindi la matrice che definisce il differenziale di $F$ in un punto $p$ è esattamente la matrice Jacobiana delle derivate di $F$ calcolate nel punto $p$.
+\end{Ex}
 \begin{Def}
 	Si dice \textit{campo vettoriale} su $M$ una mappa $X$ tale che ad ogni punto associa un vettore nello Spazio Tangente al punto stesso: $X:p\mapsto X_p$. 
 \end{Def}
@@ -241,8 +249,9 @@ E'utile definire il concetto di flusso di un campo vettoriale $X$ come una mappa
 Vi sono numerose proprietà del flusso di un campo vettoriale. Per approfondimenti in materia si veda [1] pag. 155, 156 cap. 3.
 \end{Def}
 \chapter{Gruppi e algebre di Lie}
+In questo capitolo introduciamo i gruppi topologici, i rivestimenti, la mappa esponenziale, i gruppi e le algebre di Lie. Come vedremo, questi strumenti saranno utilizzati per lo studio delle rappresentazioni dei gruppi di Lie. Per approfondimenti in materia si consultino i testi citati in bibliografia.
 \section{Gruppi Topologici}
-In questa sezione si darà la definizione di gruppo topologico e si introdurranno i concetti di quozienti di gruppi e azioni di gruppi.
+In questa sezione si darà la definizione di gruppo topologico e si introdurranno i quozienti di gruppi e le azioni di gruppi.
 \begin{Def}
 	Si dice \textit{gruppo} un insieme $G$ munito di un'operazione binaria $\cdot:G\times G\rightarrow G$ tale che soddisfi le seguenti proprietà:
 	\begin{itemize}
@@ -314,7 +323,7 @@ Diamo ora la definizione di orbita di un punto appartenente ad un $G$ insieme.
 	Inoltre, $\theta_g$ è un omeomorfismo in quanto $X$ è un $G$ spazio. Ma allora $\theta_g$ manda aperti in aperti, cioè se $U$ è aperto, anche $\theta_g(U)$ è aperto e quindi $\pi^{-1}(\pi(U))$ è aperto in quanto unione di aperti. Ma allora, per definizione di topologia quoziente, $\pi(U)$ è aperto.
 \end{proof}
 \section{Rivestimenti}
-In questa sezione introdurremo il concetto di rivestimento di uno spazio topologico ed alcuni risultati inerenti ad esso. Ciò che sarà discusso in questa sezione verrà poi utilizzato nell'analisi del gruppo $SO_3(\mathbb{R})$.
+In questa sezione introdurremo i rivestimenti di uno spazio topologico ed alcuni risultati inerenti ad essi. Ciò che sarà discusso in questa sezione verrà poi utilizzato nell'analisi del gruppo $SO_3(\mathbb{R})$.
 \begin{Def}
 	Dati due spazi topologici $X$ e $\tilde{X}$ ed una mappa continua $p:\tilde{X}\rightarrow X$, allora $p$ è detta \textit{rivestimento} se:
 	\begin{itemize}
@@ -326,10 +335,10 @@ In questa sezione introdurremo il concetto di rivestimento di uno spazio topolog
 	Dato uno spazio topologico $X$, si definisce rivestimento banale la mappa $p:X\rightarrow X$ come $p(x)=x$. Ovviamente $p$ così definita verifica tutte le proprietà in quanto identità.
 \end{Ex}
 \begin{Ex}
-	Si consideri lo spazio topologico $S^1$ definito come il cerchio di raggio unitario. Allora la mappa $p:\mathbb{R}\rightarrow S^1$ come $p(t)=e^{it}$ è un rivestimento di $S^1$. Infatti essa avvolge la linea reale sul cerchio unitario ed ogni punto è ripercorso con periodicità $2\pi$: $e^{it}=e^{i(t+2\pi)}$. Dunque le pre-immagini di ogni arco sono unioni disgiunte di sezioni della retta reale.
+	Si consideri lo spazio topologico $S^1$ definito come il cerchio di raggio unitario. Allora la mappa $p:\mathbb{R}\rightarrow S^1$ come $p(t)=e^{it}$ è un rivestimento di $S^1$. Infatti essa avvolge la linea reale sul cerchio unitario ed ogni punto è ri-percorso con periodicità $2\pi$: $e^{it}=e^{i(t+2\pi)}$. Dunque le pre-immagini di ogni arco sono unioni disgiunte di sezioni della retta reale.
 \end{Ex}
 \begin{Def}
-	Un'azione di un gruppo $G$ su di un $G$ spazio $X$ si dice propriamente discontinua se per ogni $x\in X$ esiste un aperto $V\subset X$ contenente $x$ tale che $g\cdot V\cap g'\cdot V=\emptyset$, dove $g,g'\in G$ e $g\neq g'$.
+	Un'azione di un gruppo $G$ su un $G$ spazio $X$ si dice propriamente discontinua se per ogni $x\in X$ esiste un aperto $V\subset X$ contenente $x$ tale che $g\cdot V\cap g'\cdot V=\emptyset$, dove $g,g'\in G$ e $g\neq g'$.
 \end{Def}
 \begin{Obs}
 	Se un'azione è propriamente discontinua allora lo stabilizzatore di $x$ è $G_x={e}$.
@@ -343,7 +352,7 @@ Per la dimostrazione di questo risultato si veda [5] pag. 144 cap.17.
 \end{Theo}
 \begin{proof}
 	Sia $U$
- un insieme aperto di $\tilde{X}$ e sia $x\in p(U)$. Allora, dato che $p$ è un rivestimento, esiste un intorno $V\subset X$ di $x$ tale che $p^{-1}(V)=\bigcup_jA_j$ dove $\{A_j\}$ è una collezione di aperti in $\tilde{X}$. Sia allora un punto $\tilde{x}\in p^{-1}(x)\cap U$. Dato che $\tilde{x}\in p^{-1}(V)$ per definizione, è verificato che esiste un $A_j$ tale per cui $\tilde{x}\in A_j$. Essendo $A_j\cap U$ è aperto in quanto intersezione di aperti ed essendo $p|_{A_j}:A_j\rightarrow V$ un omeomorfismo, allora $p(A_j\cap U)$ è un sottoinsieme aperto di $V$ e quindi anche di $X$. Per arbitrarietà di $x$ scelto, $p(U)$ è aperto.\\
+ un insieme aperto di $\tilde{X}$ e sia $x\in p(U)$. Allora, dato che $p$ è un rivestimento, esiste un intorno $V\subset X$ di $x$ tale che $p^{-1}(V)=\bigcup_jA_j$ dove $\{A_j\}$ è una collezione di aperti in $\tilde{X}$. Sia allora un punto $\tilde{x}\in p^{-1}(x)\cap U$. Dato che $\tilde{x}\in p^{-1}(V)$ per definizione, è verificato che esiste un $A_j\subset \tilde{X}$ aperto tale per cui $\tilde{x}\in A_j$. Essendo $A_j\cap U$ aperto in quanto intersezione di aperti ed essendo $p|_{A_j}:A_j\rightarrow V$ un omeomorfismo, allora $p(A_j\cap U)$ è un sottoinsieme aperto di $V$ e quindi anche di $X$. Per arbitrarietà di $x$ scelto, $p(U)$ è aperto.\\
  \\
  La seconda parte del teorema si dimosta considerando che $p$ è una mappa aperta continua: preso $V\subset X$, esso è aperto se e solo se $p^{-1}(V)$ è aperto in $\tilde{X}$. Ciò termina la dimostrazione.
  Da ciò, 
@@ -355,7 +364,7 @@ Per la dimostrazione di questo risultato si veda [5] pag. 144 cap.17.
 	I rivestimenti universali sono imporanti perchè CONCLUDERE OSSERVAZIONe
 \end{Obs}
 \begin{Obs}
-	Per quanto riguarda l'esistenza del rivestimento universale di un determinato spazio topologico $X$, è possibile dimostrare che se $X$ è connesso e semplicemente connesso allora esso possiede un rivestimento universale.
+	Per quanto riguarda l'esistenza del rivestimento universale di un determinato spazio topologico $X$, è possibile dimostrare che se $X$ è connesso e semplicemente connesso allora esso possiede un rivestimento universale. Per approfondimenti a riguardo si veda [5] cap. 22.
 \end{Obs}
 \section{Gruppi di Lie}
 In questa sezione daremo le definizioni di gruppi di Lie e algebra di Lie con alcuni esempi ed importanti risultati, che ci permetteranno di identificare l'algebra di Lie di un gruppo di Lie con il suo spazio tangente nell'identità.
@@ -517,7 +526,7 @@ Da questo risultato emerge che dato un qualunque omomorfismo tra gruppi di Lie d
 La risposta a questa domanda è, in generale, no. Nel caso si volesse approfondire questo argomento, si consulti [4] pag. 113-127 cap. 5.
 \chapter{Teoria della Rappresentazione}
 In questo capitolo si definirà che cos'è una rappresentazione di un gruppo e si studieranno alcuni particolari esempi di grande rilevanza per la fisica.\\
-Come vedremo, le relazioni tra un gruppo di Lie e la sua algebra permettono di studiare le rappresentazioni del primo attraverso quelle della seconda.
+Come vedremo, sarà possibile studiare le rappresentazioni di un gruppo attraverso quelle della sua algebra di Lie.
 \begin{Def}
 Dato un gruppo $G$ si dice \textit{rappresentazione} un'applicazione\\ $\rho:G\rightarrow GL(V)$, dove $V$ è uno spazio vettoriale a dimensione finita, tale che $\rho(gh)=\rho(g)\circ\rho(h)$. Cioè $\rho$ è omomorfismo.\\
 Se $G$ è un gruppo di Lie, si definisce una rappresentazione di un gruppo di Lie come un omomorfismo differenziabile $\rho:G\rightarrow GL(V)$.
