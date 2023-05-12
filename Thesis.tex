@@ -222,21 +222,22 @@ Dalla linearità dei vettori tangenti e dal fatto che essi sono derivazioni, seg
 E' possibile dimostrare che per il differenziale di una funzione composta vale la regola della catena: $$d(F\circ G)_p=dF_{G(p)}\circ dG_p$$ Per la dimostrazione si veda [1] (pag. 88 cap 3).
 \begin{Ex}
 	Siano $x^1,...,x^n$ le coordinate di $\mathbb{R}^n$ e le $y^1,...,y^m$ le coordiante di $\mathbb{R}^m$. Sia una mappa $F:\mathbb{R}^n\rightarrow \mathbb{R}^m$ di classe $C^\infty$ e sia $p\in \mathbb{R}^n$. Allora il differenziale di $F$ calcolato in $p$ è una mappa $dF_p:T_p\mathbb{R}^n\rightarrow T_{F(p)}\mathbb{R}^m$ tale che, presi un generico vettore $X_p\in T_p\mathbb{R}^n$ ed una funzione $f\in C_{F(p)}^\infty(\mathbb{R}^m)$, vale la relazione $dF_p(X_p)f=X_p(f\circ F)$.\\
-	Ricordando che una base di $T_p\mathbb{R}^n$ è costituita dai vettori $\{{\partial\over\partial x^i}\}$, allora preso vettore $X_p\in T_p\mathbb{R}^n$ come $X_p={\partial\over \partial x^j}$, avremo $$dF_p\bigg{(}{\partial\over \partial x^j}\bigg{)}=\sum_{k=1}^{m}d_j^k{\partial\over \partial y^k}\bigg{\rvert}_p$$
+	Ricordando che una base di $T_p\mathbb{R}^n$ è costituita dai vettori $\{{\partial\over\partial x^i}\}$, allora preso vettore $X_p\in T_p\mathbb{R}^n$ definito come $X_p={\partial\over \partial x^j}$, avremo $$dF_p\bigg{(}{\partial\over \partial x^j}\bigg{)}=\sum_{k=1}^{m}d_j^k{\partial\over \partial y^k}\bigg{\rvert}_p$$
 	I coefficienti $d$ si possono trovare valutando 
 	$$dF_p\bigg{(}{\partial\over \partial x^j}\bigg{)}y^i=\sum_{k=1}^{m}d_j^k{\partial\over \partial y^k}\bigg{\rvert}_{F(p)}y^i=d_j^i$$
 	Inoltre, sapendo che, per definizione di differenziale, vale la relazione $dF_p(X_p)f=X_p(f\circ F)$, è possibile trovare un'espressione per i coefficienti $d_j^i$:
 	$$dF_p\bigg{(}{\partial\over \partial x^j}\bigg{)}y^i={\partial\over \partial x^j}\bigg{\rvert}_p(y^i\circ F)={\partial F^i\over \partial x^j}(p)=d^i_j$$
 	Quindi la matrice che definisce il differenziale di $F$ in un punto $p$ è esattamente la matrice Jacobiana delle derivate di $F$ calcolate nel punto $p$.
 \end{Ex}
+Veniamo ora al concetto di campo vettoriale, definito come una mappa che ad ogni punto associa un vettore.
 \begin{Def}
-	Si dice \textit{campo vettoriale} su $M$ una mappa $X$ tale che ad ogni punto associa un vettore nello Spazio Tangente al punto stesso: $X:p\mapsto X_p$. 
+	Si dice \textit{campo vettoriale} su $M$ una mappa $X$ tale che ad ogni punto associa un vettore nello spazio tangente al punto stesso: $X:p\mapsto X_p$. 
 \end{Def}
 \begin{Obs}
 	Abbiamo visto che un vettore può essere identificato come una mappa $\vec{v}:f\mapsto\sum_{i=1}^{n}c_i{\partial f\over \partial x^i}$ per un generico punto interno ad una data carta. Allora un campo vettoriale può essere visto anche come un'applicazione $X:f\mapsto\vec{v}(f)$ tale che $X(f)(p)=\sum_{i=1}^{n}c_i(p){\partial f(p)\over \partial x^i}$
 \end{Obs}
 \begin{Def}
-	Un campo vettoriale $X$ su $M$ si dice \textit{liscio} o $C^\infty$ se $\forall f\in C^\infty(M)$ si ha che $X(f)$ è ancora $C^\infty$.
+	Un campo vettoriale $X$ su $M$ si dice \textit{liscio} o $C^\infty$ se per ogni $f\in C^\infty(M)$ si ha che $X(f)$ è ancora $C^\infty$.
 \\
 Equivalentemente, $X=\sum_{i=1}^{n}c_i{\partial\over \partial x^i}$ è detto $C^\infty$ se le funzioni $c_i$ sono tutte $C^\infty$.
 \begin{Def}
@@ -275,31 +276,31 @@ Definiamo ora il concetto di azione di gruppo su un generico insieme $X$.
 		\item 	$a(e,x)=x$ per ogni $x\in X$;
 		\item $a(gh,x)=a(g,a(h,x))$ per ogni $g,h\in G$ e $x\in X$.
 	\end{itemize} 
-Nel caso $X$ sia anche spazio topologico, e sia verificato che la mappa $x\longmapsto a(g,x)$ è continua, allora $X$ è chiamato \textit{$G$ spazio}.
+Nel caso $X$ è anche spazio topologico, e la mappa $x\longmapsto a(g,x)$ è continua, allora $X$ è chiamato \textit{$G$ spazio}.
 \end{Def}
 \begin{Obs}
-In questo caso abbiamo definito il concetto di azione con una mappa $\textit{sinistra}$, intendendo con questo termine che un elemento $g\in G$ moltiplica a sinistra uno $x\in X$. Una definizione di mappa destra sarebbe stata equivalentemente valida. Inoltre, data un'azione sinistra, è automaticamente definita un'azione destra: infatti, data $a:G\times X\rightarrow X$ come $(g,x)\longmapsto a(g,x)$, si può definire una mappa $b:X\times G\rightarrow X$ come $(x,g)\longmapsto a(g^{-1},x)=b(x,g)$. Non è difficile verificare che questa nuova azione rispetta tutte e due le proprietà richieste:
+In questo caso abbiamo definito il concetto di azione con una mappa $\textit{sinistra}$, intendendo con questo termine che un elemento $g\in G$ moltiplica a sinistra un elemento $x\in X$. Una definizione di mappa destra sarebbe stata equivalentemente valida. Inoltre, data un'azione sinistra, è automaticamente definita un'azione destra: infatti, data $a:G\times X\rightarrow X$ definita come $(g,x)\longmapsto a(g,x)$, si può costruire una mappa $b:X\times G\rightarrow X$ definita come $(x,g)\longmapsto a(g^{-1},x)=b(x,g)$. Non è difficile verificare che questa nuova azione rispetta tutte e due le proprietà richieste:
 $$b(x,e)=a(e,x)=x$$
 In quanto $e^{-1}=e$ dato che $G$ è un gruppo. Ricordando poi che $(gh)^{-1}=h^{-1}g^{-1}$, si ha la catena di uguaglianze:
 $$b(x,gh)=a((gh)^{-1},x)=a(h^{-1}g^{-1},x)=$$$$=a(h^{-1},a(g^{-1},x))=a(h^{-1},b(x,g))=b(b(x,g),h)$$
-Questo dimostra l'assunzione.
+Questo dimostra che la mappa destra $(x,g)\longmapsto a(g^{-1},x)$ è ben definita.
 \end{Obs}
 Diamo ora la definizione di orbita di un punto appartenente ad un $G$ insieme.
 \begin{Def}
 	Dato un $G$ insieme indicato con $X$. L'insieme $O_x=\{a(g,x)\}$ è detto \textit{orbita} di $x\in X$.\\
-	Lo $\textit{stabilizzatore}$ di $x\in X$ invece è $G_x=\{g\in G|a(g,x)=x\}$ cioè il sottoinsieme di $G$ contenente tutti i punti che lasciano invariato $x$.  
+	Si definisce lo $\textit{stabilizzatore}$ di $x\in X$ come l'insieme $G_x=\{g\in G|a(g,x)=x\}$, cioè il sottoinsieme di $G$ contenente tutti i punti che, agendo su $x$, lo lasciano invariato.  
 \end{Def}
 \begin{Obs}
 	Si può facilmente verificare che due orbite o sono uguali o sono disgiunte. Infatti, prese $O_x$ e $O_y$ orbite, supponendo che esse abbiano un punto in comune, ovvero che esista $g\in G$ tale che $a(g,x)=a(g,y)$, è automaticamente verificata la catena di uguaglianze:
 	$$a(g^{-1}g,x)=x=a(g^{-1},a(g,x))=a(g^{-1},a(g,y))=y$$
 	Da cui segue che $x=y$, ovvero le due orbite sono uguali.
-	Allora $X$ è unione disgiunta delle orbite dei suoi punti: $X=\bigsqcup O_x$.
+	Da questo segue che $X$ è unione disgiunta delle orbite dei suoi punti: $X=\bigsqcup O_x$.
 \end{Obs}
 \begin{Def}
 	Un'azione di un gruppo $G$ su di un insieme $X$ è detta \textit{transitiva} se esiste un'unica orbita, ovvero se per ogni $x,y\in X$ esiste $g\in G$ tale che $x=a(g,y)$.
 \end{Def}
 \begin{Theo}
-	Dato un $G$ insieme indicato con $X$ e una mappa $\theta_g:X\rightarrow X$ come $\theta_g(x)=a(g,x)$, allora $\theta_g$ è biettiva qualunque sia $g$.
+	Dato un $G$ insieme indicato con $X$ e la mappa $\theta_g:X\rightarrow X$ tale che $\theta_g(x)=a(g,x)$, allora $\theta_g$ è biettiva per ogni $g$.
 \end{Theo}
 \begin{proof}
 	Per costruzione: $\theta_g^{-1}=\theta_{g^{-1}}$, inoltre $\theta_g\theta_{g^{-1}}=id=\theta_{g^{-1}}\theta_g$ da cui il risultato.
@@ -308,12 +309,12 @@ Diamo ora la definizione di orbita di un punto appartenente ad un $G$ insieme.
 	Per definizione, se $X$ è $G$ spazio, allora $\theta_g$ è un omeomorfismo, in quanto continua, invertibile e con inversa continua.
 \end{Obs}
 \begin{Obs}
-	Dato un $G$ spazio indicato con $X$, si può definire una relazione di equivalenza $\sim$ come: $x\sim y$ se e solo se $y\in O_x$, cioè se $\exists g\in G$ tale che $a(g,x)=y$. Questa relazione è ovviamente di equivalenza e l'insieme di tutte le classi di equivalenza si indica con $X/G$. Se anche $G$ è uno spazio topologico, è possibile dare a $X/G$ la topologia quoziente. 
+	Dato un $G$ spazio indicato con $X$, si può definire una relazione di equivalenza $\sim$ come: $x\sim y$ se e solo se $y\in O_x$, cioè se esiste $g\in G$ tale che $a(g,x)=y$. Questa relazione è ovviamente di equivalenza e l'insieme di tutte le classi di equivalenza si indica con $X/G$. Se anche $G$ è uno spazio topologico, è possibile dare a $X/G$ la topologia quoziente. 
 	L'orbita $O_x$ di un generico punto corrisponde alla classe laterale $G\cdot x$, cioè tutti gli elementi ottenibili attraverso la moltiplicazione (azione) di un elemento di $G$ per $x$. \\
 	Allo stesso modo, dato $U\subset X$ con $g\cdot U$ si indicano tutti gli elementi di $X$ ottenibili attraverso la moltiplicazione (azione) di $g$ con un generico elemento di $U\subset X$. 
 \end{Obs}
 \begin{Theo}
-	Se $X$ è un $G$ spazio, allora la mappa $\pi:X\rightarrow X/G$ come $\pi(x)=O_x$ è aperta.
+	Se $X$ è un $G$ spazio, allora la mappa $\pi:X\rightarrow X/G$ definita come $\pi(x)=O_x$ è aperta.
 \end{Theo}
 \begin{proof}
 	Si consideri la mappa $\pi$ come definita sopra. Si vuole dimostrare che $\pi$ è aperta, cioè che $\pi(U)$ è aperto se $U$ è aperto. Allora, preso un generico $U\subset X$ aperto in $X$, si valuti $\pi^{-1}(\pi(U))$:
@@ -332,10 +333,10 @@ In questa sezione introdurremo i rivestimenti di uno spazio topologico ed alcuni
 	\end{itemize}
 \end{Def}
 \begin{Ex}[Rivestimento banale]
-	Dato uno spazio topologico $X$, si definisce rivestimento banale la mappa $p:X\rightarrow X$ come $p(x)=x$. Ovviamente $p$ così definita verifica tutte le proprietà in quanto identità.
+	Dato uno spazio topologico $X$, si definisce rivestimento banale la mappa $p:X\rightarrow X$ definita come $p(x)=x$. Ovviamente $p$ così definita verifica tutte le proprietà in quanto identità.
 \end{Ex}
 \begin{Ex}
-	Si consideri lo spazio topologico $S^1$ definito come il cerchio di raggio unitario. Allora la mappa $p:\mathbb{R}\rightarrow S^1$ come $p(t)=e^{it}$ è un rivestimento di $S^1$. Infatti essa avvolge la linea reale sul cerchio unitario ed ogni punto è ri-percorso con periodicità $2\pi$: $e^{it}=e^{i(t+2\pi)}$. Dunque le pre-immagini di ogni arco sono unioni disgiunte di sezioni della retta reale.
+	Si consideri lo spazio topologico $S^1$ definito come il cerchio di raggio unitario. Allora la mappa $p:\mathbb{R}\rightarrow S^1$ tale che $p(t)=e^{it}$ è un rivestimento di $S^1$. Infatti essa avvolge la linea reale sul cerchio unitario ed ogni punto è ri-percorso con periodicità $2\pi$: $e^{it}=e^{i(t+2\pi)}$. Dunque le pre-immagini di ogni arco sono unioni disgiunte di sezioni della retta reale.
 \end{Ex}
 \begin{Def}
 	Un'azione di un gruppo $G$ su un $G$ spazio $X$ si dice propriamente discontinua se per ogni $x\in X$ esiste un aperto $V\subset X$ contenente $x$ tale che $g\cdot V\cap g'\cdot V=\emptyset$, dove $g,g'\in G$ e $g\neq g'$.
@@ -344,7 +345,7 @@ In questa sezione introdurremo i rivestimenti di uno spazio topologico ed alcuni
 	Se un'azione è propriamente discontinua allora lo stabilizzatore di $x$ è $G_x={e}$.
 \end{Obs}
 \begin{Prop}
-	Sia $X$ un $G$ spazio. Se l'azione di $G$ su $X$ è propriamente discontinua, allora la mappa $p:X\rightarrow X/G$ come $p(x)=G\cdot x$ è un rivestimento.
+	Sia $X$ un $G$ spazio. Se l'azione di $G$ su $X$ è propriamente discontinua, allora la mappa $p:X\rightarrow X/G$ tale che $p(x)=G\cdot x$ è un rivestimento.
 \end{Prop}
 Per la dimostrazione di questo risultato si veda [5] pag. 144 cap.17.
 \begin{Theo}
@@ -409,20 +410,23 @@ Salvo specificazioni, le algebre di Lie considerate saranno sottintese a dimensi
 \end{Ex}
 Definiamo ora un'operazione che ci permetterà di identificare lo spazio tangente all'identità di un gruppo di Lie con una determinata algebra di Lie.\\
 \\
-Si indica con $l_g:G\rightarrow G$ come $l_g(x)=gx$ l'operazione di moltiplicazione a sinistra su $G$ gruppo di Lie.\\
+Si indica con $l_g:G\rightarrow G$ dove $l_g(x)=gx$ l'operazione di moltiplicazione a sinistra su $G$ gruppo di Lie.\\
 \begin{Obs}
-	$l_g$ è $C^\infty$ in quanto è definita come moltiplicazione su di un gruppo di Lie, cioè è continua e differenziabile infinite volte. Inoltre $l_g^{-1}=l_{g^{-1}}$ che è ancora continua. Quindi $l_g$ è un diffeomorfismo.
+	$l_g$ è $C^\infty$ in quanto è definita come moltiplicazione su di un gruppo di Lie. Da ciò segue che $l_g$ è anche continua. Inoltre $l_g^{-1}=l_{g^{-1}}$ che è ancora continua e di classe $C^\infty$. Quindi $l_g$ è un diffeomorfismo.
 \end{Obs}
-Dato un campo vettoriale $X$ su un gruppo di Lie $G$, l'operazione di moltiplicazione a sinistra induce una mappa $(dl_g)_e:T_eG\rightarrow T_gG$ che agisce su $X$.\\
+\begin{Obs}
+	Dato un campo vettoriale $X$ su un gruppo di Lie $G$, l'operazione di moltiplicazione a sinistra induce una mappa $(dl_g)_e:T_eG\rightarrow T_gG$ che agisce su $X$.
+\end{Obs}
+
 \begin{Def}
 	Un campo vettoriale $X$ su un gruppo di Lie $G$ si dice \textit{invariante a sinistra} se $dl_g(X)=X$ per ogni $g\in G$.
 \end{Def}
 Sostanzialmente un campo vettoriale è invariante a sinistra se la sua traslazione con l'operazione indotta dalla moltiplicazione lo lascia invariato: cioè se $dl_g(X_h)=X_{gh}$ per ogni $g,h\in G$.
 Ne consegue che $X_g=dl_g(X_e)$, ovvero che un campo vettoriale invariante a sinistra è completamente determinato dal suo valore all'identità del gruppo.\\
 \\
-E' possibile dimostrare che ogni campo $X$ invariante a sinistra su di un gruppo di Lie è $C^\infty$. ([1] pag. 181 cap.4).\\
+E' possibile dimostrare che ogni campo $X$ invariante a sinistra su di un gruppo di Lie è $C^\infty$. ([1] pag. 181 cap.4).
 \begin{Obs}
-	Dato un gruppo di Lie $G$ ed $A\in T_eG$, si può definire \\$X^A:G\rightarrow T_eG$ come un campo vettoriale tale che $X^A_g=dl_g(A)$. Questo campo è automaticamente invariante a sinistra in quanto: $$dl_g(X^A_h)=dl_g(dl_h(X^A_e))=dl_{gh}(X^A_e)=X^A_{gh}$$
+	Dato un gruppo di Lie $G$ ed un vettore $A\in T_eG$ tangente nell'identità, si può definire un campo vettoriale $X^A:G\rightarrow T_eG$ tale che $X^A_g=dl_g(A)$. Questo campo è automaticamente invariante a sinistra in quanto: $$dl_g(X^A_h)=dl_g(dl_h(X^A_e))=dl_{gh}(X^A_e)=dl_{gh}(A)=X^A_{gh}$$
 	In questo caso diciamo che $X^A$ è generato da $A\in T_eG$ e chiamiamo con $Lie(G)$ l'insieme di tutti gli $X^A$ generati dai vettori tangenti nell'identità in $G$.	
 \end{Obs}
 Dati due campi vettoriali $X$ e $Y$, definiamo la loro Lie Bracket in un punto $p$ come $[X,Y]_pf=(X_pY-Y_pX)f$.
@@ -432,14 +436,14 @@ Vale il seguente risultato:
 \end{Prop}
 \begin{proof}
 	Dalla linearità della mappa differenziale segue che se $X,Y$ sono invarianti a sinistra anche le loro combinazioni lineari lo saranno.\\
-	Per provare l'invarianza della bracket invece: si consideri un punto $p\in G$ ed una funzione $f\in C^\infty_p$, si vuole far vedere che $dl_g([X,Y])=[X,Y]$.
+	Per provare l'invarianza della bracket invece: si consideri un punto $p\in G$ ed una funzione $f\in C^\infty_p(G)$, si vuole far vedere che $dl_g([X,Y])=[X,Y]$.
 	Applicando la definizione di differenziale: $$dl_g([X,Y]_p)f=[X,Y]_p(f\circ l_g)=$$$$=X_pY(f\circ l_g)-Y_pX(f\circ l_g)=$$$$=X_p(dl_g(Y)f)-Y_p(dl_g(X)f)=$$
 	$$=X_p(Y(f)\circ l_g)-Y_p(X(f)\circ l_g)=$$
 	$$=dl_g(X_p)Y(f)-dl_g(Y_p)X(f)=[X,Y]_{gp}f$$ 
 	Per mostrare che è soddisfatta l'identità di Jacobi invece si calcola:
 	$$[X,[Y,Z]_p]_p+[Y,[Z,X]_p]_p+[Z,[X,Y]_p]_p=$$
-	$$[X,Y_pZ-Z_pY]_p+[Y,Z_pX-X_pZ]_p+[Z,X_pY-Y_pX]_p=$$
-	$$(X_pY_pZ-X_pZ_pY-Y_pZ_pX+Z_pY_pX)+(Y_pZ_pX-Y_pX_pZ-Z_pX_pY+X_pZ_pY)+$$$$+(Z_pX_pY-Z_pY_pX-X_pY_pZ+Y_pX_pZ)=0$$
+	$$=[X,Y_pZ-Z_pY]_p+[Y,Z_pX-X_pZ]_p+[Z,X_pY-Y_pX]_p=$$
+	$$=(X_pY_pZ-X_pZ_pY-Y_pZ_pX+Z_pY_pX)+(Y_pZ_pX-Y_pX_pZ-Z_pX_pY+X_pZ_pY)+$$$$+(Z_pX_pY-Z_pY_pX-X_pY_pZ+Y_pX_pZ)=0$$
 \end{proof}
 Dunque non solo $Lie(G)$ ha la struttura di uno spazio vettoriale, ma è anche chiuso rispetto a $[,]$. Inoltre, per come è stata definita la bracket, $[,]$ è bilineare, antisimmetrica e, come appena provato, verifica l'identità di Jacobi.\\
 Da ciò, $Lie(G)$ è un'algebra di Lie detta algebra di Lie di $G$ e si indica con $\mathfrak{g}$.
@@ -447,7 +451,7 @@ Da ciò, $Lie(G)$ è un'algebra di Lie detta algebra di Lie di $G$ e si indica c
 	Dato un gruppo di Lie $G$, esiste un isomorfismo tra $Lie(G)$ e $T_eG$, cioè $Lie(G)\cong T_eG$.
 \end{Theo}
 \begin{proof}
-	Si consideri l'applicazione $f:A\mapsto X^A$ dove $A$ è un vettore nell'identità di $G$ e $X^A$ è il campo vettoriale invariante a sinistra generato da esso. Si vuole provare che questa mappa è isomorfismo tra spazi vettoriali.\\
+	Si consideri l'applicazione $A\mapsto X^A$ dove $A$ è un vettore nell'identità di $G$ e $X^A$ è il campo vettoriale invariante a sinistra generato da esso. Si vuole provare che questa mappa è isomorfismo tra spazi vettoriali.\\
 	La mappa è iniettiva: se $A=0$ allora $X^A$ è il campo nullo in quanto $X^A_g=dl_g(A)=dl_g(0)=0$.\\
 	La mappa è anche suriettiva in quanto per ogni $X^A$ è possibile trovare un $A$ che lo generi: se $X^A$ è invariante a sinistra allora è completamente determinato dal suo valore nell'identità $e$. Dunque il vettore $A$ cercato è proprio $X^A_e$.\\
 	Questo completa la dimostrazione.  
@@ -460,11 +464,11 @@ Diamo ora alcuni esempi di spazi tangenti nell'identià per gruppi di matrici, r
 \begin{Ex}[Spazio tangente a $GL_n(\mathbb{R})$]
 	Indichiamo con $\mathfrak{gl_n(\mathbb{R})}$ l'algebra di Lie di $GL_n(\mathbb{R})$.
 	\\
-	Poichè la mappa $det:GL_n(\mathbb{R})\rightarrow\mathbb{R}$ è continua, sapendo che $det(I)\neq 0$, esiste $U_I$ aperto contenente $I$ tale che se $A\in U_I$ allora $det(A)\neq 0$. Sia $B\in M_{n\times n}$ e $\gamma:]-\epsilon,\epsilon[\rightarrow M_{n\times n}$ come $\gamma(t)=I+tB+O(t^2)$. Allora $\gamma(0)=I$ e $\gamma'(0)=B\in T_eGL_n(\mathbb{R})$. Scelto $\epsilon>0$ abbastanza piccolo si ha che $det(I+tBO(t^2))\neq 0$ per ogni $t\in]-\epsilon,\epsilon[$. Da ciò, $$\mathfrak{gl_n(\mathbb{R})}\cong M_{n\times n}= T_eGL_n(\mathbb{R})$$.
+	Poichè la mappa $det:GL_n(\mathbb{R})\rightarrow\mathbb{R}$ è continua, sapendo che $det(I)\neq 0$, esiste $U_I$ aperto contenente $I$ tale che se $A\in U_I$ allora $det(A)\neq 0$. Sia $B\in M_{n\times n}$ e $\gamma:]-\epsilon,\epsilon[\rightarrow M_{n\times n}$ tale che $\gamma(t)=I+tB+O(t^2)$. Allora $\gamma(0)=I$ e $\gamma'(0)=B\in T_eGL_n(\mathbb{R})$. Scelto $\epsilon>0$ abbastanza piccolo si ha che $det(I+tBO(t^2))\neq 0$ per ogni $t\in]-\epsilon,\epsilon[$. Da ciò, $$\mathfrak{gl_n(\mathbb{R})}\cong M_{n\times n}= T_eGL_n(\mathbb{R})$$.
 \end{Ex}
 \begin{Ex}[Spazio tangente a $SL_n(\mathbb{R})$]
 	Indichiamo con $\mathfrak{sl_n(\mathbb{R})}$ l'algebra di Lie di $SL_n(\mathbb{R})=\{A\in M_{n\times n}|det(A)=1\}$.\\
-	Seguendo lo stesso ragionamento dell'esempio precedente e quindi considerando una curva $\gamma:]-\epsilon,\epsilon[\rightarrow M_{n\times n}$ come $\gamma(t)=I+tB+O(t^2)$, è necessario che $det(I+tB+O(t^2))=1$. Ma $det(I+tB+O(t^2))=1+tr(B)+O(t^2)$ da cui: $$T_eSL_n(\mathbb{R})\cong sl_n(\mathbb{R})=\{A\in M_{n\times n}|trA=0\}$$ 
+	Seguendo lo stesso ragionamento dell'esempio precedente e quindi considerando una curva $\gamma:]-\epsilon,\epsilon[\rightarrow M_{n\times n}$ tale che $\gamma(t)=I+tB+O(t^2)$, è necessario che $det(I+tB+O(t^2))=1$. Ma $det(I+tB+O(t^2))=1+tr(B)+O(t^2)$ da cui: $$T_eSL_n(\mathbb{R})\cong \mathfrak{sl_n(\mathbb{R})}=\{A\in M_{n\times n}|trA=0\}$$ 
 \end{Ex}
 \begin{Ex}[Spazio tangente a $GL(V)$]
 	Sia lo spazio $GL(V)=\{f:V\rightarrow V|\, \textnormal{$f$\,  è \, lineare \, e \, invertibile}\}$ dove $V$ è uno spazio vettoriale a dimensione finita. Allora, fissata una base di $V$, si ha l'identificazione $GL(V)\cong GL_n(\mathbb{R})$. Lo spazio tangente a $GL_n(\mathbb{R})$ è stato provato essere $M_{n\times n}(\mathbb{R})\cong End(V)=\{f:V\rightarrow V|\textnormal{\, $f$\, è \, lineare}\}$. Da cui: 
@@ -492,7 +496,7 @@ Prima di enunciare altre proprietà, è necessario definire l'esponenziale di ma
 \begin{Def}
 	Si dice \textit{esponenziale} di una matrice $X\in M_{n\times n}$ la serie \\$e^X=\sum_{n=0}^{\infty}{X^n\over n! }$ dove $X^n$ è il prodotto ripetuto $n$ volte di $X$ con sè stessa.
 \end{Def}
-Si può dimostrare che questa serie converge $\forall X\in M_{n\times n}$ ed è una funzione continua di $X$. Inoltre valgono:\begin{itemize}
+Si può dimostrare che questa serie converge per ogni $X\in M_{n\times n}$ ed è una funzione continua di $X$. Inoltre valgono:\begin{itemize}
 	\item $e^0=I$;
 	\item $(e^X)^+=e^{X^+}$ dove con $^+$ si è indicata l'aggiunzione;
 	\item $e^X$ è invertibile ed $(e^X)^{-1}=e^{-X}$;
@@ -511,7 +515,7 @@ Utilizzando la mappa esponenziale è possibile trovare un'espressione per l'alge
 	Lo stesso ragionamento si può fare con il gruppo $U_n(\mathbb{R})$, ottenendo: $$\mathfrak{u_n(\mathbb{R})}=\{X\in M_{n\times n}|-X=X^+\}$$.
 \end{Ex}
 Enunciamo ora un importante risultato che ci permetterà di stabilire un collegamento, per mezzo della mappa esponenziale, tra omomorfismi di gruppi e algebre di Lie.
-\begin{Prop}
+\begin{Prop} \label{Prop: 2.4.1}
 	Siano $G$ e $H$ gruppi di Lie di matrici e $\mathfrak{g}$, $\mathfrak{h}$ le loro algebre. Sia $\rho:G\rightarrow H$ un omomorfismo tra gruppi di Lie. Allora esiste un'unica mappa reale lineare $\varrho:\mathfrak{g}\rightarrow\mathfrak{h}$ tale che:
 	\begin{itemize}
 		\item $\rho(e^X)=e^{\varrho(X)}$; 
@@ -525,7 +529,8 @@ Per la dimostrazione si veda [4] pag.67 cap. 3.\\
 Da questo risultato emerge che dato un qualunque omomorfismo tra gruppi di Lie di matrici, esso genera un unico omomorfismo tra le algebre di questi gruppi. E' naturale allora chiedersi se vale anche il contrario: è sempre possibile risalire in modo univoco da un omomorfismo di algebre di Lie ad un omomorfismo di gruppi di Lie?
 La risposta a questa domanda è, in generale, no. Nel caso si volesse approfondire questo argomento, si consulti [4] pag. 113-127 cap. 5.
 \chapter{Teoria della Rappresentazione}
-In questo capitolo si definirà che cos'è una rappresentazione di un gruppo e si studieranno alcuni particolari esempi di grande rilevanza per la fisica.\\
+In questo capitolo si definirà che cos'è una rappresentazione di un gruppo e si studieranno alcuni particolari esempi di grande rilevanza per la fisica.
+\section{Rappresentazioni di gruppi}
 Come vedremo, sarà possibile studiare le rappresentazioni di un gruppo attraverso quelle della sua algebra di Lie.
 \begin{Def}
 Dato un gruppo $G$ si dice \textit{rappresentazione} un'applicazione\\ $\rho:G\rightarrow GL(V)$, dove $V$ è uno spazio vettoriale a dimensione finita, tale che $\rho(gh)=\rho(g)\circ\rho(h)$. Cioè $\rho$ è omomorfismo.\\
@@ -535,7 +540,7 @@ In generale, se non altrimenti specificato, gli spazi vettoriali $V$ menzionati 
 \begin{Obs}
 	Equivalentemente, si può definire una rappresentazione come un'azione del gruppo su di uno spazio vettoriale, cioè come:
 	$$a:G\times V\rightarrow V$$
-	tale che $a(gh,v)=a(g,a(h,v))$.\\
+	tale che $a(e,x)=x$ e $a(gh,v)=a(g,a(h,v))$.\\
 	E' facile vedere come le due definizioni siano equivalenti: data una, è completamente definita l'altra:
 	\begin{proof}
 		Sia data $a:G\times V\rightarrow V$
@@ -545,7 +550,7 @@ In generale, se non altrimenti specificato, gli spazi vettoriali $V$ menzionati 
 \end{Obs}
 Con \textit{dimensione della rappresentazione} si intenderà la dimensione dello spazio vettoriale $V$ in relazione a cui essa è definita.
 \begin{Ex}[Rappresentazione banale]
-	Sia $G$ un gruppo di Lie di matrici. Si definisca $\rho: G\rightarrow GL_n(\mathbb{C})$ come $\rho(X)=I$, allora $\rho$ è una rappresentazione, chiamata banale. 
+	Sia $G$ un gruppo di Lie di matrici. Si definisca $\rho: G\rightarrow GL_n(\mathbb{C})$ tale che $\rho(X)=I$, allora $\rho$ è una rappresentazione, chiamata banale. 
 \end{Ex}
 \begin{Ex}[Rappresentazione standard]
 	Sia $G$ un gruppo di Lie di matrici. Allora per definizione $G\subset GL_n(\mathbb{C})$. Si definisca $\rho: G\rightarrow GL_n(\mathbb{C})$ come $\rho(X)=X$, allora $\rho$ è una rappresentazione, chiamata standard. 
@@ -556,23 +561,23 @@ Si può dare anche una definizione di rappresentazione di un'algebra di Lie. Com
 \end{Def}
 
 \begin{Def}
-	Data un rappresentazione di un gruppo di Lie $\rho$ che agisce su di uno spazio $V$, un sottospazio $W\subset V$ è detto \textit{invariante} se $\rho(g)w\in W$ $\forall w\in W$.\\
+	Data un rappresentazione di un gruppo di Lie $\rho$ che agisce su di uno spazio $V$, un sottospazio $W\subset V$ è detto \textit{invariante} se $\rho(g)w\in W$ per ogni $w\in W$.\\
 	Una rappresentazione i cui unici sottospazi invarianti sono $\{0\}$ e $V$ è detta \textit{irriducibile}.
 \end{Def}
 Enunciamo ora una serie di risultati che ci permetteranno di dimostrare l'irriducibilità di una rappresentazione di un gruppo di Lie a partire da quella della sua algebra.
 \begin{Theo}
-	Sia $G$ un gruppo di Lie di matrici con $g$ algebra di Lie e $\rho:G\rightarrow GL(V)$ rappresentazione. Allora $\exists!$ rappresentazione indotta dell'algebra di Lie di $G$, indicata con $d\rho:g\rightarrow gl(V)\equiv End(V)$ tale che $\rho(e^{tX})=e^{d\rho(X)}$ e $d\rho(X)={d\over dt}\rho(e^{tX})|_0$.\
+	Sia $G$ un gruppo di Lie di matrici con $g$ algebra di Lie e $\rho:G\rightarrow GL(V)$ rappresentazione. Allora esiste unica una rappresentazione indotta dell'algebra di Lie di $G$, indicata con $d\rho:g\rightarrow gl(V)\equiv End(V)$ tale che $\rho(e^{tX})=e^{d\rho(X)}$ e $d\rho(X)={d\over dt}\rho(e^{tX})|_0$.\
 	Inoltre $d\rho(AXA^{-1})=\rho(A)d\rho(X)\rho(A)^{-1}$.	
 \end{Theo}
 \begin{proof}
-	A patto di fissare una base, possiamo identificare $GL(V)$ con $GL_n(\mathbb{C})$ (o $\mathbb{R}$), allora se assumiamo le ipotesi del teorema, $\rho$ diventa un omomorfismo tra gruppi di Lie di matrici. Per la proposizione 1.47 esiste un'unica $\varphi:g\rightarrow End(V)$ che coincide con $d\rho$ e rispetta tutte le proprietà.
+	A patto di fissare una base, possiamo identificare $GL(V)$ con $GL_n(\mathbb{C})$ (o $\mathbb{R}$), allora se assumiamo le ipotesi del teorema, $\rho$ diventa un omomorfismo tra gruppi di Lie di matrici. Per la proposizione \ref{Prop: 2.4.1} esiste un'unica $\varphi:g\rightarrow End(V)$ che coincide con $d\rho$ e rispetta tutte le proprietà.
 \end{proof}
 \begin{Theo}
 	Sia $G$ gruppo di Lie di matrici connesso, $\mathfrak{g}$ la sua algebra $\rho:G\rightarrow GL(V)$ una rappresentazione e $d\rho:g\rightarrow gl(V)$ la rappresentazione indotta. Allora $\rho$ è irriducibile se e solo se $d\rho$ lo è.
 \end{Theo}
 Per la dimostrazione consultare [4] pag. 87 cap. 4.\\
 \\
-Si è cioè trovato che dato un gruppo connesso di Lie di matrici ed una rappresentazione di esso, non solo è sempre possibile trovare una rappresentazione della sua algebra di Lie, ma l'irriducibilità dell'una equivale a quella dell'altra.
+Si è cioè trovato che: dato un gruppo connesso di Lie di matrici ed una rappresentazione di esso, non solo è sempre possibile trovare una rappresentazione della sua algebra di Lie, ma l'irriducibilità dell'una equivale a quella dell'altra.
 \begin{Def}
 	Sia $\mathfrak{g}$ un'algebra di Lie reale. Si dice \textit{complessificazione} di $\mathfrak{g}$ lo spazio $\mathfrak{g_c}=\{X+iY|X,Y\in\mathfrak{g}\}$.
 \end{Def}
@@ -589,7 +594,7 @@ Vale inoltre il seguente teorema, che ci permetterà di studiare l'irriducibilit
 \end{Theo}
 \begin{proof}
 	Si definisce $d\rho_c$ come $d\rho_c(X+iY)=d\rho(X)+id\rho(Y)=d\rho(X+iY)$ che è omomorfismo in quanto: 
-	$$[d\rho(X+iY),d\rho(A+iB)]=[d\rho(X)+id\rho(y),d\rho(A)+id\rho(B)]=$$$$=[d\rho(X),d\rho(A)+id\rho(B)]+i[d\rho(Y),d\rho(A)+id\rho(B)]=$$
+	$$[d\rho(X+iY),d\rho(A+iB)]=[d\rho(X)+id\rho(Y),d\rho(A)+id\rho(B)]=$$$$=[d\rho(X),d\rho(A)+id\rho(B)]+i[d\rho(Y),d\rho(A)+id\rho(B)]=$$
 	$$=[d\rho(X),d\rho(A)]+i[d\rho(X),d\rho(B)]+i[d\rho(Y),d\rho(A)]-[d\rho(Y),d\rho(B)]=$$
 	$$=d\rho([X,A])+id\rho([X,B])+id\rho([Y,A])-d\rho([Y,B])=$$
 	$$=d\rho([X,A]-[Y,B])+id\rho([X,B]+[Y,A])=$$
@@ -597,9 +602,9 @@ Vale inoltre il seguente teorema, che ci permetterà di studiare l'irriducibilit
 	$$=d\rho([X+iY,A+iB])$$
 	Per quanto riguarda l'irriducibilità, un sottospazio $W\subset V$ invariante per $d\rho(X+iY)$ lo è se e solo se lo è anche per $d\rho(X)$ e $d\rho(Y)$.
 \end{proof}
-\subsection{Le rappresentazioni di $SU_2(\mathbb{C})$ e $SO_3(\mathbb{R})$} 
-In questa sezione utilizzeremo i risultati enunciati precedentemente per lo studio delle rappresentazioni di alcuni gruppi di matrici.\\
-
+\section{Le rappresentazioni di $SU_2(\mathbb{C})$ e $SO_3(\mathbb{R})$} 
+In questa sezione utilizzeremo i risultati enunciati precedentemente per lo studio delle rappresentazioni di alcuni gruppi di matrici.
+\subsection{Il gruppo $SU_2(\mathbb{C})$ }
 Consideriamo il gruppo delle matrici speciali unitarie $SU_2(\mathbb{C})=\{A\in M_{n\times n}|AA^{+}=I=A^{+}A;det(A)=1\}$.
 \begin{Prop}
 	$A\in SU_2(\mathbb{C})$ se e solo se $A$ nella forma $A=
@@ -611,7 +616,7 @@ Consideriamo il gruppo delle matrici speciali unitarie $SU_2(\mathbb{C})=\{A\in 
 \end{Prop}
 \begin{proof}
 	Se $A$ è in questa forma allora $det(A)=1$ e $AA^{+}=I=A^{+}A$.\\
-	Se invece $A\in SU_2(\mathbb{C})$ come $A=
+	Se invece $A\in SU_2(\mathbb{C})$ tale che $A=
 	\begin{pmatrix}
 		a & b \\
 		c & d
@@ -626,20 +631,112 @@ $A^{-1}=\begin{pmatrix}
 \end{pmatrix}$.\\
 Queste due devono coincidere, ovvero: $d=\bar{a}$; $-b=\bar{c}$; $a=\bar{d}$; $-c=\bar{b}$. Questo verifica la proposizione.
 \end{proof}
+Abbiamo dimostrato che il gruppo $SU_2(\mathbb{C})$ coincide con il gruppo dei quaternioni con determinante 1.
 Inoltre, dato che $\alpha=x_1+ix_2$ e $\beta=x_3+ix_4$, con $x_i\in\mathbb{R}$, si può identificare $SU_2(\mathbb{C})$ con la sfera quadridimensionale $$S^3=\{(x_1,x_2,x_3,x_4)\in \mathbb{R}^4|\sum x_i^2=1\}$$
-Da questa identificazione segue che, essendo $S^3$ connessa, compatta e semplicemente connessa, tutte queste proprietà sono anche di $SU_2(\mathbb{C})$.\\
+Da questa identificazione segue che, essendo $S^3$ connessa, compatta e semplicemente connessa, tutte queste proprietà sono anche di $SU_2(\mathbb{C})$.
+\subsection{Il gruppo $SO_3(\mathbb{R})$}
+Consideriamo ora il gruppo delle matrici speciali ortogonali indicato con $SO_3(\mathbb{R})=\{A\in M_{n\times n}|A^{-1}=A^T, det(A)=1\}$.\\
 \\
-Consideriamo ora il gruppo delle matrici speciali ortogonali $SO_3(\mathbb{R})=\{A\in M_{n\times n}|A^{-1}=A^T, det(A)=1\}$.
+E' possibile dimostrare che il gruppo $SO_3(\mathbb{R})$ è connesso ma non semplicemente connesso. Per approfondimenti su questo risultato si veda [4] pag. 26-28 cap.1.
+\subsection{Le rappresentazioni di $SO_3(\mathbb{R})$}
+Consideriamo ora l'insieme dei quaternioni:
+$$H=\bigg{\{}
+\begin{pmatrix}
+	\alpha & \beta \\
+	-\bar{\beta} & \bar{\alpha}
+\end{pmatrix}
+\bigg{\rvert}\alpha,\beta\in \mathbb{C}
+\bigg{\}}$$
+Questo insieme, munito delle operazioni di prodotto righe per colonne e somma tra matrici, è un'algebra reale avente come base le matrici:
+$$\mathbb{I}=\begin{pmatrix}
+	1 & 0 \\
+	0 & 1
+\end{pmatrix};
+i=\begin{pmatrix}
+	i & 0 \\
+	0 & -i
+\end{pmatrix};
+j=\begin{pmatrix}
+	0 & 1 \\
+	-1 & 0
+\end{pmatrix};
+k=\begin{pmatrix}
+	0 & i \\
+	i & 0
+\end{pmatrix}$$
+Inoltre, ogni $X$ non nullo in $H$ ha come inverso l'elemento $X^*/det(X)^2$, dove con $^*$ si è indicata l'operazione di trasposizione e coniugazione.\\
 \\
+Prendendo un generico quaternione $X$ individuato dalla coppia $(\alpha,\beta)$ e sostituendo $\alpha=x_1+ix_2$, $\beta=x_3+ix_4$; questo stesso quaternione potrà essere espresso come $X=\mathbb{I}x_1+ix_2+jx_3+kx_4$ dove $i,j,k$ sono le matrici definite sopra. E' allora possibile definire una norma nello spazio $H$ come $|X|=x_1^2+x_2^2+x_3^2+x_4^2=det(X)=\sum_{i=1}^{4}x_i^2$.\\
 \\
-MI MANCA RIVESTIMENTI PER PARLARE DELLA MAPPA 2:1 TRA SU2 SO3
-\\
-\\
+Si consideri poi l'insieme $H_0$ di tutti i quaternioni tali che $X^*=-X$, chiamati \textit{puramente immaginari}. Affinchè un generico $X=\begin{pmatrix}
+	\alpha & \beta \\
+	-\bar{\beta} & \bar{\alpha}
+\end{pmatrix}$ sia puramente immaginario è necessario che $\alpha+\bar{\alpha}=0$; ovvero che $\alpha=ix_2$ e $x_1=0$.\\
+Questo significa che ogni quaternione puramente immaginario è individuato da una terna $X=(x_2,x_3,x_4)$ e la base di $H_0$ è $\{i,j,k\}$.
+\begin{Obs}
+	Il fatto che $H_0$ abbia una base csotituita da tre elementi implica che esista un isomorfismo tra esso e lo spazio $\mathbb{R}^3$.
+\end{Obs}
+Dato un $q$ non nullo, si definisca ora l'operatore di coniugazione
+$T(q):H\longrightarrow H$ tale che
+$$a\longrightarrow qaq^{-1}$$.
+\begin{Prop}
+	Se $a\in H_0$ allora $-T(q)(a)=(T(q)(a))^*$, cioè $T(q)(a)\in H_0$. Inoltre, l'operatore di coniugazione $T(q)$ conserva la norma, ovvero $|T(q)(a)|=|a|$.
+\end{Prop}
+\begin{proof}
+	Si supponga che $a\in H_0$ sia un quaternione puramente immaginario. Allora $$(T(q)(a))^*=(qaq^{-1})^*=(q^{-1})^*a^*q^*$$
+	Dato che $q$ per ipotesi è non nullo, si può sostituire a $q^{-1}$ il suo inverso $q^*/det(q)^2$:
+	$$(q^{-1})^*a^*q^*=({q^*\over det(q)^2})^*a^*q^*=q(-a)({q^*\over det(q)^2})$$
+	dove nell'ultimo passaggio abbiamo spostato il denominatore dal primo all'ultimo termine. Sostituendo ancora una volta $q^{-1}=q^*/det(q)^2$ nell'espressione, otteniamo:
+	$$(T(q)(a))^*=-qaq^{-1}$$
+	Questo prova la prima parte della proposizione.\\
+	\\
+	Per verificare la conservazione della norma si utilizza il teorema di Binet:
+	$$det(qaq^{-1})=det(q)det(a)det(q^{-1})$$
+	Ricordando poi che $det(q^{-1})=det(q)^{-1}$ si ottiene:
+	$$det(qaq^{-1})=det(a)$$
+	Questo completa la dimostrazione.
+\end{proof}
+\begin{Obs}
+	Identificando $H_0$ con lo spazio $\mathbb{R}^3$, si può identificare $T(q)|_{H_0}$ come un operatore da $\mathbb{R}^3$ a $\mathbb{R}^3$ che preserva la norma euclidea.
+\end{Obs}
+\begin{Obs}
+	L'operatore $T(q)$ considerato è lineare. Infatti, prese due matrici $a,b$ e uno scalare $\alpha$, applicando le proprietà del prodotto e della somma tra matrici: $$T(q)(a+b)=q(a+b)q^{-1}=qaq^{-1}+qbq^{-1}=T(q)(a)+T(q)(b)
+	$$
+	$$T(q)(\alpha a)=\alpha T(q)(a)$$
+	Ciò significa che, indicando con $H'$ l'insieme dei quaternioni non nulli, possiamo definire un omomorfismo $T':H'\rightarrow O_3(\mathbb{R})$ tale che
+	$$q\longmapsto T(q)\bigg{\rvert}_{H_0}$$
+\end{Obs}
+Andiamo ora a studiare la restrizione della mappa appena definita all'insieme $SU_2(\mathbb{C})$. Vale la seguente proposizione:
+\begin{Prop}
+	Ogni operatore $T(q)|_{H_0}$ ottenuto a partire da una matrice di $SU_2(\mathbb{C})$ ha determinante uguale a $1$. Ovvero $T'(SU_2(\mathbb{C}))\subseteq SO_3(\mathbb{R})$. 
+\end{Prop}
+\begin{proof}
+	Si ricorda che il determinante di una matrice $O_3(\mathbb{R})$ ortogonale è sempre pari a $\pm 1$.
+	Si consideri ora la mappa $\xi:SU_2(\mathbb{C})\longrightarrow \{-1,1\}$ definita come $\xi(q)=det(T(q)|_{H_0})$.\\
+	Ricordando che l'insieme $SU_2(\mathbb{C})$ è connesso e che la mappa determinante è continua, allora l'immagine di $det$ dovrà essere anche essa continua, cioè potrà assumere solamente un valore tra $-1$ e $1$.\\
+	Dato che $\mathbb{I}\in SU_2(\mathbb{C})$ e $\xi(I)=det(I)=1$, allora $\xi(q)=1$ per ogni $q\in SU_2(\mathbb{C})$.
+\end{proof}
+Si è quindi dimostrato che 
+$$T'\bigg{\rvert}_{SU_2(\mathbb{C})}:SU_2(\mathbb{C})\longrightarrow SO_3(\mathbb{R})$$
+\begin{Obs} \label{Obs:3.2.3.1}
+	Calcolando il nucleo di $T'$:$$KerT'=\{q\in SU_2(\mathbb{C})| T(q)=id\}=\{q\in SU_2(\mathbb{C})|qaq^{-1}=a, \forall a\in SU_2(\mathbb{C})\}=\{\pm\mathbb{I}\}$$
+	Ciò suggerisce l'esistenza di una mappa 2:1 tra $SU_2(\mathbb{C})$ e $SO_3(\mathbb{R})$, che risulterà esistere tra $SU_2(\mathbb{C})/{\pm \mathbb{I}}$ e $SO_3(\mathbb{R})$.\\
+	Per definizione: data la relazione di equivalenza $a\sim b$ se e solo se $b=a\{\pm \mathbb{I}\}$, allora
+	$$SU_2(\mathbb{C})/{\pm \mathbb{I}}=\{[a], a\in SU_2(\mathbb{C})\}$$
+	L'insieme $SU_2(\mathbb{C})/{\pm \mathbb{I}}$ è costituito da tutte le classi laterali $a\{\pm\mathbb{I}\}$, ovvero da tutte le matrici $SU_2(\mathbb{C})/{\pm \mathbb{I}}$ a meno del loro segno.
+\end{Obs}
+\begin{Prop}
+	$SU_2(\mathbb{C})/{\pm \mathbb{I}}\cong SO_3(\mathbb{R})$ e l'isomorfismo è precisamente la mappa $T':SU_2(\mathbb{C})/{\pm \mathbb{I}}\longrightarrow SO_3(\mathbb{R})$ definito come $T'(q)=T(q)$.
+\end{Prop}
+\begin{proof}
+	L'iniettività è automaticamente provata dall'osservazione \ref{Obs:3.2.3.1}. Rimane da provare la suriettività.
+\end{proof}
+\subsection{Le rappresentazioni di $SU_2(\mathbb{C})$}
 Andiamo ora a studiare le rappresentazioni di $SU_2(\mathbb{C})$. Questo esempio è molto utile in quanto mostra come, per dimostrare l'irriducibilità, sia molto più vantaggioso lavorare con le rappresentazioni delle algebre di Lie invece che con le rappresentazioni dei gruppi.\\
 \\
 La rappresentazione di gruppo che utilizzeremo sarà definita come azione sullo spazio dei polinomi a due variabili.
 \begin{Prop}
-	Sia $V_m=\{\sum_{i=0}^{m} a_ix^{m-i}y^i\}$ spazio dei polinomi in due variabili complesso. Data l'azione $a:SU_2(\mathbb{C})\times V_m\rightarrow V_m$ come $a(g,f(v))=f(g^{-1}v)$, allora $a$ è rappresentazione.
+	Sia $V_m=\{\sum_{i=0}^{m} a_ix^{m-i}y^i\}$ spazio dei polinomi in due variabili complesso. Data la mappa $a:SU_2(\mathbb{C})\times V_m\rightarrow V_m$ tale che $a(g,f(v))=f(g^{-1}v)$, allora $a$ è rappresentazione.
 \end{Prop}
 L'insieme $\{x^{m-1}y^i\}$ è base per $V_m$, che quindi ha dimensione $dim(V_m)=m+1$.\\
 In questo caso $f(v)=f(x,y)$ è un elemento di $V_m$ e $g$ è un elemento di $SU_2(\mathbb{C})$ con inverso $g^{-1}$.\\
@@ -675,7 +772,7 @@ Da ciò $(g,f(x,y))\longmapsto f(\bar{\alpha}x-\beta y,\bar{\beta}x+\alpha y)$
 \end{proof}
 Verificato che la mappa scelta è effettivamente una rappresentazione, si procede a dimostrarne l'irriducibilità. Vale il seguente teorema:
 \begin{Theo} \label{Theo1}
-	Le $\rho$ rappresentazioni di $SU_2(\mathbb{C})$ che agiscono sullo spazio $V_m$ come definite sopra sono irriducibili $\forall m\geq 0$ intero.
+	Le $\rho$ rappresentazioni di $SU_2(\mathbb{C})$ che agiscono sullo spazio $V_m$ come definite sopra sono irriducibili per ogni $m\geq 0$ intero.
 \end{Theo}
 \begin{proof}
 	Per provare l'irriducibilità ci serviamo della rappresentazione indotta sull'algebra di $SU_2(\mathbb{C})$. Infatti, utilizzando il Teorema 2.8, se dimostriamo che questa è irriducibile, allora lo è anche la rappresentazione di gruppo in quanto $SU_2(\mathbb{C})$ è connesso. Inoltre, non agiamo direttamente su $\mathfrak{su_2(\mathbb{C})}$ ma su di uno spazio isomorfo alla sua complessificazione: $\mathfrak{sl_2(\mathbb{C})}$.\\
@@ -728,7 +825,7 @@ d\rho(X)f=-{\partial f\over \partial x}(X_{11}x+X_{12}y)-{\partial f\over \parti
 	$$d\rho(H)(x^{m-i}y^i)=(-m+2i)x^{m-i}y^i$$
 	Si osserva quindi che i vettori della base di $V_m$ sono autovettori di $d\rho(H)$ con autovalori $(-m+2i)$. L'effetto degli operatori $d\rho(X)$ e $d\rho(Y)$ è invece quello di alzare ed abbassare gli indici di $x$ e $y$.\\
 	\\
-	Per dimostrare l'irriducibilità, supponiamo che $W\subset V_m$ sia un sottospazio invariante per $d\rho$; cioè che $d\rho(A)w\in W$ $\forall w\in W$ e $\forall A\in \mathfrak{sl_2(\mathbb{C})}$. Cerchiamo di dimostrare che $W$ è banale. \\Poiché abbiamo fissato una base di $V_m$, un generico $w\in W$ si può scrivere come $w=\sum_{i=0}^{m}a_ix^{m-i}y^i$. Se supponiamo che $W\neq\{0\}$ allora $\exists$ almeno un $a_i\neq 0$.
+	Per dimostrare l'irriducibilità, supponiamo che $W\subset V_m$ sia un sottospazio invariante per $d\rho$; cioè che $d\rho(A)w\in W$ per ogni $w\in W$ e per ogni $A\in \mathfrak{sl_2(\mathbb{C})}$. Cerchiamo di dimostrare che $W$ è banale. \\Poiché abbiamo fissato una base di $V_m$, un generico $w\in W$ si può scrivere come $w=\sum_{i=0}^{m}a_ix^{m-i}y^i$. Se supponiamo che $W\neq\{0\}$ allora esiste almeno un $a_i\neq 0$.
 	Si indichi con $i_0$ il più piccolo indice per cui $a_i\neq 0$. \\
 	Considerando $d\rho(X)^{m-i_0}w$, sapendo che $d\rho(X)^{m-i_0}(x^{m-i}y^i)\propto x^{i_0-i}y^{m+i-i_0}$, allora:
 	\begin{itemize}
@@ -811,10 +908,10 @@ Si dimostra ora il teorema. La strategia di dimostrazione consisterà nel prende
 		d\rho(H)d\rho(X)^ku=(a+2k)d\rho(X)^ku
 		\tag{1}
 	\end{equation}
-	Dato che $d\rho(H)$ è un operatore su uno spazio vettoriale $V_m$ finito dimensionale, allora non può avere un numero infinito di autovettori. Cioè $\exists N\geq 0$ intero, tale che $d\rho(X)^Nu=u_0\neq0$ e $d\rho(X)^{N+1}u=0$.\\
+	Dato che $d\rho(H)$ è un operatore su uno spazio vettoriale $V_m$ finito dimensionale, allora non può avere un numero infinito di autovettori. Cioè esiste $N\geq 0$ intero, tale che $d\rho(X)^Nu=u_0\neq0$ e $d\rho(X)^{N+1}u=0$.\\
 	Si pone $u_0=d\rho(X)^Nu$ e $\lambda=a+2N$ e si sostituisce dentro $(\ref{eq:2.16.1})$, ottenendo:\\  $d\rho(H)u_0=\lambda u_0$ e $d\rho(X)u_0=0$.	\\
 	Si pone poi $u_k=d\rho(Y)^ku_0$ con $k$ intero positivo. Per il Lemma 1 si ha $d\rho(H)u_k=(\lambda-2k)u_k$.\\
-	Ricordando che $d\rho(H)$ è un operatore su uno spazio vettoriale $V_m$ finito dimensionale, $\exists m\geq0$ intero positivo tale che  $d\rho(Y)^{m+1}=0=u_{m+1}$. Si può dimostrare ora il seguente lemma:
+	Ricordando che $d\rho(H)$ è un operatore su uno spazio vettoriale $V_m$ finito dimensionale, esiste $m\geq0$ intero positivo tale che  $d\rho(Y)^{m+1}=0=u_{m+1}$. Si può dimostrare ora il seguente lemma:
 	\begin{Lem}\label{Lemma2}
 		$d\rho(X)u_k=k[\lambda-(k-1)]u_{k-1}$ per $k\geq 1$.
 	\end{Lem} 
@@ -870,6 +967,7 @@ Si procede ora alla dimostrazione del Lemma \ref{Lemma2}.
 	\item[$\circ$] [3] Theodor Bröcker , Tammo Dieck, Representations of Compact Lie Groups, Springer, 1985
 	\item[$\circ$] [4] Brian C. Hall, Lie Groups, Lie Algebras, and Representations, Springer, 2015
 	\item [$\circ$] [5] Czes Kosniowski, A First Course in Algebraic Topology, Cambridge, Cambridge University Press, 1980
+	\item [$\circ$] [6] C. Procesi, Aspetti geometrici e combinatori della teoria delle rappresentazioni del gruppo unitario, Pitagora Editrice, 1991
 \end{itemize}
 \addcontentsline{toc}{chapter}{Bibliografia}
-\end{document} 
+\end{document}
