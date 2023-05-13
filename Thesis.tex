@@ -572,7 +572,7 @@ Enunciamo ora una serie di risultati che ci permetteranno di dimostrare l'irridu
 \begin{proof}
 	A patto di fissare una base, possiamo identificare $GL(V)$ con $GL_n(\mathbb{C})$ (o $\mathbb{R}$), allora se assumiamo le ipotesi del teorema, $\rho$ diventa un omomorfismo tra gruppi di Lie di matrici. Per la proposizione \ref{Prop: 2.4.1} esiste un'unica $\varphi:g\rightarrow End(V)$ che coincide con $d\rho$ e rispetta tutte le proprietà.
 \end{proof}
-\begin{Theo}
+\begin{Theo}\label{Theo: 3.1}
 	Sia $G$ gruppo di Lie di matrici connesso, $\mathfrak{g}$ la sua algebra $\rho:G\rightarrow GL(V)$ una rappresentazione e $d\rho:g\rightarrow gl(V)$ la rappresentazione indotta. Allora $\rho$ è irriducibile se e solo se $d\rho$ lo è.
 \end{Theo}
 Per la dimostrazione consultare [4] pag. 87 cap. 4.\\
@@ -672,7 +672,11 @@ Si consideri poi l'insieme $H_0$ di tutti i quaternioni tali che $X^*=-X$, chiam
 	\alpha & \beta \\
 	-\bar{\beta} & \bar{\alpha}
 \end{pmatrix}$ sia puramente immaginario è necessario che $\alpha+\bar{\alpha}=0$; ovvero che $\alpha=ix_2$ e $x_1=0$.\\
-Questo significa che ogni quaternione puramente immaginario è individuato da una terna $X=(x_2,x_3,x_4)$ e la base di $H_0$ è $\{i,j,k\}$.
+Questo significa che ogni quaternione puramente immaginario è individuato da una terna $X=(x_2,x_3,x_4)$ e la base di $H_0$ è $\{i,j,k\}$. Possiamo allora esprimere ogni $X\in H_0$ come
+$\begin{pmatrix}
+	ix_2 & x_3+ix_4\\
+	-x_3+ix_4 & -ix_2\\
+\end{pmatrix}$.
 \begin{Obs}
 	Il fatto che $H_0$ abbia una base csotituita da tre elementi implica che esista un isomorfismo tra esso e lo spazio $\mathbb{R}^3$.
 \end{Obs}
@@ -730,6 +734,45 @@ $$T'\bigg{\rvert}_{SU_2(\mathbb{C})}:SU_2(\mathbb{C})\longrightarrow SO_3(\mathb
 \end{Prop}
 \begin{proof}
 	L'iniettività è automaticamente provata dall'osservazione \ref{Obs:3.2.3.1}. Rimane da provare la suriettività.
+	Si consideri il quaternione 
+	$$q(\theta)=
+	\begin{pmatrix}
+		e^{i\theta} & 0\\
+		0 & e^{-i\theta}\\
+	\end{pmatrix}=cos(\theta)+isin(\theta)$$
+dove $\theta\in [0,2\pi]$. Calcolando $T(q(\theta))(a)=q(\theta)aq(\theta)^{-1}$ con $a\in H_0$, si ottiene:
+$$\begin{pmatrix}
+	e^{i\theta} & 0\\
+	0 & e^{-i\theta}\\
+\end{pmatrix}
+\begin{pmatrix}
+	ix_2 & x_3+ix_4\\
+	-x_3+ix_4 & -ix_2\\
+\end{pmatrix}
+\begin{pmatrix}
+e^{-i\theta} & 0\\
+0 & e^{i\theta}\\
+\end{pmatrix}=$$
+$$\begin{pmatrix}
+	e^{-i\theta}(ix_2) & e^{i\theta}(x_3+ix_4)\\
+	e^{-i\theta}(-x_3+ix_4) & e^{-i\theta}(-ix_2)\\
+\end{pmatrix}
+\begin{pmatrix}
+	e^{-i\theta} & 0\\
+	0 & e^{i\theta}\\
+\end{pmatrix}=$$
+$$\begin{pmatrix}
+	ix_2 & e^{2i\theta}(x_3+ix_4)\\
+	e^{-2i\theta}(-x_3+ix_4) & -ix_2\\
+\end{pmatrix}$$
+Si valuta ora il termine $e^{2i\theta}(x_3+ix_4)$. Riscriviamo il numero complesso $(x_3+ix_4)$ come $(x_3+ix_4)=r(cos(\alpha)+isin(\alpha))$ dove $r=\sqrt{x_3^2+x_4^2}$. Valutiamo ora l'espressione 
+$$e^{2i\theta}r(cos(\alpha)+isin(\alpha))=
+(cos(2\theta)+isin(2\theta))r(cos(\alpha)+isin(\alpha))=$$
+$$=r(cos(2\theta)cos(\alpha)+icos(2\theta)sin(\alpha)+isin(2\theta)cos(\alpha)-sin(2\theta)sin(\alpha))=$$
+$$r(cos(2\theta+\alpha)+isin(2\theta+\alpha))$$
+Si è trovato che una matrice del tipo $q(\theta)=cos(\theta)+isin(\theta)$ fissa $i$ e induce nel piano generato da $j,k$ una rotazione di un angolo pari a $2\theta$. Con dei calcoli analoghi si può vedere che i quaternioni del tipo $cos(\theta)+jsin(\theta)$ e $cos(\theta)+ksin(\theta)$ fissano $j$ e $k$ e inducono una rotazione di $2\theta$ nel piano generato dai rimanenti elementi della base.\\
+E' noto che componendo tali rotazioni si ottiene ogni elemento di $SO_3(\mathbb{R})$. Dunque, la mappa $T':SU_2(\mathbb{C})/{\pm \mathbb{I}}\longrightarrow SO_3(\mathbb{R})$ è anche suriettiva e quindi è isomorfismo.\\
+Questo conclude la dimostrazione.
 \end{proof}
 \subsection{Le rappresentazioni di $SU_2(\mathbb{C})$}
 Andiamo ora a studiare le rappresentazioni di $SU_2(\mathbb{C})$. Questo esempio è molto utile in quanto mostra come, per dimostrare l'irriducibilità, sia molto più vantaggioso lavorare con le rappresentazioni delle algebre di Lie invece che con le rappresentazioni dei gruppi.\\
@@ -775,7 +818,7 @@ Verificato che la mappa scelta è effettivamente una rappresentazione, si proced
 	Le $\rho$ rappresentazioni di $SU_2(\mathbb{C})$ che agiscono sullo spazio $V_m$ come definite sopra sono irriducibili per ogni $m\geq 0$ intero.
 \end{Theo}
 \begin{proof}
-	Per provare l'irriducibilità ci serviamo della rappresentazione indotta sull'algebra di $SU_2(\mathbb{C})$. Infatti, utilizzando il Teorema 2.8, se dimostriamo che questa è irriducibile, allora lo è anche la rappresentazione di gruppo in quanto $SU_2(\mathbb{C})$ è connesso. Inoltre, non agiamo direttamente su $\mathfrak{su_2(\mathbb{C})}$ ma su di uno spazio isomorfo alla sua complessificazione: $\mathfrak{sl_2(\mathbb{C})}$.\\
+	Per provare l'irriducibilità ci serviamo della rappresentazione indotta sull'algebra di $SU_2(\mathbb{C})$. Infatti, utilizzando il Teorema \ref{Theo: 3.1}, se dimostriamo che questa è irriducibile, allora lo è anche la rappresentazione di gruppo in quanto $SU_2(\mathbb{C})$ è connesso. Inoltre, non agiamo direttamente su $\mathfrak{su_2(\mathbb{C})}$ ma su di uno spazio isomorfo alla sua complessificazione: $\mathfrak{sl_2(\mathbb{C})}$.\\
 	\\
 	La rappresentazione indotta sull'algebra è $d\rho:\mathfrak{sl_2(\mathbb{C})}\rightarrow \mathfrak{gl}(V_m)\equiv End(V_m)$ come 
 	$$d\rho(X)f(x,y)={d\over dt}\bigg{\rvert}_{0}\rho(e^{tX})f(x,y)={d\over dt}\bigg{\rvert}_{0}f(e^{-tX}(x,y))$$
