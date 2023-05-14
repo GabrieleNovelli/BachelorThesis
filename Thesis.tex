@@ -130,12 +130,11 @@ In questa sezione introduciamo la nozione di varietà differenziabile ed alcuni 
 \end{Def}
 Si nota che questa definizione è ben posta in quanto si può mostrare che se due carte sono compatibili con carte dello stesso atlante, allora sono compatibili tra di loro. Per maggiori dettagli si veda [1] (pag. 51, cap. 2).
 \begin{Obs}\label{Obs:1.1.1}
-Inoltre, ogni sottoinsieme aperto di una varietà differenziabile è ancora varietà differenziabile. Infatti se $\{(U_i,\phi_i)\}$ è un atlante per $M$, allora considerando $A\subset M$ aperto, la collezione $\{(U_i\cap A,\phi_i|_{U_i\cap A})\}$ è atlante per $A$.
+Ogni sottoinsieme aperto di una varietà differenziabile è ancora varietà differenziabile. Infatti se $\{(U_i,\phi_i)\}$ è un atlante per $M$, allora considerando $A\subset M$ aperto, la collezione $\{(U_i\cap A,\phi_i|_{U_i\cap A})\}$ è atlante per $A$.
 \end{Obs}
-Diamo di seguito alcuni esempi di varietà differenziabili:\\
-\\
+Diamo di seguito alcuni esempi di varietà differenziabili:
 \begin{Ex}
-	Lo spazio $\mathbb{R}^n$ con l'unica carta $(\mathbb{R}^n,r^1,...r^n)$, dove $r^i$ sono le coordinate standard di $\mathbb{R}^n$, è una varietà differenziabile. In questo caso un atlante è costituito da un'unica carta. Tuttavia è facile convincersi che ci sono infiniti atlanti con carte compatibili con la carta data in questo esempio.
+	Lo spazio $\mathbb{R}^n$ con l'unica carta $(\mathbb{R}^n,\phi)$, dove $\phi=(r^1,...,r^n)$ e $r^i$ sono le coordinate standard di $\mathbb{R}^n$, è una varietà differenziabile. In questo caso un atlante è costituito da un'unica carta. Tuttavia è facile convincersi che ci sono infiniti atlanti con carte compatibili con la carta data in questo esempio.
 \end{Ex}
 \begin{Ex}
 	L'insieme $GL_n(\mathbb{R})=\{A\in M_{n\times n}|det(A)\neq0\}$ è una varietà differenziabile.
@@ -250,7 +249,7 @@ E'utile definire il concetto di flusso di un campo vettoriale $X$ come una mappa
 Vi sono numerose proprietà del flusso di un campo vettoriale. Per approfondimenti in materia si veda [1] pag. 155, 156 cap. 3.
 \end{Def}
 \chapter{Gruppi e algebre di Lie}
-In questo capitolo introduciamo i gruppi topologici, i rivestimenti, la mappa esponenziale, i gruppi e le algebre di Lie. Come vedremo, questi strumenti saranno utilizzati per lo studio delle rappresentazioni dei gruppi di Lie. Per approfondimenti in materia si consultino i testi citati in bibliografia.
+In questo capitolo introduciamo i gruppi topologici e di Lie, i rivestimenti, la mappa esponenziale, e le algebre di Lie. Come vedremo, questi strumenti saranno utilizzati per lo studio delle rappresentazioni dei gruppi di Lie. Per approfondimenti in materia si consultino i testi citati in bibliografia.
 \section{Gruppi Topologici}
 In questa sezione si darà la definizione di gruppo topologico e si introdurranno i quozienti di gruppi e le azioni di gruppi.
 \begin{Def}
@@ -529,8 +528,10 @@ Per la dimostrazione si veda [4] pag.67 cap. 3.\\
 Da questo risultato emerge che dato un qualunque omomorfismo tra gruppi di Lie di matrici, esso genera un unico omomorfismo tra le algebre di questi gruppi. E' naturale allora chiedersi se vale anche il contrario: è sempre possibile risalire in modo univoco da un omomorfismo di algebre di Lie ad un omomorfismo di gruppi di Lie?
 La risposta a questa domanda è, in generale, no. Nel caso si volesse approfondire questo argomento, si consulti [4] pag. 113-127 cap. 5.
 \chapter{Teoria della Rappresentazione}
-In questo capitolo si definirà che cos'è una rappresentazione di un gruppo e si studieranno alcuni particolari esempi di grande rilevanza per la fisica.
+In questo capitolo si definirà che cos'è una rappresentazione di un gruppo, si enunceranno alcuni risultati importanti e si studieranno alcuni particolari esempi di grande rilevanza per la fisica.\\
+Per approfondimenti su questi temi si veda la bibliografia, in particolare i testi [2], [3], [4] e [6].
 \section{Rappresentazioni di gruppi}
+In questa sezione diamo la definizione di rappresentazione di un gruppo e di un gruppo di Lie e ne esponiamo alcune proprietà e teoremi.
 Come vedremo, sarà possibile studiare le rappresentazioni di un gruppo attraverso quelle della sua algebra di Lie.
 \begin{Def}
 Dato un gruppo $G$ si dice \textit{rappresentazione} un'applicazione\\ $\rho:G\rightarrow GL(V)$, dove $V$ è uno spazio vettoriale a dimensione finita, tale che $\rho(gh)=\rho(g)\circ\rho(h)$. Cioè $\rho$ è omomorfismo.\\
@@ -774,6 +775,19 @@ Si è trovato che una matrice del tipo $q(\theta)=cos(\theta)+isin(\theta)$ fiss
 E' noto che componendo tali rotazioni si ottiene ogni elemento di $SO_3(\mathbb{R})$. Dunque, la mappa $T':SU_2(\mathbb{C})/{\pm \mathbb{I}}\longrightarrow SO_3(\mathbb{R})$ è anche suriettiva e quindi è isomorfismo.\\
 Questo conclude la dimostrazione.
 \end{proof}
+\begin{Obs}
+	Questa proposizione permette di descrivere le rappresentazioni di $SO_3(\mathbb{R})$ attraverso quelle di $SU_2(\mathbb{C})$. \\
+	Si consideri una generica rappresentazione di $SU_2(\mathbb{C})$ indicata con $\rho$. Per definizione $\rho:SU_2(\mathbb{C})\rightarrow GL(V)$ è un omomorfismo, ovvero $\rho(gh)=\rho(g)\circ\rho(h)$. Allora, data una matrice $a\in SU_2(\mathbb{C})$, possiamo scrivere:
+	$$\rho(\pm a)=\rho(\pm \mathbb{I}a)=\rho(\pm\mathbb{I})\rho(a)$$
+	Se $\rho$ ha come nucleo l'insieme $Ker\rho=\{\pm\mathbb{I}\}$, allora
+	$$\rho(\pm a)=\rho(a)$$
+	In questo caso è automaticamente definita una rappresentazione $\rho':SU_2(\mathbb{C})/\pm\mathbb{I}\longrightarrow GL(V)$ tale che $\rho'([a])=\rho(a)$.
+	Allora, dato che esiste un isomorfismo tra $SO_3(\mathbb{R})$ e $SU_2(\mathbb{C})$, esiste anche una rappresentazione $\xi$ di $SO_3(\mathbb{R})$. In modo più formale, dato $T':SU_2(\mathbb{C})\rightarrow SO_3(\mathbb{R})$ isomorfismo e $\rho':SU_2(\mathbb{C})/\pm\mathbb{I}\longrightarrow GL(V)$ rappresentazione, la mappa $\xi=\rho'\circ T'^{-1}$ è una rappresentazione di $SO_3(\mathbb{R})$.
+	Questo risultato può essere formalizzato nella proposizione:
+\end{Obs}
+\begin{Prop}
+	Le rappresentazioni di $SO_3(\mathbb{R})$ sono le rappresentazioni di $SU_2(\mathbb{C})$ che hanno nel nucleo $\pm\mathbb{I}$. 
+\end{Prop}
 \subsection{Le rappresentazioni di $SU_2(\mathbb{C})$}
 Andiamo ora a studiare le rappresentazioni di $SU_2(\mathbb{C})$. Questo esempio è molto utile in quanto mostra come, per dimostrare l'irriducibilità, sia molto più vantaggioso lavorare con le rappresentazioni delle algebre di Lie invece che con le rappresentazioni dei gruppi.\\
 \\
