@@ -379,7 +379,16 @@ Si nota che, facendo riferimento alla sezione precedente nel caso di un gruppo d
 	Si consideri $GL_n(\mathbb{R})$, che si è provato essere varietà differenziabile. Date le operazioni prodotto $\cdot$ righe per colonne e $i$ inverso di una matrice, queste rendono $GL_n(\mathbb{R})$ un gruppo. Infatti il prodotto righe per colonne è associativo ed ha $\mathbb{I}$ come elemento neutro, mentre l'esistenza dell'inverso è garantita dalla condizione $det\neq 0$. Il fatto che queste due operazioni siano $C^\infty$ rende $GL_n(\mathbb{R})$ un gruppo di Lie.
 \end{Ex}
 \begin{Ex}
-	Si consideri $SL_n(\mathbb{R})=\{A\in M_{n\times n}| det(A)=1\}$. Dal fatto che $SL_n(\mathbb{R})=det^{-1}(1)$ segue che $SL_n(\mathbb{R})$ è un sottogruppo chiuso di $GL_n(\mathbb{R})$. Inoltre, per il teorema della ... DA COMPLETARE VEDI L-TU
+	Si consideri $SL_n(\mathbb{R})=\{A\in M_{n\times n}| det(A)=1\}$. Dal fatto che $SL_n(\mathbb{R})=det^{-1}(1)$ segue che $SL_n(\mathbb{R})$ è un sottogruppo chiuso di $GL_n(\mathbb{R})$. Inoltre è possibile dimostrare ([1] pag. 105 cap. 3, Teorema 9.9) che $SL_n(\mathbb{R})$ è una sottovarietà regolare di $GL_n(\mathbb{R})$ di dimensione $n^2-1$. Dato che le operazioni di moltiplicazione $\cdot$ e inversione $i$ sono ancora $C^\infty$ su $SL_n(\mathbb{R})$, questo gruppo è un sottogruppo di Lie di $GL_n(\mathbb{R})$.\\
+	\\
+	Per approfondire questo esempio di veda [1] pag. 105-107, 125, 165 cap. 3 e 4.\\
+	\\
+	In modo analogo si vede che (indicando con $+$ l'operazione di aggiunzione e con T quella di trasposizione):\\
+	$O_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^TA=AA^T=\mathbb{I}\};$\\
+	$SO_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^TA=AA^T=\mathbb{I}; det(A)=1\};$\\
+	$U_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^+A=AA^+=\mathbb{I}\};$\\
+	$SU_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^+A=AA^+=\mathbb{I};det(A)=1\};$\\
+	sono tutti gruppi di Lie reali (risp. complessi). 
 \end{Ex}
 
 \begin{Def}
@@ -513,7 +522,7 @@ Utilizzando la mappa esponenziale è possibile trovare un'espressione per l'alge
 	Data una curva passante per $I$ come $e^{tX}$, affinché essa sia contenuta dentro $O_n(\mathbb{R})$, deve valere $(e^{tX})^T=(e^{tX})^{-1}=e^{-tX}$, che è vero solamente se $-X=X^T$. Da ciò: $$\mathfrak{o_n(\mathbb{R})}=\{X\in M_{n\times n}|-X=X^T\}$$.
 	Lo stesso ragionamento si può fare con il gruppo $U_n(\mathbb{R})$, ottenendo: $$\mathfrak{u_n(\mathbb{R})}=\{X\in M_{n\times n}|-X=X^+\}$$.
 \end{Ex}
-Enunciamo ora un importante risultato che ci permetterà di stabilire un collegamento, per mezzo della mappa esponenziale, tra omomorfismi di gruppi e algebre di Lie.
+Enunciamo ora un importante risultato che ci permetterà di stabilire un collegamento, attraverso la mappa esponenziale, tra omomorfismi di gruppi e algebre di Lie.
 \begin{Prop} \label{Prop: 2.4.1}
 	Siano $G$ e $H$ gruppi di Lie di matrici e $\mathfrak{g}$, $\mathfrak{h}$ le loro algebre. Sia $\rho:G\rightarrow H$ un omomorfismo tra gruppi di Lie. Allora esiste un'unica mappa reale lineare $\varrho:\mathfrak{g}\rightarrow\mathfrak{h}$ tale che:
 	\begin{itemize}
@@ -788,6 +797,9 @@ Questo conclude la dimostrazione.
 \begin{Prop}
 	Le rappresentazioni di $SO_3(\mathbb{R})$ sono le rappresentazioni di $SU_2(\mathbb{C})$ che hanno nel nucleo $\pm\mathbb{I}$. 
 \end{Prop}
+\begin{Obs}
+	DEVI SCRIVERE CHE SU2 RICOPRE DUE VOTE SO3 ED E' RICOPRIMENTO UNIVERSALE
+\end{Obs}
 \subsection{Le rappresentazioni di $SU_2(\mathbb{C})$}
 Andiamo ora a studiare le rappresentazioni di $SU_2(\mathbb{C})$. Questo esempio è molto utile in quanto mostra come, per dimostrare l'irriducibilità, sia molto più vantaggioso lavorare con le rappresentazioni delle algebre di Lie invece che con le rappresentazioni dei gruppi.\\
 \\
@@ -915,7 +927,7 @@ d\rho(X)f=-{\partial f\over \partial x}(X_{11}x+X_{12}y)-{\partial f\over \parti
 	\item $[H,X]=2X$;
 	\item $[H,Y]=-2Y$.
 \end{itemize}
-Queste relazioni si ottengono svolgendo esplicitamente i calcoli. Sotto è riportato il conto esplicito della prima uguaglianza, le altre si ottengono in modo analogo.
+Queste relazioni si ottengono svolgendo esplicitamente i calcoli. Di seguito è riportato il conto esplicito della prima uguaglianza, le altre si ottengono in modo analogo.
 $$[X,Y]=XY-YX=\begin{pmatrix}
 	0&1\\
 	0&0
@@ -958,22 +970,25 @@ Per provare questo teorema sono necessari due lemmi. Il primo  è il seguente:
 \end{proof}
 Si dimostra ora il teorema. La strategia di dimostrazione consisterà nel prendere una generica rappresentazione irriducibile e, attraverso considerazioni sugli operatori, giungere a relazioni che la caratterizzino in modo analogo al Teorema \ref{Theo1}.
 \begin{proof}[Dimostrazione teorema $\ref{Theo2}$:]
-	Sia una rappresentazione irriducibile $d\rho:\mathfrak{sl_2(\mathbb{C})}\rightarrow \mathfrak{gl}(V)$. Sia $u$ un autovettore di $d\rho(H)$ con autovalore $a$. L'esistenza di un autovettore è garantita dal fatto che il campo è complesso. Vogliamo mostrare che $d\rho$ isomorfa ad una rappresentazione nella forma descritta in precedenza.\\
+	Sia una rappresentazione irriducibile $d\rho:\mathfrak{sl_2(\mathbb{C})}\rightarrow \mathfrak{gl}(V)$. Sia $u$ un autovettore di $d\rho(H)$ con autovalore $a$. L'esistenza di un autovettore è garantita dal fatto che il campo è complesso. Vogliamo mostrare che $d\rho$ è isomorfa ad una rappresentazione nella forma descritta in precedenza.\\
 	Per il Lemma \ref{Lemma1} valgono le relazioni: $$d\rho(H)d\rho(X)u=(a+2)d\rho(X)u$$ e analogamente per applicazioni iterate di $d\rho(X)$
 	\begin{equation}
 		\label{eq:2.16.1}
 		d\rho(H)d\rho(X)^ku=(a+2k)d\rho(X)^ku
 		\tag{1}
 	\end{equation}
-	Dato che $d\rho(H)$ è un operatore su uno spazio vettoriale $V_m$ finito dimensionale, allora non può avere un numero infinito di autovettori. Cioè esiste $N\geq 0$ intero, tale che $d\rho(X)^Nu=u_0\neq0$ e $d\rho(X)^{N+1}u=0$.\\
-	Si pone $u_0=d\rho(X)^Nu$ e $\lambda=a+2N$ e si sostituisce dentro $(\ref{eq:2.16.1})$, ottenendo:\\  $d\rho(H)u_0=\lambda u_0$ e $d\rho(X)u_0=0$.	\\
+	Dato che $d\rho(H)$ è un operatore su uno spazio vettoriale $V_m$ finito dimensionale, allora non può avere un numero infinito di autovettori. Cioè deve esistere $N\geq 0$ intero, tale che $d\rho(X)^Nu=u_0\neq0$ e $d\rho(X)^{N+1}u=0$.\\
+	Si pone $u_0=d\rho(X)^Nu$ e $\lambda=a+2N$ e si sostituisce dentro $(\ref{eq:2.16.1})$, ottenendo: 
+	\begin{align*}
+		d\rho(H)u_0&=\lambda u_0 & d\rho(X)u_0&=0
+	\end{align*} 
 	Si pone poi $u_k=d\rho(Y)^ku_0$ con $k$ intero positivo. Per il Lemma 1 si ha $d\rho(H)u_k=(\lambda-2k)u_k$.\\
 	Ricordando che $d\rho(H)$ è un operatore su uno spazio vettoriale $V_m$ finito dimensionale, esiste $m\geq0$ intero positivo tale che  $d\rho(Y)^{m+1}=0=u_{m+1}$. Si può dimostrare ora il seguente lemma:
 	\begin{Lem}\label{Lemma2}
 		$d\rho(X)u_k=k[\lambda-(k-1)]u_{k-1}$ per $k\geq 1$.
 	\end{Lem} 
-La dimostrazione sarà data una volta conclusa quella del teorema.
-\\Se $u_{m+1}=0$ allora $d\rho(X)u_{m+1}=0$; per il Lemma \ref{Lemma2} si ha allora che $0=(m+1)(\lambda-m)u_m$ da cui segue $\lambda=m$.\\
+La dimostrazione sarà data una volta conclusa quella del teorema.\\
+\\Se $u_{m+1}=0$ allora $d\rho(X)u_{m+1}=0$. Applicando poi il Lemma \ref{Lemma2} si ottiene $0=(m+1)(\lambda-m)u_m$ da cui segue $\lambda=m$.\\
 \\
 	Queste considerazioni portano a dire che: per ogni $d\rho $ irriducibile, esistono $m\geq0$ intero e $u_0,...,u_m$ vettori tali che:\begin{itemize}
 		\item[(i)] $d\rho(H)u_k=(m-2k)u_k$, ovvero $u_k$ sono autovettori di $d\rho(H)$;
@@ -982,8 +997,8 @@ La dimostrazione sarà data una volta conclusa quella del teorema.
 	\end{itemize}
 I vettori $u_0,...,u_m$ devono essere linearmente indipendenti in quanto sono tutti autovettori di $d\rho(H)$ con autovalori distinti. In più, $span\{u_0,...,u_m\}$ è invariante per costruzione sotto l'azione di $d\rho(H),d\rho(X)$ e $d\rho(Y)$. Dato che $d\rho$ è lineare e $X,Y,H$ generano $\mathfrak{sl_2(\mathbb{C})}$, allora $span\{u_0,...,u_m\}$ è invariante sotto l'azione di un qualsiasi elemento di $\mathfrak{sl_2(\mathbb{C})}$.\\
 Ricordando che, per ipotesi, $d\rho:\mathfrak{sl_2(\mathbb{C})}\rightarrow \mathfrak{gl}(V)$ è irriducibile, deve valere\\ $span\{u_0,...,u_m\}\equiv V$. Questo prova che ogni rappresentazione irriducibile di $\mathfrak{sl_2(\mathbb{C})}$ è nella forma $d\rho:\mathfrak{sl_2(\mathbb{C})}\rightarrow \mathfrak{gl}(V_m)$ descritta in precedenza.\\
-Al contrario, dato uno spazio vettoriale $V$ di dimensione $m+1$ e fissata una base $\{u_0,...,u_m\}$ di esso, è possibile utilizzare le relazioni $(i),(ii),(iii)$ per definire gli operatori $d\rho(X),d\rho(Y)$ e $d\rho(Z)$. Si dimostra che così facendo si ottengono le relazioni di commutazione dell'osservazione $\ref{Obs1}$. Infatti, ricordando che $d\rho$ è un omomorfismo lineare:
-$$d\rho([X,Y])u_k=[d\rho(X),d\rho(Y)]u_k=d\rho(X)d\rho(Y)u_k-[d\rho(Y)d\rho(X)u_k$$
+Al contrario, dato uno spazio vettoriale $V$ di dimensione $m+1$ e fissata una base $\{u_0,...,u_m\}$ di esso, è possibile utilizzare le relazioni $(i),(ii),(iii)$ per definire gli operatori $d\rho(X),d\rho(Y)$ e $d\rho(H)$. Si dimostra che così facendo si ottengono le relazioni di commutazione dell'osservazione $\ref{Obs1}$. Infatti, ricordando che $d\rho$ è un omomorfismo lineare:
+$$d\rho([X,Y])u_k=[d\rho(X),d\rho(Y)]u_k=d\rho(X)d\rho(Y)u_k-d\rho(Y)d\rho(X)u_k$$
 Supponendo $k\in ]0,m[$ ed utilizzando le relazioni $(i),(ii),(iii)$:
 $$d\rho([X,Y])u_k=d\rho(X)u_{k+1}-d\rho(Y)u_{k-1}[k(m-k+1)]=$$
 $$=u_k(k+1)(m-k)-u_k[k(m-k+1)]=u_k(m-2k)=d\rho(H)u_k$$
@@ -1014,6 +1029,13 @@ Si procede ora alla dimostrazione del Lemma \ref{Lemma2}.
 	$$=(\lambda-2k)u_k+k[\lambda-(k-1)]u_{k}=(\lambda-2k+k\lambda-k^2+k)u_k=$$
 	$$=(\lambda-k)(k+1)u_k$$
 	Questo completa la dimostrazione.
+\end{proof}
+Ritorniamo ora sulle rappresentazioni di $SO_3(\mathbb{R})$. Abbiamo visto che queste ultime coincidono con le rappresentazioni di $SU_2(\mathbb{C})$ che hanno nel nucleo $\pm\mathbb{I}$. E' possibile dimostrare il seguente risultato:
+\begin{Prop}
+	Le rappresentazioni irriducibili di $SO_3(\mathbb{R})$ sono le rappresentazioni irriducibili di $SU_2(\mathbb{C})$ di dimensione $m+1$ con $m$ pari.
+\end{Prop}
+\begin{proof}
+	COMPLETARE
 \end{proof}
 \chapter{Quantizzazione del momento angolare}
 \chapter*{Bibliografia}
