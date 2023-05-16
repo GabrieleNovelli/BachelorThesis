@@ -275,7 +275,7 @@ Definiamo ora il concetto di azione di gruppo su un generico insieme $X$.
 		\item 	$a(e,x)=x$ per ogni $x\in X$;
 		\item $a(gh,x)=a(g,a(h,x))$ per ogni $g,h\in G$ e $x\in X$.
 	\end{itemize} 
-Nel caso $X$ è anche spazio topologico, e la mappa $x\longmapsto a(g,x)$ è continua, allora $X$ è chiamato \textit{$G$ spazio}.
+Nel caso $X$ sia anche spazio topologico, se la mappa $x\longmapsto a(g,x)$ è continua per ogni $g\in G$, allora $X$ è chiamato \textit{$G$ spazio}.
 \end{Def}
 \begin{Obs}
 In questo caso abbiamo definito il concetto di azione con una mappa $\textit{sinistra}$, intendendo con questo termine che un elemento $g\in G$ moltiplica a sinistra un elemento $x\in X$. Una definizione di mappa destra sarebbe stata equivalentemente valida. Inoltre, data un'azione sinistra, è automaticamente definita un'azione destra: infatti, data $a:G\times X\rightarrow X$ definita come $(g,x)\longmapsto a(g,x)$, si può costruire una mappa $b:X\times G\rightarrow X$ definita come $(x,g)\longmapsto a(g^{-1},x)=b(x,g)$. Non è difficile verificare che questa nuova azione rispetta tutte e due le proprietà richieste:
@@ -290,9 +290,9 @@ Diamo ora la definizione di orbita di un punto appartenente ad un $G$ insieme.
 	Si definisce lo $\textit{stabilizzatore}$ di $x\in X$ come l'insieme $G_x=\{g\in G|a(g,x)=x\}$, cioè il sottoinsieme di $G$ contenente tutti i punti che, agendo su $x$, lo lasciano invariato.  
 \end{Def}
 \begin{Obs}
-	Si può facilmente verificare che due orbite o sono uguali o sono disgiunte. Infatti, prese $O_x$ e $O_y$ orbite, supponendo che esse abbiano un punto in comune, ovvero che esista $g\in G$ tale che $a(g,x)=a(g,y)$, è automaticamente verificata la catena di uguaglianze:
-	$$a(g^{-1}g,x)=x=a(g^{-1},a(g,x))=a(g^{-1},a(g,y))=y$$
-	Da cui segue che $x=y$, ovvero le due orbite sono uguali.
+	Si può facilmente verificare che due orbite o sono uguali o sono disgiunte. Infatti, prese $O_x$ e $O_y$ orbite, e prendendo un punto $z\in O_x\cap O_y$ possiamo scrivere:
+	$$z=a(g,x)=a(g',y)$$
+	Ma allora $x=a(g^{-1}g',y)$, cioè le orbite coincidono.
 	Da questo segue che $X$ è unione disgiunta delle orbite dei suoi punti: $X=\bigsqcup O_x$.
 \end{Obs}
 \begin{Def}
@@ -337,22 +337,12 @@ In questa sezione introdurremo i rivestimenti di uno spazio topologico ed alcuni
 \begin{Ex}
 	Si consideri lo spazio topologico $S^1$ definito come il cerchio di raggio unitario. Allora la mappa $p:\mathbb{R}\rightarrow S^1$ tale che $p(t)=e^{it}$ è un rivestimento di $S^1$. Infatti essa avvolge la linea reale sul cerchio unitario ed ogni punto è ri-percorso con periodicità $2\pi$: $e^{it}=e^{i(t+2\pi)}$. Dunque le pre-immagini di ogni arco sono unioni disgiunte di sezioni della retta reale.
 \end{Ex}
-\begin{Def}
-	Un'azione di un gruppo $G$ su un $G$ spazio $X$ si dice propriamente discontinua se per ogni $x\in X$ esiste un aperto $V\subset X$ contenente $x$ tale che $g\cdot V\cap g'\cdot V=\emptyset$, dove $g,g'\in G$ e $g\neq g'$.
-\end{Def}
-\begin{Obs}
-	Se un'azione è propriamente discontinua allora lo stabilizzatore di $x$ è $G_x={e}$.
-\end{Obs}
-\begin{Prop}
-	Sia $X$ un $G$ spazio. Se l'azione di $G$ su $X$ è propriamente discontinua, allora la mappa $p:X\rightarrow X/G$ tale che $p(x)=G\cdot x$ è un rivestimento.
-\end{Prop}
-Per la dimostrazione di questo risultato si veda [5] pag. 144 cap.17.
 \begin{Theo}
 	Se $p:\tilde{X}\rightarrow X$ è un rivestimento, allora $p$ è una mappa aperta e $X$ ha la topologia quoziente rispetto ad $\tilde{X}$.
 \end{Theo}
 \begin{proof}
 	Sia $U$
- un insieme aperto di $\tilde{X}$ e sia $x\in p(U)$. Allora, dato che $p$ è un rivestimento, esiste un intorno $V\subset X$ di $x$ tale che $p^{-1}(V)=\bigcup_jA_j$ dove $\{A_j\}$ è una collezione di aperti in $\tilde{X}$. Sia allora un punto $\tilde{x}\in p^{-1}(x)\cap U$. Dato che $\tilde{x}\in p^{-1}(V)$ per definizione, è verificato che esiste un $A_j\subset \tilde{X}$ aperto tale per cui $\tilde{x}\in A_j$. Essendo $A_j\cap U$ aperto in quanto intersezione di aperti ed essendo $p|_{A_j}:A_j\rightarrow V$ un omeomorfismo, allora $p(A_j\cap U)$ è un sottoinsieme aperto di $V$ e quindi anche di $X$. Per arbitrarietà di $x$ scelto, $p(U)$ è aperto.\\
+ un insieme aperto di $\tilde{X}$ e sia $x\in p(U)$. Allora, dato che $p$ è un rivestimento, esiste un intorno $V\subset X$ di $x$ tale che $p^{-1}(V)=\bigcup_jA_j$ dove $\{A_j\}$ è una collezione di aperti in $\tilde{X}$. Sia allora un punto $\tilde{x}\in p^{-1}(x)\cap U$. Dato che $\tilde{x}\in p^{-1}(V)$ per definizione, esiste un $A_j\subset \tilde{X}$ aperto tale per cui $\tilde{x}\in A_j$. Essendo $A_j\cap U$ aperto in quanto intersezione di aperti ed essendo $p|_{A_j}:A_j\rightarrow V$ un omeomorfismo, allora $p(A_j\cap U)$ è un sottoinsieme aperto di $V$ e quindi anche di $X$. Per arbitrarietà di $x$ scelto, $p(U)$ è aperto.\\
  \\
  La seconda parte del teorema si dimosta considerando che $p$ è una mappa aperta continua: preso $V\subset X$, esso è aperto se e solo se $p^{-1}(V)$ è aperto in $\tilde{X}$. Ciò termina la dimostrazione.
  Da ciò, 
@@ -371,7 +361,7 @@ In questa sezione daremo le definizioni di gruppi di Lie e algebra di Lie con al
 \begin{Def}
 	Un \textit{gruppo di Lie} $G$ è una varietà differenziabile con la struttura di gruppo, tale che le operazioni di moltiplicazione $\cdot:G\times G\rightarrow G$ e inversione $i:G\rightarrow G$ sono $C^\infty$.
 \end{Def}
-Si nota che, facendo riferimento alla sezione precedente nel caso di un gruppo di Lie è richiesta la struttura di varietà differenziabile, cioè si chiede di più rispetto ad un gruppo topologico.
+Si nota che, facendo riferimento alla sezione precedente, nel caso di un gruppo di Lie è richiesta la struttura di varietà differenziabile, cioè si chiede di più rispetto ad un gruppo topologico.
 \begin{Def}
 	Un \textit{sottogruppo} $H$ di un gruppo di Lie $G$ è una sottovarietà regolare di $G$ che è ancora gruppo con l'operazione indotta da $G$.
 \end{Def}
@@ -383,16 +373,16 @@ Si nota che, facendo riferimento alla sezione precedente nel caso di un gruppo d
 	\\
 	Per approfondire questo esempio di veda [1] pag. 105-107, 125, 165 cap. 3 e 4.\\
 	\\
-	In modo analogo si vede che (indicando con $+$ l'operazione di aggiunzione e con T quella di trasposizione):\\
+	In modo analogo si vede che (indicando con $^+$ l'operazione di aggiunzione e con T quella di trasposizione):\\\\
 	$O_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^TA=AA^T=\mathbb{I}\};$\\
 	$SO_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^TA=AA^T=\mathbb{I}; det(A)=1\};$\\
 	$U_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^+A=AA^+=\mathbb{I}\};$\\
-	$SU_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^+A=AA^+=\mathbb{I};det(A)=1\};$\\
+	$SU_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^+A=AA^+=\mathbb{I};det(A)=1\};$\\\\
 	sono tutti gruppi di Lie reali (risp. complessi). 
 \end{Ex}
 
 \begin{Def}
-	Si dice \textit{omomorfismo tra gruppi di Lie} $G$ e $H$ una mappa \\$f:G\rightarrow H$ tale che è omomorfismo ($f(gh)=f(g)f(h)$) $C^\infty$.
+	Si dice \textit{omomorfismo tra gruppi di Lie} $G$ e $H$ una mappa \\$f:G\rightarrow H$ di classe $C^\infty$ tale che $f(gh)=f(g)f(h)$.
 \end{Def}
 Un omomorfismo tra gruppi manda sempre l'identità nell'identità. Infatti $f(eg)=f(e)f(g)$ ed $f(g)=f(eg)$.\\
 \begin{Def}
@@ -418,7 +408,7 @@ Salvo specificazioni, le algebre di Lie considerate saranno sottintese a dimensi
 \end{Ex}
 Definiamo ora un'operazione che ci permetterà di identificare lo spazio tangente all'identità di un gruppo di Lie con una determinata algebra di Lie.\\
 \\
-Si indica con $l_g:G\rightarrow G$ dove $l_g(x)=gx$ l'operazione di moltiplicazione a sinistra su $G$ gruppo di Lie.\\
+Si indica con $l_g:G\rightarrow G$ dove $l_g(x)=gx$ l'operazione di moltiplicazione a sinistra su $G$ gruppo di Lie.
 \begin{Obs}
 	$l_g$ è $C^\infty$ in quanto è definita come moltiplicazione su di un gruppo di Lie. Da ciò segue che $l_g$ è anche continua. Inoltre $l_g^{-1}=l_{g^{-1}}$ che è ancora continua e di classe $C^\infty$. Quindi $l_g$ è un diffeomorfismo.
 \end{Obs}
@@ -472,11 +462,11 @@ Diamo ora alcuni esempi di spazi tangenti nell'identià per gruppi di matrici, r
 \begin{Ex}[Spazio tangente a $GL_n(\mathbb{R})$]
 	Indichiamo con $\mathfrak{gl_n(\mathbb{R})}$ l'algebra di Lie di $GL_n(\mathbb{R})$.
 	\\
-	Poichè la mappa $det:GL_n(\mathbb{R})\rightarrow\mathbb{R}$ è continua, sapendo che $det(I)\neq 0$, esiste $U_I$ aperto contenente $I$ tale che se $A\in U_I$ allora $det(A)\neq 0$. Sia $B\in M_{n\times n}$ e $\gamma:]-\epsilon,\epsilon[\rightarrow M_{n\times n}$ tale che $\gamma(t)=I+tB+O(t^2)$. Allora $\gamma(0)=I$ e $\gamma'(0)=B\in T_eGL_n(\mathbb{R})$. Scelto $\epsilon>0$ abbastanza piccolo si ha che $det(I+tBO(t^2))\neq 0$ per ogni $t\in]-\epsilon,\epsilon[$. Da ciò, $$\mathfrak{gl_n(\mathbb{R})}\cong M_{n\times n}= T_eGL_n(\mathbb{R})$$.
+	Poichè la mappa $det:GL_n(\mathbb{R})\rightarrow\mathbb{R}$ è continua, sapendo che $det(\mathbb{I})\neq 0$, esiste $U_\mathbb{I}$ aperto contenente $\mathbb{I}$ tale che se $A\in U_\mathbb{I}$ allora $det(A)\neq 0$. Sia $B\in M_{n\times n}$ e $\gamma:]-\epsilon,\epsilon[\rightarrow M_{n\times n}$ tale che $\gamma(t)=\mathbb{I}+tB+O(t^2)$. Allora $\gamma(0)=\mathbb{I}$ e $\gamma'(0)=B\in T_\mathbb{I}GL_n(\mathbb{R})$. Scelto $\epsilon>0$ abbastanza piccolo si ha che $det(\mathbb{I}+tB+O(t^2))\neq 0$ per ogni $t\in]-\epsilon,\epsilon[$. Da ciò, $$\mathfrak{gl_n(\mathbb{R})}\cong M_{n\times n}= T_\mathbb{I}GL_n(\mathbb{R})$$.
 \end{Ex}
 \begin{Ex}[Spazio tangente a $SL_n(\mathbb{R})$]
 	Indichiamo con $\mathfrak{sl_n(\mathbb{R})}$ l'algebra di Lie di $SL_n(\mathbb{R})=\{A\in M_{n\times n}|det(A)=1\}$.\\
-	Seguendo lo stesso ragionamento dell'esempio precedente e quindi considerando una curva $\gamma:]-\epsilon,\epsilon[\rightarrow M_{n\times n}$ tale che $\gamma(t)=I+tB+O(t^2)$, è necessario che $det(I+tB+O(t^2))=1$. Ma $det(I+tB+O(t^2))=1+tr(B)+O(t^2)$ da cui: $$T_eSL_n(\mathbb{R})\cong \mathfrak{sl_n(\mathbb{R})}=\{A\in M_{n\times n}|trA=0\}$$ 
+	Seguendo lo stesso ragionamento dell'esempio precedente e quindi considerando una curva $\gamma:]-\epsilon,\epsilon[\rightarrow M_{n\times n}$ tale che $\gamma(t)=\mathbb{I}+tB+O(t^2)$, è necessario che $det(\mathbb{I}+tB+O(t^2))=1$. Ma $det(\mathbb{I}+tB+O(t^2))=1+tr(B)+O(t^2)$ da cui: $$T_\mathbb{I}SL_n(\mathbb{R})\cong \mathfrak{sl_n(\mathbb{R})}=\{A\in M_{n\times n}|trA=0\}$$ 
 \end{Ex}
 \begin{Ex}[Spazio tangente a $GL(V)$]
 	Sia lo spazio $GL(V)=\{f:V\rightarrow V|\, \textnormal{$f$\,  è \, lineare \, e \, invertibile}\}$ dove $V$ è uno spazio vettoriale a dimensione finita. Allora, fissata una base di $V$, si ha l'identificazione $GL(V)\cong GL_n(\mathbb{R})$. Lo spazio tangente a $GL_n(\mathbb{R})$ è stato provato essere $M_{n\times n}(\mathbb{R})\cong End(V)=\{f:V\rightarrow V|\textnormal{\, $f$\, è \, lineare}\}$. Da cui: 
@@ -519,7 +509,7 @@ Per le dimostrazioni consultare [4] pag. 38-41 cap.2.\\
 Utilizzando la mappa esponenziale è possibile trovare un'espressione per l'algebra di Lie di gruppi di matrici come $U_n(\mathbb{R})$ e $O_n(\mathbb{R})$. Si consideri il seguente esempio:
 \begin{Ex}[Spazio tangente a $O_n(\mathbb{R})$]
 	Si indica con $\mathfrak{o_n(\mathbb{R})}$ l'algebra di Lie di $O_n(\mathbb{R})=\{A\in M_{n\times n}|A^T=A^{-1}\}$.\\
-	Data una curva passante per $I$ come $e^{tX}$, affinché essa sia contenuta dentro $O_n(\mathbb{R})$, deve valere $(e^{tX})^T=(e^{tX})^{-1}=e^{-tX}$, che è vero solamente se $-X=X^T$. Da ciò: $$\mathfrak{o_n(\mathbb{R})}=\{X\in M_{n\times n}|-X=X^T\}$$.
+	Data una curva passante per $\mathbb{I}$ come $e^{tX}$, affinché essa sia contenuta dentro $O_n(\mathbb{R})$, deve valere $(e^{tX})^T=(e^{tX})^{-1}=e^{-tX}$, che è vero solamente se $-X=X^T$. Da ciò: $$\mathfrak{o_n(\mathbb{R})}=\{X\in M_{n\times n}|-X=X^T\}$$.
 	Lo stesso ragionamento si può fare con il gruppo $U_n(\mathbb{R})$, ottenendo: $$\mathfrak{u_n(\mathbb{R})}=\{X\in M_{n\times n}|-X=X^+\}$$.
 \end{Ex}
 Enunciamo ora un importante risultato che ci permetterà di stabilire un collegamento, attraverso la mappa esponenziale, tra omomorfismi di gruppi e algebre di Lie.
@@ -544,7 +534,7 @@ In questa sezione diamo la definizione di rappresentazione di un gruppo e di un 
 Come vedremo, sarà possibile studiare le rappresentazioni di un gruppo attraverso quelle della sua algebra di Lie.
 \begin{Def}
 Dato un gruppo $G$ si dice \textit{rappresentazione} un'applicazione\\ $\rho:G\rightarrow GL(V)$, dove $V$ è uno spazio vettoriale a dimensione finita, tale che $\rho(gh)=\rho(g)\circ\rho(h)$. Cioè $\rho$ è omomorfismo.\\
-Se $G$ è un gruppo di Lie, si definisce una rappresentazione di un gruppo di Lie come un omomorfismo differenziabile $\rho:G\rightarrow GL(V)$.
+Se $G$ è un gruppo di Lie, si definisce una rappresentazione di un gruppo di Lie come un omomorfismo differenziabile $\rho:G\rightarrow GL(V)$. Con \textit{dimensione della rappresentazione} si intenderà la dimensione dello spazio vettoriale $V$ in relazione a cui essa è definita.
 \end{Def}
 In generale, se non altrimenti specificato, gli spazi vettoriali $V$ menzionati saranno a dimensione finita.
 \begin{Obs}
@@ -558,7 +548,6 @@ In generale, se non altrimenti specificato, gli spazi vettoriali $V$ menzionati 
 		Se invece è data $\rho:G\rightarrow GL(V)$, allora si definisce $a:G\times V\rightarrow V$ come $a(g,v)=\rho(g)v$. Allora $$a(gh,v)=\rho(gh)v=\rho(g)\circ\rho(v)v=a(g,a(h,v))$$
 	\end{proof}
 \end{Obs}
-Con \textit{dimensione della rappresentazione} si intenderà la dimensione dello spazio vettoriale $V$ in relazione a cui essa è definita.
 \begin{Ex}[Rappresentazione banale]
 	Sia $G$ un gruppo di Lie di matrici. Si definisca $\rho: G\rightarrow GL_n(\mathbb{C})$ tale che $\rho(X)=I$, allora $\rho$ è una rappresentazione, chiamata banale. 
 \end{Ex}
@@ -807,7 +796,7 @@ La rappresentazione di gruppo che utilizzeremo sarà definita come azione sullo 
 \begin{Prop}
 	Sia $V_m=\{\sum_{i=0}^{m} a_ix^{m-i}y^i\}$ spazio dei polinomi in due variabili complesso. Data la mappa $a:SU_2(\mathbb{C})\times V_m\rightarrow V_m$ tale che $a(g,f(v))=f(g^{-1}v)$, allora $a$ è rappresentazione.
 \end{Prop}
-L'insieme $\{x^{m-1}y^i\}$ è base per $V_m$, che quindi ha dimensione $dim(V_m)=m+1$.\\
+L'insieme $\{x^{m-i}y^i\}$ è base per $V_m$, che quindi ha dimensione $dim(V_m)=m+1$.\\
 In questo caso $f(v)=f(x,y)$ è un elemento di $V_m$ e $g$ è un elemento di $SU_2(\mathbb{C})$ con inverso $g^{-1}$.\\
 Dunque se un elemento di $SU_2(\mathbb{C})$ è nella forma $g=$
 $\begin{pmatrix}
@@ -968,6 +957,7 @@ Per provare questo teorema sono necessari due lemmi. Il primo  è il seguente:
 	$$d\rho(H)d\rho(X)=(a+2)d\rho(X)v$$ 
 	Per $Y$ è tutto analogo.
 \end{proof}
+Il secondo lemma verrà enunciato durante la dimostrazione del teorema \ref{Theo2}.\\\\
 Si dimostra ora il teorema. La strategia di dimostrazione consisterà nel prendere una generica rappresentazione irriducibile e, attraverso considerazioni sugli operatori, giungere a relazioni che la caratterizzino in modo analogo al Teorema \ref{Theo1}.
 \begin{proof}[Dimostrazione teorema $\ref{Theo2}$:]
 	Sia una rappresentazione irriducibile $d\rho:\mathfrak{sl_2(\mathbb{C})}\rightarrow \mathfrak{gl}(V)$. Sia $u$ un autovettore di $d\rho(H)$ con autovalore $a$. L'esistenza di un autovettore è garantita dal fatto che il campo è complesso. Vogliamo mostrare che $d\rho$ è isomorfa ad una rappresentazione nella forma descritta in precedenza.\\
@@ -983,7 +973,7 @@ Si dimostra ora il teorema. La strategia di dimostrazione consisterà nel prende
 		d\rho(H)u_0&=\lambda u_0 & d\rho(X)u_0&=0
 	\end{align*} 
 	Si pone poi $u_k=d\rho(Y)^ku_0$ con $k$ intero positivo. Per il Lemma 1 si ha $d\rho(H)u_k=(\lambda-2k)u_k$.\\
-	Ricordando che $d\rho(H)$ è un operatore su uno spazio vettoriale $V_m$ finito dimensionale, esiste $m\geq0$ intero positivo tale che  $d\rho(Y)^{m+1}=0=u_{m+1}$. Si può dimostrare ora il seguente lemma:
+	Ricordando che $d\rho(H)$ è un operatore su uno spazio vettoriale $V_m$ finito dimensionale, esiste $m\geq0$ intero positivo tale che  $d\rho(Y)^{m+1}=0=u_{m+1}$. Si enuncia ora il seguente lemma:
 	\begin{Lem}\label{Lemma2}
 		$d\rho(X)u_k=k[\lambda-(k-1)]u_{k-1}$ per $k\geq 1$.
 	\end{Lem} 
@@ -1032,10 +1022,14 @@ Si procede ora alla dimostrazione del Lemma \ref{Lemma2}.
 \end{proof}
 Ritorniamo ora sulle rappresentazioni di $SO_3(\mathbb{R})$. Abbiamo visto che queste ultime coincidono con le rappresentazioni di $SU_2(\mathbb{C})$ che hanno nel nucleo $\pm\mathbb{I}$. E' possibile dimostrare il seguente risultato:
 \begin{Prop}
-	Le rappresentazioni irriducibili di $SO_3(\mathbb{R})$ sono le rappresentazioni irriducibili di $SU_2(\mathbb{C})$ di dimensione $m+1$ con $m$ pari.
+	Le rappresentazioni irriducibili di $SO_3(\mathbb{R})$ sono le rappresentazioni irriducibili di $SU_2(\mathbb{C})$ di dimensione $m+1$ con $m$ pari e nucleo contenente $\pm\mathbb{I}$.
 \end{Prop}
 \begin{proof}
-	COMPLETARE
+	Prendiamo una rappresentazione irriducibile di $SU_2(\mathbb{C})$ con nucleo contenente $\pm\mathbb{I}$ del tipo $\rho:SU_2(\mathbb{C})\rightarrow GL(V_m)$. Allora è automaticamente definita la rappresentazione irriducibile $\rho':SU_2(\mathbb{C})/\pm\mathbb{I}\rightarrow GL(V_m)$ tale che $\rho'(\pm a)=\rho(a)$, con $a\in SU_2(\mathbb{C})$. Preso poi l'isomorfismo $T':SU_2(\mathbb{C})\rightarrow SO_3(\mathbb{R})$, possiamo definire una rappresentazione $\xi=\rho'\circ T'^{-1}$ di $SO_3(\mathbb{R})$ come $\xi:SO_3(\mathbb{R})\rightarrow GL(V_m)$.
+	Inoltre, esplicitando l'azione dell'identità su di un generico elemento di $GL(V_m)$ si ottiene: $$\rho(-\mathbb{I})f(x,y)=f(-x,-y)=\sum_{i=0}^{m}a_m(-x)^{m-i}(-y)^i=\sum_{i=0}^{m}(-1)^ma_mx^{m-i}y^i$$
+	Ma, per costruzione, $\rho(\mathbb{I})=\rho(-\mathbb{I})$, da cui:
+	$$(-1)^m=1$$
+	che è verificato solamente se $m$ è pari.
 \end{proof}
 \chapter{Quantizzazione del momento angolare}
 \chapter*{Bibliografia}
