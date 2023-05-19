@@ -11,6 +11,7 @@
 \usepackage{tikz}
 \usepackage{biblatex}
 \usepackage{csquotes}
+\usepackage{pgfplots}
 
 \textwidth=450pt\oddsidemargin=0pt
 \geometry{a4paper, top=3cm, bottom=3cm, left=3cm, right=3cm, % heightrounded, bindingoffset=5mm 
@@ -113,7 +114,7 @@
 	\chapter*{Abstract}
 	\addcontentsline{toc}{chapter}{Abstract}
 \chapter{Varietà Differenziabili}
-In questo capitolo introduciamo le varietà differenziabili, gli spazi tangenti ed i campi vettoriali. Questi concetti verranno utilizzati per lo studio dei gruppi di Lie e teoria della rappresentazione, che vedremo successivamente. Per maggiori dettagli si consultino i testi citati in bibliografia.
+In questo capitolo introduciamo le varietà differenziabili, gli spazi tangenti ed i campi vettoriali. Questi concetti verranno utilizzati per lo studio dei gruppi di Lie e teoria della rappresentazione, che vedremo successivamente. Per maggiori dettagli si consulti [1] cap 2.
 \section{Varietà differenziabili}
 In questa sezione introduciamo la nozione di varietà differenziabile ed alcuni esempi significativi. 
 
@@ -249,24 +250,24 @@ E'utile definire il concetto di flusso di un campo vettoriale $X$ come una mappa
 Vi sono numerose proprietà del flusso di un campo vettoriale. Per approfondimenti in materia si veda [1] pag. 155, 156 cap. 3.
 \end{Def}
 \chapter{Gruppi e algebre di Lie}
-In questo capitolo introduciamo i gruppi topologici e di Lie, i rivestimenti, la mappa esponenziale, e le algebre di Lie. Come vedremo, questi strumenti saranno utilizzati per lo studio delle rappresentazioni dei gruppi di Lie. Per approfondimenti in materia si consultino i testi citati in bibliografia.
+In questo capitolo introduciamo i gruppi topologici e di Lie, i rivestimenti, la mappa esponenziale, e le algebre di Lie. Come vedremo, questi strumenti saranno utilizzati per lo studio delle rappresentazioni dei gruppi di Lie. Per approfondimenti in materia si consultino: [2] pag. 41-84 cap. 2; [4] parte 1, cap. 1-4 ; [5] pag. 27-38 cap. 5; pag. 143-150 cap. 17.
 \section{Gruppi Topologici}
-In questa sezione si darà la definizione di gruppo topologico e si introdurranno i quozienti di gruppi e le azioni di gruppi.
+In questa sezione diamo la definizione di gruppo topologico e introduciamo i quozienti di gruppi e le azioni di gruppi.
 \begin{Def}
-	Si dice \textit{gruppo} un insieme $G$ munito di un'operazione binaria $\cdot:G\times G\rightarrow G$ tale che soddisfi le seguenti proprietà:
+	Si dice \textit{gruppo} un insieme $G$ munito di un'operazione binaria $\cdot:G\times G\rightarrow G$ detta moltiplicazione tale che soddisfi le seguenti proprietà:
 	\begin{itemize}
 		\item Associatività: $a\cdot (b\cdot c)=(a\cdot b)\cdot c$ $\forall a,b,c\in G$;
 		\item Esistenza dell'elemento neutro: $\exists e\in G$ tale che $\forall a\in G$ si ha $a\cdot e=e\cdot a=a$;
 		\item Esistenza dell'inverso: $\forall a\in G$ $\exists a^{-1}$ tale che $a\cdot a^{-1}=a^{-1}\cdot a=e$.
 	\end{itemize}
-	Un gruppo la cui operazione soddisfa anche la proprietà commutativa è detto abeliano o commutativo.
+	Un gruppo la cui operazione soddisfa anche la proprietà commutativa, cioè $ab=\cdot b\cdot a$ per ogni $a,b\in G$, è detto abeliano o commutativo.
 \end{Def}
-Da ora in avanti, quando si farà riferimento all'operazione di prodotto definita per un gruppo, si ometterà il simbolo $\cdot$.\\
+Da ora in avanti, quando si farà riferimento all'operazione di prodotto definita per un gruppo, si ometterà il simbolo $\cdot$.
 \begin{Def}
-	Un \textit{gruppo di topologico} $G$ è uno spazio topologico con la struttura di gruppo, tale che le operazioni di moltiplicazione $\cdot:G\times G\rightarrow G$ e inversione $i:G\rightarrow G$ sono continue.
+	Un \textit{gruppo di topologico} $G$ è uno spazio topologico con la struttura di gruppo, tale che le operazioni di moltiplicazione $\cdot:G\times G\rightarrow G$ e inversione $i:G\rightarrow G$ tale che $i(g)=g^{-1}$ sono continue.
 \end{Def}
 \begin{Ex}
-	Lo spazio $\mathbb{R}$ con l'usuale topologia degli aperti è l'operazione di addizione $+$ è un gruppo topologico abeliano.
+	Lo spazio $\mathbb{R}$ con la topologia euclidea è l'operazione di addizione è un gruppo topologico abeliano.
 \end{Ex}
 Definiamo ora il concetto di azione di gruppo su un generico insieme $X$.
 \begin{Def}
@@ -286,10 +287,9 @@ Questo dimostra che la mappa destra $(x,g)\longmapsto a(g^{-1},x)$ è ben defini
 \end{Obs}
 Diamo ora la definizione di orbita di un punto appartenente ad un $G$ insieme.
 \begin{Def}
-	Dato un $G$ insieme indicato con $X$. L'insieme $O_x=\{a(g,x)\}$ è detto \textit{orbita} di $x\in X$.\\
-	Si definisce lo $\textit{stabilizzatore}$ di $x\in X$ come l'insieme $G_x=\{g\in G|a(g,x)=x\}$, cioè il sottoinsieme di $G$ contenente tutti i punti che, agendo su $x$, lo lasciano invariato.  
+	Sia $X$ un $G$ insieme e $x\in X$. L'insieme $O_x=\{a(g,x); \, \forall g\in G\}$ è detto \textit{orbita} di $x\in X$. Si definisce $\textit{stabilizzatore}$ di $x\in X$ l'insieme $G_x=\{g\in G|a(g,x)=x\}$. A volte indicheremo lo stabilizzatore di un punto $x$ anche con $Stab_x$.
 \end{Def}
-\begin{Obs}
+\begin{Obs} \label{Obs:2.1}
 	Si può facilmente verificare che due orbite o sono uguali o sono disgiunte. Infatti, prese $O_x$ e $O_y$ orbite, e prendendo un punto $z\in O_x\cap O_y$ possiamo scrivere:
 	$$z=a(g,x)=a(g',y)$$
 	Ma allora $x=a(g^{-1}g',y)$, cioè le orbite coincidono.
@@ -298,6 +298,60 @@ Diamo ora la definizione di orbita di un punto appartenente ad un $G$ insieme.
 \begin{Def}
 	Un'azione di un gruppo $G$ su di un insieme $X$ è detta \textit{transitiva} se esiste un'unica orbita, ovvero se per ogni $x,y\in X$ esiste $g\in G$ tale che $x=a(g,y)$.
 \end{Def}
+\begin{Ex} [Azione di $SL_2(\mathbb{R})$ su $\mathbb{R}^2$]
+	Consideriamo il gruppo $SL_2(\mathbb{R})=\{A\in M_{2\times 2}\,|\,det(A)=1\}$ e lo spazio $\mathbb{R}^2$. Definiamo l'azione $a:SL_2(\mathbb{R})\times \mathbb{R}^2\rightarrow\mathbb{R}^2$ come 
+	$$a(A,(x,y))=A\begin{pmatrix}
+		x\\y
+	\end{pmatrix}$$
+dove $A\in SL_2(\mathbb{R})$ e $(x,y)\in\mathbb{R}^2$. Non è difficile verificare che la mappa così definita rispetta tutte le proprietà di un'azione. Procediamo ora al calcolo delle orbite di $(0,0)$, $(1,0)$ e mostriamo che questa stessa azione, ristretta a $\mathbb{R}^2-\{(0,0)\}$, è transitiva. \\
+Valutiamo innanzitutto l'orbita di $(0,0)$:
+$$A\begin{pmatrix}
+	0\\0
+\end{pmatrix}=\begin{pmatrix}
+0\\0
+\end{pmatrix}$$
+per ogni $A\in SU_2(\mathbb{R})$. Abbiamo trovato $O_{(0,0)}=\{(0,0)\}$. Valutiamo poi l'orbita di $(1,0)$:
+$$A\begin{pmatrix}
+	1\\0
+\end{pmatrix}=\begin{pmatrix}
+a&c\\
+b&d
+\end{pmatrix}\begin{pmatrix}
+1\\0
+\end{pmatrix}=\begin{pmatrix}
+a\\b
+\end{pmatrix}$$
+Con almeno uno tra $a,b$ diverso da $0$ in quanto è necessario che $ad-bc=1$ per la condizione $det(A)=1$. Abbiamo trovato $O_{(1,0)}=\{(a,b);\, a,b\in\mathbb{R}\}$. Questo significa che ogni punto di $\mathbb{R}^2-\{(0,0)\}$ appartiene all'orbita di $(1,0)$, cioè l'azione di $SL_2(\mathbb{R})$ su $\mathbb{R}^2-\{(0,0)\}$ è transitiva. E' possibile mostrare lo stesso risultato procedendo al contrario: preso un generico elemento $(a,b)$ troviamo una matrice $A\in SL_2(\mathbb{R})$ tale che 
+$$A\begin{pmatrix}
+	1\\0
+\end{pmatrix}=\begin{pmatrix}
+	a\\b
+\end{pmatrix}$$
+Nel caso $a\neq 0$, questa matrice è esattamente $A=\begin{pmatrix}
+	a&0\\
+	b&1/a
+\end{pmatrix}$, nel caso $b\neq 0$ invece $A=\begin{pmatrix}
+a&-1/b\\
+b&0
+\end{pmatrix}$.\\
+Riprendendo l'osservazione \ref{Obs:2.1}, notiamo che lo spazio $\mathbb{R}^2$ è unione disgiunta delle orbite di $(1,0)$ e di $(0,0)$.
+E' anche possibile calcolare lo stabilizzatore di $(1,0)$:
+$$\begin{pmatrix}
+	a&c\\
+	b&d
+\end{pmatrix}\begin{pmatrix}
+1\\0
+\end{pmatrix}=\begin{pmatrix}
+a\\b
+\end{pmatrix}=\begin{pmatrix}
+1\\0
+\end{pmatrix}$$
+che è verificato solamente se $a=1$ e $b=0$. La condizione sul determinante impone inoltre che $ad-bc=1$, da cui $a=1/d=1$.
+$$Stab_{(1,0)}=\bigg{\{}\begin{pmatrix}
+	1&c\\
+	0&1
+\end{pmatrix}\bigg{\}}$$
+\end{Ex}
 \begin{Theo}
 	Dato un $G$ insieme indicato con $X$ e la mappa $\theta_g:X\rightarrow X$ tale che $\theta_g(x)=a(g,x)$, allora $\theta_g$ è biettiva per ogni $g$.
 \end{Theo}
@@ -316,14 +370,14 @@ Diamo ora la definizione di orbita di un punto appartenente ad un $G$ insieme.
 	Se $X$ è un $G$ spazio, allora la mappa $\pi:X\rightarrow X/G$ definita come $\pi(x)=O_x$ è aperta.
 \end{Theo}
 \begin{proof}
-	Si consideri la mappa $\pi$ come definita sopra. Si vuole dimostrare che $\pi$ è aperta, cioè che $\pi(U)$ è aperto se $U$ è aperto. Allora, preso un generico $U\subset X$ aperto in $X$, si valuti $\pi^{-1}(\pi(U))$:
-	$$\pi^{-1}(\pi(U))=\{x\in X \,|\, \pi(x)\in \pi(U)\}=\{x\in X \,|\, O_x=O_y \, per \, un \, y\in U\}=$$
-	$$=\{x\in X \, | \, x=a(g,y) \, per \, g\in G, y\in U\}=$$
-	$$=\{x\in X \, | \, x=g\cdot U \, per \, g\in G\}= \bigcup_{g\in G} g\cdot U=\bigcup_{g\in G}\theta_g(U)$$
+	Per vedere che $\pi$ è aperta, dobbiamo verificare che $\pi(U)$ è aperto se $U$ è aperto. Allora, preso un generico $U\subset X$ aperto in $X$, abbiamo:
+	$$\pi^{-1}(\pi(U))=\{x\in X \,|\, \pi(x)\in \pi(U)\}=\{x\in X \,|\, O_x=O_y \,\hbox{per un} \, y\in U\}=$$
+	$$=\{x\in X \, | \, x=a(g,y) \, \hbox{per} \, g\in G, y\in U\}=$$
+	$$=\{x\in X \, | \, x=g\cdot U \, \hbox{per} \, g\in G\}= \bigcup_{g\in G} g\cdot U=\bigcup_{g\in G}\theta_g(U)$$
 	Inoltre, $\theta_g$ è un omeomorfismo in quanto $X$ è un $G$ spazio. Ma allora $\theta_g$ manda aperti in aperti, cioè se $U$ è aperto, anche $\theta_g(U)$ è aperto e quindi $\pi^{-1}(\pi(U))$ è aperto in quanto unione di aperti. Ma allora, per definizione di topologia quoziente, $\pi(U)$ è aperto.
 \end{proof}
 \section{Rivestimenti}
-In questa sezione introdurremo i rivestimenti di uno spazio topologico ed alcuni risultati inerenti ad essi. Ciò che sarà discusso in questa sezione verrà poi utilizzato nell'analisi del gruppo $SO_3(\mathbb{R})$.
+In questa sezione introdurremo i rivestimenti di uno spazio topologico ed alcuni risultati inerenti ad essi. Ciò che sarà discusso in questa sezione verrà poi utilizzato nell'analisi del gruppo $SO_3(\mathbb{R})$. Per maggiori dettagli si veda [5] cap 17.
 \begin{Def}
 	Dati due spazi topologici $X$ e $\tilde{X}$ ed una mappa continua $p:\tilde{X}\rightarrow X$, allora $p$ è detta \textit{rivestimento} se:
 	\begin{itemize}
@@ -335,8 +389,30 @@ In questa sezione introdurremo i rivestimenti di uno spazio topologico ed alcuni
 	Dato uno spazio topologico $X$, si definisce rivestimento banale la mappa $p:X\rightarrow X$ definita come $p(x)=x$. Ovviamente $p$ così definita verifica tutte le proprietà in quanto identità.
 \end{Ex}
 \begin{Ex}
-	Si consideri lo spazio topologico $S^1$ definito come il cerchio di raggio unitario. Allora la mappa $p:\mathbb{R}\rightarrow S^1$ tale che $p(t)=e^{it}$ è un rivestimento di $S^1$. Infatti essa avvolge la linea reale sul cerchio unitario ed ogni punto è ri-percorso con periodicità $2\pi$: $e^{it}=e^{i(t+2\pi)}$. Dunque le pre-immagini di ogni arco sono unioni disgiunte di sezioni della retta reale.
+	Si consideri lo spazio topologico $S^1$ definito come il cerchio di raggio unitario. Allora la mappa $p:\mathbb{R}\rightarrow S^1$ tale che $p(t)=e^{it}$ è un rivestimento di $S^1$. Dunque le pre-immagini di ogni arco sono unioni disgiunte di sezioni della retta reale.
 \end{Ex}
+\begin{center}
+\begin{tikzpicture}
+	\begin{axis}[axis lines=none]
+		\addplot3[domain=0:5*pi,
+		samples = 100,
+		samples y=0,
+		]
+		({sin(deg(x))},
+		{cos(deg(x))},
+		{-10});
+		\addplot3[
+		domain=0:5*pi,
+		samples = 100,
+		samples y=0,
+		]
+		({sin(deg(x))},
+		{cos(deg(x))},
+		{x});
+	\end{axis}
+\end{tikzpicture}
+	
+\end{center}
 \begin{Theo}
 	Se $p:\tilde{X}\rightarrow X$ è un rivestimento, allora $p$ è una mappa aperta e $X$ ha la topologia quoziente rispetto ad $\tilde{X}$.
 \end{Theo}
@@ -350,9 +426,6 @@ In questa sezione introdurremo i rivestimenti di uno spazio topologico ed alcuni
 \begin{Def}
 	Se $p:\tilde{X}\rightarrow X$ è un rivestimento e $\tilde{X}$ è semplicemente connesso, allora $p$ è detto rivestimento universale.
 \end{Def}
-\begin{Obs}
-	I rivestimenti universali sono imporanti perchè CONCLUDERE OSSERVAZIONe
-\end{Obs}
 \begin{Obs}
 	Per quanto riguarda l'esistenza del rivestimento universale di un determinato spazio topologico $X$, è possibile dimostrare che se $X$ è connesso e semplicemente connesso allora esso possiede un rivestimento universale. Per approfondimenti a riguardo si veda [5] cap. 22.
 \end{Obs}
@@ -528,7 +601,7 @@ Da questo risultato emerge che dato un qualunque omomorfismo tra gruppi di Lie d
 La risposta a questa domanda è, in generale, no. Nel caso si volesse approfondire questo argomento, si consulti [4] pag. 113-127 cap. 5.
 \chapter{Teoria della Rappresentazione}
 In questo capitolo si definirà che cos'è una rappresentazione di un gruppo, si enunceranno alcuni risultati importanti e si studieranno alcuni particolari esempi di grande rilevanza per la fisica.\\
-Per approfondimenti su questi temi si veda la bibliografia, in particolare i testi [2], [3], [4] e [6].
+Per approfondimenti su questi temi si vedano [3] cap. 2; [4] parte 1, cap 4; [6] cap. 9 e cap. 3.
 \section{Rappresentazioni di gruppi}
 In questa sezione diamo la definizione di rappresentazione di un gruppo e di un gruppo di Lie e ne esponiamo alcune proprietà e teoremi.
 Come vedremo, sarà possibile studiare le rappresentazioni di un gruppo attraverso quelle della sua algebra di Lie.
