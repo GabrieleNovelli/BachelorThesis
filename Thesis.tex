@@ -271,19 +271,21 @@ Da ora in avanti, quando si farà riferimento all'operazione di prodotto definit
 \end{Ex}
 Definiamo ora il concetto di azione di gruppo su un generico insieme $X$.
 \begin{Def}
-	Dato un gruppo $G$ ed un insieme $X$, si dice che $G$ \textit{agisce} su $X$ o che $X$ è un \textit{$G$ insieme} se esiste una mappa $a:G\times X\rightarrow X$ tale che:
+	Dato un gruppo $G$ ed un insieme $X$, si dice che $G$ \textit{agisce} (da sinistra) su $X$ o che $X$ è un \textit{$G$ insieme} (sinistro) se esiste una mappa, detta azione (sinistra) $a:G\times X\rightarrow X$ tale che:
 	\begin{itemize}
 		\item 	$a(e,x)=x$ per ogni $x\in X$;
 		\item $a(gh,x)=a(g,a(h,x))$ per ogni $g,h\in G$ e $x\in X$.
 	\end{itemize} 
-Nel caso $X$ sia anche spazio topologico, se la mappa $x\longmapsto a(g,x)$ è continua per ogni $g\in G$, allora $X$ è chiamato \textit{$G$ spazio}.
+Nel caso $X$ sia anche spazio topologico, se la mappa $x\longmapsto a(g,x)$ è continua per ogni $g\in G$, allora $X$ è chiamato \textit{$G$ spazio}.\\
+Denoteremo $a(g,x)$ anche come $g\cdot x$.
 \end{Def}
 \begin{Obs}
-In questo caso abbiamo definito il concetto di azione con una mappa $\textit{sinistra}$, intendendo con questo termine che un elemento $g\in G$ moltiplica a sinistra un elemento $x\in X$. Una definizione di mappa destra sarebbe stata equivalentemente valida. Inoltre, data un'azione sinistra, è automaticamente definita un'azione destra: infatti, data $a:G\times X\rightarrow X$ definita come $(g,x)\longmapsto a(g,x)$, si può costruire una mappa $b:X\times G\rightarrow X$ definita come $(x,g)\longmapsto a(g^{-1},x)=b(x,g)$. Non è difficile verificare che questa nuova azione rispetta tutte e due le proprietà richieste:
+In questo caso abbiamo definito il concetto di azione con una mappa $\textit{sinistra}$. Avremmo potuto definire un'azione destra in modo equivalentemente valido come: $b:X\times G\rightarrow X$ tale che $b(x,e)=x$ e $b(x,gh)=b(b(x,g),h)$. Possiamo mostrare con un rapido calcolo che, data un'azione sinistra, è automaticamente definita un'azione destra: infatti, data $a:G\times X\rightarrow X$ definita come $(g,x)\longmapsto a(g,x)$, si può costruire una mappa $b:X\times G\rightarrow X$ definita come $(x,g)\longmapsto a(g^{-1},x)=b(x,g)$. Non è difficile verificare che questa nuova azione rispetta tutte e due le proprietà richieste:
 $$b(x,e)=a(e,x)=x$$
 In quanto $e^{-1}=e$ dato che $G$ è un gruppo. Ricordando poi che $(gh)^{-1}=h^{-1}g^{-1}$, si ha la catena di uguaglianze:
 $$b(x,gh)=a((gh)^{-1},x)=a(h^{-1}g^{-1},x)=$$$$=a(h^{-1},a(g^{-1},x))=a(h^{-1},b(x,g))=b(b(x,g),h)$$
-Questo dimostra che la mappa destra $(x,g)\longmapsto a(g^{-1},x)$ è ben definita.
+Questo dimostra che la mappa destra $(x,g)\longmapsto a(g^{-1},x)$ è ben definita.\\
+Da ora in avanti quando parleremo di azioni intenderemo azioni sinistre.
 \end{Obs}
 Diamo ora la definizione di orbita di un punto appartenente ad un $G$ insieme.
 \begin{Def}
@@ -393,7 +395,7 @@ In questa sezione introdurremo i rivestimenti di uno spazio topologico ed alcuni
 \end{Ex}
 \begin{center}
 \begin{tikzpicture}
-	\begin{axis}[axis lines=none]
+	\begin{axis}[axis lines=none, zmax=13, zmin=-10.2 ]
 		\addplot3[domain=0:5*pi,
 		samples = 100,
 		samples y=0,
@@ -409,7 +411,39 @@ In questa sezione introdurremo i rivestimenti di uno spazio topologico ed alcuni
 		({sin(deg(x))},
 		{cos(deg(x))},
 		{x});
+		\addplot3[
+		domain=pi:1.2*pi,
+		samples = 100,
+		samples y=0,
+		ultra thick
+		]
+		({sin(deg(x))},
+		{cos(deg(x))},
+		{x});
+		\addplot3[
+		domain=3*pi:3.2*pi,
+		samples = 100,
+		samples y=0,
+		ultra thick
+		]
+		({sin(deg(x))},
+		{cos(deg(x))},
+		{x});
+		\addplot3[
+		domain=pi:1.2*pi,
+		samples = 100,
+		samples y=0,
+		ultra thick
+		]
+		({sin(deg(x))},
+		{cos(deg(x))},
+		{-10});
 	\end{axis}
+\node at (1.3,1) {$V$};
+\node at (5.3,1) {$S^1$};
+\node at (6.3,4) {$\mathbb{R}$};
+\node at (0.2,3.1) {$p^{-1}(V)$};
+\draw[->] (2.5,2)--(2.5,1) node[anchor=south east] {$p$};
 \end{tikzpicture}
 	
 \end{center}
@@ -430,12 +464,9 @@ In questa sezione introdurremo i rivestimenti di uno spazio topologico ed alcuni
 	Per quanto riguarda l'esistenza del rivestimento universale di un determinato spazio topologico $X$, è possibile dimostrare che se $X$ è connesso e semplicemente connesso allora esso possiede un rivestimento universale. Per approfondimenti a riguardo si veda [5] cap. 22.
 \end{Obs}
 \section{Gruppi di Lie}
-In questa sezione daremo le definizioni di gruppi di Lie e algebra di Lie con alcuni esempi ed importanti risultati, che ci permetteranno di identificare l'algebra di Lie di un gruppo di Lie con il suo spazio tangente nell'identità.
+In questa sezione daremo la definizione di gruppo e sottogruppo di Lie, con alcuni esempi ed importanti risultati. Per maggiori dettagli si consulti [1] pag. 164-174 cap. 4 e [3] cap 1.
 \begin{Def}
-	Un \textit{gruppo di Lie} $G$ è una varietà differenziabile con la struttura di gruppo, tale che le operazioni di moltiplicazione $\cdot:G\times G\rightarrow G$ e inversione $i:G\rightarrow G$ sono $C^\infty$.
-\end{Def}
-Si nota che, facendo riferimento alla sezione precedente, nel caso di un gruppo di Lie è richiesta la struttura di varietà differenziabile, cioè si chiede di più rispetto ad un gruppo topologico.
-\begin{Def}
+	Un \textit{gruppo di Lie} $G$ è una varietà differenziabile con la struttura di gruppo, tale che le operazioni di moltiplicazione $\cdot:G\times G\rightarrow G$ e inversione $i:G\rightarrow G$ sono $C^\infty$.\\
 	Un \textit{sottogruppo} $H$ di un gruppo di Lie $G$ è una sottovarietà regolare di $G$ che è ancora gruppo con l'operazione indotta da $G$.
 \end{Def}
 \begin{Ex}
@@ -448,16 +479,22 @@ Si nota che, facendo riferimento alla sezione precedente, nel caso di un gruppo 
 	\\
 	In modo analogo si vede che (indicando con $^+$ l'operazione di aggiunzione e con T quella di trasposizione):\\\\
 	$O_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^TA=AA^T=\mathbb{I}\};$\\
-	$SO_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^TA=AA^T=\mathbb{I}; det(A)=1\};$\\
+	$SO_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^TA=AA^T=\mathbb{I};\, det(A)=1\};$\\
 	$U_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^+A=AA^+=\mathbb{I}\};$\\
-	$SU_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^+A=AA^+=\mathbb{I};det(A)=1\};$\\\\
+	$SU_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^+A=AA^+=\mathbb{I};\,det(A)=1\};$\\\\
 	sono tutti gruppi di Lie reali (risp. complessi). 
 \end{Ex}
 
 \begin{Def}
 	Si dice \textit{omomorfismo tra gruppi di Lie} $G$ e $H$ una mappa \\$f:G\rightarrow H$ di classe $C^\infty$ tale che $f(gh)=f(g)f(h)$.
 \end{Def}
-Un omomorfismo tra gruppi manda sempre l'identità nell'identità. Infatti $f(eg)=f(e)f(g)$ ed $f(g)=f(eg)$.\\
+Notiamo che un omomorfismo tra gruppi manda sempre l'identità nell'identità. Infatti $f(eg)=f(e)f(g)$ ed $f(g)=f(eg)$.\\\\
+Si indica con $l_g:G\rightarrow G$ dove $l_g(x)=gx$ l'operazione di moltiplicazione a sinistra su $G$ gruppo di Lie.
+\begin{Obs}
+	$l_g$ è $C^\infty$ in quanto è definita come moltiplicazione su di un gruppo di Lie. Da ciò segue che $l_g$ è anche continua. Inoltre $l_g^{-1}=l_{g^{-1}}$ che è ancora continua e di classe $C^\infty$. Quindi $l_g$ è un diffeomorfismo.
+\end{Obs}
+\section{Algebre di Lie}
+In questa sezione introduciamo la definizione di algebra di Lie generica e algebra di Lie di un gruppo di Lie. Enunceremo inoltre alcuni risultati che ci permetteranno di identificare l'algebra di Lie di un gruppo di Lie con il suo spazio tangente nell'identità. Per maggiori dettagli si veda [1] pag 178-182 cap.4, [3] cap.1 e [4] parte 1 cap.3.
 \begin{Def}
 	Si dice \textit{algebra di Lie reale} (risp. complessa) uno spazio vettoriale reale $\mathfrak{g}$ (risp. complesso) in cui è definita un'operazione binaria bilineare (detta Lie bracket) $[,]:\mathfrak{g}\times\mathfrak{g}\rightarrow\mathfrak{g}$ tale che verifica:
 	\begin{itemize}
@@ -479,12 +516,6 @@ Salvo specificazioni, le algebre di Lie considerate saranno sottintese a dimensi
 	Sia un generico spazio vettoriale $V$ su $\mathbb{R}$. Allora definendo il Lie bracket come $[,]:V\times V\rightarrow V$ tale che $[x,y]=0$, $V$ diviene algebra di Lie.\\
 	Infatti la linearità e l'anticommutatività sono rispettate e l'identità di Jacobi si riduce a $0+0+0=0$.
 \end{Ex}
-Definiamo ora un'operazione che ci permetterà di identificare lo spazio tangente all'identità di un gruppo di Lie con una determinata algebra di Lie.\\
-\\
-Si indica con $l_g:G\rightarrow G$ dove $l_g(x)=gx$ l'operazione di moltiplicazione a sinistra su $G$ gruppo di Lie.
-\begin{Obs}
-	$l_g$ è $C^\infty$ in quanto è definita come moltiplicazione su di un gruppo di Lie. Da ciò segue che $l_g$ è anche continua. Inoltre $l_g^{-1}=l_{g^{-1}}$ che è ancora continua e di classe $C^\infty$. Quindi $l_g$ è un diffeomorfismo.
-\end{Obs}
 \begin{Obs}
 	Dato un campo vettoriale $X$ su un gruppo di Lie $G$, l'operazione di moltiplicazione a sinistra induce una mappa $(dl_g)_e:T_eG\rightarrow T_gG$ che agisce su $X$.
 \end{Obs}
