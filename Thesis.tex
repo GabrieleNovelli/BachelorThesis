@@ -12,6 +12,16 @@
 \usepackage{biblatex}
 \usepackage{csquotes}
 \usepackage{pgfplots}
+\usepackage{hyperref}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+	pdftitle={Overleaf Example},
+	pdfpagemode=FullScreen,
+}
 
 \textwidth=450pt\oddsidemargin=0pt
 \geometry{a4paper, top=3cm, bottom=3cm, left=3cm, right=3cm, % heightrounded, bindingoffset=5mm 
@@ -19,6 +29,7 @@
 \theoremstyle{definition}
 \newtheorem{Def}{Definizione}[chapter]
 
+\theoremstyle{Theorem}
 \newtheorem{Theo}[Def]{Teorema}
 \newtheorem{Prop}[Def]{Proposizione}
 
@@ -137,7 +148,7 @@ Diamo di seguito alcuni esempi di varietà differenziabili:
 \begin{Ex}
 	Lo spazio $\mathbb{R}^n$ con l'unica carta $(\mathbb{R}^n,\phi)$, dove $\phi=(r^1,...,r^n)$ e $r^i$ sono le coordinate standard di $\mathbb{R}^n$, è una varietà differenziabile. In questo caso un atlante è costituito da un'unica carta. Tuttavia è facile convincersi che ci sono infiniti atlanti con carte compatibili con la carta data in questo esempio.
 \end{Ex}
-\begin{Ex}
+\begin{Ex} \label{Ex 1.1}
 	L'insieme $GL_n(\mathbb{R})=\{A\in M_{n\times n}|det(A)\neq0\}$ è una varietà differenziabile.
 	Infatti considerando la mappa determinante $det:\mathbb{R}^{n^2}\rightarrow \mathbb{R}$, per definizione $GL_n(\mathbb{R})=det^{-1}(\mathbb{R}-\{0\})$. Poiché che la mappa $det$ è continua, le pre-immagini degli aperti sono aperte, cioè $GL_n(\mathbb{R})$ è un sottoinsieme aperto di $\mathbb{R}^{n^2}$.\\
 	Allora, essendo sottoinsieme aperto di una varietà differenziabile, anche $GL_n(\mathbb{R})$ è varietà differenziabile per l'osservazione \ref{Obs:1.1.1}.\\
@@ -173,6 +184,9 @@ Dunque se $\phi=(x^1,...,x^n)$ allora su $U\cap S$ si avrà $\phi=(x^1,...,x^k,0
 \begin{Ex}
 	Si consideri la varietà differenziabile $\mathbb{R}^n$ e lo spazio $\mathbb{R}^k\subset\mathbb{R}^n$ per $k<n$. Si consideri poi la carta $(\mathbb{R}^n,\phi)=(\mathbb{R}^n,r^1,...,r^n)$ centrata in $p$. Dal fatto che $\mathbb{R}^n\cap \mathbb{R}^k=\mathbb{R}^k$ segue che $\phi|_{\mathbb{R}^k}=(r^1,...,r^k,0,0,...0)$. Questo dimostra che $\mathbb{R}^k$ è una sottovarietà regolare di $\mathbb{R}^n$.
 \end{Ex}
+\begin{Obs} \label{Obs:1.1.2}
+	Nella definizione di sottovarietà regolare, la dimensione di $S$ può coincidere con quella di $M$. In questo caso $U\cap S=U$. Per l'osservazione \ref{Obs:1.1.1}, ogni sottoinsieme $S$ aperto di $M$ è una sottovarietà regolare differenziabile di dimensione uguale a quella di $M$.
+\end{Obs}
 \section{Mappe differenziabili}
 In questa sezione definiamo le mappe differenziabili tra varietà differenziabili e descriviamo alcune loro proprietà importanti. Per maggiori dettagli si veda [1] cap. 2.
 \begin{Def}
@@ -213,8 +227,11 @@ Data una Carta $(U,\phi)$ di $M$ centrata in $p\in M$, si pone:
 $${\partial\over \partial x^i}\bigg\rvert_p(f)={\partial\over \partial r^i}\bigg\rvert_{\phi(p)}(f\circ \phi^{-1})$$ dove $r^i$ sono le coordinate di $\mathbb{R}^n$.
 Questa definizione rende ${\partial\over \partial x^i}$ un campo vettoriale in quanto rispetta la regola di Leibniz.\\
 \\
-Un importante risultato è che, dato uno spazio tangente $T_pM$ e una carta $(U,\phi)$ centrata in $p$, allora i vettori $\partial\over \partial x^i$ formano una base per $T_pM$. Ciò deriva dal fatto che i vettori tangenti $\partial\over \partial r^i$ sono una base per lo spazio tangente in $x_0\in\mathbb{R}^n$.\\
-Dunque un generico vettore tangente può essere espresso come una combinazione lineare: $$\vec{v}=\sum_{i=1}^{n}c_i{\partial\over \partial x^i}$$ che dipende dal punto interno alla carta.
+Un importante risultato è che, dato uno spazio tangente $T_pM$ e una carta $(U,\phi)$ centrata in $p$, allora i vettori $\partial\over \partial x^i$ formano una base per $T_pM$. Ciò deriva dal fatto che i vettori tangenti $\partial\over \partial r^i$ sono una base per lo spazio tangente in $x_0\in\mathbb{R}^n$, che ha dimensione uguale a quella della verietà $M$.\\
+Dunque un generico vettore tangente può essere espresso come una combinazione lineare: $$\vec{v}=\sum_{i=1}^{n}c_i{\partial\over \partial x^i}$$ che dipende dal punto interno alla carta. 
+\begin{Obs} \label{Obs 1.1.3}
+	Preso il sottoinsieme aperto $GL_n(\mathbb{R})$ di $M_{n\times n}$, per le osservazioni \ref{Obs:1.1.1} e \ref{Obs:1.1.2}, $GL_n(\mathbb{R})$ è una sottovarietà differenziabile di $M_{n\times n}$ e la sua dimensione è $n^2$, uguale a quella di $M_{n\times n}$. Ma lo spazio tangente nell'identità $T_\mathbb{I}M_{n\times n}$ ha anche esso dimensione $n^2$. Da ciò, $T_\mathbb{I}GL_n(\mathbb{R})=T_\mathbb{I}M_{n\times n}$.
+\end{Obs}
 \begin{Def}
 	Data una funzione $C^\infty$ tra varietà differenziabili $F:N\rightarrow M$, si dice \textit{differenziale} in un punto $p\in N$ la mappa $dF_p:T_pN\rightarrow T_{F(p)}M$ definita come segue: dato il vettore $X_p\in T_pN$ e la funzione $f\in C_{F(p)}^\infty(M)$, allora $dF_p(X_p)f=\\X_p(f\circ F)\in\mathbb{R}$.
 \end{Def}
@@ -291,7 +308,7 @@ Diamo ora la definizione di orbita di un punto appartenente ad un $G$ insieme.
 \begin{Def}
 	Sia $X$ un $G$ insieme e $x\in X$. L'insieme $O_x=\{a(g,x); \, \forall g\in G\}$ è detto \textit{orbita} di $x\in X$. Si definisce $\textit{stabilizzatore}$ di $x\in X$ l'insieme $G_x=\{g\in G|a(g,x)=x\}$. A volte indicheremo lo stabilizzatore di un punto $x$ anche con $Stab_x$.
 \end{Def}
-\begin{Obs} \label{Obs:2.1}
+\begin{Obs} \label{Obs: 2.1}
 	Si può facilmente verificare che due orbite o sono uguali o sono disgiunte. Infatti, prese $O_x$ e $O_y$ orbite, e prendendo un punto $z\in O_x\cap O_y$ possiamo scrivere:
 	$$z=a(g,x)=a(g',y)$$
 	Ma allora $x=a(g^{-1}g',y)$, cioè le orbite coincidono.
@@ -336,7 +353,7 @@ Nel caso $a\neq 0$, questa matrice è esattamente $A=\begin{pmatrix}
 a&-1/b\\
 b&0
 \end{pmatrix}$.\\
-Riprendendo l'osservazione \ref{Obs:2.1}, notiamo che lo spazio $\mathbb{R}^2$ è unione disgiunta delle orbite di $(1,0)$ e di $(0,0)$.
+Riprendendo l'osservazione \ref{Obs: 2.1}, notiamo che lo spazio $\mathbb{R}^2$ è unione disgiunta delle orbite di $(1,0)$ e di $(0,0)$.
 E' anche possibile calcolare lo stabilizzatore di $(1,0)$:
 $$\begin{pmatrix}
 	a&c\\
@@ -470,17 +487,17 @@ In questa sezione daremo la definizione di gruppo e sottogruppo di Lie, con alcu
 	Un \textit{sottogruppo} $H$ di un gruppo di Lie $G$ è una sottovarietà regolare di $G$ che è ancora gruppo con l'operazione indotta da $G$.
 \end{Def}
 \begin{Ex}
-	Si consideri $GL_n(\mathbb{R})$, che si è provato essere varietà differenziabile. Date le operazioni prodotto $\cdot$ righe per colonne e $i$ inverso di una matrice, queste rendono $GL_n(\mathbb{R})$ un gruppo. Infatti il prodotto righe per colonne è associativo ed ha $\mathbb{I}$ come elemento neutro, mentre l'esistenza dell'inverso è garantita dalla condizione $det\neq 0$. Il fatto che queste due operazioni siano $C^\infty$ rende $GL_n(\mathbb{R})$ un gruppo di Lie.
+	Si consideri $GL_n(\mathbb{R})$, che si è provato essere varietà differenziabile. Date le operazioni prodotto righe per colonne e $i$ inverso di una matrice, queste rendono $GL_n(\mathbb{R})$ un gruppo. Infatti il prodotto righe per colonne è associativo ed ha $\mathbb{I}$ come elemento neutro, mentre l'esistenza dell'inverso è garantita dalla condizione $det\neq 0$. Il fatto che queste due operazioni siano $C^\infty$ rende $GL_n(\mathbb{R})$ un gruppo di Lie.
 \end{Ex}
 \begin{Ex}
-	Si consideri $SL_n(\mathbb{R})=\{A\in M_{n\times n}| det(A)=1\}$. Dal fatto che $SL_n(\mathbb{R})=det^{-1}(1)$ segue che $SL_n(\mathbb{R})$ è un sottogruppo chiuso di $GL_n(\mathbb{R})$. Inoltre è possibile dimostrare ([1] pag. 105 cap. 3, Teorema 9.9) che $SL_n(\mathbb{R})$ è una sottovarietà regolare di $GL_n(\mathbb{R})$ di dimensione $n^2-1$. Dato che le operazioni di moltiplicazione $\cdot$ e inversione $i$ sono ancora $C^\infty$ su $SL_n(\mathbb{R})$, questo gruppo è un sottogruppo di Lie di $GL_n(\mathbb{R})$.\\
+	Si consideri $SL_n(\mathbb{R})=\{A\in M_{n\times n}| det(A)=1\}$. Dal fatto che $SL_n(\mathbb{R})=det^{-1}(1)$ segue che $SL_n(\mathbb{R})$ è un sottogruppo chiuso di $GL_n(\mathbb{R})$. Inoltre è possibile dimostrare ([1] pag. 105 cap. 3, Teorema 9.9) che $SL_n(\mathbb{R})$ è una sottovarietà regolare di $GL_n(\mathbb{R})$ di dimensione $n^2-1$. Dato che le operazioni di moltiplicazione e inversione $i$ sono ancora $C^\infty$ su $SL_n(\mathbb{R})$, questo gruppo è un sottogruppo di Lie di $GL_n(\mathbb{R})$.\\
 	\\
 	Per approfondire questo esempio di veda [1] pag. 105-107, 125, 165 cap. 3 e 4.\\
 	\\
 	In modo analogo si vede che (indicando con $^+$ l'operazione di aggiunzione e con T quella di trasposizione):\\\\
-	$O_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^TA=AA^T=\mathbb{I}\};$\\
-	$SO_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^TA=AA^T=\mathbb{I};\, det(A)=1\};$\\
-	$U_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^+A=AA^+=\mathbb{I}\};$\\
+	$O_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^TA=AA^T=\mathbb{I}\};$\\\\
+	$SO_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^TA=AA^T=\mathbb{I};\, det(A)=1\};$\\\\
+	$U_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^+A=AA^+=\mathbb{I}\};$\\\\
 	$SU_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^+A=AA^+=\mathbb{I};\,det(A)=1\};$\\\\
 	sono tutti gruppi di Lie reali (risp. complessi). 
 \end{Ex}
@@ -509,6 +526,14 @@ Salvo specificazioni, le algebre di Lie considerate saranno sottintese a dimensi
 \begin{Def}
 	Si dice \textit{sottoalgebra} di Lie di $\mathfrak{g}$ un sottospazio vettoriale $\mathfrak{h}\subset\mathfrak{g}$ chiuso rispetto all'operazione $[,]$ di $\mathfrak{g}$.
 \end{Def}
+\begin{Ex}
+	Consideriamo lo spazio $M_{n\times n}(\mathbb{R})$ di tutte le matrici sul campo $\mathbb{R}$. Definiamo un bracket in questo modo: prese due matrici $A$ e $B$ appartenenti ad $M_{n\times n}(\mathbb{R})$, $[A,B]=AB-BA$. In questo modo $[,]$ è automaticamente bilineare ed anticommutativo, mentre l'identità di Jacobi si prova sviluppando l'espressione:
+	$$[A,[B,C]]+[B,[C,A]]+[C,[A,B]]=$$
+	$$=[A,BC-CB]+[B,CA-AC]+[C,AB-BA]=$$
+	$$=ABC-ACB-BCA+CBA+BCA-BAC-CAB+ACB+$$
+	$$+CAB-CBA-ABC+BAC=0$$
+	Abbiamo provato che $[,]$ definito in questo modo rende $M_{n\times n}(\mathbb{R})$ un'algebra di Lie.
+\end{Ex}
 \begin{Def}
 	Si definisce un \textit{omomorfismo tra algebre di Lie} una mappa lineare $f:\mathfrak{g}\rightarrow\mathfrak{h}$ tale che $f([x,y])=[f(x),f(y)]$ per ogni $x,y\in\mathfrak{g}$.
 \end{Def}
@@ -516,10 +541,6 @@ Salvo specificazioni, le algebre di Lie considerate saranno sottintese a dimensi
 	Sia un generico spazio vettoriale $V$ su $\mathbb{R}$. Allora definendo il Lie bracket come $[,]:V\times V\rightarrow V$ tale che $[x,y]=0$, $V$ diviene algebra di Lie.\\
 	Infatti la linearità e l'anticommutatività sono rispettate e l'identità di Jacobi si riduce a $0+0+0=0$.
 \end{Ex}
-\begin{Obs}
-	Dato un campo vettoriale $X$ su un gruppo di Lie $G$, l'operazione di moltiplicazione a sinistra induce una mappa $(dl_g)_e:T_eG\rightarrow T_gG$ che agisce su $X$.
-\end{Obs}
-
 \begin{Def}
 	Un campo vettoriale $X$ su un gruppo di Lie $G$ si dice \textit{invariante a sinistra} se $dl_g(X)=X$ per ogni $g\in G$.
 \end{Def}
@@ -527,25 +548,26 @@ Sostanzialmente un campo vettoriale è invariante a sinistra se la sua traslazio
 Ne consegue che $X_g=dl_g(X_e)$, ovvero che un campo vettoriale invariante a sinistra è completamente determinato dal suo valore all'identità del gruppo.\\
 \\
 E' possibile dimostrare che ogni campo $X$ invariante a sinistra su di un gruppo di Lie è $C^\infty$. ([1] pag. 181 cap.4).
-\begin{Obs}
+\begin{Obs} \label{Obs: 2.2}
 	Dato un gruppo di Lie $G$ ed un vettore $A\in T_eG$ tangente nell'identità, si può definire un campo vettoriale $X^A:G\rightarrow T_eG$ tale che $X^A_g=dl_g(A)$. Questo campo è automaticamente invariante a sinistra in quanto: $$dl_g(X^A_h)=dl_g(dl_h(X^A_e))=dl_{gh}(X^A_e)=dl_{gh}(A)=X^A_{gh}$$
 	In questo caso diciamo che $X^A$ è generato da $A\in T_eG$ e chiamiamo con $Lie(G)$ l'insieme di tutti gli $X^A$ generati dai vettori tangenti nell'identità in $G$.	
 \end{Obs}
 Dati due campi vettoriali $X$ e $Y$, definiamo la loro Lie Bracket in un punto $p$ come $[X,Y]_pf=(X_pY-Y_pX)f$.
-Vale il seguente risultato:
+E' possibile dimostrare che se $X$ e $Y$ sono campi vettoriali lisci su $M$, allora anche $[X,Y]$ è liscio su $M$. Per dettagli sulla dimostrazione si veda [1] pag. 157 cap. 4.
+Vale inoltre il seguente risultato:
 \begin{Prop}
 	Se $X$ e $Y$ sono invarianti a sinistra allora anche $[X,Y]$, $cX$ e $X+Y$ lo sono. Inoltre, $[X,Y]$ rispetta l'identità di Jacobi.
 \end{Prop}
 \begin{proof}
-	Dalla linearità della mappa differenziale segue che se $X,Y$ sono invarianti a sinistra anche le loro combinazioni lineari lo saranno.\\
+	Dalla linearità della mappa differenziale segue che se $X,Y$ sono invarianti a sinistra anche le loro combinazioni lineari lo saranno.
 	Per provare l'invarianza della bracket invece: si consideri un punto $p\in G$ ed una funzione $f\in C^\infty_p(G)$, si vuole far vedere che $dl_g([X,Y])=[X,Y]$.
 	Applicando la definizione di differenziale: $$dl_g([X,Y]_p)f=[X,Y]_p(f\circ l_g)=$$$$=X_pY(f\circ l_g)-Y_pX(f\circ l_g)=$$$$=X_p(dl_g(Y)f)-Y_p(dl_g(X)f)=$$
 	$$=X_p(Y(f)\circ l_g)-Y_p(X(f)\circ l_g)=$$
 	$$=dl_g(X_p)Y(f)-dl_g(Y_p)X(f)=[X,Y]_{gp}f$$ 
-	Per mostrare che è soddisfatta l'identità di Jacobi invece si calcola:
-	$$[X,[Y,Z]_p]_p+[Y,[Z,X]_p]_p+[Z,[X,Y]_p]_p=$$
-	$$=[X,Y_pZ-Z_pY]_p+[Y,Z_pX-X_pZ]_p+[Z,X_pY-Y_pX]_p=$$
-	$$=(X_pY_pZ-X_pZ_pY-Y_pZ_pX+Z_pY_pX)+(Y_pZ_pX-Y_pX_pZ-Z_pX_pY+X_pZ_pY)+$$$$+(Z_pX_pY-Z_pY_pX-X_pY_pZ+Y_pX_pZ)=0$$
+	Per mostrare che è soddisfatta l'identità di Jacobi invece, presa una generica funzione $f\in C^\infty$ su $M$, si calcola:
+	$$[X,[Y,Z]]f+[Y,[Z,X]]f+[Z,[X,Y]]f=$$
+	$$=[X,YZ-ZY]f+[Y,ZX-XZ]f+[Z,XY-YX]f=$$
+	$$=(XYZ-XZY-YZX+ZYX)f+(YZX-YXZ-ZXY+XZY)f+$$$$+(ZXY-ZYX-XYZ+YXZ)f=0$$
 \end{proof}
 Dunque non solo $Lie(G)$ ha la struttura di uno spazio vettoriale, ma è anche chiuso rispetto a $[,]$. Inoltre, per come è stata definita la bracket, $[,]$ è bilineare, antisimmetrica e, come appena provato, verifica l'identità di Jacobi.\\
 Da ciò, $Lie(G)$ è un'algebra di Lie detta algebra di Lie di $G$ e si indica con $\mathfrak{g}$.
@@ -553,10 +575,8 @@ Da ciò, $Lie(G)$ è un'algebra di Lie detta algebra di Lie di $G$ e si indica c
 	Dato un gruppo di Lie $G$, esiste un isomorfismo tra $Lie(G)$ e $T_eG$, cioè $Lie(G)\cong T_eG$.
 \end{Theo}
 \begin{proof}
-	Si consideri l'applicazione $A\mapsto X^A$ dove $A$ è un vettore nell'identità di $G$ e $X^A$ è il campo vettoriale invariante a sinistra generato da esso. Si vuole provare che questa mappa è isomorfismo tra spazi vettoriali.\\
-	La mappa è iniettiva: se $A=0$ allora $X^A$ è il campo nullo in quanto $X^A_g=dl_g(A)=dl_g(0)=0$.\\
-	La mappa è anche suriettiva in quanto per ogni $X^A$ è possibile trovare un $A$ che lo generi: se $X^A$ è invariante a sinistra allora è completamente determinato dal suo valore nell'identità $e$. Dunque il vettore $A$ cercato è proprio $X^A_e$.\\
-	Questo completa la dimostrazione.  
+	Si consideri l'applicazione $f:X^A\mapsto A$ dove $A$ è un vettore nell'identità di $G$ e $X^A$ è il campo vettoriale invariante a sinistra generato da esso.
+	Si vuole provare che la mappa $g:A\mapsto X^A$ è l'inversa di $f$. Per verificare ciò è sufficiente mostrare che, dato $A$, $g(A)$ è invariante a sinistra. Ciò è vero per l'osservazione \ref{Obs: 2.2}. Questo conclude la dimostrazione. 
 \end{proof}
 E' possibile definire un prodotto $[,]$ anche sullo spazio tangente all'identità. In questo modo si ha una vera e propria identificazione dell'algebra di Lie di un gruppo di Lie con il suo spazio tangente nell'elemento identico. Per approfondire questo risultato si veda [1] pag. $182-184$ cap. $4$.
 \begin{Ex}
@@ -565,20 +585,19 @@ E' possibile definire un prodotto $[,]$ anche sullo spazio tangente all'identit�
 Diamo ora alcuni esempi di spazi tangenti nell'identià per gruppi di matrici, ricordando che possiamo identificare questi spazi con l'algebra di Lie dei gruppi stessi.
 \begin{Ex}[Spazio tangente a $GL_n(\mathbb{R})$]
 	Indichiamo con $\mathfrak{gl_n(\mathbb{R})}$ l'algebra di Lie di $GL_n(\mathbb{R})$.
-	\\
-	Poichè la mappa $det:GL_n(\mathbb{R})\rightarrow\mathbb{R}$ è continua, sapendo che $det(\mathbb{I})\neq 0$, esiste $U_\mathbb{I}$ aperto contenente $\mathbb{I}$ tale che se $A\in U_\mathbb{I}$ allora $det(A)\neq 0$. Sia $B\in M_{n\times n}$ e $\gamma:]-\epsilon,\epsilon[\rightarrow M_{n\times n}$ tale che $\gamma(t)=\mathbb{I}+tB+O(t^2)$. Allora $\gamma(0)=\mathbb{I}$ e $\gamma'(0)=B\in T_\mathbb{I}GL_n(\mathbb{R})$. Scelto $\epsilon>0$ abbastanza piccolo si ha che $det(\mathbb{I}+tB+O(t^2))\neq 0$ per ogni $t\in]-\epsilon,\epsilon[$. Da ciò, $$\mathfrak{gl_n(\mathbb{R})}\cong M_{n\times n}= T_\mathbb{I}GL_n(\mathbb{R})$$.
+	Per l'osservazione \ref{Obs 1.1.3}, si ha $T_\mathbb{I}GL_n(\mathbb{R})=T_\mathbb{I}M_{n\times n}=M_{n\times n}$. Da ciò, $$\mathfrak{gl_n(\mathbb{R})}\cong M_{n\times n}= T_\mathbb{I}GL_n(\mathbb{R})$$.
 \end{Ex}
 \begin{Ex}[Spazio tangente a $SL_n(\mathbb{R})$]
-	Indichiamo con $\mathfrak{sl_n(\mathbb{R})}$ l'algebra di Lie di $SL_n(\mathbb{R})=\{A\in M_{n\times n}|det(A)=1\}$.\\
-	Seguendo lo stesso ragionamento dell'esempio precedente e quindi considerando una curva $\gamma:]-\epsilon,\epsilon[\rightarrow M_{n\times n}$ tale che $\gamma(t)=\mathbb{I}+tB+O(t^2)$, è necessario che $det(\mathbb{I}+tB+O(t^2))=1$. Ma $det(\mathbb{I}+tB+O(t^2))=1+tr(B)+O(t^2)$ da cui: $$T_\mathbb{I}SL_n(\mathbb{R})\cong \mathfrak{sl_n(\mathbb{R})}=\{A\in M_{n\times n}|trA=0\}$$ 
+	Indichiamo con $\mathfrak{sl_n(\mathbb{R})}$ l'algebra di Lie di $SL_n(\mathbb{R})=\{A\in M_{n\times n}|det(A)=1\}$.
+	Considerando una curva $\gamma:]-\epsilon,\epsilon[\rightarrow M_{n\times n}$ tale che $\gamma(t)=\mathbb{I}+tB+O(t^2)$, è necessario che $det(\mathbb{I}+tB+O(t^2))=1$. Ma $det(\mathbb{I}+tB+O(t^2))=1+tr(B)+O(t^2)$ da cui: $$T_\mathbb{I}SL_n(\mathbb{R})\cong \mathfrak{sl_n(\mathbb{R})}=\{A\in M_{n\times n}|trA=0\}$$ 
 \end{Ex}
 \begin{Ex}[Spazio tangente a $GL(V)$]
-	Sia lo spazio $GL(V)=\{f:V\rightarrow V|\, \textnormal{$f$\,  è \, lineare \, e \, invertibile}\}$ dove $V$ è uno spazio vettoriale a dimensione finita. Allora, fissata una base di $V$, si ha l'identificazione $GL(V)\cong GL_n(\mathbb{R})$. Lo spazio tangente a $GL_n(\mathbb{R})$ è stato provato essere $M_{n\times n}(\mathbb{R})\cong End(V)=\{f:V\rightarrow V|\textnormal{\, $f$\, è \, lineare}\}$. Da cui: 
-	$$T_{id}GL(V)\cong End(V)$$ 
+	Sia lo spazio $GL(V)=\{f:V\rightarrow V|\, \textnormal{$f$\,  è \, lineare \, e \, invertibile}\}$ dove $V$ è uno spazio vettoriale a dimensione finita. Indichiamo con $\mathfrak{gl}(V)$ l'algebra di Lie di $GL(V)$.  Allora, fissata una base di $V$, si ha l'identificazione $GL(V)\cong GL_n(\mathbb{R})$. Lo spazio tangente a $GL_n(\mathbb{R})$ è stato provato essere $M_{n\times n}(\mathbb{R})\cong End(V)=\{f:V\rightarrow V|\textnormal{\, $f$\, è \, lineare}\}$. Da cui: 
+	$$\mathfrak{gl}(V)\cong T_{id}GL(V)\cong End(V)$$ 
 \end{Ex}
 Per la caratterizzazione delle algebre di Lie di $O_n(\mathbb{R})$ e $SU_n(\mathbb{C})$ si farà uso della mappa esponenziale, che verrà discussa nella successiva sezione.
 \section{Mappa esponenziale}
-In questa sezione daremo la definizione ed enunceremo alcune proprietà della mappa esponenziale e delle sue applicazioni. In particolare, ci concentreremo sui gruppi di matrici.
+In questa sezione daremo la definizione ed enunceremo alcune proprietà della mappa esponenziale e delle sue applicazioni. In particolare, ci concentreremo sui gruppi di matrici. Per tutti i dettagli si veda [4] parte 1, cap 2-2.4 e 3.7.
 \begin{Def}
 	Dato $G$ gruppo di Lie e $X\in\mathfrak{g}$, la \textit{mappa esponenziale} è \\$exp:\mathfrak{g}\rightarrow G$ definita come $exp(X)=\Phi_X(1,e)$ flusso del campo $X$.
 \end{Def}
