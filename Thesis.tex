@@ -13,6 +13,7 @@
 \usepackage{csquotes}
 \usepackage{pgfplots}
 \usepackage{hyperref}
+\usepackage{amssymb}
 
 \hypersetup{
 	colorlinks=true,
@@ -293,11 +294,11 @@ Definiamo ora il concetto di azione di gruppo su un generico insieme $X$.
 		\item 	$a(e,x)=x$ per ogni $x\in X$;
 		\item $a(gh,x)=a(g,a(h,x))$ per ogni $g,h\in G$ e $x\in X$.
 	\end{itemize} 
-Nel caso $X$ sia anche spazio topologico, se la mappa $x\longmapsto a(g,x)$ è continua per ogni $g\in G$, allora $X$ è chiamato \textit{$G$ spazio}.\\
+Nel caso $X$ sia anche spazio topologico, se la mappa $x\longmapsto a(g,x)$ è continua per ogni $g\in G$, allora $X$ è chiamato \textit{$G$ spazio}.
 Denoteremo $a(g,x)$ anche come $g\cdot x$.
 \end{Def}
 \begin{Obs}
-In questo caso abbiamo definito il concetto di azione con una mappa $\textit{sinistra}$. Avremmo potuto definire un'azione destra in modo equivalentemente valido come: $b:X\times G\rightarrow X$ tale che $b(x,e)=x$ e $b(x,gh)=b(b(x,g),h)$. Possiamo mostrare con un rapido calcolo che, data un'azione sinistra, è automaticamente definita un'azione destra: infatti, data $a:G\times X\rightarrow X$ definita come $(g,x)\longmapsto a(g,x)$, si può costruire una mappa $b:X\times G\rightarrow X$ definita come $(x,g)\longmapsto a(g^{-1},x)=b(x,g)$. Non è difficile verificare che questa nuova azione rispetta tutte e due le proprietà richieste:
+In questo caso abbiamo definito il concetto di azione $\textit{sinistra}$. Avremmo potuto definire un'azione destra in modo equivalentemente valido come: $b:X\times G\rightarrow X$ tale che $b(x,e)=x$ e $b(x,gh)=b(b(x,g),h)$. Possiamo mostrare con un rapido calcolo che, data un'azione sinistra, è automaticamente definita un'azione destra: infatti, data $a:G\times X\rightarrow X$ definita come $(g,x)\longmapsto a(g,x)$, si può costruire una mappa $b:X\times G\rightarrow X$ definita come $(x,g)\longmapsto a(g^{-1},x)=b(x,g)$. Non è difficile verificare che questa nuova azione rispetta tutte e due le proprietà richieste:
 $$b(x,e)=a(e,x)=x$$
 In quanto $e^{-1}=e$ dato che $G$ è un gruppo. Ricordando poi che $(gh)^{-1}=h^{-1}g^{-1}$, si ha la catena di uguaglianze:
 $$b(x,gh)=a((gh)^{-1},x)=a(h^{-1}g^{-1},x)=$$$$=a(h^{-1},a(g^{-1},x))=a(h^{-1},b(x,g))=b(b(x,g),h)$$
@@ -322,7 +323,7 @@ Diamo ora la definizione di orbita di un punto appartenente ad un $G$ insieme.
 	$$a(A,(x,y))=A\begin{pmatrix}
 		x\\y
 	\end{pmatrix}$$
-dove $A\in SL_2(\mathbb{R})$ e $(x,y)\in\mathbb{R}^2$. Non è difficile verificare che la mappa così definita rispetta tutte le proprietà di un'azione. Procediamo ora al calcolo delle orbite di $(0,0)$, $(1,0)$ e mostriamo che questa stessa azione, ristretta a $\mathbb{R}^2-\{(0,0)\}$, è transitiva. \\
+dove $A\in SL_2(\mathbb{R})$ e $(x,y)\in\mathbb{R}^2$. Non è difficile verificare che la mappa così definita rispetta tutte le proprietà di un'azione. Procediamo ora al calcolo delle orbite di $(0,0)$, $(1,0)$ e mostriamo che questa stessa azione, ristretta a $\mathbb{R}^2-\{(0,0)\}$, è transitiva.
 Valutiamo innanzitutto l'orbita di $(0,0)$:
 $$A\begin{pmatrix}
 	0\\0
@@ -340,7 +341,8 @@ b&d
 \end{pmatrix}=\begin{pmatrix}
 a\\b
 \end{pmatrix}$$
-Con almeno uno tra $a,b$ diverso da $0$ in quanto è necessario che $ad-bc=1$ per la condizione $det(A)=1$. Abbiamo trovato $O_{(1,0)}=\{(a,b);\, a,b\in\mathbb{R}\}$. Questo significa che ogni punto di $\mathbb{R}^2-\{(0,0)\}$ appartiene all'orbita di $(1,0)$, cioè l'azione di $SL_2(\mathbb{R})$ su $\mathbb{R}^2-\{(0,0)\}$ è transitiva. E' possibile mostrare lo stesso risultato procedendo al contrario: preso un generico elemento $(a,b)$ troviamo una matrice $A\in SL_2(\mathbb{R})$ tale che 
+Con almeno uno tra $a,b$ diverso da $0$ in quanto è necessario che $ad-bc=1$ per la condizione $det(A)=1$. Abbiamo trovato $$O_{(1,0)}=\{(a,b);\, a,b\in\mathbb{R}\,\, \hbox{tali che} \, \, a \vee b\neq 0 \}$$ 
+Questo significa che ogni punto di $\mathbb{R}^2-\{(0,0)\}$ appartiene all'orbita di $(1,0)$, cioè l'azione di $SL_2(\mathbb{R})$ su $\mathbb{R}^2-\{(0,0)\}$ è transitiva. E' possibile mostrare lo stesso risultato procedendo al contrario: preso un generico elemento $(a,b)$ troviamo una matrice $A\in SL_2(\mathbb{R})$ tale che 
 $$A\begin{pmatrix}
 	1\\0
 \end{pmatrix}=\begin{pmatrix}
@@ -404,9 +406,7 @@ In questa sezione introdurremo i rivestimenti di uno spazio topologico ed alcuni
 		\item per ogni $x\in X$ esiste $U\subset X$ intorno di $x$ tale che $p^{-1}(U)=\bigcup_j V_j$. Dove $\{V_j\}$ è una collezione di sottoinsiemi aperti di $\tilde{X}$ disgiunti a due a due e tale che, per ogni $j$, $p\rvert_{V_j}:V_j\rightarrow U$ è omeomorfismo. 
 	\end{itemize}
 \end{Def}
-\begin{Ex}[Rivestimento banale]
-	Dato uno spazio topologico $X$, si definisce rivestimento banale la mappa $p:X\rightarrow X$ definita come $p(x)=x$. Ovviamente $p$ così definita verifica tutte le proprietà in quanto identità.
-\end{Ex}
+	Dato uno spazio topologico $X$, si definisce \textit{rivestimento banale} la mappa $p:X\rightarrow X$ definita come $p(x)=x$. Ovviamente $p$ così definita verifica tutte le proprietà in quanto identità.
 \begin{Ex}
 	Si consideri lo spazio topologico $S^1$ definito come il cerchio di raggio unitario. Allora la mappa $p:\mathbb{R}\rightarrow S^1$ tale che $p(t)=e^{it}$ è un rivestimento di $S^1$. Dunque le pre-immagini di ogni arco sono unioni disgiunte di sezioni della retta reale.
 \end{Ex}
@@ -483,7 +483,7 @@ In questa sezione introdurremo i rivestimenti di uno spazio topologico ed alcuni
 \section{Gruppi di Lie}
 In questa sezione daremo la definizione di gruppo e sottogruppo di Lie, con alcuni esempi ed importanti risultati. Per maggiori dettagli si consulti [1] pag. 164-174 cap. 4 e [3] cap 1.
 \begin{Def}
-	Un \textit{gruppo di Lie} $G$ è una varietà differenziabile con la struttura di gruppo, tale che le operazioni di moltiplicazione $\cdot:G\times G\rightarrow G$ e inversione $i:G\rightarrow G$ sono $C^\infty$.\\
+	Un \textit{gruppo di Lie} $G$ è una varietà differenziabile con la struttura di gruppo, tale che le operazioni di moltiplicazione $\cdot:G\times G\rightarrow G$ e inversione $i:G\rightarrow G$ sono $C^\infty$.
 	Un \textit{sottogruppo} $H$ di un gruppo di Lie $G$ è una sottovarietà regolare di $G$ che è ancora gruppo con l'operazione indotta da $G$.
 \end{Def}
 \begin{Ex}
@@ -518,14 +518,13 @@ In questa sezione introduciamo la definizione di algebra di Lie generica e algeb
 		\item Antisimmetria: $[x,y]=-[y,x]$, $\forall x,y\in\mathfrak{g}$;
 		\item Identità di Jacobi: $[x,[y,z]]+[y,[z,x]]+[z,[x,y]]=0$, $\forall x,y,z\in \mathfrak{g}$ 
 	\end{itemize}
+	Si dice \textit{sottoalgebra} di Lie di $\mathfrak{g}$ un sottospazio vettoriale $\mathfrak{h}\subset\mathfrak{g}$ chiuso rispetto all'operazione $[,]$ di $\mathfrak{g}$.\\
+		Si definisce un \textit{omomorfismo tra algebre di Lie} una mappa lineare $f:\mathfrak{g}\rightarrow\mathfrak{h}$ tale che $f([x,y])=[f(x),f(y)]$ per ogni $x,y\in\mathfrak{g}$.
 \end{Def}
 Salvo specificazioni, le algebre di Lie considerate saranno sottintese a dimensione finita.
 \begin{Obs}
 	L'identità di Jacobi implica in generale la non associatività del prodotto $[,]$. Se infatti questo fosse associativo, si avrebbe $[x,[y,z]]=[[x,y],z]$ ma ciò non è generalmente vero.
 \end{Obs}
-\begin{Def}
-	Si dice \textit{sottoalgebra} di Lie di $\mathfrak{g}$ un sottospazio vettoriale $\mathfrak{h}\subset\mathfrak{g}$ chiuso rispetto all'operazione $[,]$ di $\mathfrak{g}$.
-\end{Def}
 \begin{Ex}
 	Consideriamo lo spazio $M_{n\times n}(\mathbb{R})$ di tutte le matrici sul campo $\mathbb{R}$. Definiamo un bracket in questo modo: prese due matrici $A$ e $B$ appartenenti ad $M_{n\times n}(\mathbb{R})$, $[A,B]=AB-BA$. In questo modo $[,]$ è automaticamente bilineare ed anticommutativo, mentre l'identità di Jacobi si prova sviluppando l'espressione:
 	$$[A,[B,C]]+[B,[C,A]]+[C,[A,B]]=$$
@@ -534,9 +533,6 @@ Salvo specificazioni, le algebre di Lie considerate saranno sottintese a dimensi
 	$$+CAB-CBA-ABC+BAC=0$$
 	Abbiamo provato che $[,]$ definito in questo modo rende $M_{n\times n}(\mathbb{R})$ un'algebra di Lie.
 \end{Ex}
-\begin{Def}
-	Si definisce un \textit{omomorfismo tra algebre di Lie} una mappa lineare $f:\mathfrak{g}\rightarrow\mathfrak{h}$ tale che $f([x,y])=[f(x),f(y)]$ per ogni $x,y\in\mathfrak{g}$.
-\end{Def}
 \begin{Ex}
 	Sia un generico spazio vettoriale $V$ su $\mathbb{R}$. Allora definendo il Lie bracket come $[,]:V\times V\rightarrow V$ tale che $[x,y]=0$, $V$ diviene algebra di Lie.\\
 	Infatti la linearità e l'anticommutatività sono rispettate e l'identità di Jacobi si riduce a $0+0+0=0$.
@@ -575,10 +571,11 @@ Da ciò, $Lie(G)$ è un'algebra di Lie detta algebra di Lie di $G$ e si indica c
 	Dato un gruppo di Lie $G$, esiste un isomorfismo tra $Lie(G)$ e $T_eG$, cioè $Lie(G)\cong T_eG$.
 \end{Theo}
 \begin{proof}
-	Si consideri l'applicazione $f:X^A\mapsto A$ dove $A$ è un vettore nell'identità di $G$ e $X^A$ è il campo vettoriale invariante a sinistra generato da esso.
-	Si vuole provare che la mappa $g:A\mapsto X^A$ è l'inversa di $f$. Per verificare ciò è sufficiente mostrare che, dato $A$, $g(A)$ è invariante a sinistra. Ciò è vero per l'osservazione \ref{Obs: 2.2}. Questo conclude la dimostrazione. 
+	Si consideri l'applicazione $f:X^A\mapsto A$ dove $X^A$ è un campo vettoriale invariante a sinistra e $A=X^A_e$, ovvero il vettore tangente di $X^A$ nell'identità.
+	Si vuole provare che la mappa $g:A\mapsto X^A$, con $X^A$ generato da $A$, è l'inversa di $f$. Per verificare ciò è sufficiente mostrare che, dato $A$, $g(A)$ è invariante a sinistra. Ciò è vero per l'osservazione \ref{Obs: 2.2}. Questo conclude la dimostrazione. 
 \end{proof}
-E' possibile definire un prodotto $[,]$ anche sullo spazio tangente all'identità. In questo modo si ha una vera e propria identificazione dell'algebra di Lie di un gruppo di Lie con il suo spazio tangente nell'elemento identico. Per approfondire questo risultato si veda [1] pag. $182-184$ cap. $4$.
+Possiamo definire un prodotto $[,]$ sullo spazio tangente all'identità in questo modo: presi due vettori $A,B\in T_eG$, definiamo $[A,B]=[X^A,X^B]_e$, dove $X^A$ e $X^B$ sono i campi invarianti a sinistra generati dai vettori scelti. E' possibile dimostrare che $X^{[A,B]}=[X^A,X^B]$. Per la dimostrazione si veda [1] pag. $183$ cap. $4$.
+Con $[,]$ definito in questo modo, lo spazio $T_eG$ diventa un'algebra di Lie, chiamata algebra di Lie di $G$.
 \begin{Ex}
 	Considerando gli insiemi $\mathbb{C}^n$ e $\mathbb{R}^n$ le algebre di Lie associate sono rispettivamente $\mathbb{C}^n$ e $\mathbb{R}^n$ con le bracket banali $[X,Y]=0$. In $\mathbb{R}^2$, ciò equivale a chiedere che valga il lemma di Schwarz: ${\partial\over\partial y}{\partial\over\partial x}f(p)={\partial\over\partial x}{\partial\over\partial y}f(p)$.
 \end{Ex}
@@ -626,7 +623,7 @@ Si può dimostrare che questa serie converge per ogni $X\in M_{n\times n}$ ed è
 	\item se $C$ è una matrice invertibile, allora $e^{CXC^{-1}}=Ce^XC^{-1}$
 \end{itemize} 
 Ma il risultato forse più importante è che ${d\over dt}e^{tX}\bigg{\rvert}_0=X$ e ${d\over dt}e^{tX}\bigg{\rvert}_{t'}=Xe^{t'X}$.\\
-Infatti, quest'ultima proprietà ci assicura che la mappa esponenziale coincida con l'esponenziale di matrice.\\
+Infatti, quest'ultima proprietà ci assicura che la mappa esponenziale coincida con l'esponenziale di matrice.
 Per le dimostrazioni consultare [4] pag. 38-41 cap.2.\\
 \\
 Utilizzando la mappa esponenziale è possibile trovare un'espressione per l'algebra di Lie di gruppi di matrici come $U_n(\mathbb{R})$ e $O_n(\mathbb{R})$. Si consideri il seguente esempio:
@@ -639,10 +636,10 @@ Enunciamo ora un importante risultato che ci permetterà di stabilire un collega
 \begin{Prop} \label{Prop: 2.4.1}
 	Siano $G$ e $H$ gruppi di Lie di matrici e $\mathfrak{g}$, $\mathfrak{h}$ le loro algebre. Sia $\rho:G\rightarrow H$ un omomorfismo tra gruppi di Lie. Allora esiste un'unica mappa reale lineare $\varrho:\mathfrak{g}\rightarrow\mathfrak{h}$ tale che:
 	\begin{itemize}
-		\item $\rho(e^X)=e^{\varrho(X)}$; 
-		\item $\varrho(AXA^{-1})=\rho(A)\varrho(X)\rho(A)^{-1}$;
-		\item $\varrho([X,Y])=[\varrho(X),\varrho(Y)]$, cioè è omomorfismo tra algebre di Lie;
-		\item $\varrho(X)={d\over dt}\bigg{\rvert}_0\rho(e^{tX})$.
+		\item $\rho(e^X)=e^{q(X)}$; 
+		\item $q(AXA^{-1})=\rho(A)q(X)\rho(A)^{-1}$;
+		\item $q([X,Y])=[q(X),q(Y)]$, cioè è omomorfismo tra algebre di Lie;
+		\item $q(X)={d\over dt}\bigg{\rvert}_0\rho(e^{tX})$.
 	\end{itemize}
 \end{Prop}
 Per la dimostrazione si veda [4] pag.67 cap. 3.\\
@@ -910,7 +907,8 @@ Questo conclude la dimostrazione.
 	Le rappresentazioni di $SO_3(\mathbb{R})$ sono le rappresentazioni di $SU_2(\mathbb{C})$ che hanno nel nucleo $\pm\mathbb{I}$. 
 \end{Prop}
 \begin{Obs}
-	DEVI SCRIVERE CHE SU2 RICOPRE DUE VOTE SO3 ED E' RICOPRIMENTO UNIVERSALE
+	 $$T'\bigg{\rvert}_{SU_2(\mathbb{C})}:SU_2(\mathbb{C})\longrightarrow SO_3(\mathbb{R})$$
+	 è un rivestimento. In particolare, dato che ogni matrice di $SU_2(\mathbb{C})$ viene mappata a meno del segno in una precisa matrice di $SO_3(\mathbb{R})$, diciamo che lo spazio $SU_2(\mathbb{C})$ copre due volte $SO_3(\mathbb{R})$. Inoltre, dal fato che $SU_2(\mathbb{C})$ è anche semplicemente connesso, la mappa $T'$ è un rivestimento universale.
 \end{Obs}
 \subsection{Le rappresentazioni di $SU_2(\mathbb{C})$}
 Andiamo ora a studiare le rappresentazioni di $SU_2(\mathbb{C})$. Questo esempio è molto utile in quanto mostra come, per dimostrare l'irriducibilità, sia molto più vantaggioso lavorare con le rappresentazioni delle algebre di Lie invece che con le rappresentazioni dei gruppi.\\
