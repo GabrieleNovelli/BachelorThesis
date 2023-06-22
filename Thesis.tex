@@ -634,7 +634,7 @@ Utilizzando la mappa esponenziale è possibile trovare un'espressione per l'alge
 \end{Ex}
 Enunciamo ora un importante risultato che ci permetterà di stabilire un collegamento, attraverso la mappa esponenziale, tra omomorfismi di gruppi e algebre di Lie.
 \begin{Prop} \label{Prop: 2.4.1}
-	Siano $G$ e $H$ gruppi di Lie di matrici e $\mathfrak{g}$, $\mathfrak{h}$ le loro algebre. Sia $\rho:G\rightarrow H$ un omomorfismo tra gruppi di Lie. Allora esiste un'unica mappa reale lineare $\varrho:\mathfrak{g}\rightarrow\mathfrak{h}$ tale che:
+	Siano $G$ e $H$ gruppi di Lie di matrici e $\mathfrak{g}$, $\mathfrak{h}$ le loro algebre. Sia $\rho:G\rightarrow H$ un omomorfismo tra gruppi di Lie. Allora esiste un'unica mappa reale lineare $q:\mathfrak{g}\rightarrow\mathfrak{h}$ tale che:
 	\begin{itemize}
 		\item $\rho(e^X)=e^{q(X)}$; 
 		\item $q(AXA^{-1})=\rho(A)q(X)\rho(A)^{-1}$;
@@ -644,13 +644,13 @@ Enunciamo ora un importante risultato che ci permetterà di stabilire un collega
 \end{Prop}
 Per la dimostrazione si veda [4] pag.67 cap. 3.\\
 \\
-Da questo risultato emerge che dato un qualunque omomorfismo tra gruppi di Lie di matrici, esso genera un unico omomorfismo tra le algebre di questi gruppi. E' naturale allora chiedersi se vale anche il contrario: è sempre possibile risalire in modo univoco da un omomorfismo di algebre di Lie ad un omomorfismo di gruppi di Lie?
-La risposta a questa domanda è, in generale, no. Nel caso si volesse approfondire questo argomento, si consulti [4] pag. 113-127 cap. 5.
+Da questo risultato emerge che dato un qualunque omomorfismo tra gruppi di Lie di matrici, esso genera un unico omomorfismo tra le algebre di questi gruppi.
 \chapter{Teoria della Rappresentazione}
-In questo capitolo si definirà che cos'è una rappresentazione di un gruppo, si enunceranno alcuni risultati importanti e si studieranno alcuni particolari esempi di grande rilevanza per la fisica.\\
+\label{chap:3}
+In questo capitolo si definirà che cos'è una rappresentazione di un gruppo, si enunceranno alcuni risultati importanti e si studieranno alcuni particolari esempi di grande rilevanza per la fisica.
 Per approfondimenti su questi temi si vedano [3] cap. 2; [4] parte 1, cap 4; [6] cap. 9 e cap. 3.
 \section{Rappresentazioni di gruppi}
-In questa sezione diamo la definizione di rappresentazione di un gruppo e di un gruppo di Lie e ne esponiamo alcune proprietà e teoremi.
+In questa sezione diamo la definizione di rappresentazione di un gruppo e di un gruppo di Lie e ne esponiamo alcune proprietà e teoremi. Per maggiori dettagli si veda [4] parte 1, cap 4 e [6] cap. 3.
 Come vedremo, sarà possibile studiare le rappresentazioni di un gruppo attraverso quelle della sua algebra di Lie.
 \begin{Def}
 Dato un gruppo $G$ si dice \textit{rappresentazione} un'applicazione\\ $\rho:G\rightarrow GL(V)$, dove $V$ è uno spazio vettoriale a dimensione finita, tale che $\rho(gh)=\rho(g)\circ\rho(h)$. Cioè $\rho$ è omomorfismo.\\
@@ -676,7 +676,7 @@ In generale, se non altrimenti specificato, gli spazi vettoriali $V$ menzionati 
 \end{Ex}
 Si può dare anche una definizione di rappresentazione di un'algebra di Lie. Come vedremo, le due rappresentazioni sono strettamente legate tra loro.
 \begin{Def}
-	Sia $g$ algebra di Lie. Una rappresentazione di $g$ è una mappa omomorfica lineare $\pi:g\rightarrow End(V)$; dove $V$ è spazio vettoriale finito-dimensionale. ($\pi([X,Y])=[\pi(X),\pi(Y)]$).
+	Sia $\mathfrak{g}$ algebra di Lie. Una rappresentazione di $\mathfrak{g}$ è una mappa omomorfica lineare $\pi:\mathfrak{g}\rightarrow End(V)$; dove $V$ è spazio vettoriale finito-dimensionale. ($\pi([X,Y])=[\pi(X),\pi(Y)]$).
 \end{Def}
 
 \begin{Def}
@@ -722,7 +722,7 @@ Vale inoltre il seguente teorema, che ci permetterà di studiare l'irriducibilit
 	Per quanto riguarda l'irriducibilità, un sottospazio $W\subset V$ invariante per $d\rho(X+iY)$ lo è se e solo se lo è anche per $d\rho(X)$ e $d\rho(Y)$.
 \end{proof}
 \section{Le rappresentazioni di $SU_2(\mathbb{C})$ e $SO_3(\mathbb{R})$} 
-In questa sezione utilizzeremo i risultati enunciati precedentemente per lo studio delle rappresentazioni di alcuni gruppi di matrici.
+In questa sezione utilizzeremo i risultati enunciati precedentemente per lo studio delle rappresentazioni di alcuni gruppi di matrici. Per maggiori dettagli si veda [6] cap. 9 e cap. 3.
 \subsection{Il gruppo $SU_2(\mathbb{C})$ }
 Consideriamo il gruppo delle matrici speciali unitarie $SU_2(\mathbb{C})=\{A\in M_{n\times n}|AA^{+}=I=A^{+}A;det(A)=1\}$.
 \begin{Prop}
@@ -785,7 +785,7 @@ k=\begin{pmatrix}
 \end{pmatrix}$$
 Inoltre, ogni $X$ non nullo in $H$ ha come inverso l'elemento $X^*/det(X)^2$, dove con $^*$ si è indicata l'operazione di trasposizione e coniugazione.\\
 \\
-Prendendo un generico quaternione $X$ individuato dalla coppia $(\alpha,\beta)$ e sostituendo $\alpha=x_1+ix_2$, $\beta=x_3+ix_4$; questo stesso quaternione potrà essere espresso come $X=\mathbb{I}x_1+ix_2+jx_3+kx_4$ dove $i,j,k$ sono le matrici definite sopra. E' allora possibile definire una norma nello spazio $H$ come $|X|=x_1^2+x_2^2+x_3^2+x_4^2=det(X)=\sum_{i=1}^{4}x_i^2$.\\
+Prendendo un generico quaternione $X$ individuato dalla coppia $(\alpha,\beta)$ e sostituendo $\alpha=x_1+ix_2$, $\beta=x_3+ix_4$; questo stesso quaternione potrà essere espresso come $X=\mathbb{I}x_1+ix_2+jx_3+kx_4$ dove $i,j,k$ sono le matrici definite sopra. E' allora possibile definire una norma nello spazio $H$ come $||X||=x_1^2+x_2^2+x_3^2+x_4^2=det(X)=\sum_{i=1}^{4}x_i^2$.\\
 \\
 Si consideri poi l'insieme $H_0$ di tutti i quaternioni tali che $X^*=-X$, chiamati \textit{puramente immaginari}. Affinchè un generico $X=\begin{pmatrix}
 	\alpha & \beta \\
@@ -803,7 +803,7 @@ Dato un $q$ non nullo, si definisca ora l'operatore di coniugazione
 $T(q):H\longrightarrow H$ tale che
 $$a\longrightarrow qaq^{-1}$$.
 \begin{Prop}
-	Se $a\in H_0$ allora $-T(q)(a)=(T(q)(a))^*$, cioè $T(q)(a)\in H_0$. Inoltre, l'operatore di coniugazione $T(q)$ conserva la norma, ovvero $|T(q)(a)|=|a|$.
+	Se $a\in H_0$ allora $-T(q)(a)=(T(q)(a))^*$, cioè $T(q)(a)\in H_0$. Inoltre, l'operatore di coniugazione $T(q)$ conserva la norma, ovvero $||T(q)(a)||=||a||$.
 \end{Prop}
 \begin{proof}
 	Si supponga che $a\in H_0$ sia un quaternione puramente immaginario. Allora $$(T(q)(a))^*=(qaq^{-1})^*=(q^{-1})^*a^*q^*$$
@@ -836,7 +836,7 @@ Andiamo ora a studiare la restrizione della mappa appena definita all'insieme $S
 \begin{proof}
 	Si ricorda che il determinante di una matrice $O_3(\mathbb{R})$ ortogonale è sempre pari a $\pm 1$.
 	Si consideri ora la mappa $\xi:SU_2(\mathbb{C})\longrightarrow \{-1,1\}$ definita come $\xi(q)=det(T(q)|_{H_0})$.\\
-	Ricordando che l'insieme $SU_2(\mathbb{C})$ è connesso e che la mappa determinante è continua, allora l'immagine di $det$ dovrà essere anche essa continua, cioè potrà assumere solamente un valore tra $-1$ e $1$.\\
+	Ricordando che l'insieme $SU_2(\mathbb{C})$ è connesso e che la mappa determinante è continua, l'immagine di $det$ dovrà essere anche essa continua, cioè potrà assumere solamente un valore tra $-1$ e $1$.\\
 	Dato che $\mathbb{I}\in SU_2(\mathbb{C})$ e $\xi(I)=det(I)=1$, allora $\xi(q)=1$ per ogni $q\in SU_2(\mathbb{C})$.
 \end{proof}
 Si è quindi dimostrato che 
@@ -846,7 +846,7 @@ $$T'\bigg{\rvert}_{SU_2(\mathbb{C})}:SU_2(\mathbb{C})\longrightarrow SO_3(\mathb
 	Ciò suggerisce l'esistenza di una mappa 2:1 tra $SU_2(\mathbb{C})$ e $SO_3(\mathbb{R})$, che risulterà esistere tra $SU_2(\mathbb{C})/{\pm \mathbb{I}}$ e $SO_3(\mathbb{R})$.\\
 	Per definizione: data la relazione di equivalenza $a\sim b$ se e solo se $b=a\{\pm \mathbb{I}\}$, allora
 	$$SU_2(\mathbb{C})/{\pm \mathbb{I}}=\{[a], a\in SU_2(\mathbb{C})\}$$
-	L'insieme $SU_2(\mathbb{C})/{\pm \mathbb{I}}$ è costituito da tutte le classi laterali $a\{\pm\mathbb{I}\}$, ovvero da tutte le matrici $SU_2(\mathbb{C})/{\pm \mathbb{I}}$ a meno del loro segno.
+	L'insieme $SU_2(\mathbb{C})/{\pm \mathbb{I}}$ è costituito da tutte le classi laterali $a\{\pm\mathbb{I}\}$, ovvero da tutte le matrici $SU_2(\mathbb{C})$ a meno del loro segno.
 \end{Obs}
 \begin{Prop}
 	$SU_2(\mathbb{C})/{\pm \mathbb{I}}\cong SO_3(\mathbb{R})$ e l'isomorfismo è precisamente la mappa $T':SU_2(\mathbb{C})/{\pm \mathbb{I}}\longrightarrow SO_3(\mathbb{R})$ definito come $T'(q)=T(q)$.
@@ -1153,6 +1153,149 @@ Ritorniamo ora sulle rappresentazioni di $SO_3(\mathbb{R})$. Abbiamo visto che q
 	che è verificato solamente se $m$ è pari.
 \end{proof}
 \chapter{Quantizzazione del momento angolare}
+In questo capitolo si utilizzeranno i risultati trovati in precedenza per discutere la quantizzazione del momento angolare in fisica.
+\section{Momento angolare e rotazioni}
+In questa sezione introdurremo il concetto di operatore di momento angolare e della corrispondenza tra operatori di rotazione e matrici di $SO_3(\mathbb{R})$. Per approfondimenti su questo tema consultare [7] cap. 9. \\\\
+Consideriamo una particella quantistica: essa sarà descritta da una funzione d'onda $\psi$ la cui evoluzione temporale sarà governata dall'equazione di Schrödinger. Nel formalismo di Dirac, una generica funzione d'onda $\psi$ (appartenente allo spazio $\mathcal{H'}$ di Hilbert delle funzioni complesse nello spazio delle configurazioni) si rappresenta con un vettore $|\psi\rangle$. Introduciamo ora il concetto di operatore di momento angolare:
+\begin{Def}
+	Un vettore operatoriale $\hat{\textbf{j}}$ è detto di momento angolare se le sue componenti rispettano le relazioni di commutazione $[\hat{j_i},\hat{j_j}]=i\hbar\sum_{k=1}^{3}\epsilon_{ijk}\hat{j_k}$ e la condizione $\hat{j}_i=\hat{j}^+_i$.
+\end{Def} 
+In questa definizione il prodotto $[,]$ tra due operatori è definito come $[\hat{j_i},\hat{j_j}]=\hat{j_i}\hat{j_j}-\hat{j_j}\hat{j_i}$.
+\begin{Obs}
+La condizione $\hat{j}_i=\hat{j}^+_i$ è una richiesta di autoaggiuntezza dell'operatore, motivata dal fatto che esso deve rappresentare un osservabile. Ricordiamo che in fisica quantistica due osservabili sono misurabili simultaneamente solamente se i relativi operatori commutano tra di loro. Questo implica l'impossibilità di ottenere simultaneamente due valori per le componenti del momento angolare, in quanto gli operatori $\hat{j}_i$ non commutano tra loro. Tuttavia, a partire dalle componenti di $\hat{\textbf{j}}$, è possibile costruire un ulteriore operatore:
+\end{Obs}
+\begin{Def}
+	Si definisce l'operatore modulo quadro di $\hat{j}^2=\hat{\textbf{j}}^2$ come $\hat{\textbf{j}}^2=\sum_{k=0}^{3}\hat{j_k}^2$.
+\end{Def}
+E' possibile mostrare che questo operatore, oltre ad essere autoaggiunto, è tale per cui
+$$[\hat{j}^2,\hat{j_i}]=0$$
+Ciò implica la possibilità di ottenere valori simultaneamente definiti degli osservabili associati a $\hat{j}^2$ ed a $\hat{j_z}$ (una generica componente del momento angolare).
+Per approfondire questo risultato si veda [7] pag. 1079 cap 9.2.\\
+\\
+Consideriamo ora il gruppo $SO_3(\mathbb{R})$ delle matrici che agiscono come rotazioni sui vettori  $\vec{x}$ dello spazio delle configurazioni . Come precedentemente visto, l'algebra di Lie di questo gruppo è
+$$\mathfrak{so_3}(\mathbb{R})=\{A\in M_{3\times 3}(\mathbb{R})|Tr(A)=0, A^T=-A\}$$
+Tra le possibili basi di questo spazio abbiamo le matrici:$$
+J_1=
+\begin{pmatrix}
+	0 &0&0\\
+	0 &0&-1\\
+	0 &1&0
+\end{pmatrix} \, ;
+J_2=
+\begin{pmatrix}
+	0 &0&1\\
+	0 &0&0\\
+	-1 &0&0
+\end{pmatrix} \, ;
+J_3=
+\begin{pmatrix}
+	0 &-1&0\\
+	1 &0&0\\
+	0 &0&0
+\end{pmatrix} \, ;
+$$
+E' possibile dimostrare che queste matrici soddisfano le relazioni di commutazione:
+$$[J_i,J_j]=\sum_{k}\epsilon_{ijk}J_k$$
+In più, sono per costruzione autoaggiunte.
+Vediamo che queste matrici rispettano le stesse relazioni di commutazione degli operatori di momento angolare a meno di una costante.
+La dimostrazione consiste nello svolgere i prodotti righe per colonne per ogni combinazione possibile di indici. Di seguito è riportato il calcolo per una tra le configurazioni, per le rimanenti il procedimento è analogo.
+$$[J_1,J_2]=\bigg[
+\begin{pmatrix}
+	0 &0&0\\
+	0 &0&-1\\
+	0 &1&0
+\end{pmatrix}
+\begin{pmatrix}
+	0 &0&1\\
+	0 &0&0\\
+	-1 &0&0
+\end{pmatrix}
+-
+\begin{pmatrix}
+	0 &0&1\\
+	0 &0&0\\
+	-1 &0&0
+\end{pmatrix}
+\begin{pmatrix}
+	0 &0&0\\
+	0 &0&-1\\
+	0 &1&0
+\end{pmatrix}
+\bigg]=$$
+$$
+\begin{pmatrix}
+	0 &-1&0\\
+	1 &0&0\\
+	0 &0&0
+\end{pmatrix}= J_3$$
+Consideriamo ora una particella individuata da una funzione d'onda $|\psi\rangle$. Quest'ultima avrà come possibili rappresentativi $\langle \vec{x}|\psi\rangle=\psi(\vec{x})$ dove ricordiamo che $\vec{x}$ è un vettore dello spazio delle configurazioni.
+\begin{Def}
+	Sia una matrice di rotazione $R\in SO_3(\mathbb{R})$. Definiamo l'operatore di rotazione $\hat{R}$ come l'operatore tale per cui:
+	$\langle\vec{x}|\hat{R}|\psi\rangle=\langle R^{-1}\vec{x}|\psi\rangle$.
+\end{Def}
+Data la corrispondenza costruita tra operatori $\hat{R}$ e matrici $R$, possiamo studiare le rappresentazioni dell'insieme degli operatori $\hat{R}$ attraverso quelle di $SO_3(\mathbb{R})$. E' inoltre possibile dimostrare che un operatore $\hat{R}$, associato ad una matrice $R$ di rotazione attorno ad un asse $\vec{v}$ di un angolo $\theta$, può essere scritto come 
+$$\hat{R}=exp(-i\hbar^{-1}\theta\vec{v}\cdot\hat{\textbf{j}})$$
+dove $\hat{\textbf{j}}$ è un operatore di momento angolare. In questo senso, gli operatori di rotazione sono generati dagli operatori di momento angolare. Per la dimostrazione si veda [7] pag 1151-3, cap. 9.
+\begin{Obs}
+	Dalle considerazioni precedenti, è evidente la corrispondenza tra matrici $J_i$ di $SO_3(\mathbb{R})$ ed operatori di momento angolare $\hat{j_i}$ che generano un qualsiasi $\hat{R}$.
+	Questo suggerisce di studiare le rappresentazioni di $SO_3(\mathbb{R})$ attraverso quelle della sua algebra, generata dai $J_i$.
+\end{Obs}
+\section{Le rappresentazioni del momento angolare}
+In questa sezione utilizzeremo i risultati precedenti per determinare le rappresentazioni degli operatori di momento angolare.\\
+\\
+Nel capitolo \ref{chap:3} abbiamo provato che le rappresentazioni di $SO_3(\mathbb{R})$ sono quelle di $SU_2(\mathbb{C})$ che hanno nel nucleo $\pm\mathbb{I}$.
+Consideriamo dunque il gruppo $SU_2(\mathbb{C})=\{A\in M_{n\times n}|AA^{+}=I=A^{+}A;det(A)=1\}$ la cui algebra di Lie è $$\mathfrak{su_2(\mathbb{C})}=\{X|X\in M_{n\times n} ;X^{+}=-X;tr(X)=0\}$$.
+Una possibile base per lo spazio $\mathfrak{su_2(\mathbb{C})}$ è costituita dalle matrici
+$$
+\sigma_1={1\over2}\begin{pmatrix}
+	0 &i\\
+	i &0\\
+\end{pmatrix}\,;\,
+\sigma_2={1\over2}\begin{pmatrix}
+	0 &-1\\
+	1 &0\\
+\end{pmatrix}\,;\,
+\sigma_3={1\over2}\begin{pmatrix}
+	i &0\\
+	0 &-i\\
+\end{pmatrix}
+$$
+Anche per queste matrici non è complicato dimostrare che queste matrici rispettano le regole di commutazione:
+$$[\sigma_i,\sigma_j]=\sum_{k=1}^{3}\epsilon_{ijk}\sigma_k$$ e le dimostrazioni sono analoghe al caso discusso nella sezione precedente.
+\begin{Obs}
+	L'algebra di Lie di $SO_3(\mathbb{R})$ è generata dalle matrici $J_i$ che rispettano le stesse regole di commutazione delle matrici $\sigma_i$. Dunque le algebre $\mathfrak{so_3}(\mathbb{R})$ e $\mathfrak{su_2(\mathbb{C})}$ sono tra loro isomorfe. Questo ci permette di studiare le azioni degli operatori $\hat{j}$ attraverso quelle di $\mathfrak{su_2(\mathbb{C})}$. Più precisamente, attraverso quelle della complessificazione $\mathfrak{su_2(\mathbb{C})}_C$.
+\end{Obs}
+Come dimostrato nel capitolo \ref{chap:3}, teorema \ref{Theo2}, una qualsiasi rappresentazione irriducibile finito dimensionale $d\rho$ di $\mathfrak{su_2(\mathbb{C})_c}$ è del tipo $d\rho: \mathfrak{su_2(\mathbb{C})_c}\rightarrow End(V_m)$, dove $dim(V)=m+1$. Inoltre, fissata la base $\{H,\, X,\, Y\}$ di $\mathfrak{su_2(\mathbb{C})_c}$, esistono $u_0,...,u_m$ vettori di base per $V_m$ tali che
+\begin{itemize}
+	\item[(i)] $d\rho(H)u_k=(m-2k)u_k$, ovvero $u_k$ sono autovettori di $d\rho(H)$;
+	\item[(ii)] $d\rho(X)u_k=0;$ se k=0 e $d\rho(X)u_k=k(m-(k-1))u_{k-1}$ se $k>0$;
+	\item[(iii)] $d\rho(Y)u_k=u_{k+1}$ se $k<m$ e $d\rho(Y)u_k=0$ se $k=m$
+\end{itemize}
+\begin{Obs}
+	Osserviamo innanzitutto che $\sigma_1={i\over 2}(X+Y)$; $\sigma_2={i\over 2}(Y-X)$; $\sigma_3={i\over 2}(H)$. Per linearità di $d\rho$ allora possiamo scrivere: $$d\rho(\sigma_1)=d\rho({i\over 2}(X+Y))=({i\over2})(d\rho(X)+d\rho(Y))$$
+	$$d\rho(\sigma_2)=d\rho({1\over 2}(Y-X))=({1\over2})(d\rho(Y)-d\rho(X))$$
+	$$d\rho(\sigma_3)=d\rho({i\over 2}H)=({i\over2})d\rho(H)$$
+	Ciò ci permette di calcolare l'azione di $\sigma_i$ sui vettori di base. Tuttavia, ricordiamo che queste matrici sono in corrispondenza con gli operatori di momento angolare. Dato che gli unici osservabili simultaneamente definiti sono $j_z=j_3$ e $j^2$, occorre trovare un'espressione per $\sigma^2=-(\sigma_1^2+\sigma_2^2+\sigma_3^2)$. Attraverso un rapido calcolo notiamo però che:
+	$$\sigma^2={(X+Y)^2\over 4}-{(Y-X)^2\over 4}+{H^2\over 4}=$$
+	$$={(2XY+2YX+H^2)\over 4}={3\over 4}\mathbb{I}$$
+	e l'identità non appartiene all'algebra $\mathfrak{su_2(\mathbb{C})_c}$.
+\end{Obs}
+Per risolvere questo problema utilizziamo l'elemento di Casimir, che nel caso dell'algebra di Lie coincide con $\sigma^2$. Lo studio di questo elemento va al di là degli argomenti trattati da questa tesi. Per maggiori informazioni su questo argomento si veda [4] cap. 9 e 10 parte 2. Per i nostri scopi è sufficiente sapere che, data una rappresentazione $d\rho$ di $\mathfrak{su_2(\mathbb{C})_c}$ come sopra, il dominio di questa è estendibile ad un insieme contenente $\mathfrak{su_2(\mathbb{C})_c}$ e $\sigma^2$ in modo che
+$$d\rho(\sigma^2)=c\cdot id$$ 
+dove $id$ è l'operatore identità e $c$ è un coefficiente che assume il valore di $m^2-2m$. Per la dimostrazione di questo risultato si veda [4] pag. 288 cap. 10.\\
+Dunque, attraverso l'elemento di Casimir e le relazioni $(i),(ii),(iii)$, possiamo scrivere:
+	\begin{itemize}
+		\centering
+		\item $d\rho(\sigma_3)u_k={1\over 2}(m-2k)u_k$;
+		\item $d\rho(\sigma^2)u_k=m(m+2)u_k$
+	\end{itemize}
+Operando poi un cambio di variabile: $m={l\over2}$ otteniamo:
+\begin{itemize}
+	\centering
+	\item $d\rho(\sigma_3)u_k=(l-k)u_k$;
+	\item $d\rho(\sigma^2)u_k=l(l+1)u_k$
+\end{itemize}
+Quindi gli autovalori di $d\rho(\sigma_3)$ e $d\rho(\sigma^2)$ sono base per $V_m$ e sono indicizzati da due numeri "quantici", $l$ ed $m_l=l-k$. In particolare, $l$ è necessariamente positivo in quanto $2l$ è la dimensione di $V_m$; $m_l$ invece può variare da $l-m=-l$ ad $l-0=l$.
 \chapter*{Bibliografia}
 \begin{itemize}
 	\item[$\circ$] [1] Loring W.Tu, An Introduction to Manifolds, Springer, 2011
@@ -1162,6 +1305,7 @@ Ritorniamo ora sulle rappresentazioni di $SO_3(\mathbb{R})$. Abbiamo visto che q
 	\item[$\circ$] [4] Brian C. Hall, Lie Groups, Lie Algebras, and Representations, Springer, 2015
 	\item [$\circ$] [5] Czes Kosniowski, A First Course in Algebraic Topology, Cambridge, Cambridge University Press, 1980
 	\item [$\circ$] [6] C. Procesi, Aspetti geometrici e combinatori della teoria delle rappresentazioni del gruppo unitario, Pitagora Editrice, 1991
+	\item [$\circ$] [7] Roberto Zucchini, note del corso di Meccanica Quantistica.
 \end{itemize}
 \addcontentsline{toc}{chapter}{Bibliografia}
 \end{document}
