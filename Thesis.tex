@@ -75,8 +75,14 @@
 					%
 					% INSERIRE IL TITOLO DELLA TESI
 					%
-					{\LARGE{\bf TITOLO TESI}}\\
+					{\LARGE{\bf GRUPPI DI LIE E }}
 			}\end{center}
+		\begin{center}\textcolor{black}{
+				%
+				% INSERIRE IL TITOLO DELLA TESI
+				%
+				{\LARGE{\bf RAPPRESENTAZIONI}}\\
+		}\end{center}
 			
 			\vspace{50mm} \par \noindent
 			
@@ -85,7 +91,7 @@
 				% INSERIRE IL NOME DEL RELATORE CON IL RELATIVO TITOLO DI DOTTORE O PROFESSORE
 				%
 				{\large{\bf Relatore: \vspace{2mm}\\\textcolor{black}{
-							Prof./Dott. Nome Cognome}\\\\
+							Prof. Rita Fioresi}\\\\
 						%
 						% INSERIRE IL NOME DEL CORRELATORE CON IL RELATIVO TITOLO DI DOTTORE O PROFESSORE
 						%
@@ -269,16 +275,16 @@ Vi sono numerose proprietà del flusso di un campo vettoriale. Per approfondimen
 \end{Def}
 \chapter{Gruppi e algebre di Lie}
 In questo capitolo introduciamo i gruppi topologici e di Lie, i rivestimenti, la mappa esponenziale, e le algebre di Lie. Come vedremo, questi strumenti saranno utilizzati per lo studio delle rappresentazioni dei gruppi di Lie. Per approfondimenti in materia si consultino: [2] pag. 41-84 cap. 2; [4] parte 1, cap. 1-4 ; [5] pag. 27-38 cap. 5; pag. 143-150 cap. 17.
-\section{Gruppi Topologici}
+\section{Gruppi Topologici e azioni di gruppi}
 In questa sezione diamo la definizione di gruppo topologico e introduciamo i quozienti di gruppi e le azioni di gruppi.
 \begin{Def}
-	Si dice \textit{gruppo} un insieme $G$ munito di un'operazione binaria $\cdot:G\times G\rightarrow G$ detta moltiplicazione tale che soddisfi le seguenti proprietà:
+	Si dice \textit{gruppo} un insieme $G$ munito di un'operazione binaria $\cdot:G\times G\rightarrow G$ detta \textit{moltiplicazione} tale che:
 	\begin{itemize}
 		\item Associatività: $a\cdot (b\cdot c)=(a\cdot b)\cdot c$ $\forall a,b,c\in G$;
 		\item Esistenza dell'elemento neutro: $\exists e\in G$ tale che $\forall a\in G$ si ha $a\cdot e=e\cdot a=a$;
 		\item Esistenza dell'inverso: $\forall a\in G$ $\exists a^{-1}$ tale che $a\cdot a^{-1}=a^{-1}\cdot a=e$.
 	\end{itemize}
-	Un gruppo la cui operazione soddisfa anche la proprietà commutativa, cioè $ab=\cdot b\cdot a$ per ogni $a,b\in G$, è detto abeliano o commutativo.
+	Un gruppo la cui operazione soddisfa anche la proprietà commutativa, cioè $ab= b\cdot a$ per ogni $a,b\in G$, è detto abeliano o commutativo.
 \end{Def}
 Da ora in avanti, quando si farà riferimento all'operazione di prodotto definita per un gruppo, si ometterà il simbolo $\cdot$.
 \begin{Def}
@@ -289,7 +295,7 @@ Da ora in avanti, quando si farà riferimento all'operazione di prodotto definit
 \end{Ex}
 Definiamo ora il concetto di azione di gruppo su un generico insieme $X$.
 \begin{Def}
-	Dato un gruppo $G$ ed un insieme $X$, si dice che $G$ \textit{agisce} (da sinistra) su $X$ o che $X$ è un \textit{$G$ insieme} (sinistro) se esiste una mappa, detta azione (sinistra) $a:G\times X\rightarrow X$ tale che:
+	Dato un gruppo $G$ ed un insieme $X$, si dice che $G$ \textit{agisce} (da sinistra) su $X$ o che $X$ è un \textit{$G$ insieme} (sinistro) se esiste una mappa, detta \textit{azione} (sinistra) $a:G\times X\rightarrow X$ tale che:
 	\begin{itemize}
 		\item 	$a(e,x)=x$ per ogni $x\in X$;
 		\item $a(gh,x)=a(g,a(h,x))$ per ogni $g,h\in G$ e $x\in X$.
@@ -298,7 +304,7 @@ Nel caso $X$ sia anche spazio topologico, se la mappa $x\longmapsto a(g,x)$ è c
 Denoteremo $a(g,x)$ anche come $g\cdot x$.
 \end{Def}
 \begin{Obs}
-In questo caso abbiamo definito il concetto di azione $\textit{sinistra}$. Avremmo potuto definire un'azione destra in modo equivalentemente valido come: $b:X\times G\rightarrow X$ tale che $b(x,e)=x$ e $b(x,gh)=b(b(x,g),h)$. Possiamo mostrare con un rapido calcolo che, data un'azione sinistra, è automaticamente definita un'azione destra: infatti, data $a:G\times X\rightarrow X$ definita come $(g,x)\longmapsto a(g,x)$, si può costruire una mappa $b:X\times G\rightarrow X$ definita come $(x,g)\longmapsto a(g^{-1},x)=b(x,g)$. Non è difficile verificare che questa nuova azione rispetta tutte e due le proprietà richieste:
+Abbiamo definito il concetto di azione $\textit{sinistra}$, tuttavia avremmo potuto definire un'azione destra: $b:X\times G\rightarrow X$ tale che $b(x,e)=x$ e $b(x,gh)=b(b(x,g),h)$. Possiamo mostrare con un rapido calcolo che, data un'azione sinistra, è automaticamente definita un'azione destra: infatti, data $a:G\times X\rightarrow X$ definita come $(g,x)\longmapsto a(g,x)$, si può costruire una mappa $b:X\times G\rightarrow X$ definita come $(x,g)\longmapsto a(g^{-1},x)=b(x,g)$. Non è difficile verificare che questa nuova azione rispetta le proprietà richieste:
 $$b(x,e)=a(e,x)=x$$
 In quanto $e^{-1}=e$ dato che $G$ è un gruppo. Ricordando poi che $(gh)^{-1}=h^{-1}g^{-1}$, si ha la catena di uguaglianze:
 $$b(x,gh)=a((gh)^{-1},x)=a(h^{-1}g^{-1},x)=$$$$=a(h^{-1},a(g^{-1},x))=a(h^{-1},b(x,g))=b(b(x,g),h)$$
@@ -310,7 +316,7 @@ Diamo ora la definizione di orbita di un punto appartenente ad un $G$ insieme.
 	Sia $X$ un $G$ insieme e $x\in X$. L'insieme $O_x=\{a(g,x); \, \forall g\in G\}$ è detto \textit{orbita} di $x\in X$. Si definisce $\textit{stabilizzatore}$ di $x\in X$ l'insieme $G_x=\{g\in G|a(g,x)=x\}$. A volte indicheremo lo stabilizzatore di un punto $x$ anche con $Stab_x$.
 \end{Def}
 \begin{Obs} \label{Obs: 2.1}
-	Si può facilmente verificare che due orbite o sono uguali o sono disgiunte. Infatti, prese $O_x$ e $O_y$ orbite, e prendendo un punto $z\in O_x\cap O_y$ possiamo scrivere:
+	Si può facilmente verificare che due orbite o sono uguali o sono disgiunte. Infatti, presi $O_x$ e $O_y$ orbite, e un punto $z\in O_x\cap O_y$, possiamo scrivere:
 	$$z=a(g,x)=a(g',y)$$
 	Ma allora $x=a(g^{-1}g',y)$, cioè le orbite coincidono.
 	Da questo segue che $X$ è unione disgiunta delle orbite dei suoi punti: $X=\bigsqcup O_x$.
@@ -318,19 +324,20 @@ Diamo ora la definizione di orbita di un punto appartenente ad un $G$ insieme.
 \begin{Def}
 	Un'azione di un gruppo $G$ su di un insieme $X$ è detta \textit{transitiva} se esiste un'unica orbita, ovvero se per ogni $x,y\in X$ esiste $g\in G$ tale che $x=a(g,y)$.
 \end{Def}
+Vediamo ora qualche esempio:
 \begin{Ex} [Azione di $SL_2(\mathbb{R})$ su $\mathbb{R}^2$]
 	Consideriamo il gruppo $SL_2(\mathbb{R})=\{A\in M_{2\times 2}\,|\,det(A)=1\}$ e lo spazio $\mathbb{R}^2$. Definiamo l'azione $a:SL_2(\mathbb{R})\times \mathbb{R}^2\rightarrow\mathbb{R}^2$ come 
 	$$a(A,(x,y))=A\begin{pmatrix}
 		x\\y
 	\end{pmatrix}$$
-dove $A\in SL_2(\mathbb{R})$ e $(x,y)\in\mathbb{R}^2$. Non è difficile verificare che la mappa così definita rispetta tutte le proprietà di un'azione. Procediamo ora al calcolo delle orbite di $(0,0)$, $(1,0)$ e mostriamo che questa stessa azione, ristretta a $\mathbb{R}^2-\{(0,0)\}$, è transitiva.
-Valutiamo innanzitutto l'orbita di $(0,0)$:
+dove $A\in SL_2(\mathbb{R})$ e $(x,y)\in\mathbb{R}^2$. Non è difficile verificare che la mappa così definita rispetta tutte le proprietà di un'azione. Procediamo ora al calcolo delle orbite di $(0,0)$, $(1,0)$ e mostriamo che questa stessa azione, ristretta a $\mathbb{R}^2\setminus\{(0,0)\}$, è transitiva.
+L'orbita di $(0,0)$ è il solo punto $(0,0)$:
 $$A\begin{pmatrix}
 	0\\0
 \end{pmatrix}=\begin{pmatrix}
 0\\0
 \end{pmatrix}$$
-per ogni $A\in SU_2(\mathbb{R})$. Abbiamo trovato $O_{(0,0)}=\{(0,0)\}$. Valutiamo poi l'orbita di $(1,0)$:
+per ogni $A\in SU_2(\mathbb{R})$. Calcoliamo l'orbita di $(1,0)$:
 $$A\begin{pmatrix}
 	1\\0
 \end{pmatrix}=\begin{pmatrix}
@@ -341,20 +348,8 @@ b&d
 \end{pmatrix}=\begin{pmatrix}
 a\\b
 \end{pmatrix}$$
-Con almeno uno tra $a,b$ diverso da $0$ in quanto è necessario che $ad-bc=1$ per la condizione $det(A)=1$. Abbiamo trovato $$O_{(1,0)}=\{(a,b);\, a,b\in\mathbb{R}\,\, \hbox{tali che} \, \, a \vee b\neq 0 \}$$ 
-Questo significa che ogni punto di $\mathbb{R}^2-\{(0,0)\}$ appartiene all'orbita di $(1,0)$, cioè l'azione di $SL_2(\mathbb{R})$ su $\mathbb{R}^2-\{(0,0)\}$ è transitiva. E' possibile mostrare lo stesso risultato procedendo al contrario: preso un generico elemento $(a,b)$ troviamo una matrice $A\in SL_2(\mathbb{R})$ tale che 
-$$A\begin{pmatrix}
-	1\\0
-\end{pmatrix}=\begin{pmatrix}
-	a\\b
-\end{pmatrix}$$
-Nel caso $a\neq 0$, questa matrice è esattamente $A=\begin{pmatrix}
-	a&0\\
-	b&1/a
-\end{pmatrix}$, nel caso $b\neq 0$ invece $A=\begin{pmatrix}
-a&-1/b\\
-b&0
-\end{pmatrix}$.\\
+Con $a\neq 0$ o $b\neq 0$ in quanto è necessario che $ad-bc=1$ per la condizione $det(A)=1$. Abbiamo trovato $$O_{(1,0)}=\{(a,b);\, a,b\in\mathbb{R}\,\, \hbox{tali che} \, \, a \neq 0 \, \hbox{oppure} \, b\neq 0 \}$$ 
+Questo significa che ogni punto di $\mathbb{R}^2-\{(0,0)\}$ appartiene all'orbita di $(1,0)$, cioè l'azione di $SL_2(\mathbb{R})$ su $\mathbb{R}^2-\{(0,0)\}$ è transitiva.
 Riprendendo l'osservazione \ref{Obs: 2.1}, notiamo che lo spazio $\mathbb{R}^2$ è unione disgiunta delle orbite di $(1,0)$ e di $(0,0)$.
 E' anche possibile calcolare lo stabilizzatore di $(1,0)$:
 $$\begin{pmatrix}
@@ -374,7 +369,7 @@ $$Stab_{(1,0)}=\bigg{\{}\begin{pmatrix}
 \end{pmatrix}\bigg{\}}$$
 \end{Ex}
 \begin{Theo}
-	Dato un $G$ insieme indicato con $X$ e la mappa $\theta_g:X\rightarrow X$ tale che $\theta_g(x)=a(g,x)$, allora $\theta_g$ è biettiva per ogni $g$.
+	Dato un $G$ insieme $X$ e la mappa $\theta_g:X\rightarrow X$ tale che $\theta_g(x)=a(g,x)$, allora $\theta_g$ è biettiva per ogni $g$.
 \end{Theo}
 \begin{proof}
 	Per costruzione: $\theta_g^{-1}=\theta_{g^{-1}}$, inoltre $\theta_g\theta_{g^{-1}}=id=\theta_{g^{-1}}\theta_g$ da cui il risultato.
@@ -383,7 +378,7 @@ $$Stab_{(1,0)}=\bigg{\{}\begin{pmatrix}
 	Per definizione, se $X$ è $G$ spazio, allora $\theta_g$ è un omeomorfismo, in quanto continua, invertibile e con inversa continua.
 \end{Obs}
 \begin{Obs}
-	Dato un $G$ spazio indicato con $X$, si può definire una relazione di equivalenza $\sim$ come: $x\sim y$ se e solo se $y\in O_x$, cioè se esiste $g\in G$ tale che $a(g,x)=y$. Questa relazione è ovviamente di equivalenza e l'insieme di tutte le classi di equivalenza si indica con $X/G$. Se anche $G$ è uno spazio topologico, è possibile dare a $X/G$ la topologia quoziente. 
+	Dato un $G$ spazio indicato con $X$, si può definire una relazione di equivalenza $\sim$ come: $x\sim y$ se e solo se $y\in O_x$, cioè se esiste $g\in G$ tale che $a(g,x)=y$. Questa relazione è  di equivalenza e l'insieme di tutte le classi di equivalenza si indica con $X/G$. Se $G$ è uno spazio topologico, è possibile dare a $X/G$ la topologia quoziente. 
 	L'orbita $O_x$ di un generico punto corrisponde alla classe laterale $G\cdot x$, cioè tutti gli elementi ottenibili attraverso la moltiplicazione (azione) di un elemento di $G$ per $x$. \\
 	Allo stesso modo, dato $U\subset X$ con $g\cdot U$ si indicano tutti gli elementi di $X$ ottenibili attraverso la moltiplicazione (azione) di $g$ con un generico elemento di $U\subset X$. 
 \end{Obs}
@@ -403,12 +398,12 @@ In questa sezione introdurremo i rivestimenti di uno spazio topologico ed alcuni
 	Dati due spazi topologici $X$ e $\tilde{X}$ ed una mappa continua $p:\tilde{X}\rightarrow X$, allora $p$ è detta \textit{rivestimento} se:
 	\begin{itemize}
 		\item $p$ è suriettiva;
-		\item per ogni $x\in X$ esiste $U\subset X$ intorno di $x$ tale che $p^{-1}(U)=\bigcup_j V_j$. Dove $\{V_j\}$ è una collezione di sottoinsiemi aperti di $\tilde{X}$ disgiunti a due a due e tale che, per ogni $j$, $p\rvert_{V_j}:V_j\rightarrow U$ è omeomorfismo. 
+		\item per ogni $x\in X$ esiste $U\subset X$ intorno di $x$ tale che $p^{-1}(U)=\bigsqcup_j V_j$. Dove $\{V_j\}$ è una collezione di sottoinsiemi aperti di $\tilde{X}$ disgiunti a due a due e tale che, per ogni $j$, $p\rvert_{V_j}:V_j\rightarrow U$ è omeomorfismo. 
 	\end{itemize}
 \end{Def}
 	Dato uno spazio topologico $X$, si definisce \textit{rivestimento banale} la mappa $p:X\rightarrow X$ definita come $p(x)=x$. Ovviamente $p$ così definita verifica tutte le proprietà in quanto identità.
 \begin{Ex}
-	Si consideri lo spazio topologico $S^1$ definito come il cerchio di raggio unitario. Allora la mappa $p:\mathbb{R}\rightarrow S^1$ tale che $p(t)=e^{it}$ è un rivestimento di $S^1$. Dunque le pre-immagini di ogni arco sono unioni disgiunte di sezioni della retta reale.
+	Si consideri lo spazio topologico $S^1$ definito come il cerchio di raggio unitario. Allora la mappa $p:\mathbb{R}\rightarrow S^1$ tale che $p(t)=e^{it}$ è un rivestimento di $S^1$. Per ogni punto è possibile trovare un arco aperto $V$ che lo contiene, tale che $p^{-1}(V)$ è unione disgiunta di intervalli aperti.
 \end{Ex}
 \begin{center}
 \begin{tikzpicture}
@@ -471,8 +466,7 @@ In questa sezione introdurremo i rivestimenti di uno spazio topologico ed alcuni
 	Sia $U$
  un insieme aperto di $\tilde{X}$ e sia $x\in p(U)$. Allora, dato che $p$ è un rivestimento, esiste un intorno $V\subset X$ di $x$ tale che $p^{-1}(V)=\bigcup_jA_j$ dove $\{A_j\}$ è una collezione di aperti in $\tilde{X}$. Sia allora un punto $\tilde{x}\in p^{-1}(x)\cap U$. Dato che $\tilde{x}\in p^{-1}(V)$ per definizione, esiste un $A_j\subset \tilde{X}$ aperto tale per cui $\tilde{x}\in A_j$. Essendo $A_j\cap U$ aperto in quanto intersezione di aperti ed essendo $p|_{A_j}:A_j\rightarrow V$ un omeomorfismo, allora $p(A_j\cap U)$ è un sottoinsieme aperto di $V$ e quindi anche di $X$. Per arbitrarietà di $x$ scelto, $p(U)$ è aperto.\\
  \\
- La seconda parte del teorema si dimosta considerando che $p$ è una mappa aperta continua: preso $V\subset X$, esso è aperto se e solo se $p^{-1}(V)$ è aperto in $\tilde{X}$. Ciò termina la dimostrazione.
- Da ciò, 
+ Per la seconda parte del teorema si vede che $p$ è una mappa aperta continua: preso $V\subset X$, esso è aperto se e solo se $p^{-1}(V)$ è aperto in $\tilde{X}$.  
 \end{proof}
 \begin{Def}
 	Se $p:\tilde{X}\rightarrow X$ è un rivestimento e $\tilde{X}$ è semplicemente connesso, allora $p$ è detto rivestimento universale.
