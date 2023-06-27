@@ -14,6 +14,7 @@
 \usepackage{pgfplots}
 \usepackage{hyperref}
 \usepackage{amssymb}
+\usepackage{comment}
 
 \hypersetup{
 	colorlinks=true,
@@ -488,12 +489,13 @@ In questa sezione daremo la definizione di gruppo e sottogruppo di Lie, con alcu
 	\\
 	Per approfondire questo esempio di veda [1] pag. 105-107, 125, 165 cap. 3 e 4.\\
 	\\
-	In modo analogo si vede che (indicando con $^+$ l'operazione di aggiunzione e con T quella di trasposizione):\\\\
+	E' possibile dimostrare che (indicando con $^+$ l'operazione di aggiunzione e con $T$ quella di trasposizione):\\\\
 	$O_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^TA=AA^T=\mathbb{I}\};$\\\\
 	$SO_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^TA=AA^T=\mathbb{I};\, det(A)=1\};$\\\\
 	$U_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^+A=AA^+=\mathbb{I}\};$\\\\
 	$SU_n(\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R})\, |\, A^+A=AA^+=\mathbb{I};\,det(A)=1\};$\\\\
 	sono tutti gruppi di Lie reali (risp. complessi). 
+	Per le dimostrazioni di veda [2] pag. 41-51 cap. 2.
 \end{Ex}
 
 \begin{Def}
@@ -505,7 +507,7 @@ Si indica con $l_g:G\rightarrow G$ dove $l_g(x)=gx$ l'operazione di moltiplicazi
 	$l_g$ è $C^\infty$ in quanto è definita come moltiplicazione su di un gruppo di Lie. Da ciò segue che $l_g$ è anche continua. Inoltre $l_g^{-1}=l_{g^{-1}}$ che è ancora continua e di classe $C^\infty$. Quindi $l_g$ è un diffeomorfismo.
 \end{Obs}
 \section{Algebre di Lie}
-In questa sezione introduciamo la definizione di algebra di Lie generica e algebra di Lie di un gruppo di Lie. Enunceremo inoltre alcuni risultati che ci permetteranno di identificare l'algebra di Lie di un gruppo di Lie con il suo spazio tangente nell'identità. Per maggiori dettagli si veda [1] pag 178-182 cap.4, [3] cap.1 e [4] parte 1 cap.3.
+In questa sezione introduciamo la definizione di algebra di Lie generica e di campo vettoriale invariante a sinistra, con alcuni esempi. Per maggiori dettagli si veda [1] cap. 4, [2] cap. 2 pag. 46.
 \begin{Def}
 	Si dice \textit{algebra di Lie reale} (risp. complessa) uno spazio vettoriale reale $\mathfrak{g}$ (risp. complesso) in cui è definita un'operazione binaria bilineare (detta Lie bracket) $[,]:\mathfrak{g}\times\mathfrak{g}\rightarrow\mathfrak{g}$ tale che verifica:
 	\begin{itemize}
@@ -517,9 +519,9 @@ In questa sezione introduciamo la definizione di algebra di Lie generica e algeb
 \end{Def}
 Salvo specificazioni, le algebre di Lie considerate saranno sottintese a dimensione finita.
 \begin{Obs}
-	L'identità di Jacobi implica in generale la non associatività del prodotto $[,]$. Se infatti questo fosse associativo, si avrebbe $[x,[y,z]]=[[x,y],z]$ ma ciò non è generalmente vero.
+	L'identità di Jacobi implica in generale la non associatività del prodotto $[,]$. Se infatti questo fosse associativo, si avrebbe $[x,[y,z]]=[[x,y],z]$.
 \end{Obs}
-\begin{Ex}
+\begin{Ex} \label{Obs: bracket Mnn}
 	Consideriamo lo spazio $M_{n\times n}(\mathbb{R})$ di tutte le matrici sul campo $\mathbb{R}$. Definiamo un bracket in questo modo: prese due matrici $A$ e $B$ appartenenti ad $M_{n\times n}(\mathbb{R})$, $[A,B]=AB-BA$. In questo modo $[,]$ è automaticamente bilineare ed anticommutativo, mentre l'identità di Jacobi si prova sviluppando l'espressione:
 	$$[A,[B,C]]+[B,[C,A]]+[C,[A,B]]=$$
 	$$=[A,BC-CB]+[B,CA-AC]+[C,AB-BA]=$$
@@ -528,25 +530,28 @@ Salvo specificazioni, le algebre di Lie considerate saranno sottintese a dimensi
 	Abbiamo provato che $[,]$ definito in questo modo rende $M_{n\times n}(\mathbb{R})$ un'algebra di Lie.
 \end{Ex}
 \begin{Ex}
-	Sia un generico spazio vettoriale $V$ su $\mathbb{R}$. Allora definendo il Lie bracket come $[,]:V\times V\rightarrow V$ tale che $[x,y]=0$, $V$ diviene algebra di Lie.\\
+	Sia un generico spazio vettoriale $V$ su $\mathbb{R}$. Allora definendo la Lie bracket come $[,]:V\times V\rightarrow V$ tale che $[x,y]=0$, $V$ diviene algebra di Lie.\\
 	Infatti la linearità e l'anticommutatività sono rispettate e l'identità di Jacobi si riduce a $0+0+0=0$.
 \end{Ex}
 \begin{Def}
 	Un campo vettoriale $X$ su un gruppo di Lie $G$ si dice \textit{invariante a sinistra} se $dl_g(X)=X$ per ogni $g\in G$.
 \end{Def}
-Sostanzialmente un campo vettoriale è invariante a sinistra se la sua traslazione con l'operazione indotta dalla moltiplicazione lo lascia invariato: cioè se $dl_g(X_h)=X_{gh}$ per ogni $g,h\in G$.
+Un campo vettoriale è invariante a sinistra se la sua traslazione con l'operazione indotta dalla moltiplicazione lo lascia invariato: cioè se $dl_g(X_h)=X_{gh}$ per ogni $g,h\in G$.
 Ne consegue che $X_g=dl_g(X_e)$, ovvero che un campo vettoriale invariante a sinistra è completamente determinato dal suo valore all'identità del gruppo.\\
 \\
 E' possibile dimostrare che ogni campo $X$ invariante a sinistra su di un gruppo di Lie è $C^\infty$. ([1] pag. 181 cap.4).
+\section{Algebra di Lie di un gruppo di Lie}
+In questa sezione diamo la definizione di algebra di Lie di un gruppo di Lie. Enunceremo inoltre alcuni risultati che ci permetteranno di identificare l'algebra di Lie di un gruppo di Lie con il suo spazio tangente nell'identità. Per maggiori dettagli si veda [1] pag 178-182 cap.4, [3] cap. 1 e [4] parte 1 cap.3.
 \begin{Obs} \label{Obs: 2.2}
-	Dato un gruppo di Lie $G$ ed un vettore $A\in T_eG$ tangente nell'identità, si può definire un campo vettoriale $X^A:G\rightarrow T_eG$ tale che $X^A_g=dl_g(A)$. Questo campo è automaticamente invariante a sinistra in quanto: $$dl_g(X^A_h)=dl_g(dl_h(X^A_e))=dl_{gh}(X^A_e)=dl_{gh}(A)=X^A_{gh}$$
-	In questo caso diciamo che $X^A$ è generato da $A\in T_eG$ e chiamiamo con $Lie(G)$ l'insieme di tutti gli $X^A$ generati dai vettori tangenti nell'identità in $G$.	
+	Dato un gruppo di Lie $G$ ed un vettore $A\in T_eG$ tangente nell'identità, si può definire un campo vettoriale $X^A:G\rightarrow T_eG$ ponendo $X^A_g=dl_g(A)$. Questo campo è invariante a sinistra in quanto: $$dl_g(X^A_h)=dl_g(dl_h(X^A_e))=dl_{gh}(X^A_e)=dl_{gh}(A)=X^A_{gh}$$
+	In questo caso diciamo che $X^A$ è generato da $A\in T_eG$ e chiamiamo $Lie(G)$ l'insieme di tutti gli $X^A$ generati dai vettori tangenti nell'identità in $G$.	
 \end{Obs}
-Dati due campi vettoriali $X$ e $Y$, definiamo la loro Lie Bracket in un punto $p$ come $[X,Y]_pf=(X_pY-Y_pX)f$.
+Dati due campi vettoriali $X$ e $Y$, definiamo la loro Lie Bracket in un punto $p$:
+ $$[X,Y]_pf=(X_pY-Y_pX)f$$
 E' possibile dimostrare che se $X$ e $Y$ sono campi vettoriali lisci su $M$, allora anche $[X,Y]$ è liscio su $M$. Per dettagli sulla dimostrazione si veda [1] pag. 157 cap. 4.
 Vale inoltre il seguente risultato:
 \begin{Prop}
-	Se $X$ e $Y$ sono invarianti a sinistra allora anche $[X,Y]$, $cX$ e $X+Y$ lo sono. Inoltre, $[X,Y]$ rispetta l'identità di Jacobi.
+	Se $X$ e $Y$ sono invarianti a sinistra allora anche $[X,Y]$, $cX$ e $X+Y$ lo sono. Inoltre, $[X,Y]$ rispetta l'identità di Jacobi. Quindi $Lie(G)$ è un'algebra di Lie.
 \end{Prop}
 \begin{proof}
 	Dalla linearità della mappa differenziale segue che se $X,Y$ sono invarianti a sinistra anche le loro combinazioni lineari lo saranno.
@@ -559,30 +564,33 @@ Vale inoltre il seguente risultato:
 	$$=[X,YZ-ZY]f+[Y,ZX-XZ]f+[Z,XY-YX]f=$$
 	$$=(XYZ-XZY-YZX+ZYX)f+(YZX-YXZ-ZXY+XZY)f+$$$$+(ZXY-ZYX-XYZ+YXZ)f=0$$
 \end{proof}
-Dunque non solo $Lie(G)$ ha la struttura di uno spazio vettoriale, ma è anche chiuso rispetto a $[,]$. Inoltre, per come è stata definita la bracket, $[,]$ è bilineare, antisimmetrica e, come appena provato, verifica l'identità di Jacobi.\\
-Da ciò, $Lie(G)$ è un'algebra di Lie detta algebra di Lie di $G$ e si indica con $\mathfrak{g}$.
+Da ciò, $Lie(G)$ è un'algebra di Lie detta \textit{algebra di Lie di $G$} e si indica con $\mathfrak{g}$.
 \begin{Theo}
 	Dato un gruppo di Lie $G$, esiste un isomorfismo tra $Lie(G)$ e $T_eG$, cioè $Lie(G)\cong T_eG$.
 \end{Theo}
+Di seguito un cenno di dimostrazione. Per maggiori dettagli si veda: [2] pag. 51 cap. 2.
 \begin{proof}
 	Si consideri l'applicazione $f:X^A\mapsto A$ dove $X^A$ è un campo vettoriale invariante a sinistra e $A=X^A_e$, ovvero il vettore tangente di $X^A$ nell'identità.
-	Si vuole provare che la mappa $g:A\mapsto X^A$, con $X^A$ generato da $A$, è l'inversa di $f$. Per verificare ciò è sufficiente mostrare che, dato $A$, $g(A)$ è invariante a sinistra. Ciò è vero per l'osservazione \ref{Obs: 2.2}. Questo conclude la dimostrazione. 
+	Si vuole provare che la mappa $g:A\mapsto X^A$, con $X^A$ generato da $A$, è l'inversa di $f$. Per verificare ciò è sufficiente mostrare che, dato $A$, $g(A)$ è invariante a sinistra. Ciò è vero per l'osservazione \ref{Obs: 2.2}.
 \end{proof}
-Possiamo definire un prodotto $[,]$ sullo spazio tangente all'identità in questo modo: presi due vettori $A,B\in T_eG$, definiamo $[A,B]=[X^A,X^B]_e$, dove $X^A$ e $X^B$ sono i campi invarianti a sinistra generati dai vettori scelti. E' possibile dimostrare che $X^{[A,B]}=[X^A,X^B]$. Per la dimostrazione si veda [1] pag. $183$ cap. $4$.
-Con $[,]$ definito in questo modo, lo spazio $T_eG$ diventa un'algebra di Lie, chiamata algebra di Lie di $G$.
+\begin{Obs}\label{Obs: bracket T}
+	Possiamo definire un prodotto $[,]$ sullo spazio tangente all'identità in questo modo: presi due vettori $A,B\in T_eG$, definiamo $[A,B]=[X^A,X^B]_e$, dove $X^A$ e $X^B$ sono i campi invarianti a sinistra generati dai vettori scelti. E' possibile dimostrare che $X^{[A,B]}=[X^A,X^B]$. Per la dimostrazione si veda [1] pag. $183$ cap. $4$.
+\end{Obs}
 \begin{Ex}
-	Considerando gli insiemi $\mathbb{C}^n$ e $\mathbb{R}^n$ le algebre di Lie associate sono rispettivamente $\mathbb{C}^n$ e $\mathbb{R}^n$ con le bracket banali $[X,Y]=0$. In $\mathbb{R}^2$, ciò equivale a chiedere che valga il lemma di Schwarz: ${\partial\over\partial y}{\partial\over\partial x}f(p)={\partial\over\partial x}{\partial\over\partial y}f(p)$.
+	La varietà differenziabile $\mathbb{R}^n$ è un gruppo di Lie con l'operazione\\ $+:\mathbb{R}^n\rightarrow\mathbb{R}^n$ definita come: $(x_1,...,x_n)+(y_1,...,y_n)=(x_1+y_1,...,x_n+y_n)$.Lo stesso vale per $\mathbb{C}^n$.
+	Considerando allora $\mathbb{C}^n$ e $\mathbb{R}^n$, le algebre di Lie associate sono rispettivamente $\mathbb{C}^n$ e $\mathbb{R}^n$ con le bracket banali $[X,Y]=0$. In $\mathbb{R}^2$, ciò equivale a chiedere che valga il lemma di Schwarz: ${\partial\over\partial y}{\partial\over\partial x}f(p)={\partial\over\partial x}{\partial\over\partial y}f(p)$.
 \end{Ex}
 Diamo ora alcuni esempi di spazi tangenti nell'identià per gruppi di matrici, ricordando che possiamo identificare questi spazi con l'algebra di Lie dei gruppi stessi.
-\begin{Ex}[Spazio tangente a $GL_n(\mathbb{R})$]
+\begin{Ex}
 	Indichiamo con $\mathfrak{gl_n(\mathbb{R})}$ l'algebra di Lie di $GL_n(\mathbb{R})$.
 	Per l'osservazione \ref{Obs 1.1.3}, si ha $T_\mathbb{I}GL_n(\mathbb{R})=T_\mathbb{I}M_{n\times n}=M_{n\times n}$. Da ciò, $$\mathfrak{gl_n(\mathbb{R})}\cong M_{n\times n}= T_\mathbb{I}GL_n(\mathbb{R})$$.
+	Inoltre è possibile verificare che la bracket dell'osservazione \ref{Obs: bracket Mnn} coincide con quella dell'osservazione \ref{Obs: bracket T}.
 \end{Ex}
-\begin{Ex}[Spazio tangente a $SL_n(\mathbb{R})$]
+\begin{Ex}
 	Indichiamo con $\mathfrak{sl_n(\mathbb{R})}$ l'algebra di Lie di $SL_n(\mathbb{R})=\{A\in M_{n\times n}|det(A)=1\}$.
-	Considerando una curva $\gamma:]-\epsilon,\epsilon[\rightarrow M_{n\times n}$ tale che $\gamma(t)=\mathbb{I}+tB+O(t^2)$, è necessario che $det(\mathbb{I}+tB+O(t^2))=1$. Ma $det(\mathbb{I}+tB+O(t^2))=1+tr(B)+O(t^2)$ da cui: $$T_\mathbb{I}SL_n(\mathbb{R})\cong \mathfrak{sl_n(\mathbb{R})}=\{A\in M_{n\times n}|trA=0\}$$ 
+	Consideriamo una curva $\gamma:]-\epsilon,\epsilon[\rightarrow M_{n\times n}$ tale che $\gamma(t)=\mathbb{I}+tB+O(t^2)$, è necessario che $det(\mathbb{I}+tB+O(t^2))=1$. Ma $det(\mathbb{I}+tB+O(t^2))=1+tr(B)+O(t^2)$ da cui: $$T_\mathbb{I}SL_n(\mathbb{R})\cong \mathfrak{sl_n(\mathbb{R})}=\{A\in M_{n\times n}|trA=0\}$$ 
 \end{Ex}
-\begin{Ex}[Spazio tangente a $GL(V)$]
+\begin{Ex}
 	Sia lo spazio $GL(V)=\{f:V\rightarrow V|\, \textnormal{$f$\,  è \, lineare \, e \, invertibile}\}$ dove $V$ è uno spazio vettoriale a dimensione finita. Indichiamo con $\mathfrak{gl}(V)$ l'algebra di Lie di $GL(V)$.  Allora, fissata una base di $V$, si ha l'identificazione $GL(V)\cong GL_n(\mathbb{R})$. Lo spazio tangente a $GL_n(\mathbb{R})$ è stato provato essere $M_{n\times n}(\mathbb{R})\cong End(V)=\{f:V\rightarrow V|\textnormal{\, $f$\, è \, lineare}\}$. Da cui: 
 	$$\mathfrak{gl}(V)\cong T_{id}GL(V)\cong End(V)$$ 
 \end{Ex}
@@ -593,18 +601,20 @@ In questa sezione daremo la definizione ed enunceremo alcune proprietà della ma
 	Dato $G$ gruppo di Lie e $X\in\mathfrak{g}$, la \textit{mappa esponenziale} è \\$exp:\mathfrak{g}\rightarrow G$ definita come $exp(X)=\Phi_X(1,e)$ flusso del campo $X$.
 \end{Def}
 Si indicherà $exp(X)$ anche come $e^X$.
+\begin{comment}
 La mappa esponenziale verifica numerose proprietà, in particolare per i gruppi di Lie di matrici.
 \begin{Prop}
-	Sia un gruppo di Lie di matrici, allora valgono le seguenti proprietà per la mappa esponenziale:\begin{itemize}
-		\item $exp(tX)=\Phi_X(t,e)$ per ogni $X\in \mathfrak{g}$ e $t\in \mathbb{R}$;
-		\item $exp((t+s)X)=exp(tX)\circ exp(sX)$ per ogni $X\in \mathfrak{g}$ e $s,t\in\mathbb{R}$;
-		\item $exp$ è analitica ed è un diffeomorfismo di un intorno di $0\in\mathfrak{g}$ in un intorno di $e\in G$;
-		\item ${d\over dt}\bigg{\rvert}_0exp(tX)=X$. 
-	\end{itemize}
+Sia un gruppo di Lie di matrici, allora valgono le seguenti proprietà per la mappa esponenziale:\begin{itemize}
+\item $exp(tX)=\Phi_X(t,e)$ per ogni $X\in \mathfrak{g}$ e $t\in \mathbb{R}$;
+\item $exp((t+s)X)=exp(tX)\circ exp(sX)$ per ogni $X\in \mathfrak{g}$ e $s,t\in\mathbb{R}$;
+\item $exp$ è analitica ed è un diffeomorfismo di un intorno di $0\in\mathfrak{g}$ in un intorno di $e\in G$;
+\item ${d\over dt}\bigg{\rvert}_0exp(tX)=X$. 
+\end{itemize}
 \end{Prop}
 Per le dimostrazioni si faccia riferimento a [2] (pag. 85, 86 cap. 2) e [3] (pag. 23 cap. 1).\\
 \\
-Prima di enunciare altre proprietà, è necessario definire l'esponenziale di matrice.
+Prima di enunciare altre proprietà, è necessario definire l'esponenziale di matrice.%%
+\end{comment}
 \begin{Def}
 	Si dice \textit{esponenziale} di una matrice $X\in M_{n\times n}$ la serie \\$e^X=\sum_{n=0}^{\infty}{X^n\over n! }$ dove $X^n$ è il prodotto ripetuto $n$ volte di $X$ con sè stessa.
 \end{Def}
