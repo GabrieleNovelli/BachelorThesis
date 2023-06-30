@@ -130,7 +130,7 @@
 	\tableofcontents
 	\chapter*{Introduzione}
 	In questa tesi introdurremo le nozioni di gruppo di Lie, di rappresentazione di un gruppo e di algebra di Lie, al fine di giustificare la quantizzazione del momento angolare in meccanica quantistica. Il concetto di gruppo si sviluppò a partire da diversi campi della matematica. Nel diciannovesimo secolo, Évariste Galois (1811-1832), al fine di trovare un criterio per la risoluzione delle equazioni polinomiali di grado superiore al 4°, introdusse i gruppi di permutazioni delle soluzioni, denominati poi gruppi di Galois. Nella teoria dei numeri, i primi impieghi del concetto di gruppo risalgono a Carl Friedrich Gauss (1777-1855), nel 1798 e successivamente Leopold Kronecker (1823-
-	1891), nel 1850. In ambito geometrico, fu Felix Klein (1849-1925) nel 1872 a servirsi dei gruppi per una riorganizzazione generale delle geometrie non euclidee. Infine, lo sviluppo della definizione di gruppo astratto come la conosciamo è dovuto a  Walther von Dyck (1856-1934). I concetti di algebra e gruppo di Lie invece risalgono al 1874, ad opera del matematico norvegese Sophus Lie (1842-1899) per studiare i gruppi di trasformazione continui.
+	1891), nel 1850. In ambito geometrico, fu Felix Klein (1849-1925) nel 1872 a servirsi dei gruppi per una riorganizzazione generale delle geometrie non euclidee. Infine, lo sviluppo della definizione di gruppo astratto come ci è nota oggi è dovuto a  Walther von Dyck (1856-1934). I concetti di algebra e gruppo di Lie invece risalgono al 1874, ad opera del matematico norvegese Sophus Lie (1842-1899), definiti per studiare i gruppi di trasformazione continui.
 	\\
 	\\
 	Nel primo capitolo introdurremo le varietà differenziabili, i campi vettoriali e lo spazio tangente. Questi concetti saranno fondamentali per comprendere ciò che discuteremo nei capitoli successivi.\\
@@ -141,7 +141,6 @@
 	\\
 	Nel quarto capitolo utilizzeremo i risultati trovati in precedenza per studiare le rappresentazioni degli operatori di momento angolare in meccanica quantistica. Otterremo come risultato le celebri relazioni di quantizzazione del momento angolare: $L=l(l+1)\hbar$, $L_z=m_l\hbar$.
 	\addcontentsline{toc}{chapter}{Introduzione}
-	\addcontentsline{toc}{chapter}{Abstract}
 \chapter{Varietà Differenziabili}
 In questo capitolo introduciamo le varietà differenziabili, gli spazi tangenti ed i campi vettoriali. Questi concetti verranno utilizzati per lo studio dei gruppi di Lie e teoria della rappresentazione, che vedremo successivamente. Per maggiori dettagli si consulti [1] cap 2.
 \section{Varietà differenziabili}
@@ -608,7 +607,7 @@ Per la caratterizzazione delle algebre di Lie di $O_n(\mathbb{R})$ e $SU_n(\math
 \section{Mappa esponenziale}
 In questa sezione daremo la definizione ed enunceremo alcune proprietà della mappa esponenziale e delle sue applicazioni. In particolare, ci concentreremo sui gruppi di matrici. Per tutti i dettagli si veda [4] parte 1, cap 2-2.4 e 3.7.
 \begin{Def}
-	Dato $G$ gruppo di Lie e $X\in\mathfrak{g}$, la \textit{mappa esponenziale} è \\$exp:\mathfrak{g}\rightarrow G$ definita come $exp(X)=\Phi_X(1,e)$ flusso del campo $X$.
+	Dato $G$ gruppo di Lie e $X\in\mathfrak{g}$, la \textit{mappa esponenziale} \\$exp:\mathfrak{g}\rightarrow G$ è definita come $exp(X)=\Phi_X(1,e)$ flusso del campo $X$.
 \end{Def}
 Si indicherà $exp(X)$ anche come $e^X$.
 \begin{comment}
@@ -1175,7 +1174,7 @@ Consideriamo una particella quantistica: essa sarà descritta da una funzione d'
 \end{Def} 
 In questa definizione il prodotto $[,]$ tra due operatori è definito come $[\hat{j_i},\hat{j_j}]=\hat{j_i}\hat{j_j}-\hat{j_j}\hat{j_i}$.
 \begin{Obs}
-La condizione $\hat{j}_i=\hat{j}^+_i$ è una richiesta di autoaggiuntezza dell'operatore, motivata dal fatto che esso deve rappresentare un osservabile. Ricordiamo che in fisica quantistica due osservabili sono misurabili simultaneamente solamente se i relativi operatori commutano tra di loro. Questo implica l'impossibilità di ottenere simultaneamente due valori per le componenti del momento angolare, in quanto gli operatori $\hat{j}_i$ non commutano tra loro. Tuttavia, a partire dalle componenti di $\hat{\textbf{j}}$, è possibile costruire un ulteriore operatore:
+La condizione $\hat{j}_i=\hat{j}^+_i$ è una richiesta di autoaggiuntezza dell'operatore, motivata dal fatto che esso deve rappresentare un osservabile. Ricordiamo che in fisica quantistica due osservabili sono  simultaneamente definiti solamente se i relativi operatori commutano tra di loro. Questo implica l'impossibilità di ottenere simultaneamente due valori per le componenti del momento angolare, in quanto gli operatori $\hat{j}_i$ non commutano tra loro. Tuttavia, a partire dalle componenti di $\hat{\textbf{j}}$, è possibile costruire un ulteriore operatore:
 \end{Obs}
 \begin{Def}
 	Si definisce l'operatore modulo quadro di $\hat{j}^2=\hat{\textbf{j}}^2$ come $\hat{\textbf{j}}^2=\sum_{k=0}^{3}\hat{j_k}^2$.
@@ -1185,7 +1184,7 @@ $$[\hat{j}^2,\hat{j_i}]=0$$
 Ciò implica la possibilità di ottenere valori simultaneamente definiti degli osservabili associati a $\hat{j}^2$ ed a $\hat{j_z}$ (una generica componente del momento angolare).
 Per approfondire questo risultato si veda [7] pag. 1079 cap 9.2.\\
 \\
-Consideriamo ora il gruppo $SO_3(\mathbb{R})$ delle matrici che agiscono come rotazioni sui vettori  $\vec{x}$ dello spazio delle configurazioni . Come precedentemente visto, l'algebra di Lie di questo gruppo è
+Consideriamo ora il gruppo $SO_3(\mathbb{R})$ delle matrici che agiscono come rotazioni sui vettori  $\vec{x}$ dello spazio delle configurazioni. Come precedentemente visto, l'algebra di Lie di questo gruppo è
 $$\mathfrak{so_3}(\mathbb{R})=\{A\in M_{3\times 3}(\mathbb{R})|\, tr(A)=0,\, A^T=-A\}$$
 Tra le possibili basi di questo spazio abbiamo le matrici:$$
 J_1=
@@ -1209,7 +1208,7 @@ J_3=
 $$
 E' possibile dimostrare che queste matrici soddisfano le relazioni di commutazione:
 $$[J_i,J_j]=\sum_{k}\epsilon_{ijk}J_k$$
-In più, $J_i$ sono per costruzione autoaggiunte.
+In più, $J_i$ sono per costruzione antisimmetriche.
 Vediamo che queste matrici rispettano le stesse relazioni di commutazione degli operatori di momento angolare a meno di una costante.
 La dimostrazione consiste nello svolgere i prodotti righe per colonne per ogni combinazione possibile di indici. Di seguito è riportato brevemente il calcolo per una tra le configurazioni, per le rimanenti il procedimento è analogo.
 $$[J_1,J_2]=\bigg[
@@ -1249,7 +1248,9 @@ Consideriamo ora una particella individuata da una funzione d'onda $|\psi\rangle
 Data la corrispondenza costruita tra operatori $\hat{R}$ e matrici $R$, possiamo studiare le rappresentazioni dell'insieme degli operatori $\hat{R}$ attraverso quelle di $SO_3(\mathbb{R})$. E' inoltre possibile dimostrare che un operatore $\hat{R}$, associato ad una matrice $R$ di rotazione attorno ad un asse $\vec{v}$ di un angolo $\theta$, può essere scritto come 
 $$\hat{R}=exp(-i\hbar^{-1}\theta\vec{v}\cdot\hat{\textbf{j}})$$
 dove $\hat{\textbf{j}}$ è un operatore di momento angolare. In questo senso, gli operatori di rotazione sono generati dagli operatori di momento angolare. Per la dimostrazione si veda [7] pag 1151-3, cap. 9.
-E' possibile dimostrare che esiste una corrispondenza 1-1 tra operatori di momento angolare che generano $\hat{R}$ e matrici $J_i$ appartenenti all'algebra di Lie di $SO_3(\mathbb{R})$.
+Si può verificare che esiste una corrispondenza anche tra operatori di momento angolare che generano $\hat{R}$ e matrici $J_i$ appartenenti all'algebra di Lie di $SO_3(\mathbb{R})$. Infatti, la formula di rotazione di Rodrigues ci permette di scrivere:
+$$R=e^{\theta J}=e^{-i\hbar^{-1}\theta i\hbar J}$$
+dove $J\in \mathfrak{so_3}(\mathbb{R})$ e $R$ è una rotazione di angolo $\theta$ attorno ad un asse. Quindi, presa $J$ nell'algebra di Lie di $SO_3(\mathbb{R})$, possiamo far corrispondere ad ogni matrice $i\hbar J$ un operatore $\vec{v}\cdot\hat{\textbf{j}}$  
 \begin{comment}
 E' noto, per il teorema delle rotazioni di Eulero, che ogni rotazione nello spazio tridimensionale lascia un asse fisso, passante per il centro di rotazione. Inoltre, vale la seguente relazione:
 $$R_z(\theta)=\begin{pmatrix}
@@ -1261,13 +1262,13 @@ L'operatore associato a questa matrice è $\hat{R_z(\theta)}=exp(-i\hbar^{-1}\th
 Possiamo allora generalizzare attraverso la formula di Rodrigues e scrivere, per una generica rotazione: 
 \end{comment}
 \begin{Obs}
-	Le considerazioni precedenti ci suggeriscono di studiare le rappresentazioni di $SO_3(\mathbb{R})$ attraverso quelle della sua algebra, generata dai $J_i$.
+	Le considerazioni precedenti ci suggeriscono di studiare le rappresentazioni degli operatori di momento angolare attraverso quelle dell'algebra $\mathfrak{so_3}(\mathbb{R})$, generata dai $J_i$.
 \end{Obs}
 \section{Le rappresentazioni del momento angolare}
 In questa sezione utilizzeremo i risultati precedenti per determinare le rappresentazioni degli operatori di momento angolare.\\
 \\
 Nel capitolo \ref{chap:3} abbiamo provato che le rappresentazioni di $SO_3(\mathbb{R})$ sono quelle di $SU_2(\mathbb{C})$ che hanno nel nucleo $\pm\mathbb{I}$.
-Consideriamo dunque il gruppo $SU_2(\mathbb{C})=\{A\in M_{n\times n}|AA^{+}=I=A^{+}A;det(A)=1\}$ la cui algebra di Lie è $$\mathfrak{su_2(\mathbb{C})}=\{X|X\in M_{n\times n} ;X^{+}=-X;tr(X)=0\}$$.
+Consideriamo dunque il gruppo $SU_2(\mathbb{C})=\{A\in M_{n\times n}|AA^{+}=I=A^{+}A;det(A)=1\}$ la cui algebra di Lie è $$\mathfrak{su_2(\mathbb{C})}=\{X|X\in M_{n\times n} ;X^{+}=-X;tr(X)=0\}$$
 Una possibile base per lo spazio $\mathfrak{su_2(\mathbb{C})}$ è costituita dalle matrici
 $$
 \sigma_1={1\over2}\begin{pmatrix}
@@ -1283,10 +1284,10 @@ $$
 	0 &-i\\
 \end{pmatrix}
 $$
-Anche per queste matrici non è complicato dimostrare che queste matrici rispettano le regole di commutazione:
+Anche per queste matrici non è complicato dimostrare che valgono le regole di commutazione:
 $$[\sigma_i,\sigma_j]=\sum_{k=1}^{3}\epsilon_{ijk}\sigma_k$$ e le dimostrazioni sono analoghe al caso discusso nella sezione precedente.
 \begin{Obs}
-	L'algebra di Lie di $SO_3(\mathbb{R})$ è generata dalle matrici $J_i$ che rispettano le stesse regole di commutazione delle matrici $\sigma_i$. Dunque le algebre $\mathfrak{so_3}(\mathbb{R})$ e $\mathfrak{su_2(\mathbb{C})}$ sono tra loro isomorfe. Questo ci permette di studiare le azioni degli operatori $\hat{j}$ attraverso quelle di $\mathfrak{su_2(\mathbb{C})}$. Più precisamente, attraverso quelle della complessificazione $\mathfrak{su_2(\mathbb{C})}_C$. Tuttavia, se consideriamo come base di $\mathfrak{su_2(\mathbb{C})}$ le matrici $i\hbar\sigma_i$, allora otteniamo che queste rispettano le stesse regole di commutazione degli operatori di momento angolare:
+	L'algebra di Lie di $SO_3(\mathbb{R})$ è generata dalle matrici $J_i$ che rispettano le stesse regole di commutazione delle matrici $\sigma_i$. Dunque le algebre $\mathfrak{so_3}(\mathbb{R})$ e $\mathfrak{su_2(\mathbb{C})}$ sono tra loro isomorfe. Questo ci permette di studiare le azioni degli operatori $\hat{j}$ attraverso quelle di $\mathfrak{su_2(\mathbb{C})}$. Più precisamente, attraverso quelle della complessificazione $\mathfrak{su_2(\mathbb{C})_c}$. Se consideriamo come base di $\mathfrak{su_2(\mathbb{C})_c}$ le matrici $i\hbar\sigma_i$, allora otteniamo che queste rispettano le stesse regole di commutazione degli operatori di momento angolare:
 	$$[i\hbar\sigma_i,i\hbar\sigma_j]=i\hbar\sum_{k=1}^{3}i\hbar\epsilon_{ijk}\sigma_k$$ 
 \end{Obs}
 Come dimostrato nel capitolo \ref{chap:3}, teorema \ref{Theo2}, una qualsiasi rappresentazione irriducibile finito dimensionale $d\rho$ di $\mathfrak{su_2(\mathbb{C})_c}$ è del tipo $d\rho: \mathfrak{su_2(\mathbb{C})_c}\rightarrow End(V_m)$, dove $dim(V)=m+1$. Inoltre, fissata la base $\{H,\, X,\, Y\}$ di $\mathfrak{su_2(\mathbb{C})_c}$, esistono $u_0,...,u_m$ vettori di base per $V_m$ tali che
@@ -1306,26 +1307,26 @@ Come dimostrato nel capitolo \ref{chap:3}, teorema \ref{Theo2}, una qualsiasi ra
 \end{Obs}
 Per risolvere questo problema utilizziamo l'elemento di Casimir, che nel caso dell'algebra di Lie coincide con $\sigma^2$. Lo studio di questo elemento va al di là degli argomenti trattati da questa tesi. Per maggiori informazioni su questo argomento si veda [4] cap. 9 e 10 parte 2, o ancora [2] cap. 2 pag 55 e cap. 3 pag. 216. Per i nostri scopi è sufficiente sapere che, data una rappresentazione $d\rho$ di $\mathfrak{su_2(\mathbb{C})_c}$ come sopra, il dominio di questa è estendibile ad un insieme contenente $\mathfrak{su_2(\mathbb{C})_c}$ e $\sigma^2$ in modo che
 $$d\rho(\sigma^2)=c\cdot id$$ 
-dove $id$ è l'operatore identità e $c$ è un coefficiente che assume il valore di $m^2+2m\over 4$. Per la dimostrazione di questo risultato si veda [4] pag. 288 cap. 10.\\
+dove $id$ è l'operatore identità e $c$ è un coefficiente che assume il valore di ${\hbar^2\over 4}(m^2+2m)$. Per la dimostrazione di questo risultato si veda [4] pag. 288 cap. 10.\\
 Dunque, attraverso l'elemento di Casimir e le relazioni $(i),(ii),(iii)$, possiamo scrivere:
 	\begin{itemize}
 		\centering
-		\item $d\rho(\sigma_3)u_k={i\over 2}(m-2k)u_k$;
-		\item $d\rho(\sigma^2)u_k=-{m(m+2)\over 4}u_k$;
+		\item $d\rho(i\hbar\sigma_3)u_k=-{\hbar\over 2}(m-2k)u_k$;
+		\item $d\rho(\sigma^2)u_k=\hbar^2{m(m+2)\over 4}u_k$;
 	\end{itemize}
-Operando poi un cambio di variabile: $l=-{m\over2}$ otteniamo:
+Operando poi un cambio di variabile: $l={m\over2}$ otteniamo:
 \begin{itemize}
 	\centering
-	\item $d\rho(\sigma_3)u_k=i(l-k)u_k$;
-	\item $d\rho(\sigma^2)u_k=l(l+1)u_k$;
+	\item $d\rho(i\hbar\sigma_3)u_k=-\hbar(l-k)u_k$;
+	\item $d\rho(\sigma^2)u_k=\hbar^2l(l+1)u_k$;
 \end{itemize}
-Quindi gli autovalori di $d\rho(\sigma_3)$ e $d\rho(\sigma^2)$ sono base per $V_m$ e sono indicizzati da due numeri, detti \textit{quantici}, $l$ ed $m_l=l-k$. In particolare, $l$ è necessariamente positivo in quanto $2l$ è la dimensione di $V_m$; $m_l$ invece può variare da $l-m=-l$ ad $l-0=l$.
+Quindi gli autovalori di $d\rho(i\hbar\sigma_3)$ e $d\rho(\sigma^2)$ sono base per $V_m$ e sono indicizzati da due numeri, detti \textit{quantici}, $l$ ed $m_l=-(l-k)$. In particolare, $l$ è necessariamente positivo in quanto $2l$ è la dimensione di $V_m$; $m_l$ invece può variare da $0-l=-l$ ad $m-l=l$.
 \begin{Obs}
-	Data la corrispondenza tra operatori di momento angolare $\hat{j}$ e matrici $J$ appartenenti all'algebra di Lie di $SO_3(\mathbb{R})$, le rappresentazioni degli operatori $\hat{j}$ non sono altro che quelle dell'algebra $SO_3(\mathbb{R})$. In particolare, moltiplicando le matrici $\sigma_i$ per una costante $i\hbar$, queste soddisfano le relazioni:
+	Data la corrispondenza tra operatori di momento angolare $\hat{j}$ e matrici $J$ appartenenti all'algebra di Lie di $SO_3(\mathbb{R})$, le rappresentazioni degli operatori $\hat{j}$ non sono altro che quelle dell'algebra di $SO_3(\mathbb{R})$, che è isomorfa ad $\mathfrak{su_2(\mathbb{C})_c}$.
 	Possiamo allora enunciare la seguente proposizione:
 \end{Obs}
 \begin{Prop}
-	Sia $\hat{\textbf{j}}$ un vettore operatoriale di momento angolare e $j^2$ l'operatore modulo quadro associato. Le azioni degli operatori $\hat{j_z}$ e $\hat{j}^2$ su di uno spazio vettoriale a dimensione finita $V\subset \mathcal{H'}$ sono:
+	Sia $\hat{\textbf{j}}$ un vettore operatoriale di momento angolare e $j^2$ l'operatore modulo quadro associato. Gli autoket di questi operatori sono indicizzati da due numeri quantici: $l\geq0$ e $m=-l,-l+1,...,l-1,l$. Le azioni degli operatori $\hat{j_z}$ e $\hat{j}^2$ su di uno spazio vettoriale a dimensione finita $V\subset \mathcal{H'}$ sono:
 	$$\hat{j}^2|l,m_l\rangle=|l,m_l\rangle l(l+1)\hbar^2$$ 
 	$$\hat{j_z}|l,m_l\rangle=|l,m_l\rangle m_l\hbar$$
 \end{Prop}
