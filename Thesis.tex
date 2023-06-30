@@ -1286,7 +1286,8 @@ $$
 Anche per queste matrici non è complicato dimostrare che queste matrici rispettano le regole di commutazione:
 $$[\sigma_i,\sigma_j]=\sum_{k=1}^{3}\epsilon_{ijk}\sigma_k$$ e le dimostrazioni sono analoghe al caso discusso nella sezione precedente.
 \begin{Obs}
-	L'algebra di Lie di $SO_3(\mathbb{R})$ è generata dalle matrici $J_i$ che rispettano le stesse regole di commutazione delle matrici $\sigma_i$. Dunque le algebre $\mathfrak{so_3}(\mathbb{R})$ e $\mathfrak{su_2(\mathbb{C})}$ sono tra loro isomorfe. Questo ci permette di studiare le azioni degli operatori $\hat{j}$ attraverso quelle di $\mathfrak{su_2(\mathbb{C})}$. Più precisamente, attraverso quelle della complessificazione $\mathfrak{su_2(\mathbb{C})}_C$.
+	L'algebra di Lie di $SO_3(\mathbb{R})$ è generata dalle matrici $J_i$ che rispettano le stesse regole di commutazione delle matrici $\sigma_i$. Dunque le algebre $\mathfrak{so_3}(\mathbb{R})$ e $\mathfrak{su_2(\mathbb{C})}$ sono tra loro isomorfe. Questo ci permette di studiare le azioni degli operatori $\hat{j}$ attraverso quelle di $\mathfrak{su_2(\mathbb{C})}$. Più precisamente, attraverso quelle della complessificazione $\mathfrak{su_2(\mathbb{C})}_C$. Tuttavia, se consideriamo come base di $\mathfrak{su_2(\mathbb{C})}$ le matrici $i\hbar\sigma_i$, allora otteniamo che queste rispettano le stesse regole di commutazione degli operatori di momento angolare:
+	$$[i\hbar\sigma_i,i\hbar\sigma_j]=i\hbar\sum_{k=1}^{3}i\hbar\epsilon_{ijk}\sigma_k$$ 
 \end{Obs}
 Come dimostrato nel capitolo \ref{chap:3}, teorema \ref{Theo2}, una qualsiasi rappresentazione irriducibile finito dimensionale $d\rho$ di $\mathfrak{su_2(\mathbb{C})_c}$ è del tipo $d\rho: \mathfrak{su_2(\mathbb{C})_c}\rightarrow End(V_m)$, dove $dim(V)=m+1$. Inoltre, fissata la base $\{H,\, X,\, Y\}$ di $\mathfrak{su_2(\mathbb{C})_c}$, esistono $u_0,...,u_m$ vettori di base per $V_m$ tali che
 \begin{itemize}
@@ -1295,15 +1296,15 @@ Come dimostrato nel capitolo \ref{chap:3}, teorema \ref{Theo2}, una qualsiasi ra
 	\item[(iii)] $d\rho(Y)u_k=u_{k+1}$ se $k<m$ e $d\rho(Y)u_k=0$ se $k=m$
 \end{itemize}
 \begin{Obs}
-	Osserviamo innanzitutto che $\sigma_1={i\over 2}(X+Y)$; $\sigma_2={i\over 2}(Y-X)$; $\sigma_3={i\over 2}(H)$. Per linearità di $d\rho$ allora possiamo scrivere: $$d\rho(\sigma_1)=d\rho({i\over 2}(X+Y))=({i\over2})(d\rho(X)+d\rho(Y))$$
-	$$d\rho(\sigma_2)=d\rho({1\over 2}(Y-X))=({1\over2})(d\rho(Y)-d\rho(X))$$
-	$$d\rho(\sigma_3)=d\rho({i\over 2}H)=({i\over2})d\rho(H)$$
-	Ciò ci permette di calcolare l'azione di $\sigma_i$ sui vettori di base. Tuttavia, ricordiamo che queste matrici sono in corrispondenza con gli operatori di momento angolare: dato che gli unici osservabili simultaneamente definiti sono $j_z=j_3$ e $j^2$, occorre trovare un'espressione per l'azione di $\sigma^2=-(\sigma_1^2+\sigma_2^2+\sigma_3^2)$. Attraverso un rapido calcolo notiamo che:
-	$$\sigma^2={(X+Y)^2\over 4}-{(Y-X)^2\over 4}+{H^2\over 4}=$$
-	$$={(2XY+2YX+H^2)\over 4}={3\over 4}\mathbb{I}$$
+	Osserviamo innanzitutto che $\sigma_1={i\over 2}(X+Y)$; $\sigma_2={i\over 2}(Y-X)$; $\sigma_3={i\over 2}(H)$. Per linearità di $d\rho$ allora possiamo scrivere: $$d\rho(i\hbar\sigma_1)=i\hbar d\rho({i\over 2}(X+Y))=i\hbar({i\over2})(d\rho(X)+d\rho(Y))$$
+	$$d\rho(i\hbar\sigma_2)=i\hbar d\rho({1\over 2}(Y-X))=i\hbar({1\over2})(d\rho(Y)-d\rho(X))$$
+	$$d\rho(i\hbar\sigma_3)=i\hbar d\rho({i\over 2}H)=i\hbar({i\over2})d\rho(H)$$
+	Ciò ci permette di calcolare l'azione di $i\hbar\sigma_i$ sui vettori di base di $V$. Tuttavia, ricordiamo che queste matrici sono in corrispondenza con gli operatori di momento angolare: dato che gli unici osservabili simultaneamente definiti sono $j_z=j_3$ e $j^2$, occorre trovare un'espressione per l'azione di $\sigma^2=-\hbar^2(\sigma_1^2+\sigma_2^2+\sigma_3^2)$. Attraverso un rapido calcolo notiamo che:
+	$$\sigma^2=\hbar^2[{(X+Y)^2\over 4}-{(Y-X)^2\over 4}+{H^2\over 4}]=$$
+	$$=\hbar^2[{(2XY+2YX+H^2)\over 4}]=\hbar^2{3\over 4}\mathbb{I}$$
 	e l'identità non appartiene all'algebra $\mathfrak{su_2(\mathbb{C})_c}$. Ovvero l'azione di $\sigma^2$ non è definita dalla mappa $d\rho$. 
 \end{Obs}
-Per risolvere questo problema utilizziamo l'elemento di Casimir, che nel caso dell'algebra di Lie coincide con $\sigma^2$. Lo studio di questo elemento va al di là degli argomenti trattati da questa tesi. Per maggiori informazioni su questo argomento si veda [4] cap. 9 e 10 parte 2. Per i nostri scopi è sufficiente sapere che, data una rappresentazione $d\rho$ di $\mathfrak{su_2(\mathbb{C})_c}$ come sopra, il dominio di questa è estendibile ad un insieme contenente $\mathfrak{su_2(\mathbb{C})_c}$ e $\sigma^2$ in modo che
+Per risolvere questo problema utilizziamo l'elemento di Casimir, che nel caso dell'algebra di Lie coincide con $\sigma^2$. Lo studio di questo elemento va al di là degli argomenti trattati da questa tesi. Per maggiori informazioni su questo argomento si veda [4] cap. 9 e 10 parte 2, o ancora [2] cap. 2 pag 55 e cap. 3 pag. 216. Per i nostri scopi è sufficiente sapere che, data una rappresentazione $d\rho$ di $\mathfrak{su_2(\mathbb{C})_c}$ come sopra, il dominio di questa è estendibile ad un insieme contenente $\mathfrak{su_2(\mathbb{C})_c}$ e $\sigma^2$ in modo che
 $$d\rho(\sigma^2)=c\cdot id$$ 
 dove $id$ è l'operatore identità e $c$ è un coefficiente che assume il valore di $m^2+2m\over 4$. Per la dimostrazione di questo risultato si veda [4] pag. 288 cap. 10.\\
 Dunque, attraverso l'elemento di Casimir e le relazioni $(i),(ii),(iii)$, possiamo scrivere:
