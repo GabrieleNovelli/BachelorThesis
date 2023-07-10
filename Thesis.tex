@@ -136,6 +136,10 @@
 		\end{titlepage}
 		\end{frontespizio}
 	\tableofcontents
+	\newpage
+	\thispagestyle{empty}
+	\mbox{}
+	\newpage
 	\chapter*{Introduzione}
 	In questa tesi introdurremo le nozioni di gruppo di Lie, di rappresentazione di un gruppo e di algebra di Lie, al fine di giustificare la quantizzazione del momento angolare in meccanica quantistica. Il concetto di gruppo si sviluppò a partire da diversi campi della matematica. Per citare solo alcuni dei grandi matematici: nel diciannovesimo secolo, Évariste Galois (1811-1832), al fine di trovare un criterio per la risoluzione delle equazioni polinomiali di grado superiore al 4°, introdusse i gruppi di permutazioni delle soluzioni, denominati poi gruppi di Galois. Nella teoria dei numeri, i primi impieghi del concetto di gruppo risalgono a Carl Friedrich Gauss (1777-1855), nel 1798 e successivamente Leopold Kronecker (1823-
 	1891), nel 1850. In ambito geometrico, fu Felix Klein (1849-1925) nel 1872 a servirsi dei gruppi per una riorganizzazione generale delle geometrie non euclidee, aprendo la strada agli studi arrivati successivamente. I concetti di algebra e gruppo di Lie invece risalgono al 1874, ad opera del matematico norvegese Sophus Lie (1842-1899), definiti per studiare i gruppi di trasformazione continui.
@@ -149,8 +153,12 @@
 	\\
 	Nel terzo capitolo definiremo il concetto di rappresentazione di un gruppo di Lie e studieremo le rappresentazioni di $SU_2(\mathbb{C})$ e $SO_3(\mathbb{R})$. Vedremo anche come tra questi insiemi sia definita una corrispondenza 2-1. Sarà proprio questa relazione che ci permetterà di studiare le rappresentazioni di $SO_3(\mathbb{R})$ attraverso quelle di $SU_2(\mathbb{C})$. Dimostreremo inoltre che tutte le rappresentazioni irriducibili dell'algebra di Lie di $SU_2(\mathbb{C})$ hanno una determinata forma.\\
 	\\
-	Nel quarto capitolo utilizzeremo i risultati trovati in precedenza per studiare le rappresentazioni degli operatori di momento angolare in meccanica quantistica. Otterremo come risultato le celebri relazioni di quantizzazione del momento angolare: $L=l(l+1)\hbar$, $L_z=m_l\hbar$.
+	Nel quarto capitolo utilizzeremo i risultati trovati in precedenza per studiare le rappresentazioni degli operatori di momento angolare in meccanica quantistica. Otterremo come risultato le celebri relazioni di quantizzazione del momento angolare: $L=\sqrt{l(l+1)}\hbar$, $L_z=m_l\hbar$.
 	\addcontentsline{toc}{chapter}{Introduzione}
+		\newpage
+	\thispagestyle{empty}
+	\mbox{}
+	\newpage
 \chapter{Varietà Differenziabili}
 In questo capitolo introduciamo le varietà differenziabili, gli spazi tangenti ed i campi vettoriali. Questi concetti verranno utilizzati per lo studio dei gruppi di Lie e teoria della rappresentazione, che vedremo successivamente. Per maggiori dettagli si consulti [1] cap 2.
 \section{Varietà differenziabili}
@@ -668,6 +676,10 @@ Enunciamo ora un importante risultato che ci permetterà di stabilire un collega
 Per la dimostrazione si veda [4] pag.67 cap. 3.\\
 \\
 Da questo risultato emerge che dato un qualunque omomorfismo tra gruppi di Lie di matrici, esso genera un unico omomorfismo tra le algebre di questi gruppi.
+	\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
 \chapter{Teoria della Rappresentazione}
 \label{chap:3}
 In questo capitolo si definirà che cos'è una rappresentazione di un gruppo, si enunceranno alcuni risultati importanti e si studieranno alcuni particolari esempi di grande rilevanza per la fisica.
@@ -711,7 +723,7 @@ Enunciamo ora una serie di risultati che ci permetteranno di dimostrare l'irridu
 	Sia $G$ un gruppo di Lie di matrici con $\mathfrak{g}$ algebra di Lie e sia $\rho:G\rightarrow GL(V)$ una rappresentazione. Allora esiste unica una rappresentazione indotta dell'algebra di Lie di $G$, indicata con $d\rho:\mathfrak{g}\rightarrow \mathfrak{gl}(V)\equiv End(V)$ tale che $\rho(e^{tX})=e^{d\rho(X)}$ e $d\rho(X)={d\over dt}\rho(e^{tX})|_0$.\
 	Inoltre $d\rho(AXA^{-1})=\rho(A)d\rho(X)\rho(A)^{-1}$.	
 \end{Theo}
-\begin{proof}
+\begin{proof} [Cenno di dimostrazione]
 	A patto di fissare una base, possiamo identificare $GL(V)$ con $GL_n(\mathbb{C})$ (o $\mathbb{R}$), allora se assumiamo le ipotesi del teorema, $\rho$ diventa un omomorfismo tra gruppi di Lie di matrici. Per la proposizione \ref{Prop: 2.4.1} esiste un'unica $\varphi:\mathfrak{g}\rightarrow End(V)$ che coincide con $d\rho$ e rispetta tutte le proprietà.
 \end{proof}
 \begin{Theo}\label{Theo: 3.1}
@@ -845,8 +857,8 @@ $$a\longrightarrow qaq^{-1}$$
 	$$det(qaq^{-1})=det(a)$$
 	Questo completa la dimostrazione.
 \end{proof}
-\section{Le rappresentazioni di $SO_3(\mathbb{R})$}
-In questa sezione utilizziamo i risultati precedenti per studiare le rappresentazioni del gruppo di matrici $SO_3(\mathbb{R})$. Per maggiori dettagli si veda [6] pag. 46-48 cap. 9.\\
+\section{Il gruppo $SU_2(\mathbb{C})$ come rivestimento di $SO_3(\mathbb{R})$}
+In questa sezione utilizziamo i risultati precedenti per studiare la relazione tra i gruppi $SU_2(\mathbb{C})$ e $SO_3(\mathbb{R})$. Per maggiori dettagli si veda [6] pag. 46-48 cap. 9.\\
 \\
 Iniziamo con un'osservazione relativa all'operatore $T(q)$ introdotto nella sezione precedente con l'osservazione \ref{Obs:3.4.1}.
 \begin{Obs}
@@ -871,7 +883,6 @@ Si è quindi dimostrato che
 $$T'\bigg{\rvert}_{SU_2(\mathbb{C})}:SU_2(\mathbb{C})\longrightarrow SO_3(\mathbb{R})$$
 \begin{Obs} \label{Obs:3.2.3.1}
 	Calcolando il nucleo di $T'$:$$KerT'=\{q\in SU_2(\mathbb{C})| T(q)=id\}=\{q\in SU_2(\mathbb{C})|qaq^{-1}=a, \forall a\in SU_2(\mathbb{C})\}=\{\pm\mathbb{I}\}$$
-	Ciò suggerisce l'esistenza di una mappa 2:1 tra $SU_2(\mathbb{C})$ e $SO_3(\mathbb{R})$, che risulterà esistere tra $SU_2(\mathbb{C})/{\pm \mathbb{I}}$ e $SO_3(\mathbb{R})$.\\
 	Per definizione: data la relazione di equivalenza $a\sim b$ se e solo se $b=a\{\pm \mathbb{I}\}$, allora
 	$$SU_2(\mathbb{C})/{\pm \mathbb{I}}=\{[a], a\in SU_2(\mathbb{C})\}$$
 	L'insieme $SU_2(\mathbb{C})/{\pm \mathbb{I}}$ è costituito da tutte le classi laterali $a\{\pm\mathbb{I}\}$, ovvero da tutte le matrici $SU_2(\mathbb{C})$ a meno del loro segno.
@@ -879,7 +890,7 @@ $$T'\bigg{\rvert}_{SU_2(\mathbb{C})}:SU_2(\mathbb{C})\longrightarrow SO_3(\mathb
 \begin{Prop} \label{prop:3.5.1}
 	$SU_2(\mathbb{C})/{\pm \mathbb{I}}\cong SO_3(\mathbb{R})$ e l'isomorfismo è precisamente la mappa $T':SU_2(\mathbb{C})/{\pm \mathbb{I}}\longrightarrow SO_3(\mathbb{R})$ definito come $T'(q)=T(q)$.
 \end{Prop}
-\begin{proof}
+\begin{proof} [Cenno di dimostrazione]
 	L'iniettività è automaticamente provata dall'osservazione \ref{Obs:3.2.3.1}. Rimane da provare la suriettività.
 	Si consideri il quaternione 
 	$$q(\theta)=
@@ -928,18 +939,18 @@ Questo conclude la dimostrazione.
 	Se $\rho$ ha come nucleo l'insieme $Ker\rho=\{\pm\mathbb{I}\}$, allora
 	$$\rho(\pm a)=\rho(a)$$
 	In questo caso è automaticamente definita una rappresentazione $\rho':SU_2(\mathbb{C})/\pm\mathbb{I}\longrightarrow GL(V)$ tale che $\rho'([a])=\rho(a)$.
-	Allora, dato che esiste un isomorfismo tra $SO_3(\mathbb{R})$ e $SU_2(\mathbb{C})$, esiste anche una rappresentazione $\xi$ di $SO_3(\mathbb{R})$. In modo più formale, dato $T':SU_2(\mathbb{C})\rightarrow SO_3(\mathbb{R})$ isomorfismo e $\rho':SU_2(\mathbb{C})/\pm\mathbb{I}\longrightarrow GL(V)$ rappresentazione, la mappa $\xi=\rho'\circ T'^{-1}$ è una rappresentazione di $SO_3(\mathbb{R})$.
-	Questo risultato può essere formalizzato nella proposizione:
+	Allora, dato che esiste un isomorfismo tra $SO_3(\mathbb{R})$ e $SU_2(\mathbb{C})$, esiste anche una rappresentazione $\xi$ di $SO_3(\mathbb{R})$. In modo più formale, dato $T':SU_2(\mathbb{C})/\pm\mathbb{I}\rightarrow SO_3(\mathbb{R})$ isomorfismo e $\rho':SU_2(\mathbb{C})/\pm\mathbb{I}\longrightarrow GL(V)$ rappresentazione, la mappa $\xi=\rho'\circ T'^{-1}$ è una rappresentazione di $SO_3(\mathbb{R})$.
+	Questo risultato può essere formalizzato nell'osservazione:
 \end{Obs}
-\begin{Prop}
-	Le rappresentazioni di $SO_3(\mathbb{R})$ sono le rappresentazioni di $SU_2(\mathbb{C})$ che hanno nel nucleo $\pm\mathbb{I}$. 
-\end{Prop}
+\begin{Obs}
+	Le rappresentazioni di $SU_2(\mathbb{C})$ che hanno nel nucleo $\pm\mathbb{I}$ danno luogo alle rappresentazioni di $SO_3(\mathbb{R})$. 
+\end{Obs}
 \begin{Obs}
 	 $$T'\bigg{\rvert}_{SU_2(\mathbb{C})}:SU_2(\mathbb{C})\longrightarrow SO_3(\mathbb{R})$$
 	 è un rivestimento in quanto rispetta la definizione \ref{Def: 2.2.2}. In particolare, dato che ogni matrice di $SU_2(\mathbb{C})$ viene mappata a meno del segno in una precisa matrice di $SO_3(\mathbb{R})$, diciamo che lo spazio $SU_2(\mathbb{C})$ copre due volte $SO_3(\mathbb{R})$. Inoltre, dal fatto che $SU_2(\mathbb{C})$ è anche semplicemente connesso, per definizione \ref{Def:2.2.1}, la mappa $T'$ è un rivestimento universale.
 \end{Obs}
 \section{Le rappresentazioni di $SU_2(\mathbb{C})$}
-Andiamo ora a studiare le rappresentazioni di $SU_2(\mathbb{C})$. Questo esempio è estremamente utile in quanto mostra come sia molto più vantaggioso lavorare con le rappresentazioni delle algebre di Lie invece che con le rappresentazioni dei gruppi.\\
+Andiamo ora a studiare le rappresentazioni di $SU_2(\mathbb{C})$.\\
 \\
 La rappresentazione di gruppo che utilizzeremo sarà definita come azione sullo spazio dei polinomi omogenei in due variabili, che denotiamo con $V_m$.
 	L'insieme $\{x^{m-i}y^i\}$ è base per $V_m$, che quindi ha dimensione $dim(V_m)=m+1$.
@@ -969,7 +980,7 @@ La rappresentazione di gruppo che utilizzeremo sarà definita come azione sullo 
 \begin{Prop}
 	Sia $V_m=\{\sum_{i=0}^{m} a_ix^{m-i}y^i\}$. La mappa $a:SU_2(\mathbb{C})\times V_m\rightarrow V_m$, $a(g,f(v))=f(g^{-1}v)$ è rappresentazione.
 \end{Prop}
-\begin{proof}
+\begin{proof} [Cenno di dimostrazione]
 	Come dimostrato, data un'azione di gruppo è automaticamente definito un omomorfismo e viceversa. Allora possiamo definire la mappa $\rho:SU_2(\mathbb{C})\rightarrow GL(V_m)$ come $\rho(g)f(v)=a(g,f(v))$ con $g\in SU_2$ e $f(v)\in V_m$.
 	Si vuole mostrare che $\rho$ è omomorfismo tra gruppi, ovvero $\rho(gh)=\rho(h)\circ\rho(h)$.\\
 	Per definizione:
@@ -1104,7 +1115,7 @@ Per provare questo teorema sono necessari due lemmi. Il primo  è il seguente:
 \end{Lem}
 \begin{proof}
 	Dato che $d\rho$ è una rappresentazione di un'algebra, essa è un omomorfismo, cioè preserva il bracket:\\ $$d\rho([H,X])v=[d\rho(H),d\rho(X)]v$$
-	Ma vale anche $$[d\rho(H),d\rho(X)]v=d\rho(H)d\rho(X)v-d\rho(X)d\rho(H)v$$ e, come calcolato nell'osservazione 2.15: $$[H,X]=HX-XH=2X$$ 
+	Ma vale anche $$[d\rho(H),d\rho(X)]v=d\rho(H)d\rho(X)v-d\rho(X)d\rho(H)v$$ e, come calcolato nell'osservazione \ref{Obs1}: $$[H,X]=HX-XH=2X$$ 
 	Allora $$[d\rho(H),d\rho(X)]v=2d\rho(X)v=d\rho(H)d\rho(X)v-d\rho(X)d\rho(H)v$$ 
 	Ricordando che $v$ è autovettore di autovalore $a$ di $d\rho(H)$:
 	$$d\rho(H)d\rho(X)v-d\rho(X)d\rho(H)v=d\rho(H)d\rho(X)v-d\rho(X)av=2d\rho(X)v$$ da cui
@@ -1131,8 +1142,25 @@ Si dimostra ora il teorema. La strategia di dimostrazione consisterà nel prende
 	\begin{Lem}\label{Lemma2}
 		$d\rho(X)u_k=k[\lambda-(k-1)]u_{k-1}$ per $k\geq 1$.
 	\end{Lem} 
-La dimostrazione sarà data una volta conclusa quella del teorema.\\
-\\Se $u_{m+1}=0$ allora $d\rho(X)u_{m+1}=0$. Applicando poi il Lemma \ref{Lemma2} si ottiene $0=(m+1)(\lambda-m)u_m$ da cui segue $\lambda=m$.\\
+\begin{proof} [Dimostrazione lemma \ref{Lemma2}]
+	La strategia di dimostrazione sarà quella di utilizzare l'induzione.
+	Vogliamo dimostrare che, per $k\geq 1$:
+	\begin{equation}
+		\label{eq:4}
+		d\rho(X)u_k=k[\lambda-(k-1)]u_{k-1} 
+		\tag{i}
+	\end{equation}
+	Sia allora $k=1$. Sapendo che $d\rho([X,Y])=d\rho(H)=d\rho(X)d\rho(Y)-d\rho(Y)d\rho(X)$ e che $d\rho(Y)u_k=u_{k+1}$, $d\rho(H)u_k=(\lambda-2k)u_k$ e $d\rho(X)u_0=0$, verifichiamo $(i)$ per $k=1$.
+	$$d\rho(X)u_1=d\rho(X)d\rho(Y)u_0=d\rho(H)u_0+d\rho(Y)d\rho(X)u_0=$$$$=d\rho(H)u_0+0=(\lambda-0)u_0=\lambda u_0$$
+	Dato che la relazione $(i)$ è verificata per $k=1$, supponiamo che lo sia anche per un generico $k$ e dimostriamo che in quel caso è vera anche per $k+1$:
+	$$\rho(X)u_{k+1}=d\rho(X)d\rho(Y)u_{k}=d\rho(H)u_k+d\rho(Y)d\rho(X)u_k=$$
+	$$=(\lambda-2k)u_k+d\rho(Y)k[\lambda-(k-1)]u_{k-1}=$$ 
+	$$=(\lambda-2k)u_k+k[\lambda-(k-1)]u_{k}=(\lambda-2k+k\lambda-k^2+k)u_k=$$
+	$$=(\lambda-k)(k+1)u_k$$
+	Questo completa la dimostrazione.
+\end{proof}
+Torniamo ora alla dimostrazione del teorema \ref{Theo2}. \\\\
+Se $u_{m+1}=0$ allora $d\rho(X)u_{m+1}=0$. Applicando poi il Lemma \ref{Lemma2} si ottiene $0=(m+1)(\lambda-m)u_m$ da cui segue $\lambda=m$.\\
 \\
 	Queste considerazioni portano a dire che: per ogni $d\rho $ irriducibile, esistono $m\geq0$ intero e $u_0,...,u_m$ vettori tali che:\begin{itemize}
 		\item[(i)] $d\rho(H)u_k=(m-2k)u_k$, ovvero $u_k$ sono autovettori di $d\rho(H)$;
@@ -1156,6 +1184,7 @@ Per le altre due relazioni dell'osservazione \ref{Obs1} il procedimento è analo
 Per provare l'irriducibilità della rappresentazione così definita si procede come nel teorema \ref{Theo1}.\\
 In conclusione, si è dimostrato che ogni rappresentazione irriducibile di $\mathfrak{sl_2(\mathbb{C})}$ soddisfa le relazioni $(i),(ii),(iii)$. Ciò prova che due qualsiasi tra queste rappresentazioni, di dimensione $m+1$, sono isomorfe.
 \end{proof}
+\begin{comment}
 Si procede ora alla dimostrazione del Lemma \ref{Lemma2}.
 \begin{proof}
 	La strategia di dimostrazione sarà quella di utilizzare l'induzione.
@@ -1174,9 +1203,10 @@ Si procede ora alla dimostrazione del Lemma \ref{Lemma2}.
 	$$=(\lambda-k)(k+1)u_k$$
 	Questo completa la dimostrazione.
 \end{proof}
+\end{comment}
 Ritorniamo ora sulle rappresentazioni di $SO_3(\mathbb{R})$. Abbiamo visto che queste ultime coincidono con le rappresentazioni di $SU_2(\mathbb{C})$ che hanno nel nucleo $\pm\mathbb{I}$. E' possibile dimostrare il seguente risultato:
 \begin{Prop}
-	Le rappresentazioni irriducibili di $SO_3(\mathbb{R})$ hanno dimensione dispari e si ottengono dalle rappresentazioni di $SU_2(\mathbb{C})$ in cui $\pm\mathbb{I}$ agiscono come l'identità.
+	Per ogni intero pari $m$ esiste una rappresentazione irriducibile di $SO_3(\mathbb{R})$ di dimensione $m+1$ dispari.
 \end{Prop}
 \begin{proof}
 	Sia $\rho:SU_2(\mathbb{C})\rightarrow GL(V_m)$ una rappresentazione irriducibile di $SU_2(\mathbb{C})$ come visto nel teorema $\ref{Theo1}$. Se $\rho(\pm\mathbb{I})=id$ allora, come provato nell'osservazione $\ref{Obs:3.5.1}$, è ben definita la rappresentazione irriducibile $\rho':SU_2(\mathbb{C})/\pm\mathbb{I}\rightarrow GL(V_m)$ tale che $\rho'(\pm a)=\rho(a)$, con $a\in SU_2(\mathbb{C})$. Sfruttando l'isomorfismo $T':SU_2(\mathbb{C})/\pm\mathbb{I}\rightarrow SO_3(\mathbb{R})$ trovato nella proposizione $\ref{prop:3.5.1}$, possiamo definire una rappresentazione $\xi=\rho'\circ T'^{-1}$ di $SO_3(\mathbb{R})$, ovvero $\xi:SO_3(\mathbb{R})\rightarrow GL(V_m)$.
