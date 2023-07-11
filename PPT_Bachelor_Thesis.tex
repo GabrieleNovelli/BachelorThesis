@@ -1,0 +1,183 @@
+\documentclass{beamer}
+\usetheme{Berkeley}
+
+\usepackage[italian]{babel}
+\usepackage{newlfont}
+\usepackage{color}
+\usepackage{float}
+\usepackage{frontespizio}
+\usepackage{amsmath,amssymb}
+\usepackage{amsthm}
+\usepackage{geometry}
+\usepackage{tikz}
+\usepackage{biblatex}
+\usepackage{csquotes}
+\usepackage{pgfplots}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{comment}
+
+\theoremstyle{definition}
+\newtheorem{Def}{Definizione}
+
+\theoremstyle{Theorem}
+\newtheorem{Theo}[Def]{Teorema}
+\newtheorem{Prop}[Def]{Proposizione}
+
+\newtheorem{Lm}[Def]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{Ex}[Def]{Esempio}
+
+\theoremstyle{definition}
+\newtheorem{Lem}[Def]{Lemma:}
+
+\theoremstyle{definition}
+\newtheorem{Obs}[Def]{Osservazione:}
+
+
+\begin{document}
+\begin{frame}
+	\title{Gruppi di Lie e rappresentazioni: la quantizzazione del momento angolare}
+	%\author{Gabriele Novelli, Relatore: Prof. Rita Fioresi}
+    \date{  }
+    \institute[VFU]
+    {
+    	Scuola di Scienze\\
+    	Dipartimento di Fisica e Astronomia\\
+    	Corso di Laurea in Fisica
+    }
+    \maketitle
+    	 Presentata da: \hspace{4.5cm} Relatore: \\
+    	 Gabriele Novelli \hspace{4.5cm} Prof. Rita Fioresi
+\end{frame}
+\begin{frame}{Varietà Differenziabili, spazio tangente e campi vettoriali}
+	\begin{itemize}
+		\item Varietà differenziabile: una varietà topologica munita di un atlante.
+	\end{itemize}
+	\begin{exampleblock}{Esempio}
+		L'insieme $GL_n(\mathbb{R})=\{A\in M_{n\times n}|det(A)\neq0\}$ è una varietà differenziabile.
+	\end{exampleblock}
+	\begin{itemize}
+	\item L'insieme di tutte le derivazioni in $p$ è lo spazio tangente $T_pM$.
+	\item Campo vettoriale: $X: p\rightarrow X_p\in T_pM$.
+\end{itemize}
+	Base per lo spazio tangente: ${\partial\over \partial x^i}\bigg\rvert_p(f)={\partial\over \partial r^i}\bigg\rvert_{\phi(p)}(f\circ \phi^{-1})$ dove $r^i$ sono le coordinate di $\mathbb{R}^n$.	
+\end{frame}
+
+\begin{comment}
+\begin{frame}{Varietà Differenziabili}
+\begin{Def}
+Carta centrata in $p\in M$: $(U,\phi)$, $U$ aperto contenente $p$, $\phi:M\rightarrow\mathbb{R}^n$ omeomorfismo.
+%$\mathbb{U}=\{(U_i,\phi_{i})\}$ collezione di carte compatibili su $M$ tali che $M=\bigcup_i U_i$ è detta \textit{atlante}.%
+Una varietà topologica munita di un atlante è detta \textit{varietà differenziabile}.
+\end{Def}
+\begin{exampleblock}{Esempio}
+L'insieme $GL_n(\mathbb{R})=\{A\in M_{n\times n}|det(A)\neq0\}$ è una varietà differenziabile.
+\end{exampleblock}
+\begin{center}
+\includegraphics[scale=0.4]{Carta.jpg}
+\end{center}
+\end{frame}
+\begin{frame} {Spazio tangente e campi vettoriali}
+\begin{Def}
+Derivazione o vettore tangente in p: $D_p:C^\infty_p(M)\rightarrow\mathbb{R}$ tale che $D_p(fg)=D_p(f)g(p)+f(p)D_p(g)$. L'insieme di tutte le derivazioni in $p$ è lo spazio tangente $T_pM$.
+\end{Def}
+Base per lo spazio tangente: ${\partial\over \partial x^i}\bigg\rvert_p(f)={\partial\over \partial r^i}\bigg\rvert_{\phi(p)}(f\circ \phi^{-1})$ dove $r^i$ sono le coordinate di $\mathbb{R}^n$.
+\begin{Def}
+Campo vettoriale: $X: p\rightarrow X_p\in T_pM$.
+\end{Def}
+
+\end{frame}
+\end{comment}
+
+\begin{frame} {Gruppi di Lie e rivestimenti}
+	\begin{Def}
+		Un \textit{gruppo di Lie} $G$ è una varietà differenziabile con la struttura di gruppo, tale che le operazioni di moltiplicazione $\cdot:G\times G\rightarrow G$ e inversione $i:G\rightarrow G$ sono $C^\infty$.
+	\end{Def}
+\begin{itemize}
+	\item $GL_n(\mathbb{R})$, $SL_n(\mathbb{R})$, $SO_3(\mathbb{R})$ e $SU_2(\mathbb{C})$ sono gruppi di Lie.
+\end{itemize}\vspace{0.5cm}
+Azione di gruppo: $a:G\times X\rightarrow X$ tale che
+\begin{itemize}
+	\item $a(gh,x)=a(g,(a(h,x)))$ $\forall$ $g,h\in G$; 
+	\item $x\in X$; $a(e,x)=x$ $\forall x\in X$.
+\end{itemize}
+\end{frame}
+\begin{frame} {Gruppi di Lie e rivestimenti}
+	\begin{Def}
+		Dati due spazi topologici $X$ e $\tilde{X}$ ed una mappa continua $p:\tilde{X}\rightarrow X$, allora $p$ è detta \textit{rivestimento} se:
+		\begin{itemize}
+			\item $p$ è suriettiva;
+			\item per ogni $x\in X$ esiste $U\subset X$ intorno di $x$ tale che $p^{-1}(U)=\bigsqcup_j V_j$. Dove $\{V_j\}$ è una collezione di sottoinsiemi aperti di $\tilde{X}$ disgiunti a due a due e tale che, per ogni $j$, $p\rvert_{V_j}:V_j\rightarrow U$ è omeomorfismo. 
+		\end{itemize}
+	\end{Def}
+\vspace{0.5 cm}
+\begin{itemize}
+	\item $p$ è detta rivestimento universale se $\tilde{X}$ è semplicemente connesso.
+\end{itemize}
+\end{frame}
+\begin{frame} {Algebre di Lie}
+	\begin{Def}
+		Si dice \textit{algebra di Lie} uno spazio vettoriale $\mathfrak{g}$ in cui è definita un'operazione binaria bilineare (detta Lie bracket) $[,]:\mathfrak{g}\times\mathfrak{g}\rightarrow\mathfrak{g}$ tale che verifica:
+	\begin{itemize}
+		\item Antisimmetria: $[x,y]=-[y,x]$, $\forall x,y\in\mathfrak{g}$;
+		\item Identità di Jacobi: $[x,[y,z]]+[y,[z,x]]+[z,[x,y]]=0$, $\forall x,y,z\in \mathfrak{g}$ 
+	\end{itemize}
+\end{Def}
+\begin{Def}
+	Se $G$ è un gruppo di Lie, $X$ campo vettoriale è invariante a sinistra se $dl_g(X)=X$.
+\end{Def}
+\end{frame}
+\begin{frame} {Algebre di Lie}
+\begin{Def}
+	Chiamiamo $Lie(G)=\mathfrak{g}$ algebra di Lie di $G$, l'insieme di tutti i campi vettoriali invarianti a sinistra su di un gruppo di Lie $G$.
+\end{Def}
+\begin{alertblock}{}
+	E' possibile dimostrare che $Lie(G)\cong T_eG$.
+\end{alertblock}
+Alcune algebre di Lie rilevanti:
+\begin{itemize}
+	\item $\mathfrak{gl}(V)\cong End(V)$ 
+	\item $\mathfrak{sl_n(\mathbb{R})}=\{A\in M_{n\times n}|trA=0\}$
+	\item $\mathfrak{gl_n(\mathbb{R})}\cong M_{n\times n}$
+	\item $\mathfrak{u_n(\mathbb{R})}=\{X\in M_{n\times n}|-X=X^+\}$
+	\item $\mathfrak{o_n(\mathbb{R})}=\{X\in M_{n\times n}|-X=X^T\}$
+\end{itemize}
+\end{frame}
+\begin{frame} {Teoria della rappresentazione}
+	\begin{Def}
+		Rappresentazione di gruppo: è un omomorfismo di gruppi $\rho:G\rightarrow GL(V)$. Ovvero $\rho(gh)=\rho(g)\circ\rho(h)$ per ogni $g,h\in G$.
+		Rappresentazione di un'algebra di lie: è un morfismo di algebre di Lie $\pi:\mathfrak{g}\rightarrow End(V)$. Ovvero $\pi([X,Y])=[\pi(X),\pi(Y)]$.
+	\end{Def}
+Rappresentazione irriducibile: $\{0\}, V$ unici sottospazi invarianti.\\
+Se $G$ è gruppo di Lie di matrici e $\rho$ è rappresentazione, esiste un'unica rappresentazione indotta $d\rho$ di $\mathfrak{g}$.
+\begin{alertblock}{Proposizione}
+	Se $G$ è un gruppo di Lie di matrici connesso allora una $\rho$ è irriducibile se e solo se $d\rho$ lo è.  
+\end{alertblock}
+\end{frame}
+\begin{frame} {I gruppi $SU_2(\mathbb{C})$ e $SO_3(\mathbb{R})$}
+	\begin{itemize}
+		\item $SU_2(\mathbb{C})$ è semplicemente connesso compatto e semplicemente connesso;
+		\item $SO_3(\mathbb{R})$ è connesso ma non semplicemente connesso;
+		\item Esiste una mappa 2:1 tra $SU_2(\mathbb{C})$ e $SO_3(\mathbb{R})$: il gruppo $SU_2(\mathbb{C})$ copre due volte $SO_3(\mathbb{R})$ ed è un rivestimento universale.
+	\end{itemize}
+\begin{alertblock}{}
+	Le rappresentazioni di $SO_3(\mathbb{R})$ sono quelle di $SU_2(\mathbb{C})$ dove $\pm\mathbb{I}$ agisce come l'identità.
+\end{alertblock}
+\end{frame}
+\begin{frame} {I gruppi $SU_2(\mathbb{C})$ e $SO_3(\mathbb{R})$}
+	Per ogni $d\rho$ irriducibile di $\mathfrak{su_2(\mathbb{C})_c}$, esiste $m\in \mathbb{N}$ e $u_0,...,u_m$ tali che:
+	\begin{itemize}
+		\item $d\rho(H)u_k=(m-2k)u_k$;
+		\item $d\rho(X)u_k=0;$ se k=0 e $d\rho(X)u_k=k(m-(k-1))u_{k-1}$ se $k>0$;
+		\item $d\rho(Y)u_k=u_{k+1}$ se $k<m$ e $d\rho(Y)u_k=0$ se $k=m$
+	\end{itemize}
+	\begin{alertblock}{}
+		Per ogni $m$ intero pari esiste una rappresentazione irriducibile di $SO_3(\mathbb{R})$ di dimensione $m+1$ dispari.
+	\end{alertblock}
+\end{frame}
+\begin{frame}{Quantizzazione del momento angolare}
+	
+\end{frame}
+\end{document}
